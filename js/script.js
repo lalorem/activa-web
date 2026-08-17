@@ -262,3 +262,25 @@ if (searchClose && searchOverlay) {
 
 }
 
+/* ================= MENÚ HAMBURGUESA ================= */
+
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.querySelector('.nav-menu');
+
+if (menuToggle && navMenu) {
+
+    menuToggle.addEventListener('click', () => {
+
+        navMenu.classList.toggle('active');
+
+        const isOpen = navMenu.classList.contains('active');
+
+        menuToggle.setAttribute('aria-expanded', isOpen);
+
+        menuToggle.innerHTML = isOpen
+            ? '<i class="ph ph-x"></i>'
+            : '<i class="ph ph-list"></i>';
+
+    });
+
+}
