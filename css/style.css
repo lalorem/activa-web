@@ -188,6 +188,7 @@ img {
     width: auto;
     object-fit: contain;
     border-radius: 6px;
+    left: 60px;
 }
 
 
@@ -216,6 +217,401 @@ img {
     display: flex;
     align-items: center;
     gap: 14px;
+}
+
+/* ================= MENÚ TRANSPARENCIA ================= */
+
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown > a {
+    display: flex !important;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-dropdown > a i {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.nav-dropdown:hover > a i {
+    transform: rotate(180deg);
+}
+
+
+/* ---------- PANEL PRINCIPAL ---------- */
+
+.transparency-menu {
+    position: absolute;
+
+    top: calc(100% + 18px);
+    left: 50%;
+
+    width: 310px;
+
+    transform: translate(-50%, 10px);
+
+    background: rgba(255, 255, 255, 0.97);
+
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 18px;
+
+    padding: 12px;
+
+    box-shadow:
+        0 20px 50px rgba(15, 23, 42, 0.16),
+        0 5px 15px rgba(15, 23, 42, 0.05);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
+
+    z-index: 3000;
+}
+
+
+/* pequeño detalle superior */
+
+.transparency-menu::before {
+    content: "";
+
+    position: absolute;
+
+    top: -7px;
+    left: 50%;
+
+    width: 14px;
+    height: 14px;
+
+    background: white;
+
+    border-left: 1px solid rgba(226, 232, 240, 0.9);
+    border-top: 1px solid rgba(226, 232, 240, 0.9);
+
+    transform: translateX(-50%) rotate(45deg);
+}
+
+
+/* APARECER */
+
+.nav-dropdown:hover .transparency-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translate(-50%, 0);
+}
+
+
+/* ---------- ENCABEZADO ---------- */
+
+.transparency-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 14px 16px;
+
+    margin-bottom: 8px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(27, 136, 203, 0.12),
+            rgba(0, 153, 68, 0.10)
+        );
+
+    color: var(--brand-blue);
+
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.transparency-title::before {
+    content: "";
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: var(--brand-lime);
+
+    box-shadow: 0 0 0 5px rgba(144, 203, 27, 0.14);
+}
+
+
+/* ---------- OPCIONES ---------- */
+
+.transparency-item {
+    position: relative;
+
+    margin-bottom: 4px;
+}
+
+.transparency-item:last-child {
+    margin-bottom: 0;
+}
+
+.transparency-item > a {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border-radius: 11px;
+
+    color: var(--text-main);
+
+    font-size: 13px;
+    font-weight: 500;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.transparency-item > a:hover {
+    background: #f1f7f2;
+
+    color: var(--brand-green);
+
+    transform: translateX(4px);
+}
+
+.transparency-item > a i {
+    font-size: 14px;
+    color: var(--text-muted);
+
+    transition: transform 0.25s ease;
+}
+
+.transparency-item:hover > a i {
+    color: var(--brand-green);
+    transform: translateX(3px);
+}
+
+
+/* ---------- DESTACADOS ---------- */
+
+.transparency-item.has-submenu > a {
+    background: #f8fafc;
+
+    font-weight: 600;
+}
+
+.transparency-item.has-submenu > a:hover {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(27, 136, 203, 0.08),
+            rgba(0, 153, 68, 0.08)
+        );
+}
+
+
+/* ---------- SUBMENÚ ---------- */
+
+.transparency-submenu {
+    position: absolute;
+
+    top: -10px;
+    left: 100%;
+
+    width: 300px;
+
+    padding: 10px;
+
+    background: rgba(255, 255, 255, 0.98);
+
+    border: 1px solid rgba(226, 232, 240, 0.9);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 20px 50px rgba(15, 23, 42, 0.14),
+        0 5px 15px rgba(15, 23, 42, 0.05);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateX(-8px);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+
+    z-index: 3001;
+}
+
+
+/* CONECTAMOS VISUALMENTE EL SUBMENÚ */
+
+.transparency-submenu::before {
+    content: "";
+
+    position: absolute;
+
+    left: -6px;
+    top: 18px;
+
+    width: 11px;
+    height: 11px;
+
+    background: white;
+
+    border-left: 1px solid rgba(226, 232, 240, 0.9);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+
+    transform: rotate(45deg);
+}
+
+
+/* MOSTRAR SUBMENÚ */
+
+.has-submenu:hover .transparency-submenu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateX(0);
+}
+
+
+/* ---------- LINKS SUBMENÚ ---------- */
+
+.transparency-submenu a {
+    display: flex;
+
+    align-items: center;
+
+    padding: 12px 14px;
+
+    border-radius: 10px;
+
+    color: var(--text-main);
+
+    font-size: 12.5px;
+    line-height: 1.4;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.transparency-submenu a:hover {
+    background: #f1f7f2;
+
+    color: var(--brand-green);
+
+    transform: translateX(4px);
+}
+
+
+/* ---------- MODO OSCURO ---------- */
+
+[data-theme="dark"] .transparency-menu,
+[data-theme="dark"] .transparency-submenu {
+    background: #1e293b;
+    border-color: #334155;
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.45),
+        0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Triángulo del menú principal */
+
+[data-theme="dark"] .transparency-menu::before {
+    background: #1e293b;
+
+    border-left-color: #334155;
+    border-top-color: #334155;
+}
+
+
+/* Título */
+
+[data-theme="dark"] .transparency-title {
+    background: linear-gradient(
+        135deg,
+        rgba(27, 136, 203, 0.18),
+        rgba(144, 203, 27, 0.12)
+    );
+
+    color: var(--brand-lime);
+}
+
+
+/* Opciones principales */
+
+[data-theme="dark"] .transparency-item > a {
+    background: transparent;
+    color: #f8fafc;
+}
+
+[data-theme="dark"] .transparency-item > a:hover {
+    background: #334155;
+    color: var(--brand-lime);
+}
+
+
+/* Opciones que tienen submenú */
+
+[data-theme="dark"] .transparency-item.has-submenu > a {
+    background: #253449;
+}
+
+[data-theme="dark"] .transparency-item.has-submenu > a:hover {
+    background: #334155;
+    color: var(--brand-lime);
+}
+
+
+/* Submenú */
+
+[data-theme="dark"] .transparency-submenu {
+    background: #1e293b;
+}
+
+
+/* Triángulo del submenú */
+
+[data-theme="dark"] .transparency-submenu::before {
+    background: #1e293b;
+
+    border-left-color: #334155;
+    border-bottom-color: #334155;
+}
+
+
+/* Links del submenú */
+
+[data-theme="dark"] .transparency-submenu a {
+    background: transparent;
+    color: #f8fafc;
+}
+
+[data-theme="dark"] .transparency-submenu a:hover {
+    background: #334155;
+    color: var(--brand-lime);
 }
 
 .search-icon-btn,

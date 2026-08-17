@@ -261,3 +261,4 @@ if (searchClose && searchOverlay) {
     });
 
 }
+
