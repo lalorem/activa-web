@@ -1621,65 +1621,111 @@ footer {
 }
 
 
-/* RESPONSIVE */
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
-@media (max-width: 600px) {
 
-    .search-label {
-        font-size: 1.5rem;
+/* =========================================================
+   PANTALLAS GRANDES / LAPTOPS
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .container {
+        padding-left: 24px;
+        padding-right: 24px;
     }
 
-    .search-box {
-        width: 90%;
+    /* NAVBAR */
+
+    .nav-menu {
+        gap: 10px;
+    }
+
+    .nav-menu > li > a {
+        font-size: 10.5px;
+    }
+
+    .nav-actions {
+        gap: 10px;
+    }
+
+    .social-icons {
+        gap: 10px;
+        font-size: 22px;
+    }
+
+    /* HERO */
+
+    .hero h1 {
+        font-size: 3.3rem;
     }
 
 }
 
-/* RESPONSIVE */
 
-@media (max-width: 900px) {
+/* =========================================================
+   TABLETS GRANDES / PANTALLAS MEDIANAS
+========================================================= */
 
-    .location-grid {
-        grid-template-columns: 1fr;
+@media (max-width: 1024px) {
+
+    /* NAVBAR */
+
+    .nav-menu {
+        display: none;
     }
 
-}
-
-@media (max-width: 600px) {
-
-    .map-container,
-    .video-container {
-        height: 300px;
+    .nav-container {
+        gap: 20px;
     }
 
-    .location-title {
-        padding: 20px;
+    .nav-actions {
+        margin-left: auto;
     }
 
-}
 
-/* RESPONSIVE */
+    /* HERO */
 
-@media (max-width: 1100px) {
+    .hero {
+        min-height: 75vh;
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+
+    /* ESTADÍSTICAS */
+
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+
+    /* SERVICIOS */
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* NOTICIAS */
 
     .news-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
-}
 
-@media (max-width: 600px) {
+    /* UBICACIÓN */
 
-    .news-grid {
+    .location-grid {
         grid-template-columns: 1fr;
     }
 
-}
 
-
-/* Responsive */
-
-@media (max-width: 900px) {
+    /* CLIENTES */
 
     .client-logo {
         min-width: 190px;
@@ -1691,12 +1737,233 @@ footer {
         height: 42px;
     }
 
+
+    /* FOOTER */
+
+    .footer-grid {
+        gap: 25px;
+    }
+
 }
+
+
+/* =========================================================
+   TABLETS PEQUEÑAS
+========================================================= */
+
+@media (max-width: 800px) {
+
+    /* CONTENEDOR */
+
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: 70vh;
+    }
+
+    .hero-content {
+        padding-top: 40px;
+        padding-bottom: 60px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.05rem;
+    }
+
+
+    /* ESTADÍSTICAS */
+
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stat-number {
+        font-size: 3rem;
+    }
+
+
+    /* CLIENTES */
+
+    .clients-carousel {
+        gap: 12px;
+    }
+
+
+    /* FOOTER */
+
+    .footer-grid {
+        flex-wrap: wrap;
+    }
+
+    .footer-grid > div {
+        flex: 1 1 45%;
+    }
+
+    .footer-grid > div:last-child {
+        flex: 1 1 100%;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES GRANDES
+========================================================= */
 
 @media (max-width: 600px) {
 
+    /* CONTENEDOR */
+
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+
+    /* GOV.CO */
+
+    .gov-img {
+        max-width: 100%;
+        height: auto;
+    }
+
+
+    /* NAVBAR */
+
+    .navbar {
+        padding: 18px 0;
+    }
+
+    .brand-img {
+        height: 50px;
+    }
+
+    .nav-actions {
+        gap: 8px;
+    }
+
+    .search-icon-btn,
+    .theme-icon-btn {
+        font-size: 22px;
+    }
+
+    .social-icons {
+        gap: 8px;
+        font-size: 20px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: 75vh;
+    }
+
+    .hero-content {
+        text-align: center;
+        padding-top: 35px;
+        padding-bottom: 80px;
+    }
+
+    .hero h1 {
+        font-size: 2.1rem;
+        line-height: 1.15;
+    }
+
+    .hero p {
+        max-width: 100%;
+        font-size: 0.98rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .wave-bottom svg {
+        height: 55px;
+    }
+
+
+    /* ESTADÍSTICAS */
+
+    .stats-section {
+        padding: 55px 0 90px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .stat-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        padding-bottom: 28px;
+    }
+
+    .stat-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .stat-number {
+        font-size: 2.8rem;
+    }
+
+
+    /* TÍTULOS */
+
+    .section-header {
+        margin-bottom: 38px;
+    }
+
+    .section-header h2 {
+        font-size: 1.9rem;
+        line-height: 1.2;
+    }
+
+
+    /* SERVICIOS */
+
+    .services-section {
+        padding: 65px 0;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .service-img {
+        height: 200px;
+    }
+
+
+    /* CLIENTES */
+
+    .clients-section {
+        padding: 65px 0;
+    }
+
     .clients-carousel {
-        gap: 10px;
+        gap: 8px;
     }
 
     .client-logo {
@@ -1707,24 +1974,142 @@ footer {
     .clients-next {
         width: 38px;
         height: 38px;
-        font-size: 18px;
+        font-size: 17px;
+    }
+
+
+    /* NOTICIAS */
+
+    .news-section {
+        padding: 70px 0;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .news-image {
+        height: 200px;
+    }
+
+    .news-content {
+        padding: 20px;
+    }
+
+
+    /* UBICACIÓN */
+
+    .location-section {
+        padding: 70px 0;
+    }
+
+    .location-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .map-container,
+    .video-container {
+        height: 300px;
+    }
+
+    .location-title {
+        padding: 20px;
+    }
+
+
+    /* BUSCADOR */
+
+    .search-label {
+        font-size: 1.5rem;
+    }
+
+    .search-box {
+        width: 90%;
+    }
+
+    .search-close {
+        top: -60px;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+        padding: 40px 0 20px;
+    }
+
+    .footer-grid {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-grid > div,
+    .footer-grid > div:last-child {
+        flex: none;
+        width: 100%;
+    }
+
+    .footer-bottom {
+        line-height: 1.6;
+    }
+
+
+    /* BOTÓN SUBIR */
+
+    .btn-subir {
+        width: 44px;
+        height: 44px;
+        right: 14px;
+        bottom: 14px;
+        font-size: 20px;
     }
 
 }
 
 
-@media (max-width: 1024px) {
-    .nav-menu {
-        display: none;
+/* =========================================================
+   CELULARES PEQUEÑOS
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .brand-img {
+        height: 44px;
     }
 
-    .stats-grid,
-    .services-grid,
-    .footer-grid {
-        grid-template-columns: 1fr;
+    .nav-actions {
+        gap: 5px;
     }
+
+    .social-icons {
+        gap: 5px;
+        font-size: 18px;
+    }
+
 
     .hero h1 {
-        font-size: 2.6rem;
+        font-size: 1.85rem;
     }
+
+    .hero p {
+        font-size: 0.92rem;
+    }
+
+
+    .section-header h2 {
+        font-size: 1.65rem;
+    }
+
+
+    .client-logo {
+        height: 165px;
+    }
+
+
+    .search-label {
+        font-size: 1.3rem;
+    }
+
 }
