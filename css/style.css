@@ -1692,11 +1692,7 @@ footer {
 
 @media (max-width: 1024px) {
 
-    /* NAVBAR */
-
-    .nav-menu {
-        display: none;
-    }
+    /* ================= NAVBAR ================= */
 
     .nav-menu {
         position: fixed;
@@ -1730,19 +1726,32 @@ footer {
         right: 0;
     }
 
+
+    /* BOTÓN HAMBURGUESA */
+
     .menu-toggle {
         display: flex;
+
+        position: relative;
+        z-index: 1003;
     }
+
+
+    /* OCULTAR REDES EN TABLET/CELULAR */
 
     .social-icons {
         display: none;
     }
 
-    .nav-menu>li {
+
+    /* ELEMENTOS DEL MENÚ */
+
+    .nav-menu > li {
         width: 100%;
     }
 
-    .nav-menu>li>a {
+
+    .nav-menu > li > a {
         display: flex;
 
         align-items: center;
@@ -1759,21 +1768,18 @@ footer {
         border-bottom: 1px solid var(--border-color);
     }
 
+
+    /* ACCIONES */
+
     .nav-actions {
         position: relative;
-        z-index: 1002;
-    }
+        z-index: 1003;
 
-    .nav-container {
-        gap: 20px;
-    }
-
-    .nav-actions {
         margin-left: auto;
     }
 
 
-    /* HERO */
+    /* ================= HERO ================= */
 
     .hero {
         min-height: 75vh;
@@ -1784,35 +1790,35 @@ footer {
     }
 
 
-    /* ESTADÍSTICAS */
+    /* ================= ESTADÍSTICAS ================= */
 
     .stats-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 
 
-    /* SERVICIOS */
+    /* ================= SERVICIOS ================= */
 
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
 
-    /* NOTICIAS */
+    /* ================= NOTICIAS ================= */
 
     .news-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
 
-    /* UBICACIÓN */
+    /* ================= UBICACIÓN ================= */
 
     .location-grid {
         grid-template-columns: 1fr;
     }
 
 
-    /* CLIENTES */
+    /* ================= CLIENTES ================= */
 
     .client-logo {
         min-width: 190px;
@@ -1825,14 +1831,13 @@ footer {
     }
 
 
-    /* FOOTER */
+    /* ================= FOOTER ================= */
 
     .footer-grid {
         gap: 25px;
     }
 
 }
-
 
 /* =========================================================
    TABLETS PEQUEÑAS
