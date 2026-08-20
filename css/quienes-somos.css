@@ -1,0 +1,483 @@
+.btn-accesibilidad {
+    position: fixed;
+    bottom: 25px;
+    left: 25px; /* Fijado en la esquina inferior izquierda */
+    z-index: 9999;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: var(--brand-lime, #90cb1b);
+    color: #111827;
+    border: none;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-accesibilidad:hover {
+    transform: scale(1.1) rotate(5deg);
+    background-color: #a4e320;
+}
+
+.btn-theme-toggle { 
+    position: fixed; 
+    bottom: 25px; 
+    right: 25px; 
+    z-index: 9999; 
+}
+
+
+.about-hero {
+    position: relative;
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: #ffffff;
+    isolation: isolate;
+}
+
+.about-hero-image {
+    position: absolute;
+    inset: 0;
+    /* 🟢 Cambia esta URL cuando necesites otra foto de fondo */
+    background-image: url("https://activa.com.co/wp-content/uploads/2025/08/25935254-9add-4145-95f6-e3cb788ed112.jpg");
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.04);
+    animation: aboutHeroZoom 10s ease-out forwards;
+    z-index: -3;
+}
+
+@keyframes aboutHeroZoom {
+    from { transform: scale(1.08); }
+    to { transform: scale(1); }
+}
+
+.about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(6, 49, 67, 0.92) 0%, rgba(6, 49, 67, 0.70) 38%, rgba(6, 49, 67, 0.20) 75%, rgba(6, 49, 67, 0.08) 100%);
+    z-index: -2;
+}
+
+.about-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+    padding-top: 80px;
+    padding-bottom: 100px;
+    animation: aboutHeroContent 1s ease-out forwards;
+}
+
+@keyframes aboutHeroContent {
+    from { opacity: 0; transform: translateY(35px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.about-hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 22px;
+    padding: 7px 14px;
+    border: 1px solid rgba(255,255,255,0.30);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.10);
+    backdrop-filter: blur(8px);
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.about-hero-label::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--brand-lime);
+    box-shadow: 0 0 0 5px rgba(144,203,27,0.15);
+}
+
+.about-hero h1 {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(3.5rem, 6vw, 6.5rem);
+    line-height: 0.96;
+    font-weight: 800;
+    letter-spacing: -3px;
+}
+
+.about-script {
+    display: block;
+    margin-top: 4px;
+    color: var(--brand-lime);
+    font-family: 'Pinyon Script', cursive;
+    font-size: clamp(4.5rem, 8vw, 8rem);
+    font-weight: 400;
+    line-height: 0.85;
+    transform: rotate(-3deg);
+    transform-origin: left center;
+}
+
+.about-hero p {
+    max-width: 620px;
+    margin-top: 34px;
+    margin-bottom: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.90);
+}
+
+.about-hero-actions { display: flex; align-items: center; }
+
+.about-hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 22px;
+    border-radius: 999px;
+    background: var(--brand-lime);
+    color: #111827;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-hero-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(144,203,27,0.25);
+}
+.about-hero-btn i { transition: transform 0.3s ease; }
+.about-hero-btn:hover i { transform: translateY(3px); }
+
+.about-scroll-indicator {
+    position: absolute;
+    right: 45px;
+    bottom: 35px;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.85);
+    font-family: 'Poppins', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+.about-scroll-indicator i {
+    font-size: 21px;
+    animation: scrollArrow 1.5s ease-in-out infinite;
+}
+
+@keyframes scrollArrow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(7px); }
+}
+
+.about-hero-line {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 38%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--brand-lime), var(--brand-green));
+}
+
+
+/* =========================================================
+   3. SECCIÓN: NUESTRO EQUIPO (ESTILO DRIP / LADO A LADO)
+========================================================= */
+
+.team-editorial {
+    padding: 100px 20px;
+    background-color: #ffffff;
+    color: #111827;
+}
+
+[data-theme="dark"] .team-editorial {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+}
+
+/* Título de la sección */
+.team-header-center {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 80px auto;
+}
+
+.team-header-center h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem); 
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.team-header-center .highlight { color: #ADDB22; }
+
+/* Contenedor principal */
+.team-list {
+    display: flex;
+    flex-direction: column;
+    gap: 60px; /* Espacio entre cada gerente */
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Cada Fila (Lado a lado) */
+.team-row {
+    display: flex;
+    align-items: center; /* Centra la foto y el texto verticalmente */
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* Intercalar el orden de las tarjetas pares */
+.team-row:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* =========================================================
+   LA FOTO (Flotación continua + Borde de 3 Colores)
+========================================================= */
+.team-image-col {
+    flex: 0 0 40%;
+    min-width: 280px;
+    position: relative;
+    padding: 5px; /* Grosor del borde de colores */
+    border-radius: 16px; 
+    
+    /* Animación de flotación constante (siempre se mueve suavemente) */
+    animation: floatingImage 4s ease-in-out infinite;
+}
+
+/* Keyframes para que suba y baje de forma fluida */
+@keyframes floatingImage {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* El fondo que genera el borde de 3 colores con la forma de gotas */
+.team-image-col::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #ADDB22, #218c53, #063143);
+    
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0,0 H100 V65 C 90,65 90,85 80,85 C 70,85 70,55 60,55 C 50,55 50,95 40,95 C 30,95 30,60 20,60 C 10,60 10,80 0,80 Z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0,0 H100 V65 C 90,65 90,85 80,85 C 70,85 70,55 60,55 C 50,55 50,95 40,95 C 30,95 30,60 20,60 C 10,60 10,80 0,80 Z'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    z-index: 1;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/4;
+    border-radius: 12px;
+    z-index: 2;
+    
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0,0 H100 V65 C 90,65 90,85 80,85 C 70,85 70,55 60,55 C 50,55 50,95 40,95 C 30,95 30,60 20,60 C 10,60 10,80 0,80 Z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0,0 H100 V65 C 90,65 90,85 80,85 C 70,85 70,55 60,55 C 50,55 50,95 40,95 C 30,95 30,60 20,60 C 10,60 10,80 0,80 Z'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Un leve zoom al pasar el mouse por encima de la foto flotante */
+.team-row:hover .image-wrapper img {
+    transform: scale(1.03);
+}
+
+/* =========================================================
+   EL TEXTO (Fondo claro suave y excelente contraste)
+========================================================= */
+.team-text-col {
+    flex: 0 0 55%;
+    /* Fondo sumamente limpio y claro que hace destacar la lectura */
+    background: #ecffec; 
+    padding: 40px;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+}
+
+/* Modo oscuro: un tono sutilmente más claro que el fondo general para que se distinga bien */
+[data-theme="dark"] .team-text-col {
+    background: #131c27; 
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+.team-role {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #218c53; 
+    margin-bottom: 5px;
+}
+
+.team-text-col h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #218c53; 
+}
+
+.team-desc p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    /* Color de texto oscuro y sólido para una lectura perfecta sobre el fondo claro */
+    color: #1f2937; 
+    opacity: 0.95;
+}
+
+[data-theme="dark"] .team-desc p { color: #f3f4f6; }
+
+/* =========================================================
+   DISEÑO RESPONSIVE (CELULARES)
+========================================================= */
+@media (max-width: 991px) {
+    .team-row, .team-row:nth-child(even) {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .team-image-col {
+        flex: 0 0 100%;
+        width: 80%;
+        max-width: 350px;
+    }
+    
+    .team-text-col {
+        flex: 0 0 100%;
+        width: 100%;
+        padding: 30px 20px;
+    }
+}
+/* =========================================================
+   ANIMACIONES (KEYFRAMES)
+========================================================= */
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(-100px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(100px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideDownText {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================================
+   DISEÑO RESPONSIVE (CELULARES)
+========================================================= */
+@media (max-width: 991px) {
+    .team-row, .team-row:nth-child(even) {
+        flex-direction: column; /* Apila todo hacia abajo */
+        align-items: center;
+    }
+    
+    .team-image-col {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+    
+    .team-text-col, .team-row:nth-child(even) .team-text-col {
+        flex: 0 0 100%;
+        width: 90%;
+        margin-top: -50px; /* Solapamiento hacia arriba en celulares */
+        margin-left: 0;
+        margin-right: 0;
+        padding: 30px;
+    }
+}
+
+
+@media (max-width: 991px) {
+    /* Ajustes Equipo Brutalista */
+    .team-row, .team-row:nth-child(even) { flex-direction: column; }
+    .team-image-col, .team-text-col {
+        flex: 0 0 100%;
+        border: none !important;
+    }
+    .image-wrapper img { height: 60vh; }
+}
+
+@media (max-width: 900px) {
+    /* Ajustes Hero */
+    .about-hero { min-height: 78vh; }
+    .about-hero-content { max-width: 650px; padding-top: 70px; }
+    .about-hero h1 { letter-spacing: -2px; }
+    .about-scroll-indicator { right: 24px; }
+}
+
+@media (max-width: 768px) {
+    /* Ajustes Botones y Textos Medianos */
+    .essence-header h2 { font-size: 2.2rem; }
+    .essence-header h2 .highlight { font-size: 2.8rem; }
+    
+    .btn-accesibilidad {
+        bottom: 15px;
+        left: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 22px;
+    }
+    .btn-theme-toggle {
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Ajustes Celulares Estándar */
+    .about-hero { min-height: 78vh; align-items: flex-end; }
+    .about-hero-image { background-position: 60% center; }
+    .about-hero-overlay {
+        background: linear-gradient(180deg, rgba(6,49,67,0.15) 0%, rgba(6,49,67,0.65) 45%, rgba(6,49,67,0.96) 100%);
+    }
+    .about-hero-content { padding-top: 120px; padding-bottom: 95px; }
+    .about-hero-label { font-size: 9px; }
+    .about-hero h1 { font-size: clamp(2.8rem, 12vw, 4.2rem); line-height: 1; letter-spacing: -1.5px; }
+    .about-script { font-size: clamp(4rem, 18vw, 6rem); }
+    .about-hero p { font-size: 0.92rem; line-height: 1.65; margin-top: 28px; }
+    .about-scroll-indicator { right: 18px; bottom: 20px; }
+    .about-hero-line { width: 65%; }
+}
+
+@media (max-width: 400px) {
+    /* Ajustes Celulares Pequeños */
+    .about-hero-content { padding-bottom: 80px; }
+    .about-hero h1 { font-size: 2.65rem; }
+    .about-script { font-size: 4.2rem; }
+    .about-hero p { font-size: 0.88rem; }
+    .about-scroll-indicator { display: none; }
+}
