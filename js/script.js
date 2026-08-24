@@ -284,3 +284,79 @@ if (menuToggle && navMenu) {
     });
 
 }
+
+(function init3DCarousel() {
+    const slides = document.querySelectorAll('.news-slide');
+    const prevBtn = document.getElementById('newsSliderPrev');
+    const nextBtn = document.getElementById('newsSliderNext');
+    const dotsContainer = document.getElementById('newsSliderDots');
+
+    if (slides.length === 0) return;
+
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+
+    // Limpiar los puntos por si hay recargas
+    if (dotsContainer) dotsContainer.innerHTML = '';
+
+    // Crear los indicadores (dots) dinámicamente
+    slides.forEach((_, index) => {
+        if (dotsContainer) {
+            const dot = document.createElement('button');
+            dot.classList.add('news-slider-dot');
+            dot.addEventListener('click', () => update3DSlider(index));
+            dotsContainer.appendChild(dot);
+        }
+    });
+
+    const dots = document.querySelectorAll('.news-slider-dot');
+
+    function update3DSlider(index) {
+        currentIndex = index;
+
+        // Primero, forzamos a que todas las tarjetas sean "hidden"
+        slides.forEach(slide => {
+            slide.className = 'news-slide hidden'; 
+        });
+        
+        dots.forEach(dot => dot.classList.remove('active'));
+
+        // Calcular los índices del bucle (infinito)
+        const prevIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        const nextIndex = (currentIndex + 1) % totalSlides;
+
+        // Asignar los estados 3D correctos
+        slides[currentIndex].classList.replace('hidden', 'active');
+        slides[prevIndex].classList.replace('hidden', 'prev');
+        slides[nextIndex].classList.replace('hidden', 'next');
+
+        if (dots[currentIndex]) {
+            dots[currentIndex].classList.add('active');
+        }
+    }
+
+    // Eventos de botones (flechas)
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            update3DSlider((currentIndex + 1) % totalSlides);
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            update3DSlider((currentIndex - 1 + totalSlides) % totalSlides);
+        });
+    }
+
+    // Permitir clic en las imágenes de los lados para avanzar o retroceder
+    slides.forEach((slide, index) => {
+        slide.addEventListener('click', () => {
+            if (slide.classList.contains('prev') || slide.classList.contains('next')) {
+                update3DSlider(index);
+            }
+        });
+    });
+
+    // Arrancar el carrusel en la primera imagen
+    update3DSlider(0);
+})();
