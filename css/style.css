@@ -2000,4 +2000,1364 @@ footer {
     transform: rotate(90deg);
 }
 
+/* =========================================================
+   RESPONSIVE GLOBAL — TODA LA PÁGINA
+========================================================= */
 
+
+/* =========================================================
+   LAPTOPS Y PANTALLAS MEDIANAS
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+
+    /* ================= NAVBAR ================= */
+
+    .nav-container {
+        column-gap: 18px;
+    }
+
+    .nav-menu {
+        gap: 10px;
+    }
+
+    .nav-menu > li > a {
+        font-size: 10.5px;
+    }
+
+    .nav-actions {
+        gap: 10px;
+    }
+
+    .social-icons {
+        gap: 10px;
+        font-size: 22px;
+    }
+
+
+    /* ================= HERO ================= */
+
+    .hero h1 {
+        font-size: 3.3rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+
+    /* ================= SERVICIOS ================= */
+
+    .services-grid {
+        gap: 22px;
+    }
+
+
+    /* ================= NOTICIAS ================= */
+
+    .news-grid {
+        gap: 18px;
+    }
+
+
+    /* ================= FOOTER ================= */
+
+    .footer-grid {
+        gap: 30px;
+    }
+
+    .footer-brand {
+        padding-left: 25px;
+        padding-right: 10px;
+    }
+
+    .footer-logo {
+        width: 170px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLETS GRANDES
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
+
+    .navbar {
+        padding: 18px 0;
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+    }
+
+
+    /* LOGO */
+
+    .brand-img {
+        height: 56px;
+    }
+
+
+    /* OCULTAR MENÚ DESKTOP */
+
+    .nav-menu {
+        position: fixed;
+
+        top: 0;
+        right: -100%;
+
+        width: min(380px, 88vw);
+        height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+
+        gap: 0;
+
+        padding: 95px 22px 30px;
+
+        background: var(--nav-bg);
+
+        border-left: 1px solid var(--border-color);
+
+        overflow-y: auto;
+
+        box-shadow:
+            -20px 0 45px rgba(15, 23, 42, 0.18);
+
+        transition:
+            right 0.35s ease;
+
+        z-index: 1001;
+    }
+
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+
+    /* BOTÓN HAMBURGUESA */
+
+    .menu-toggle {
+        display: flex;
+
+        order: -1;
+
+        position: relative;
+
+        z-index: 1003;
+    }
+
+
+    /* ACCIONES */
+
+    .nav-actions {
+        margin-left: auto;
+
+        gap: 10px;
+    }
+
+
+    /* OCULTAR REDES EN TABLET */
+
+    .social-icons {
+        display: none;
+    }
+
+
+    /* ELEMENTOS DEL MENÚ */
+
+    .nav-menu > li {
+        width: 100%;
+        flex-shrink: 0;
+    }
+
+
+    .nav-menu > li > a {
+        width: 100%;
+
+        min-height: 52px;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 14px 10px;
+
+        font-size: 14px;
+
+        text-align: left;
+
+        border-bottom:
+            1px solid var(--border-color);
+    }
+
+
+    /* FLECHAS */
+
+    .nav-dropdown > a i {
+        font-size: 15px;
+    }
+
+
+    /* MENÚS DESPLEGABLES EN TABLET */
+
+    .transparency-menu {
+        position: static;
+
+        width: 100%;
+
+        max-height: none;
+
+        padding: 8px;
+
+        margin: 5px 0 10px;
+
+        transform: none !important;
+
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+
+        display: none;
+
+        border-radius: 14px;
+
+        box-shadow: none;
+
+        border:
+            1px solid var(--menu-border);
+    }
+
+
+    /*
+       En pantallas táctiles evitamos que aparezcan
+       accidentalmente por hover.
+    */
+
+    .nav-dropdown:hover .transparency-menu {
+        display: none;
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .hero {
+        min-height: 78vh;
+    }
+
+    .hero-content {
+        max-width: 680px;
+
+        padding-top: 55px;
+        padding-bottom: 80px;
+    }
+
+    .hero h1 {
+        font-size: 2.9rem;
+    }
+
+    .hero p {
+        font-size: 1.05rem;
+
+        max-width: 560px;
+    }
+
+
+    /* =====================================================
+       ESTADÍSTICAS
+    ===================================================== */
+
+    .stats-section {
+        padding: 65px 0 105px;
+    }
+
+    .stat-number {
+        font-size: 3.1rem;
+    }
+
+    .stat-title {
+        font-size: 1rem;
+    }
+
+
+    /* =====================================================
+       SERVICIOS
+    ===================================================== */
+
+    .services-section {
+        padding: 80px 0;
+    }
+
+    .services-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 22px;
+    }
+
+
+    /* =====================================================
+       CLIENTES
+    ===================================================== */
+
+    .clients-section {
+        padding: 80px 0;
+    }
+
+    .clients-carousel {
+        gap: 14px;
+    }
+
+    .client-logo {
+        min-width: 170px;
+        height: 170px;
+    }
+
+
+    /* =====================================================
+       NOTICIAS
+    ===================================================== */
+
+    .news-section {
+        padding: 85px 0;
+    }
+
+    .news-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    /* =====================================================
+       UBICACIÓN
+    ===================================================== */
+
+    .location-section {
+        padding: 85px 0;
+    }
+
+    .location-grid {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    .footer-grid {
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 35px;
+    }
+
+    .footer-brand {
+        align-items: center;
+
+        text-align: center;
+
+        padding:
+            20px 0 0;
+    }
+
+    .footer-grid > div:first-child {
+        grid-column: 1 / -1;
+    }
+
+}
+
+
+/* =========================================================
+   TABLETS PEQUEÑAS
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
+    /* =====================================================
+       GOV.CO
+    ===================================================== */
+
+    .gov-bar {
+        min-height: 32px;
+    }
+
+    .gov-img {
+        height: 26px;
+    }
+
+
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
+
+    .navbar {
+        padding: 15px 0;
+    }
+
+    .brand-img {
+        height: 52px;
+    }
+
+    .nav-actions {
+        gap: 8px;
+    }
+
+    .search-icon-btn,
+    .theme-icon-btn {
+        font-size: 22px;
+    }
+
+    .menu-toggle {
+        font-size: 25px;
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .hero {
+        min-height: 72vh;
+    }
+
+    .hero-content {
+        padding-top: 45px;
+        padding-bottom: 75px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+
+        line-height: 1.08;
+    }
+
+    .hero p {
+        font-size: 1rem;
+
+        max-width: 100%;
+    }
+
+    .hero-actions {
+        gap: 12px;
+    }
+
+    .btn {
+        padding:
+            11px 22px;
+    }
+
+
+    /* =====================================================
+       ESTADÍSTICAS
+    ===================================================== */
+
+    .stats-section {
+        padding: 55px 0 90px;
+    }
+
+    .stats-grid {
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 10px;
+    }
+
+    .stat-item {
+        padding:
+            0 10px;
+    }
+
+    .stat-icon {
+        font-size: 30px;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .stat-title {
+        font-size: 0.95rem;
+    }
+
+    .stat-desc {
+        font-size: 0.78rem;
+    }
+
+
+    /* =====================================================
+       TÍTULOS GENERALES
+    ===================================================== */
+
+    .section-header {
+        margin-bottom: 38px;
+    }
+
+    .section-header h2 {
+        font-size: 2.6rem;
+
+        line-height: 1.1;
+    }
+
+
+    /* =====================================================
+       SERVICIOS
+    ===================================================== */
+
+    .services-section {
+        padding: 65px 0;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+    }
+
+    .service-img {
+        height: 220px;
+    }
+
+
+    /* =====================================================
+       CLIENTES
+    ===================================================== */
+
+    .clients-section {
+        padding: 65px 0;
+    }
+
+    .clients-carousel {
+        gap: 10px;
+    }
+
+    .client-logo {
+        min-width: 190px;
+        height: 190px;
+    }
+
+    .clients-prev,
+    .clients-next {
+        width: 42px;
+        height: 42px;
+
+        font-size: 18px;
+    }
+
+
+    /* =====================================================
+       NOTICIAS
+    ===================================================== */
+
+    .news-section {
+        padding: 70px 0;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .news-image {
+        height: 220px;
+    }
+
+    .news-content {
+        padding: 22px;
+    }
+
+    .news-content h3 {
+        font-size: 1.15rem;
+    }
+
+
+    /* =====================================================
+       UBICACIÓN
+    ===================================================== */
+
+    .location-section {
+        padding: 70px 0;
+    }
+
+    .location-grid {
+        gap: 22px;
+    }
+
+    .location-title {
+        padding: 20px;
+    }
+
+    .map-container,
+    .video-container {
+        height: 320px;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer {
+        padding:
+            45px 0 20px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+
+        gap: 32px;
+    }
+
+    .footer-grid > div:first-child {
+        grid-column: auto;
+    }
+
+    .footer-brand {
+        padding:
+            10px 0 0;
+
+        align-items: center;
+
+        text-align: center;
+    }
+
+    .footer-logo {
+        width: 160px;
+    }
+
+    .footer-title {
+        margin-bottom: 14px;
+    }
+
+    .footer-list li {
+        font-size: 0.88rem;
+    }
+
+
+    /* =====================================================
+       BOTÓN SUBIR
+    ===================================================== */
+
+    .btn-subir {
+        width: 44px;
+        height: 44px;
+
+        right: 15px;
+        bottom: 15px;
+
+        font-size: 20px;
+    }
+
+
+    /* =====================================================
+       BUSCADOR
+    ===================================================== */
+
+    .search-box {
+        width: 90%;
+    }
+
+    .search-label {
+        font-size: 1.6rem;
+    }
+
+    .search-input-container {
+        padding-left: 18px;
+    }
+
+    .search-input-container input {
+        min-width: 0;
+
+        font-size: 1rem;
+    }
+
+    .search-submit {
+        width: 48px;
+        height: 48px;
+    }
+
+    .search-close {
+        top: -60px;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+
+    /* =====================================================
+       GOV.CO
+    ===================================================== */
+
+    .gov-bar {
+        padding: 2px 0;
+    }
+
+    .gov-img {
+        height: 23px;
+    }
+
+
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
+
+    .navbar {
+        padding: 13px 0;
+    }
+
+    .brand-img {
+        height: 47px;
+    }
+
+    .nav-actions {
+        gap: 6px;
+    }
+
+    .menu-toggle {
+        font-size: 24px;
+    }
+
+    .search-icon-btn,
+    .theme-icon-btn {
+        font-size: 21px;
+    }
+
+
+    /* PANEL DEL MENÚ */
+
+    .nav-menu {
+        width: 92vw;
+
+        padding:
+            85px 18px 25px;
+    }
+
+    .nav-menu > li > a {
+        min-height: 50px;
+
+        padding:
+            13px 8px;
+
+        font-size: 13px;
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .hero {
+        min-height: 76vh;
+    }
+
+    .hero-content {
+        padding-top: 38px;
+        padding-bottom: 85px;
+
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size:
+            clamp(2rem, 9vw, 2.7rem);
+
+        line-height: 1.12;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+
+        line-height: 1.65;
+
+        margin-bottom: 28px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 10px;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        max-width: 290px;
+    }
+
+    .wave-bottom svg {
+        height: 55px;
+    }
+
+
+    /* =====================================================
+       ESTADÍSTICAS
+    ===================================================== */
+
+    .stats-section {
+        padding:
+            50px 0 85px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+
+        gap: 28px;
+    }
+
+    .stat-item {
+        border-right: none;
+
+        border-bottom:
+            1px solid
+            rgba(255, 255, 255, 0.12);
+
+        padding:
+            0 0 26px;
+    }
+
+    .stat-item:last-child {
+        border-bottom: none;
+
+        padding-bottom: 0;
+    }
+
+    .stat-icon {
+        font-size: 32px;
+    }
+
+    .stat-number {
+        font-size: 2.7rem;
+    }
+
+
+    /* =====================================================
+       TÍTULOS
+    ===================================================== */
+
+    .section-header {
+        margin-bottom: 32px;
+    }
+
+    .badge-title {
+        font-size: 11px;
+        padding:
+            6px 13px;
+    }
+
+    .section-header h2 {
+        font-size:
+            clamp(2rem, 9vw, 2.5rem);
+
+        line-height: 1.12;
+    }
+
+
+    /* =====================================================
+       SERVICIOS
+    ===================================================== */
+
+    .services-section {
+        padding: 60px 0;
+    }
+
+    .services-grid {
+        gap: 20px;
+    }
+
+    .service-img {
+        height: 205px;
+    }
+
+    .service-content {
+        padding:
+            34px 20px 20px;
+    }
+
+    .service-content h3 {
+        font-size: 1.15rem;
+    }
+
+    .service-content p {
+        font-size: 0.9rem;
+    }
+
+
+    /* =====================================================
+       CLIENTES
+    ===================================================== */
+
+    .clients-section {
+        padding: 60px 0;
+    }
+
+    .clients-section .section-header p {
+        font-size: 0.92rem;
+    }
+
+    .clients-carousel {
+        gap: 7px;
+    }
+
+    .clients-viewport {
+        min-width: 0;
+    }
+
+    .client-logo {
+        min-width: calc(100vw - 100px);
+
+        max-width:
+            calc(100vw - 100px);
+
+        height:
+            calc(100vw - 100px);
+
+        max-height: 190px;
+    }
+
+    .client-logo img {
+        max-width: 125px;
+        max-height: 85px;
+    }
+
+    .clients-prev,
+    .clients-next {
+        width: 36px;
+        height: 36px;
+
+        font-size: 16px;
+    }
+
+
+    /* =====================================================
+       NOTICIAS
+    ===================================================== */
+
+    .news-section {
+        padding: 65px 0;
+    }
+
+    .news-grid {
+        gap: 18px;
+    }
+
+    .news-image {
+        height: 195px;
+    }
+
+    .news-content {
+        padding: 19px;
+    }
+
+    .news-category {
+        font-size: 11px;
+    }
+
+    .news-content h3 {
+        font-size: 1.1rem;
+        line-height: 1.4;
+    }
+
+    .news-content p {
+        font-size: 0.88rem;
+    }
+
+    .news-button {
+        padding:
+            10px 14px;
+
+        font-size: 0.9rem;
+    }
+
+
+    /* =====================================================
+       UBICACIÓN
+    ===================================================== */
+
+    .location-section {
+        padding: 65px 0;
+    }
+
+    .location-card {
+        border-radius: 16px;
+    }
+
+    .location-title {
+        padding: 18px;
+
+        gap: 12px;
+    }
+
+    .location-title > i {
+        width: 43px;
+        height: 43px;
+
+        font-size: 21px;
+    }
+
+    .location-title h3 {
+        font-size: 1.05rem;
+    }
+
+    .location-title p {
+        font-size: 0.84rem;
+    }
+
+    .map-container,
+    .video-container {
+        height: 280px;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    .footer-grid {
+        gap: 28px;
+    }
+
+    .footer-logo {
+        width: 150px;
+    }
+
+    .footer-list li {
+        font-size: 0.84rem;
+        line-height: 1.6;
+    }
+
+    .footer-bottom {
+        font-size: 0.75rem;
+        line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       BUSCADOR
+    ===================================================== */
+
+    .search-label {
+        font-size: 1.35rem;
+    }
+
+    .search-box {
+        width: 92%;
+    }
+
+    .search-input-container {
+        padding:
+            6px 6px 6px 15px;
+    }
+
+    .search-input-container input {
+        padding:
+            10px 7px;
+
+        font-size:
+            0.92rem;
+    }
+
+    .search-submit {
+        width: 44px;
+        height: 44px;
+
+        font-size: 19px;
+    }
+
+    .search-close {
+        top: -55px;
+
+        width: 40px;
+        height: 40px;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES PEQUEÑOS
+========================================================= */
+
+@media (max-width: 400px) {
+
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
+
+    .brand-img {
+        height: 43px;
+    }
+
+    .nav-actions {
+        gap: 4px;
+    }
+
+    .menu-toggle {
+        font-size: 22px;
+    }
+
+    .search-icon-btn,
+    .theme-icon-btn {
+        font-size: 19px;
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .hero {
+        min-height: 78vh;
+    }
+
+    .hero h1 {
+        font-size: 1.85rem;
+    }
+
+    .hero p {
+        font-size: 0.88rem;
+    }
+
+
+    /* =====================================================
+       TÍTULOS
+    ===================================================== */
+
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+
+
+    /* =====================================================
+       SERVICIOS
+    ===================================================== */
+
+    .service-img {
+        height: 180px;
+    }
+
+
+    /* =====================================================
+       CLIENTES
+    ===================================================== */
+
+    .client-logo {
+        min-width: 190px;
+        height: 190px;
+    }
+
+    .clients-prev,
+    .clients-next {
+        width: 33px;
+        height: 33px;
+
+        font-size: 15px;
+    }
+
+
+    /* =====================================================
+       NOTICIAS
+    ===================================================== */
+
+    .news-image {
+        height: 180px;
+    }
+
+    .news-content {
+        padding: 17px;
+    }
+
+
+    /* =====================================================
+       UBICACIÓN
+    ===================================================== */
+
+    .map-container,
+    .video-container {
+        height: 250px;
+    }
+
+
+    /* =====================================================
+       BUSCADOR
+    ===================================================== */
+
+    .search-label {
+        font-size: 1.2rem;
+    }
+
+}
+
+/* =========================================================
+   SUBMENÚS DEL HAMBURGUESA — TABLET Y MÓVIL
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    /* El menú principal permanece cerrado hasta activarlo */
+
+    .nav-menu .transparency-menu {
+        display: none;
+        position: static;
+
+        width: 100%;
+        margin: 6px 0 10px;
+        padding: 8px;
+
+        transform: none !important;
+
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+
+        background: var(--menu-sub-bg);
+
+        border: 1px solid var(--menu-border);
+        border-radius: 14px;
+
+        box-shadow: none;
+    }
+
+
+    /* Mostrar el submenu cuando el elemento está abierto */
+
+    .nav-menu .nav-dropdown.open > .transparency-menu {
+        display: block;
+    }
+
+
+    /* Quitamos el comportamiento hover en móvil */
+
+    .nav-menu .nav-dropdown:hover > .transparency-menu {
+        display: none;
+    }
+
+    .nav-menu .nav-dropdown.open:hover > .transparency-menu {
+        display: block;
+    }
+
+
+    /* ================================================
+       SUBMENÚ INTERNO
+    ================================================ */
+
+    .nav-menu .transparency-submenu {
+        display: none;
+
+        position: static;
+
+        width: 100%;
+
+        margin-top: 6px;
+
+        padding: 6px;
+
+        transform: none !important;
+
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+
+        background: var(--card-bg);
+
+        border: 1px solid var(--menu-border);
+
+        border-radius: 12px;
+
+        box-shadow: none;
+    }
+
+
+    .nav-menu .has-submenu.open > .transparency-submenu {
+        display: block;
+    }
+
+
+    /* Quitamos hover en submenús */
+
+    .nav-menu .has-submenu:hover > .transparency-submenu {
+        display: none;
+    }
+
+    .nav-menu .has-submenu.open:hover > .transparency-submenu {
+        display: block;
+    }
+
+
+    /* ================================================
+       ESTILO DE LOS LINKS INTERNOS
+    ================================================ */
+
+    .nav-menu .transparency-item > a {
+        min-height: auto;
+
+        padding: 12px 10px;
+
+        font-size: 13px;
+
+        border-bottom: none;
+    }
+
+
+    .nav-menu .transparency-submenu a {
+        padding: 11px 10px;
+
+        font-size: 12.5px;
+
+        border-bottom: none;
+    }
+
+
+    /* ================================================
+       TÍTULO DEL MENÚ
+    ================================================ */
+
+    .nav-menu .transparency-title {
+        margin-bottom: 6px;
+
+        font-size: 13px;
+    }
+
+}

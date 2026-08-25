@@ -876,212 +876,455 @@
         0.95;
 }
 
-
 /* =========================================================
-   RESPONSIVE — EQUIPO
+   RESPONSIVE — QUIÉNES SOMOS
 ========================================================= */
 
-@media (max-width: 991px) {
+
+/* =========================================================
+   LAPTOPS
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    /* ================= HERO ================= */
+
+    .about-hero {
+        min-height: 82vh;
+    }
+
+    .about-hero-content {
+        max-width: 700px;
+
+        padding-top: 70px;
+        padding-bottom: 90px;
+    }
+
+    .about-hero h1 {
+        font-size:
+            clamp(3.2rem, 6vw, 5.8rem);
+    }
+
+    .about-script {
+        font-size:
+            clamp(4.2rem, 7vw, 7rem);
+    }
+
+
+    /* ================= EQUIPO ================= */
+
+    .team-editorial {
+        padding:
+            90px 20px;
+    }
+
+    .team-header-center {
+        margin-bottom:
+            65px;
+    }
+
+    .team-list {
+        max-width:
+            920px;
+
+        gap:
+            50px;
+    }
+
+    .team-row {
+        gap:
+            30px;
+    }
+
+    .team-image-col {
+        flex:
+            0 0 38%;
+
+        min-width:
+            240px;
+    }
+
+    .team-text-col {
+        flex:
+            0 0 58%;
+
+        padding:
+            32px;
+    }
+
+    .team-text-col h3 {
+        font-size:
+            clamp(1.7rem, 2.7vw, 2.2rem);
+    }
+
+}
+
+
+/* =========================================================
+   TABLETS GRANDES
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    /* ================= HERO ================= */
+
+    .about-hero {
+        min-height:
+            76vh;
+    }
+
+    .about-hero-content {
+        max-width:
+            650px;
+
+        padding-top:
+            60px;
+
+        padding-bottom:
+            80px;
+    }
+
+    .about-hero h1 {
+        font-size:
+            clamp(3rem, 7vw, 5rem);
+
+        letter-spacing:
+            -2px;
+    }
+
+    .about-script {
+        font-size:
+            clamp(4rem, 8vw, 6.8rem);
+    }
+
+    .about-hero p {
+        max-width:
+            560px;
+
+        font-size:
+            1rem;
+    }
+
+
+    /* ================= EQUIPO ================= */
+
+    .team-editorial {
+        padding:
+            80px 20px;
+    }
+
+    .team-header-center {
+        max-width:
+            720px;
+
+        margin-bottom:
+            55px;
+    }
+
+    .team-list {
+        max-width:
+            850px;
+
+        gap:
+            45px;
+    }
 
     .team-row,
     .team-row:nth-child(even) {
-
         flex-direction:
             column;
 
+        justify-content:
+            center;
+
         align-items:
             center;
+
+        gap:
+            0;
 
         text-align:
             center;
     }
 
 
+    /* FOTO */
+
     .team-image-col {
-
-        flex:
-            0 0 100%;
-
         width:
-            100%;
+            min(72%, 420px);
 
         max-width:
-            350px;
+            420px;
+
+        min-width:
+            0;
+
+        flex:
+            0 0 auto;
+
+        margin:
+            0 auto;
+
+        z-index:
+            2;
     }
 
+    .image-wrapper img {
+        height:
+            auto;
+    }
+
+
+    /* TARJETA DE TEXTO */
 
     .team-text-col,
     .team-row:nth-child(even)
     .team-text-col {
 
-        flex:
-            0 0 100%;
-
         width:
-            90%;
-
-        margin-top:
-            -50px;
-
-        margin-left:
-            0;
-
-        margin-right:
-            0;
-
-        padding:
-            30px;
-    }
-
-
-    .image-wrapper img {
-
-        height:
-            60vh;
-    }
-
-}
-
-
-/* =========================================================
-   ANIMACIONES DEL EQUIPO
-========================================================= */
-
-@keyframes slideInRight {
-
-    from {
-
-        opacity:
-            0;
-
-        transform:
-            translateX(-100px);
-    }
-
-    to {
-
-        opacity:
-            1;
-
-        transform:
-            translateX(0);
-    }
-
-}
-
-
-@keyframes slideInLeft {
-
-    from {
-
-        opacity:
-            0;
-
-        transform:
-            translateX(100px);
-    }
-
-    to {
-
-        opacity:
-            1;
-
-        transform:
-            translateX(0);
-    }
-
-}
-
-
-@keyframes slideDownText {
-
-    from {
-
-        opacity:
-            0;
-
-        transform:
-            translateY(-50px);
-    }
-
-    to {
-
-        opacity:
-            1;
-
-        transform:
-            translateY(0);
-    }
-
-}
-
-
-/* =========================================================
-   RESPONSIVE — HERO
-========================================================= */
-
-@media (max-width: 900px) {
-
-    .about-hero {
-
-        min-height:
-            78vh;
-    }
-
-
-    .about-hero-content {
+            min(90%, 760px);
 
         max-width:
-            650px;
+            760px;
 
-        padding-top:
-            70px;
+        flex:
+            0 0 auto;
+
+        margin:
+            -45px auto 0;
+
+        padding:
+            35px 30px;
+
+        position:
+            relative;
+
+        z-index:
+            3;
     }
 
 
-    .about-hero h1 {
+    .team-role {
+        font-size:
+            1rem;
+    }
 
-        letter-spacing:
-            -2px;
+    .team-text-col h3 {
+        font-size:
+            clamp(1.8rem, 4vw, 2.4rem);
+    }
+
+    .team-desc p {
+        font-size:
+            0.96rem;
     }
 
 
-    .about-scroll-indicator {
+    /* BOTONES FLOTANTES */
+
+    .btn-accesibilidad {
+        bottom:
+            18px;
+
+        left:
+            18px;
+    }
+
+    .btn-theme-toggle {
+        bottom:
+            18px;
 
         right:
-            24px;
+            18px;
     }
 
 }
 
 
 /* =========================================================
-   RESPONSIVE — TABLETS
+   TABLETS PEQUEÑAS
 ========================================================= */
 
 @media (max-width: 768px) {
 
+    /* ================= HERO ================= */
+
+    .about-hero {
+        min-height:
+            72vh;
+
+        align-items:
+            center;
+    }
+
+    .about-hero-content {
+        padding:
+            50px 20px 80px;
+
+        max-width:
+            600px;
+    }
+
+    .about-hero h1 {
+        font-size:
+            clamp(2.7rem, 9vw, 4.4rem);
+
+        line-height:
+            0.98;
+
+        letter-spacing:
+            -1.5px;
+    }
+
+    .about-script {
+        font-size:
+            clamp(3.8rem, 13vw, 6rem);
+
+        margin-top:
+            6px;
+    }
+
+    .about-hero p {
+        margin-top:
+            28px;
+
+        margin-bottom:
+            25px;
+
+        font-size:
+            0.96rem;
+
+        line-height:
+            1.7;
+    }
+
+    .about-hero-btn {
+        padding:
+            12px 20px;
+
+        font-size:
+            0.88rem;
+    }
+
+    .about-scroll-indicator {
+        right:
+            20px;
+
+        bottom:
+            22px;
+    }
+
+
+    /* ================= EQUIPO ================= */
+
+    .team-editorial {
+        padding:
+            70px 16px;
+    }
+
+    .team-header-center {
+        margin-bottom:
+            45px;
+    }
+
+    .team-header-center h2 {
+        font-size:
+            clamp(2.5rem, 8vw, 3.4rem);
+    }
+
+    .team-header-description {
+        max-width:
+            620px;
+
+        font-size:
+            0.94rem;
+
+        line-height:
+            1.65;
+    }
+
+    .team-list {
+        gap:
+            40px;
+    }
+
+
+    /* FOTO */
+
+    .team-image-col {
+        width:
+            min(78%, 360px);
+    }
+
+
+    /* TEXTO */
+
+    .team-text-col,
+    .team-row:nth-child(even)
+    .team-text-col {
+
+        width:
+            94%;
+
+        margin-top:
+            -40px;
+
+        padding:
+            30px 24px;
+    }
+
+    .team-role {
+        font-size:
+            0.92rem;
+
+        letter-spacing:
+            0.8px;
+    }
+
+    .team-text-col h3 {
+        font-size:
+            clamp(1.7rem, 6vw, 2.2rem);
+
+        line-height:
+            1.1;
+
+        margin-bottom:
+            18px;
+    }
+
+    .team-desc p {
+        font-size:
+            0.92rem;
+
+        line-height:
+            1.7;
+
+        text-align:
+            left;
+    }
+
+
+    /* BOTONES */
+
     .btn-accesibilidad {
+        width:
+            48px;
+
+        height:
+            48px;
+
+        font-size:
+            23px;
 
         bottom:
             15px;
 
         left:
             15px;
-
-        width:
-            45px;
-
-        height:
-            45px;
-
-        font-size:
-            22px;
     }
 
-
     .btn-theme-toggle {
-
         bottom:
             15px;
 
@@ -1093,151 +1336,378 @@
 
 
 /* =========================================================
-   RESPONSIVE — CELULARES
+   CELULARES
 ========================================================= */
 
 @media (max-width: 600px) {
 
-    .about-hero {
+    /* ================= HERO ================= */
 
+    .about-hero {
         min-height:
-            78vh;
+            76vh;
 
         align-items:
             flex-end;
     }
 
-
     .about-hero-image {
-
         background-position:
             60% center;
     }
 
-
     .about-hero-overlay {
-
         background:
-
             linear-gradient(
                 180deg,
-
-                rgba(11, 63, 90, 0.15) 0%,
-
-                rgba(18, 95, 145, 0.65) 45%,
-
-                rgba(11, 63, 90, 0.96) 100%
+                rgba(11, 63, 90, 0.18) 0%,
+                rgba(18, 95, 145, 0.58) 42%,
+                rgba(11, 63, 90, 0.97) 100%
             );
     }
 
-
     .about-hero-content {
+        width:
+            100%;
 
-        padding-top:
-            120px;
-
-        padding-bottom:
-            95px;
+        padding:
+            100px 16px 82px;
     }
-
-
-    .about-hero-label {
-
-        font-size:
-            9px;
-    }
-
 
     .about-hero h1 {
-
         font-size:
-            clamp(2.8rem, 12vw, 4.2rem);
+            clamp(2.5rem, 11vw, 3.8rem);
 
         line-height:
-            1;
+            0.98;
 
         letter-spacing:
-            -1.5px;
+            -1px;
     }
-
 
     .about-script {
-
         font-size:
-            clamp(4rem, 18vw, 6rem);
+            clamp(3.8rem, 18vw, 5.8rem);
+
+        line-height:
+            0.85;
     }
 
-
     .about-hero p {
+        max-width:
+            100%;
+
+        margin-top:
+            25px;
 
         font-size:
-            0.92rem;
+            0.9rem;
 
         line-height:
             1.65;
-
-        margin-top:
-            28px;
     }
 
+    .about-hero-actions {
+        width:
+            100%;
+    }
+
+    .about-hero-btn {
+        padding:
+            11px 18px;
+
+        font-size:
+            0.84rem;
+    }
 
     .about-scroll-indicator {
-
         right:
-            18px;
+            15px;
 
         bottom:
-            20px;
+            18px;
+
+        font-size:
+            8px;
+
+        letter-spacing:
+            1.5px;
+    }
+
+    .about-scroll-indicator i {
+        font-size:
+            18px;
+    }
+
+    .about-hero-line {
+        width:
+            68%;
+
+        height:
+            4px;
     }
 
 
-    .about-hero-line {
+    /* ================= EQUIPO ================= */
+
+    .team-editorial {
+        padding:
+            60px 12px;
+    }
+
+    .team-header-center {
+        margin-bottom:
+            38px;
+    }
+
+    .team-header-center h2 {
+        font-size:
+            clamp(2.2rem, 10vw, 3rem);
+
+        margin-bottom:
+            16px;
+    }
+
+    .team-header-description {
+        font-size:
+            0.88rem;
+
+        line-height:
+            1.65;
+    }
+
+    .team-list {
+        gap:
+            34px;
+    }
+
+
+    /* FOTO */
+
+    .team-image-col {
+        width:
+            88%;
+
+        max-width:
+            340px;
+
+        padding:
+            4px;
+    }
+
+    .image-wrapper {
+        aspect-ratio:
+            3 / 4;
+
+        border-radius:
+            10px;
+    }
+
+
+    /* TEXTO */
+
+    .team-text-col,
+    .team-row:nth-child(even)
+    .team-text-col {
 
         width:
-            65%;
+            94%;
+
+        margin-top:
+            -35px;
+
+        padding:
+            25px 18px;
+
+        border-radius:
+            12px;
+    }
+
+    .team-role {
+        font-size:
+            0.82rem;
+
+        letter-spacing:
+            0.7px;
+
+        line-height:
+            1.4;
+    }
+
+    .team-text-col h3 {
+        font-size:
+            clamp(1.5rem, 7vw, 2rem);
+
+        margin-bottom:
+            16px;
+    }
+
+    .team-desc p {
+        font-size:
+            0.86rem;
+
+        line-height:
+            1.65;
+    }
+
+
+    /* BOTONES */
+
+    .btn-accesibilidad {
+        width:
+            44px;
+
+        height:
+            44px;
+
+        font-size:
+            20px;
+
+        bottom:
+            14px;
+
+        left:
+            14px;
+    }
+
+    .btn-theme-toggle {
+        bottom:
+            14px;
+
+        right:
+            14px;
     }
 
 }
 
 
 /* =========================================================
-   RESPONSIVE — CELULARES PEQUEÑOS
+   CELULARES PEQUEÑOS
 ========================================================= */
 
 @media (max-width: 400px) {
 
-    .about-hero-content {
+    /* ================= HERO ================= */
 
-        padding-bottom:
-            80px;
+    .about-hero {
+        min-height:
+            78vh;
     }
 
+    .about-hero-content {
+        padding:
+            95px 14px 78px;
+    }
 
     .about-hero h1 {
-
         font-size:
-            2.65rem;
+            2.35rem;
     }
-
 
     .about-script {
-
         font-size:
-            4.2rem;
+            4rem;
     }
-
 
     .about-hero p {
+        font-size:
+            0.84rem;
+    }
+
+    .about-hero-btn {
+        padding:
+            10px 16px;
 
         font-size:
-            0.88rem;
+            0.8rem;
+    }
+
+    .about-scroll-indicator {
+        display:
+            none;
     }
 
 
-    .about-scroll-indicator {
+    /* ================= EQUIPO ================= */
 
-        display:
-            none;
+    .team-editorial {
+        padding:
+            50px 10px;
+    }
+
+    .team-header-center h2 {
+        font-size:
+            2.1rem;
+    }
+
+    .team-header-description {
+        font-size:
+            0.83rem;
+    }
+
+    .team-list {
+        gap:
+            30px;
+    }
+
+
+    /* FOTO */
+
+    .team-image-col {
+        width:
+            92%;
+
+        max-width:
+            310px;
+    }
+
+
+    /* TEXTO */
+
+    .team-text-col,
+    .team-row:nth-child(even)
+    .team-text-col {
+
+        width:
+            96%;
+
+        margin-top:
+            -30px;
+
+        padding:
+            22px 15px;
+    }
+
+    .team-role {
+        font-size:
+            0.76rem;
+    }
+
+    .team-text-col h3 {
+        font-size:
+            1.42rem;
+    }
+
+    .team-desc p {
+        font-size:
+            0.81rem;
+
+        line-height:
+            1.6;
+    }
+
+
+    /* BOTONES */
+
+    .btn-accesibilidad {
+        width:
+            41px;
+
+        height:
+            41px;
+
+        font-size:
+            18px;
     }
 
 }

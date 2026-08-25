@@ -290,24 +290,166 @@ if (searchClose && searchOverlay) {
 
 }
 
-/* ================= MENÚ HAMBURGUESA ================= */
+/* =========================================================
+   MENÚ HAMBURGUESA
+========================================================= */
 
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.querySelector('.nav-menu');
 
 if (menuToggle && navMenu) {
 
+    /* ================================================
+       ABRIR / CERRAR MENÚ PRINCIPAL
+    ================================================ */
+
     menuToggle.addEventListener('click', () => {
 
         navMenu.classList.toggle('active');
 
-        const isOpen = navMenu.classList.contains('active');
+        const isOpen =
+            navMenu.classList.contains('active');
 
-        menuToggle.setAttribute('aria-expanded', isOpen);
+        menuToggle.setAttribute(
+            'aria-expanded',
+            isOpen
+        );
 
         menuToggle.innerHTML = isOpen
             ? '<i class="ph ph-x"></i>'
             : '<i class="ph ph-list"></i>';
+
+    });
+
+
+    /* ================================================
+       SUBMENÚS PRINCIPALES
+    ================================================ */
+
+    const dropdowns =
+        navMenu.querySelectorAll(
+            ':scope > .nav-dropdown'
+        );
+
+
+    dropdowns.forEach(dropdown => {
+
+        const mainLink =
+            dropdown.querySelector(':scope > a');
+
+        const submenu =
+            dropdown.querySelector(
+                ':scope > .transparency-menu'
+            );
+
+
+        if (!mainLink || !submenu) return;
+
+
+        mainLink.addEventListener('click', event => {
+
+            /*
+             * Solo hacemos esto en tablet/celular.
+             * En PC se mantiene el comportamiento normal.
+             */
+
+            if (window.innerWidth <= 1024) {
+
+                event.preventDefault();
+
+                /* Cerramos otros dropdowns */
+
+                dropdowns.forEach(otherDropdown => {
+
+                    if (otherDropdown !== dropdown) {
+
+                        otherDropdown.classList.remove(
+                            'open'
+                        );
+
+                    }
+
+                });
+
+
+                /* Abrimos/cerramos el actual */
+
+                dropdown.classList.toggle('open');
+
+            }
+
+        });
+
+    });
+
+
+    /* ================================================
+       SUBMENÚS INTERNOS
+    ================================================ */
+
+    const nestedDropdowns =
+        navMenu.querySelectorAll(
+            '.has-submenu'
+        );
+
+
+    nestedDropdowns.forEach(dropdown => {
+
+        const link =
+            dropdown.querySelector(':scope > a');
+
+        const submenu =
+            dropdown.querySelector(
+                ':scope > .transparency-submenu'
+            );
+
+
+        if (!link || !submenu) return;
+
+
+        link.addEventListener('click', event => {
+
+            if (window.innerWidth <= 1024) {
+
+                event.preventDefault();
+
+                dropdown.classList.toggle('open');
+
+            }
+
+        });
+
+    });
+
+
+    /* ================================================
+       AL VOLVER A PC
+       LIMPIAMOS LOS ESTADOS MOBILE
+    ================================================ */
+
+    window.addEventListener('resize', () => {
+
+        if (window.innerWidth > 1024) {
+
+            navMenu.classList.remove('active');
+
+            navMenu
+                .querySelectorAll('.open')
+                .forEach(item => {
+
+                    item.classList.remove('open');
+
+                });
+
+            menuToggle.setAttribute(
+                'aria-expanded',
+                'false'
+            );
+
+            menuToggle.innerHTML =
+                '<i class="ph ph-list"></i>';
+
+        }
 
     });
 

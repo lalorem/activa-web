@@ -695,93 +695,530 @@
    RESPONSIVE
 ========================================================= */
 
-@media (max-width: 800px) {
+
+/* =========================================================
+   TABLETS
+========================================================= */
+
+@media (max-width: 900px) {
+
+    /* CONTENEDOR */
+
+    .general-news-container {
+
+        width: min(92%, 700px);
+    }
+
+
+    /* HERO */
 
     .general-news-hero {
 
-        height: 460px;
+        height: 480px;
     }
 
 
-    .general-news-grid {
+    .general-news-hero-content {
 
-        grid-template-columns:
-            1fr;
-    }
+        width: 92%;
 
-
-    .general-news-heading {
-
-        align-items: flex-start;
-    }
-}
-
-
-@media (max-width: 550px) {
-
-    .general-news-hero {
-
-        height: 400px;
+        padding:
+            0 15px;
     }
 
 
     .general-news-hero h1 {
 
-        font-size: 55px;
+        font-size:
+            clamp(58px, 10vw, 82px);
 
-        letter-spacing: -2px;
+        line-height: 0.95;
     }
 
 
+    /* INTRO */
+
+    .general-news-intro {
+
+        padding:
+            70px 0
+            60px;
+    }
+
+
+    .general-news-intro .general-news-container {
+
+        max-width: 700px;
+    }
+
+
+    .general-news-intro h2 {
+
+        font-size:
+            clamp(34px, 6vw, 48px);
+    }
+
+
+    .general-news-intro p {
+
+        font-size: 17px;
+
+        line-height: 1.75;
+    }
+
+
+    /* LISTADO */
+
+    .general-news-list {
+
+        padding:
+            35px 0
+            90px;
+    }
+
+
+    /* ENCABEZADO */
+
+    .general-news-heading {
+
+        align-items: flex-start;
+
+        margin-bottom: 35px;
+
+        padding-bottom: 20px;
+    }
+
+
+    .general-news-heading h2 {
+
+        font-size:
+            clamp(34px, 6vw, 48px);
+    }
+
+
+    /* GRID */
+
+    .general-news-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 30px;
+    }
+
+
+    /* IMAGEN */
+
+    .general-news-image {
+
+        height: 300px;
+    }
+
+
+    /* CARD */
+
+    .general-news-card-content {
+
+        padding: 26px;
+    }
+}
+
+
+/* =========================================================
+   CELULARES GRANDES
+========================================================= */
+
+@media (max-width: 600px) {
+
+    /* CONTENEDOR */
+
+    .general-news-container {
+
+        width: 90%;
+    }
+
+
+    /* HERO */
+
+    .general-news-hero {
+
+        height: 420px;
+    }
+
+
+    .general-news-hero-content {
+
+        width: 90%;
+
+        padding:
+            0 10px;
+    }
+
+
+    /* KICKER */
+
     .general-news-kicker {
 
-        font-size: 11px;
+        gap: 8px;
 
-        letter-spacing: 2px;
+        margin-bottom: 16px;
+
+        font-size: 10px;
+
+        letter-spacing: 1.8px;
+
+        text-align: center;
     }
 
 
     .general-news-kicker::before,
     .general-news-kicker::after {
 
-        width: 20px;
+        width: 18px;
+
+        height: 2px;
     }
 
+
+    /* TÍTULO HERO */
+
+    .general-news-hero h1 {
+
+        font-size:
+            clamp(50px, 15vw, 68px);
+
+        line-height: 0.92;
+
+        letter-spacing: -1.5px;
+    }
+
+
+    /* LÍNEA */
+
+    .general-news-line {
+
+        width: 75px;
+
+        height: 3px;
+
+        margin-top: 24px;
+    }
+
+
+    /* =====================================================
+       INTRO
+    ===================================================== */
 
     .general-news-intro {
 
         padding:
-            65px 0
-            55px;
+            58px 0
+            48px;
+    }
+
+
+    .general-news-section-label {
+
+        margin-bottom: 10px;
+
+        font-size: 10px;
+
+        letter-spacing: 1.7px;
+    }
+
+
+    .general-news-intro h2 {
+
+        font-size:
+            clamp(30px, 9vw, 40px);
+
+        line-height: 1.08;
+
+        letter-spacing: -0.7px;
     }
 
 
     .general-news-intro p {
 
-        font-size: 16px;
+        margin-top: 18px;
+
+        font-size: 15px;
+
+        line-height: 1.7;
     }
 
+
+    /* =====================================================
+       LISTADO
+    ===================================================== */
 
     .general-news-list {
 
-        padding-bottom: 75px;
+        padding:
+            25px 0
+            65px;
     }
 
+
+    /* ENCABEZADO */
+
+    .general-news-heading {
+
+        display: block;
+
+        margin-bottom: 28px;
+
+        padding-bottom: 18px;
+    }
+
+
+    .general-news-heading h2 {
+
+        font-size:
+            clamp(30px, 9vw, 40px);
+
+        line-height: 1.05;
+    }
+
+
+    /* =====================================================
+       GRID
+    ===================================================== */
+
+    .general-news-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 25px;
+    }
+
+
+    /* =====================================================
+       TARJETA
+    ===================================================== */
+
+    .general-news-card {
+
+        border-radius: 15px;
+
+        box-shadow:
+            0 10px 30px
+            rgba(0,0,0,0.07);
+    }
+
+
+    /* IMAGEN */
 
     .general-news-image {
 
-        height: 240px;
+        height: 230px;
     }
 
 
+    /* CATEGORÍA */
+
+    .general-news-category {
+
+        left: 15px;
+
+        bottom: 15px;
+
+        padding:
+            6px 11px;
+
+        font-size: 10px;
+
+        letter-spacing: 0.8px;
+    }
+
+
+    /* CONTENIDO */
+
     .general-news-card-content {
 
-        padding: 24px 22px;
+        padding:
+            22px 20px 24px;
+    }
+
+
+    /* FECHA */
+
+    .general-news-date {
+
+        margin-bottom: 10px;
+
+        font-size: 11px;
+    }
+
+
+    .general-news-date i {
+
+        font-size: 14px;
+    }
+
+
+    /* TÍTULO */
+
+    .general-news-card h3 {
+
+        margin-bottom: 12px;
+
+        font-size: 22px;
+
+        line-height: 1.2;
+    }
+
+
+    /* DESCRIPCIÓN */
+
+    .general-news-card p {
+
+        margin-bottom: 20px;
+
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+
+    /* BOTÓN */
+
+    .general-news-read {
+
+        padding:
+            11px 17px;
+
+        gap: 8px;
+
+        font-size: 12px;
+    }
+
+
+    .general-news-read i {
+
+        font-size: 15px;
+    }
+}
+
+
+/* =========================================================
+   CELULARES PEQUEÑOS
+========================================================= */
+
+@media (max-width: 400px) {
+
+    /* HERO */
+
+    .general-news-hero {
+
+        height: 390px;
+    }
+
+
+    .general-news-hero h1 {
+
+        font-size: 48px;
+
+        letter-spacing: -1.5px;
+    }
+
+
+    .general-news-kicker {
+
+        font-size: 9px;
+
+        letter-spacing: 1.4px;
+    }
+
+
+    .general-news-kicker::before,
+    .general-news-kicker::after {
+
+        width: 14px;
+    }
+
+
+    /* INTRO */
+
+    .general-news-intro {
+
+        padding:
+            50px 0
+            42px;
+    }
+
+
+    .general-news-intro h2 {
+
+        font-size: 29px;
+    }
+
+
+    .general-news-intro p {
+
+        font-size: 14px;
+    }
+
+
+    /* LISTADO */
+
+    .general-news-list {
+
+        padding:
+            20px 0
+            55px;
+    }
+
+
+    .general-news-heading {
+
+        margin-bottom: 24px;
+    }
+
+
+    .general-news-heading h2 {
+
+        font-size: 29px;
+    }
+
+
+    /* IMAGEN */
+
+    .general-news-image {
+
+        height: 210px;
+    }
+
+
+    /* CARD */
+
+    .general-news-card-content {
+
+        padding:
+            20px 18px 22px;
     }
 
 
     .general-news-card h3 {
 
-        font-size: 24px;
+        font-size: 21px;
+    }
+
+
+    .general-news-card p {
+
+        font-size: 13.5px;
+    }
+
+
+    /* BOTÓN */
+
+    .general-news-read {
+
+        padding:
+            10px 16px;
+
+        font-size: 11.5px;
     }
 }
