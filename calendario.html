@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Activa | Empresa de la Gobernación de Antioquia</title>
+
+    <link rel="icon" href="assets/logo_activa.webp" type="image/webp">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/calendario.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+</head>
+
+
+<body>
+
+
+    <div class="gov-bar">
+
+        <div class="container">
+
+            <div class="gov-logo">
+
+                <a href="https://www.gov.co" target="_blank" rel="noopener noreferrer">
+
+                    <img src="assets/logo_gov.webp" alt="Logo GOV.CO" class="gov-img">
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Botón subir -->
+
+    <button class="btn-subir">
+        <i class="ph ph-arrow-fat-line-up"></i>
+    </button>
+
+
+    <!-- Buscador -->
+
+    <div class="search-overlay" id="searchOverlay">
+
+        <div class="search-box">
+
+            <button class="search-close" id="searchClose" aria-label="Cerrar buscador">
+                <i class="ph ph-x"></i>
+            </button>
+
+            <span class="search-label">
+                ¿Qué estás buscando?
+            </span>
+
+            <div class="search-input-container">
+
+                <input type="text" placeholder="Escribe aquí..." id="searchInput">
+
+                <button class="search-submit" type="button">
+                    <i class="ph ph-magnifying-glass"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- ======== NAVBAR ======== -->
+
+    <nav class="navbar" id="navbar">
+
+        <div class="container nav-container">
+
+            <div style="display: flex; align-items: center; gap: 16px;">
+
+                <a href="#" class="brand-logo">
+
+                    <img src="assets/logo_activa.webp" alt="Logo Activa" class="brand-img">
+
+                </a>
+
+            </div>
+
+            <ul class="nav-menu">
+
+                <li>
+                    <a href="index.html">INICIO</a>
+                </li>
+
+
+                <li class="nav-dropdown">
+
+                    <a href="quienes-somos.html">
+
+                        QUIÉNES SOMOS
+
+                        <i class="ph ph-caret-down"></i>
+
+                    </a>
+
+
+                    <div class="transparency-menu">
+
+                        <div class="transparency-title">
+                            Quiénes Somos
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="quienes-somos.html">
+                                Quiénes Somos
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="calendario.html">
+                                Calendario de Actividades y Eventos
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="directorio-institucional.html">
+                                Directorio Institucional
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="NoticiasGeneral.html">
+                                Noticias ACTIVA
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Líneas de Acción
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Estructura Orgánica
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Misión, Visión, Deberes, Políticas
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Publicación Hojas de Vida
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+
+                <!-- TRANSPARENCIA -->
+
+                <li class="nav-dropdown">
+
+                    <a href="transparencia.html">
+
+                        TRANSPARENCIA
+
+                        <i class="ph ph-caret-down"></i>
+
+                    </a>
+
+
+                    <div class="transparency-menu">
+
+                        <div class="transparency-title">
+                            Transparencia
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Oficina de Control Interno
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Caracterizaciones
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Certificados Accesibilidad
+                            </a>
+
+                        </div>
+
+
+                        <!-- SUBMENÚ PLANEACIÓN -->
+
+                        <div class="transparency-item has-submenu">
+
+                            <a href="#">
+
+                                Planeación Presupuestos e Informes
+
+                                <i class="ph ph-caret-right"></i>
+
+                            </a>
+
+
+                            <div class="transparency-submenu">
+
+                                <a href="#">
+                                    Información para Mujeres
+                                </a>
+
+                                <a href="#">
+                                    Información para Niños, Niñas y Adolescentes (NNA)
+                                </a>
+
+                                <a href="#">
+                                    Otros Grupos de interés
+                                </a>
+
+                                <a href="#">
+                                    Planeación
+                                </a>
+
+                                <a href="#">
+                                    Sistema de Gestión de Calidad
+                                </a>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- SUBMENÚ NORMATIVA -->
+
+                        <div class="transparency-item has-submenu">
+
+                            <a href="#">
+
+                                Normativa
+
+                                <i class="ph ph-caret-right"></i>
+
+                            </a>
+
+
+                            <div class="transparency-submenu">
+
+                                <a href="#">
+                                    Normativa de la Entidad
+                                </a>
+
+                                <a href="#">
+                                    Resoluciones
+                                </a>
+
+                                <a href="#">
+                                    Acuerdos
+                                </a>
+
+                                <a href="#">
+                                    Políticas, Lineamientos y Manuales
+                                </a>
+
+                                <a href="#">
+                                    SUIN
+                                </a>
+
+                                <a href="#">
+                                    Estados Financieros
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+
+                <!-- PARTICIPA -->
+
+                <li class="nav-dropdown">
+
+                    <a href="#">
+
+                        PARTICIPA
+
+                        <i class="ph ph-caret-down"></i>
+
+                    </a>
+
+
+                    <div class="transparency-menu">
+
+                        <div class="transparency-title">
+                            Participa
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="https://activa.com.co/menu-participa/">
+                                Descripción General
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="https://activa.com.co/rendicion-de-cuentas/">
+                                Rendición de Cuentas
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a
+                                href="https://activa.com.co/pqrs/#:~:text=de%20Antioquia%20ACTIVA.-,CONTACTO,-ADMINISTRATIVO%3A%20En%20la">
+                                Formulario de Contacto
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="https://activa.com.co/canales-de-atencion-presencial-y-telefonica/">
+                                Canales de Atención Presencial y Telefónica
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="https://activa.com.co/consulta-ciudadana/">
+                                Consulta Ciudadana
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="https://activa.com.co/contratacion/">
+                                Invitaciones Públicas
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="https://activa.com.co/documentos/#">
+                                Servicio al Público, Normas, Formularios y Protocolos de Atención
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="https://activa.com.co/en-construccion/">
+                                Procedimientos que se Siguen para Tomar Decisiones en las Diferentes Áreas
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+
+                <!-- ATENCIÓN Y SERVICIO -->
+
+                <li>
+
+                    <a href="#">
+                        ATENCIÓN Y SERVICIO A LA CIUDADANÍA
+                    </a>
+
+                </li>
+
+
+                <!-- CONTRATACIÓN -->
+
+                <li class="nav-dropdown">
+
+                    <a href="#">
+
+                        CONTRATACIÓN
+
+                        <i class="ph ph-caret-down"></i>
+
+                    </a>
+
+
+                    <div class="transparency-menu">
+
+                        <div class="transparency-title">
+                            Contratación
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Manifestaciones de Interés
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Proveedores
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Tutoriales y Accesos
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+
+                <!-- UNIDADES DE NEGOCIO -->
+
+                <li class="nav-dropdown">
+
+                    <a href="#">
+
+                        UNIDADES DE NEGOCIO
+
+                        <i class="ph ph-caret-down"></i>
+
+                    </a>
+
+
+                    <div class="transparency-menu">
+
+                        <div class="transparency-title">
+                            Unidades de Negocio
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Operación Logística Integral
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Eventos Propios
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Administración de Parques
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Parques ACTIVA
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Caféstival
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Galería de Eventos
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Portafolio
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+
+                <!-- PQRSDF -->
+
+                <li>
+
+                    <a href="#">
+                        PQRSDF
+                    </a>
+
+                </li>
+
+            </ul>
+
+
+            <!-- ACCIONES NAVBAR -->
+
+            <div class="nav-actions">
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+
+                    <i class="ph ph-list"></i>
+
+                </button>
+
+                <button class="theme-icon-btn" id="themeToggleBtn" onclick="toggleTheme()"
+                    title="Cambiar Tema (Claro / Oscuro)">
+
+                    <i class="ph ph-sun" id="themeIcon"></i>
+
+                </button>
+
+
+                <button class="search-icon-btn" id="searchButton" title="Buscar">
+
+                    <i class="ph ph-magnifying-glass"></i>
+
+                </button>
+
+
+                <div class="social-icons">
+
+                    <a href="https://www.facebook.com/activa.com.co" title="Facebook">
+
+                        <i class="ph ph-facebook-logo"></i>
+
+                    </a>
+
+
+                    <a href="https://x.com/ActivaCo" title="X (Twitter)">
+
+                        <i class="ph ph-x-logo"></i>
+
+                    </a>
+
+
+                    <a href="https://www.instagram.com/activa.antioquia/" title="Instagram">
+
+                        <i class="ph ph-instagram-logo"></i>
+
+                    </a>
+
+
+                    <a href="https://www.youtube.com/@ActivaAntioquia" title="YouTube">
+
+                        <i class="ph ph-youtube-logo"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- =========================================================
+     HEADER - CALENDARIO
+========================================================= -->
+
+<section class="calendar-hero">
+
+    <div class="calendar-hero-image">
+
+        <img
+            src="assets/calendario-eventos.webp"
+            alt="Calendario de Actividades y Eventos ACTIVA"
+        >
+
+    </div>
+
+    <div class="calendar-hero-overlay"></div>
+
+    <div class="calendar-hero-content">
+
+        <span class="calendar-kicker">
+            ACTIVA · Agenda institucional
+        </span>
+
+        <h1>
+            Calendario de Actividades y Eventos
+        </h1>
+
+        <div class="calendar-hero-line"></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CALENDARIO
+========================================================= -->
+
+<main class="calendar-section">
+
+    <div class="calendar-container">
+
+
+        <!-- ENCABEZADO DEL CALENDARIO -->
+
+        <div class="calendar-heading">
+
+            <div class="calendar-heading-text">
+
+                <span class="calendar-section-label">
+                    Agenda ACTIVA
+                </span>
+
+                <h2 id="calendarMonth">
+                    Agosto 2026
+                </h2>
+
+            </div>
+
+
+            <!-- BOTONES -->
+
+            <div class="calendar-navigation">
+
+                <button
+                    class="calendar-nav-btn"
+                    id="calendarPrev"
+                    aria-label="Mes anterior"
+                    type="button"
+                >
+                    <i class="ph ph-arrow-left"></i>
+                </button>
+
+
+                <button
+                    class="calendar-today-btn"
+                    id="calendarToday"
+                    type="button"
+                >
+                    Hoy
+                </button>
+
+
+                <button
+                    class="calendar-nav-btn"
+                    id="calendarNext"
+                    aria-label="Mes siguiente"
+                    type="button"
+                >
+                    <i class="ph ph-arrow-right"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CALENDARIO -->
+
+        <div class="calendar-card">
+
+            <!-- DÍAS -->
+
+            <div class="calendar-weekdays">
+
+                <div>Lun</div>
+                <div>Mar</div>
+                <div>Mié</div>
+                <div>Jue</div>
+                <div>Vie</div>
+                <div>Sáb</div>
+                <div>Dom</div>
+
+            </div>
+
+
+            <!-- DÍAS GENERADOS POR JS -->
+
+            <div
+                class="calendar-days"
+                id="calendarDays"
+            ></div>
+
+        </div>
+
+
+    </div>
+
+</main>
+
+        <footer>
+        <div class="container">
+            <div class="footer-grid"> <!-- LOGO ACTIVA -->
+                <div class="footer-brand"> <img src="assets/logo_activa.webp" alt="Logo ACTIVA" class="footer-logo">
+                </div>
+                <div>
+                    <h4 class="footer-title"> Oficina </h4>
+                    <ul class="footer-list">
+                        <li> Horario: lunes a jueves de 8:00 a. m. a 12:00 m. y de 2:00 p. m. a 4:30 p. m.; y los
+                            viernes de 8:00 a. m. a 12:00 m. y de 2:00 p. m. a 3:30 p. m. </li>
+                        <li> Oficina Principal / Dirección de correspondencia: Calle 42B Número 52-106 Centro
+                            Administrativo Departamental «José María Córdova» – La Alpujarra. Piso 6 – Oficina 610.
+                        </li>
+                        <li> Medellín, Antioquia-Colombia. </li>
+                        <li> Código postal: 050015 </li>
+                    </ul>
+                </div> <!-- LÍNEAS DE ATENCIÓN -->
+                <div>
+                    <h4 class="footer-title"> Líneas de Atención </h4>
+                    <ul class="footer-list">
+                        <li> Línea de Atención a la Ciudadanía: +57 604 383 80 42 </li>
+                        <li> Línea Anticorrupción: +57 604 383 80 42 </li>
+                        <li> Correos electrónicos de contacto: info@activa.com.co </li>
+                        <li> Correo electrónico para notificaciones judiciales: info@activa.com.co </li>
+                        <li> NIT: 901437957-8 </li>
+                    </ul>
+                </div> <!-- ENLACES DE INTERÉS -->
+                <div>
+                    <h4 class="footer-title"> Enlaces de Interés </h4>
+                    <ul class="footer-list">
+                        <li> <a href="https://www.antioquia.gov.co/"> Gobernación de Antioquia </a> </li>
+                        <li> <a href="https://www.mintic.gov.co/portal/inicio/"> Ministerio de Tecnología de la
+                                Información y las Comunicaciones </a> </li>
+                        <li> <a href="https://colombiacompra.gov.co/"> Colombia Compra Eficiente </a> </li>
+                        <li> <a href="http://svrpubindc.imprenta.gov.co/senado/"> Gaceta Oficial </a> </li>
+                        <li> <a href="https://activa.com.co/pqrs/"> PQRSDF </a> </li>
+                        <li> <a href="https://activa.com.co/mapa-del-sitio/"> Mapa del Sitio </a> </li>
+                        <li> <a href="https://activa.com.co/wp-content/uploads/2024/07/GA-F019-Politica-tramite-de-datos-personales.pdf"
+                                target="_blank" rel="noopener noreferrer"> Protección de Datos Personales </a> </li>
+                        <li> <a href="https://activa.com.co/wp-content/uploads/2024/07/Terminos-y-condiciones-pagina-web-ACTIVA.pdf"
+                                target="_blank" rel="noopener noreferrer"> Términos y Condiciones </a> </li>
+                    </ul>
+                </div>
+            </div> <!-- COPYRIGHT -->
+            <div class="footer-bottom">
+                <p> &copy; 2026 Activa. Empresa industrial y comercial de la Gobernación de Antioquia. NIT: 901437957-8
+                </p>
+            </div>
+        </div>
+    </footer>
+
+<script src="js/script.js"></script>
+<script src="js/calendario.js"></script>
+
+
+</body>
+
+</html>
