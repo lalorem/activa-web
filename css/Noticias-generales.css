@@ -1,0 +1,787 @@
+/* =========================================================
+   NOTICIAS GENERALES - ACTIVA
+========================================================= */
+
+
+/* =========================================================
+   CONTENEDOR GENERAL
+========================================================= */
+
+.general-news-container {
+
+    width: min(1100px, 90%);
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.general-news-hero {
+
+    position: relative;
+
+    height: 560px;
+
+    overflow: hidden;
+
+    background:
+        #111;
+
+}
+
+
+/* =========================================================
+   SLIDES
+========================================================= */
+
+.general-news-slides {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+
+.general-news-slide {
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0;
+
+    transition:
+        opacity 1.2s ease-in-out;
+
+    z-index: 1;
+}
+
+
+.general-news-slide.active {
+
+    opacity: 1;
+
+    z-index: 2;
+}
+
+
+.general-news-slide img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transform:
+        scale(1.03);
+
+    transition:
+        transform 5s ease;
+}
+
+
+.general-news-slide.active img {
+
+    transform:
+        scale(1);
+}
+
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.general-news-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 3;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(15, 23, 42, 0.78),
+            rgba(15, 23, 42, 0.30),
+            rgba(15, 23, 42, 0.65)
+        );
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.general-news-hero-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    height: 100%;
+
+    width: min(1100px, 90%);
+
+    margin: 0 auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    color: white;
+}
+
+
+/* Kicker */
+
+.general-news-kicker {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 18px;
+
+    font-family:
+        var(--font-main);
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+
+.general-news-kicker::before,
+.general-news-kicker::after {
+
+    content: "";
+
+    width: 35px;
+
+    height: 2px;
+
+    border-radius: 50px;
+
+    background:
+        rgba(255,255,255,0.75);
+}
+
+
+/* Título */
+
+.general-news-hero h1 {
+
+    margin: 0;
+
+    font-family:
+        "Caveat Brush",
+        cursive;
+
+    font-size:
+        clamp(65px, 9vw, 105px);
+
+    line-height: 0.95;
+
+    letter-spacing: 1px;
+
+    font-weight: 400;
+
+    text-shadow:
+        0 8px 30px
+        rgba(0,0,0,0.25);
+}
+
+
+/* Línea */
+
+.general-news-line {
+
+    width: 100px;
+
+    height: 3px;
+
+    margin-top: 30px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--brand-blue),
+            var(--brand-green)
+        );
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.general-news-intro {
+
+    padding:
+        85px 0
+        70px;
+
+    background:
+        var(--bg-body);
+
+    text-align: center;
+}
+
+
+.general-news-intro .general-news-container {
+
+    max-width: 850px;
+}
+
+
+/* Etiqueta */
+
+.general-news-section-label {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    color:
+        var(--brand-green);
+
+    font-family:
+        var(--font-main);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+/* Título */
+
+.general-news-intro h2 {
+
+    margin: 0;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(35px, 5vw, 55px);
+
+    line-height: 1.05;
+
+    letter-spacing: -1px;
+
+    color:
+        var(--text-primary);
+}
+
+
+/* Texto */
+
+.general-news-intro p {
+
+    max-width: 760px;
+
+    margin:
+        22px auto 0;
+
+    color:
+        var(--text-secondary);
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   LISTADO
+========================================================= */
+
+.general-news-list {
+
+    padding:
+        40px 0
+        110px;
+
+    background:
+        var(--bg-body);
+}
+
+
+/* =========================================================
+   ENCABEZADO
+========================================================= */
+
+.general-news-heading {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    margin-bottom: 45px;
+
+    padding-bottom: 25px;
+
+    border-bottom:
+        1px solid
+        rgba(127, 127, 127, 0.18);
+}
+
+
+.general-news-heading h2 {
+
+    margin: 0;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(35px, 5vw, 55px);
+
+    line-height: 1;
+
+    color:
+        var(--text-primary);
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.general-news-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 35px;
+}
+
+
+/* =========================================================
+   TARJETA
+========================================================= */
+
+.general-news-card {
+
+    overflow: hidden;
+
+    background:
+        var(--bg-card);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,0.07);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+.general-news-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 25px 55px
+        rgba(0,0,0,0.13);
+}
+
+
+/* =========================================================
+   IMAGEN
+========================================================= */
+
+.general-news-image {
+
+    position: relative;
+
+    height: 300px;
+
+    overflow: hidden;
+}
+
+
+.general-news-image img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.6s ease;
+}
+
+
+.general-news-card:hover
+.general-news-image img {
+
+    transform:
+        scale(1.06);
+}
+
+
+/* =========================================================
+   CATEGORÍA
+========================================================= */
+
+.general-news-category {
+
+    position: absolute;
+
+    left: 20px;
+
+    bottom: 20px;
+
+    padding:
+        7px 13px;
+
+    border-radius: 50px;
+
+    background:
+        rgba(15,23,42,0.78);
+
+    color: white;
+
+    font-family:
+        var(--font-main);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   CONTENIDO CARD
+========================================================= */
+
+.general-news-card-content {
+
+    padding:
+        28px;
+}
+
+
+/* Fecha */
+
+.general-news-date {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 12px;
+
+    color:
+        var(--brand-blue);
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.general-news-date i {
+
+    font-size: 15px;
+}
+
+
+/* Título */
+
+.general-news-card h3 {
+
+    margin:
+        0 0 14px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 27px;
+
+    line-height: 1.15;
+
+    color:
+        var(--text-primary);
+}
+
+
+/* Descripción */
+
+.general-news-card p {
+
+    margin:
+        0 0 24px;
+
+    color:
+        var(--text-secondary);
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   LEER MÁS
+========================================================= */
+
+/* =========================================================
+   BOTÓN LEER MÁS
+========================================================= */
+
+.general-news-read {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    padding:
+        12px 20px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--brand-blue),
+            var(--brand-green)
+        );
+
+    color: white;
+
+    font-family:
+        var(--font-main);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 8px 20px
+        rgba(27, 136, 203, 0.18);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        gap 0.3s ease;
+}
+
+
+/* Hover */
+
+.general-news-read:hover {
+
+    transform:
+        translateY(-3px);
+
+    gap: 13px;
+
+    color: white;
+
+    box-shadow:
+        0 12px 25px
+        rgba(27, 136, 203, 0.28);
+}
+
+
+/* Ícono */
+
+.general-news-read i {
+
+    font-size: 16px;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.general-news-read:hover i {
+
+    transform:
+        translateX(2px);
+}
+
+
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
+[data-theme="dark"] .general-news-card {
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,0.22);
+}
+
+
+[data-theme="dark"] .general-news-card:hover {
+
+    box-shadow:
+        0 25px 55px
+        rgba(0,0,0,0.32);
+}
+
+
+[data-theme="dark"] .general-news-overlay {
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 15, 25, 0.82),
+            rgba(5, 15, 25, 0.40),
+            rgba(5, 15, 25, 0.72)
+        );
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .general-news-hero {
+
+        height: 460px;
+    }
+
+
+    .general-news-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .general-news-heading {
+
+        align-items: flex-start;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    .general-news-hero {
+
+        height: 400px;
+    }
+
+
+    .general-news-hero h1 {
+
+        font-size: 55px;
+
+        letter-spacing: -2px;
+    }
+
+
+    .general-news-kicker {
+
+        font-size: 11px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .general-news-kicker::before,
+    .general-news-kicker::after {
+
+        width: 20px;
+    }
+
+
+    .general-news-intro {
+
+        padding:
+            65px 0
+            55px;
+    }
+
+
+    .general-news-intro p {
+
+        font-size: 16px;
+    }
+
+
+    .general-news-list {
+
+        padding-bottom: 75px;
+    }
+
+
+    .general-news-image {
+
+        height: 240px;
+    }
+
+
+    .general-news-card-content {
+
+        padding: 24px 22px;
+    }
+
+
+    .general-news-card h3 {
+
+        font-size: 24px;
+    }
+}
