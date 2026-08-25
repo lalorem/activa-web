@@ -9,8 +9,8 @@
     margin: 0 auto;
     overflow: hidden;
     border-radius: 18px;
-    background: #111;
-    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.18);
+    /* background: #111;   <-- ELIMINADO FONDO NEGRO */
+    /* box-shadow: 0 20px 55px rgba(0, 0, 0, 0.18);   <-- ELIMINADO SOMBRA DEL CONTENEDOR PRINCIPAL */
     perspective: 1200px; /* Crea la profundidad 3D */
 }
 
@@ -23,10 +23,12 @@
     height: 80%;
     border-radius: 15px;
     overflow: hidden;
-    transition: transform 0.6s ease, opacity 0.6s ease, z-index 0.6s ease;
+    transition:
+        transform 0.7s ease,
+        opacity 0.7s ease;
     opacity: 0;
     z-index: 1;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18); /* Mantenemos la sombra en las imágenes individuales */
 }
 
 .news-slide img {
@@ -67,6 +69,70 @@
     pointer-events: none;
 }
 
+/* =========================================================
+   ESTILOS PARA BOTONES DE NAVEGACIÓN (FLECHAS)
+========================================================= */
+
+.news-slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10; /* Asegurar que estén por encima de las imágenes */
+    background: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
+    color: #333; /* Color de la flecha */
+    border: none;
+    border-radius: 50%; /* Círculo perfecto */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Sombra suave para que destaquen */
+}
+
+.news-slider-btn:hover {
+    background: rgba(255, 255, 255, 1); /* Opaco al pasar el mouse */
+    transform: translateY(-50%) scale(1.05); /* Ligeramente más grande */
+}
+
+.news-slider-prev {
+    left: 25px; /* Margen a la izquierda */
+}
+
+.news-slider-next {
+    right: 25px; /* Margen a la derecha */
+}
+
+/* =========================================================
+   ESTILOS PARA LOS PUNTOS (DOTS) - OPCIONAL PERO RECOMENDADO
+========================================================= */
+
+.news-slider-dots {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.news-slider-dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(0, 0, 0, 0.3); /* Color semi-transparente por defecto */
+    border-radius: 50%;
+    border: 2px solid #555;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.news-slider-dot.active {
+    background-color: white; /* Color cuando está activo */
+}
 /* =========================================================
    CONTENIDO NOTICIA
 ========================================================= */

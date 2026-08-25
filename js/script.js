@@ -136,90 +136,118 @@ btnSubir.addEventListener('click', () => {
 });
 
 
+/* =========================================================
+   CARRUSEL CLIENTES
+========================================================= */
+
 const clientsTrack = document.querySelector('.clients-track');
 const clientsPrev = document.querySelector('.clients-prev');
 const clientsNext = document.querySelector('.clients-next');
 
-let clientsPosition = 0;
+if (clientsTrack && clientsPrev && clientsNext) {
 
-const clientsStep = 204;
+    let clientsPosition = 0;
 
-
-/* Avanzar */
-
-function moveClientsNext() {
-
-    const maxPosition =
-        clientsTrack.scrollWidth -
-        clientsTrack.parentElement.clientWidth;
-
-    if (clientsPosition >= maxPosition) {
-
-        clientsPosition = 0;
-
-    } else {
-
-        clientsPosition += clientsStep;
-
-        if (clientsPosition > maxPosition) {
-            clientsPosition = maxPosition;
-        }
-
-    }
-
-    clientsTrack.style.transform =
-        `translateX(-${clientsPosition}px)`;
-
-}
+    const clientsStep = 204;
 
 
-/* Retroceder */
+    /* =====================================================
+       AVANZAR
+    ===================================================== */
 
-function moveClientsPrev() {
+    function moveClientsNext() {
 
-    const maxPosition =
-        clientsTrack.scrollWidth -
-        clientsTrack.parentElement.clientWidth;
+        const maxPosition =
+            clientsTrack.scrollWidth -
+            clientsTrack.parentElement.clientWidth;
 
-    if (clientsPosition <= 0) {
 
-        clientsPosition = maxPosition;
+        if (clientsPosition >= maxPosition) {
 
-    } else {
-
-        clientsPosition -= clientsStep;
-
-        if (clientsPosition < 0) {
             clientsPosition = 0;
+
+        } else {
+
+            clientsPosition += clientsStep;
+
+            if (clientsPosition > maxPosition) {
+                clientsPosition = maxPosition;
+            }
+
         }
+
+
+        clientsTrack.style.transform =
+            `translateX(-${clientsPosition}px)`;
 
     }
 
-    clientsTrack.style.transform =
-        `translateX(-${clientsPosition}px)`;
+
+    /* =====================================================
+       RETROCEDER
+    ===================================================== */
+
+    function moveClientsPrev() {
+
+        const maxPosition =
+            clientsTrack.scrollWidth -
+            clientsTrack.parentElement.clientWidth;
+
+
+        if (clientsPosition <= 0) {
+
+            clientsPosition = maxPosition;
+
+        } else {
+
+            clientsPosition -= clientsStep;
+
+            if (clientsPosition < 0) {
+                clientsPosition = 0;
+            }
+
+        }
+
+
+        clientsTrack.style.transform =
+            `translateX(-${clientsPosition}px)`;
+
+    }
+
+
+    /* =====================================================
+       BOTÓN SIGUIENTE
+    ===================================================== */
+
+    clientsNext.addEventListener('click', () => {
+
+        moveClientsNext();
+
+    });
+
+
+    /* =====================================================
+       BOTÓN ANTERIOR
+    ===================================================== */
+
+    clientsPrev.addEventListener('click', () => {
+
+        moveClientsPrev();
+
+    });
+
+
+    /* =====================================================
+       MOVIMIENTO AUTOMÁTICO
+    ===================================================== */
+
+    setInterval(() => {
+
+        moveClientsNext();
+
+    }, 4000);
 
 }
-
-
-/* Flecha derecha */
-
-clientsNext.addEventListener('click', () => {
-    moveClientsNext();
-});
-
-
-/* Flecha izquierda */
-
-clientsPrev.addEventListener('click', () => {
-    moveClientsPrev();
-});
-
-
-/* Movimiento automático cada 5 segundos */
-
-setInterval(() => {
-    moveClientsNext();
-}, 4000);
 
 /* ================= BUSCADOR ================= */
 
@@ -285,78 +313,291 @@ if (menuToggle && navMenu) {
 
 }
 
+/* =========================================================
+   CARRUSEL 3D DE NOTICIAS — BUCLE INFINITO
+========================================================= */
+
 (function init3DCarousel() {
+
     const slides = document.querySelectorAll('.news-slide');
     const prevBtn = document.getElementById('newsSliderPrev');
     const nextBtn = document.getElementById('newsSliderNext');
     const dotsContainer = document.getElementById('newsSliderDots');
 
-    if (slides.length === 0) return;
+    if (!slides.length) return;
 
     let currentIndex = 0;
+
     const totalSlides = slides.length;
 
-    // Limpiar los puntos por si hay recargas
-    if (dotsContainer) dotsContainer.innerHTML = '';
+    /* Tiempo entre imágenes */
+    const autoplayDelay = 4000;
 
-    // Crear los indicadores (dots) dinámicamente
-    slides.forEach((_, index) => {
-        if (dotsContainer) {
+    let autoplayTimer;
+
+
+    /* =====================================================
+       CREAR DOTS
+    ===================================================== */
+
+    if (dotsContainer) {
+
+        dotsContainer.innerHTML = '';
+
+        slides.forEach((_, index) => {
+
             const dot = document.createElement('button');
-            dot.classList.add('news-slider-dot');
-            dot.addEventListener('click', () => update3DSlider(index));
-            dotsContainer.appendChild(dot);
-        }
-    });
 
-    const dots = document.querySelectorAll('.news-slider-dot');
+            dot.classList.add('news-slider-dot');
+
+            dot.setAttribute(
+                'aria-label',
+                `Mostrar imagen ${index + 1}`
+            );
+
+            dot.addEventListener('click', () => {
+
+                update3DSlider(index);
+
+                restartAutoplay();
+
+            });
+
+            dotsContainer.appendChild(dot);
+
+        });
+
+    }
+
+
+    const dots = dotsContainer
+        ? dotsContainer.querySelectorAll('.news-slider-dot')
+        : [];
+
+
+    /* =====================================================
+       ACTUALIZAR CARRUSEL
+    ===================================================== */
 
     function update3DSlider(index) {
-        currentIndex = index;
 
-        // Primero, forzamos a que todas las tarjetas sean "hidden"
+        /*
+         * Nos aseguramos de que el índice siempre
+         * permanezca dentro del rango 0 → totalSlides - 1
+         */
+
+        currentIndex =
+            (index + totalSlides) % totalSlides;
+
+
+        /* Todos ocultos */
+
         slides.forEach(slide => {
-            slide.className = 'news-slide hidden'; 
+
+            slide.classList.remove(
+                'active',
+                'prev',
+                'next',
+                'hidden'
+            );
+
+            slide.classList.add('hidden');
+
         });
-        
-        dots.forEach(dot => dot.classList.remove('active'));
 
-        // Calcular los índices del bucle (infinito)
-        const prevIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-        const nextIndex = (currentIndex + 1) % totalSlides;
 
-        // Asignar los estados 3D correctos
-        slides[currentIndex].classList.replace('hidden', 'active');
-        slides[prevIndex].classList.replace('hidden', 'prev');
-        slides[nextIndex].classList.replace('hidden', 'next');
+        /* Quitar estado activo de dots */
+
+        dots.forEach(dot => {
+
+            dot.classList.remove('active');
+
+        });
+
+
+        /* =================================================
+           CALCULAR ANTERIOR Y SIGUIENTE
+        ================================================= */
+
+        const prevIndex =
+            (currentIndex - 1 + totalSlides) % totalSlides;
+
+        const nextIndex =
+            (currentIndex + 1) % totalSlides;
+
+
+        /* =================================================
+           ASIGNAR POSICIONES
+        ================================================= */
+
+        slides[currentIndex].classList.remove('hidden');
+        slides[currentIndex].classList.add('active');
+
+
+        slides[prevIndex].classList.remove('hidden');
+        slides[prevIndex].classList.add('prev');
+
+
+        slides[nextIndex].classList.remove('hidden');
+        slides[nextIndex].classList.add('next');
+
+
+        /* =================================================
+           DOT ACTIVO
+        ================================================= */
 
         if (dots[currentIndex]) {
+
             dots[currentIndex].classList.add('active');
+
         }
+
     }
 
-    // Eventos de botones (flechas)
-    if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-            update3DSlider((currentIndex + 1) % totalSlides);
-        });
+
+    /* =====================================================
+       SIGUIENTE
+    ===================================================== */
+
+    function nextSlide() {
+
+        update3DSlider(
+            currentIndex + 1
+        );
+
     }
+
+
+    /* =====================================================
+       ANTERIOR
+    ===================================================== */
+
+    function previousSlide() {
+
+        update3DSlider(
+            currentIndex - 1
+        );
+
+    }
+
+
+    /* =====================================================
+       BOTONES
+    ===================================================== */
+
+    if (nextBtn) {
+
+        nextBtn.addEventListener('click', () => {
+
+            nextSlide();
+
+            restartAutoplay();
+
+        });
+
+    }
+
 
     if (prevBtn) {
+
         prevBtn.addEventListener('click', () => {
-            update3DSlider((currentIndex - 1 + totalSlides) % totalSlides);
+
+            previousSlide();
+
+            restartAutoplay();
+
         });
+
     }
 
-    // Permitir clic en las imágenes de los lados para avanzar o retroceder
+
+    /* =====================================================
+       CLICK EN LAS IMÁGENES LATERALES
+    ===================================================== */
+
     slides.forEach((slide, index) => {
+
         slide.addEventListener('click', () => {
-            if (slide.classList.contains('prev') || slide.classList.contains('next')) {
-                update3DSlider(index);
+
+            if (slide.classList.contains('next')) {
+
+                nextSlide();
+
+                restartAutoplay();
+
             }
+
+            if (slide.classList.contains('prev')) {
+
+                previousSlide();
+
+                restartAutoplay();
+
+            }
+
         });
+
     });
 
-    // Arrancar el carrusel en la primera imagen
+
+    /* =====================================================
+       AUTOPLAY
+    ===================================================== */
+
+    function startAutoplay() {
+
+        autoplayTimer = setInterval(() => {
+
+            nextSlide();
+
+        }, autoplayDelay);
+
+    }
+
+
+    /* =====================================================
+       REINICIAR AUTOPLAY
+    ===================================================== */
+
+    function restartAutoplay() {
+
+        clearInterval(autoplayTimer);
+
+        startAutoplay();
+
+    }
+
+
+    /* =====================================================
+       PAUSAR AL PASAR EL MOUSE
+    ===================================================== */
+
+    const slider = document.getElementById('newsSlider');
+
+    if (slider) {
+
+        slider.addEventListener('mouseenter', () => {
+
+            clearInterval(autoplayTimer);
+
+        });
+
+
+        slider.addEventListener('mouseleave', () => {
+
+            startAutoplay();
+
+        });
+
+    }
+
+
+    /* =====================================================
+       INICIAR
+    ===================================================== */
+
     update3DSlider(0);
+
+    startAutoplay();
+
 })();
