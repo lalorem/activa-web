@@ -1,0 +1,384 @@
+:root {
+    --hv-lima: #C7E600;
+    --hv-verde: #00A651;
+    --hv-azul: #0072CE;
+    --hv-gradient: linear-gradient(135deg, #C7E600 0%, #00A651 48%, #0072CE 100%);
+    --hv-gradient-hover: linear-gradient(135deg, #B7D400 0%, #009447 48%, #0065B8 100%);
+    --hv-bg: #f7faf8;
+    --hv-card: #ffffff;
+    --hv-text: #1d2924;
+    --hv-muted: #65716b;
+    --hv-border: rgba(0, 114, 206, 0.10);
+    --hv-shadow: 0 15px 40px rgba(0, 80, 70, 0.09);
+}
+
+/* ========================================================= MODO OSCURO ========================================================= */
+[data-theme="dark"] {
+    --hv-bg: #101816;
+    --hv-card: #18221f;
+    --hv-text: #f2f7f4;
+    --hv-muted: #b3c1bb;
+    --hv-border: rgba(199, 230, 0, 0.13);
+    --hv-shadow: 0 18px 45px rgba(0, 0, 0, 0.30);
+}
+
+/* ========================================================= HERO ========================================================= */
+.hv-hero {
+    position: relative;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(115deg, #0072CE 0%, #00A651 52%, #C7E600 100%);
+}
+
+/* ========================================================= DECORACIONES DEL HERO ========================================================= */
+.hv-hero::before {
+    content: "";
+    position: absolute;
+    width: 470px;
+    height: 470px;
+    border-radius: 50%;
+    top: -290px;
+    right: -80px;
+    background: rgba(255, 255, 255, 0.13);
+}
+
+.hv-hero::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    bottom: -245px;
+    left: -90px;
+    background: rgba(255, 255, 255, 0.10);
+}
+
+/* ========================================================= OVERLAY ========================================================= */
+.hv-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0, 60, 110, 0.22), rgba(0, 166, 81, 0.04));
+    pointer-events: none;
+}
+
+/* ========================================================= HERO CONTENT ========================================================= */
+.hv-hero-content {
+    position: relative;
+    z-index: 2;
+    width: min(1100px, 90%);
+    text-align: center;
+    color: #ffffff;
+}
+
+.hv-hero h1 {
+    margin: 0;
+    font-family: 'Caveat Brush', cursive;
+    font-size: clamp(48px, 6vw, 76px);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: 0.2px;
+    text-shadow: 0 5px 18px rgba(0, 60, 90, 0.18);
+}
+
+/* ========================================================= CONTENIDO ========================================================= */
+.hv-section {
+    padding: 75px 20px 100px;
+    background: var(--hv-bg);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.hv-container {
+    width: min(1120px, 100%);
+    margin: 0 auto;
+}
+
+/* ========================================================= INTRO ========================================================= */
+.hv-intro {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.hv-marker-title {
+    display: inline-block;
+    position: relative;
+    color: var(--hv-verde);
+    font-family: 'Caveat Brush', cursive;
+    font-size: clamp(36px, 4vw, 48px);
+    line-height: 1;
+}
+
+/* Pequeña línea decorativa */
+.hv-marker-title::after {
+    content: "";
+    display: block;
+    width: 65px;
+    height: 4px;
+    margin: 10px auto 0;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--hv-lima), var(--hv-verde), var(--hv-azul));
+}
+
+/* ========================================================= TARJETAS ========================================================= */
+.hv-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+}
+
+/* ========================================================= CARD ========================================================= */
+.hv-card {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 34px;
+    background: var(--hv-card);
+    border: 1px solid var(--hv-border);
+    border-radius: 24px;
+    box-shadow: var(--hv-shadow);
+    overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, background 0.3s ease;
+}
+
+/* Línea superior */
+.hv-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--hv-lima), var(--hv-verde), var(--hv-azul));
+}
+
+/* Brillo lateral */
+.hv-card::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    right: -105px;
+    bottom: -105px;
+    background: rgba(0, 166, 81, 0.045);
+    transition: transform 0.4s ease;
+}
+
+.hv-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 22px 48px rgba(0, 100, 90, 0.14);
+    border-color: rgba(0, 166, 81, 0.25);
+}
+
+.hv-card:hover::after {
+    transform: scale(1.45);
+}
+
+/* ========================================================= ICONO ========================================================= */
+.hv-icon {
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    color: #ffffff;
+    font-size: 28px;
+    background: linear-gradient(135deg, var(--hv-lima) 0%, var(--hv-verde) 48%, var(--hv-azul) 100%);
+    box-shadow: 0 10px 24px rgba(0, 130, 90, 0.20);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.hv-card:hover .hv-icon {
+    transform: translateY(-3px) rotate(-4deg) scale(1.06);
+    box-shadow: 0 14px 28px rgba(0, 130, 90, 0.26);
+}
+
+/* ========================================================= CONTENIDO DE LA CARD ========================================================= */
+.hv-card-content {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    min-width: 0;
+}
+
+/* ========================================================= NÚMERO ========================================================= */
+.hv-card-number {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--hv-azul);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+/* ========================================================= TÍTULO ========================================================= */
+.hv-card h3 {
+    margin: 0 0 13px;
+    color: var(--hv-text);
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.35;
+    transition: color 0.3s ease;
+}
+
+/* ========================================================= DESCRIPCIÓN ========================================================= */
+.hv-card p {
+    margin: 0 0 24px;
+    color: var(--hv-muted);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.75;
+    transition: color 0.3s ease;
+}
+
+/* ========================================================= BOTÓN ========================================================= */
+.hv-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 11px 21px;
+    box-sizing: border-box;
+    border-radius: 50px;
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--hv-lima) 0%, var(--hv-verde) 48%, var(--hv-azul) 100%);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    box-shadow: 0 8px 20px rgba(0, 130, 90, 0.18);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.hv-button i {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.hv-button:hover {
+    transform: translateY(-3px);
+    background: var(--hv-gradient-hover);
+    box-shadow: 0 12px 26px rgba(0, 130, 90, 0.27);
+}
+
+.hv-button:hover i {
+    transform: translate(2px, -2px);
+}
+
+/* ========================================================= DIFERENCIAR EL BOTÓN DEL PDF ========================================================= */
+.hv-card:nth-child(2) .hv-button:hover i {
+    transform: scale(1.12);
+}
+
+/* ========================================================= MODO OSCURO — HERO ========================================================= */
+[data-theme="dark"] .hv-hero {
+    background: linear-gradient(115deg, #00579c 0%, #007d3f 52%, #91a900 100%);
+}
+
+[data-theme="dark"] .hv-hero-overlay {
+    background: linear-gradient(90deg, rgba(0, 20, 35, 0.35), rgba(0, 80, 50, 0.10));
+}
+
+/* ========================================================= MODO OSCURO — CARDS ========================================================= */
+[data-theme="dark"] .hv-card {
+    background: var(--hv-card);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+}
+
+[data-theme="dark"] .hv-card:hover {
+    box-shadow: 0 24px 52px rgba(0, 0, 0, 0.38);
+    border-color: rgba(199, 230, 0, 0.25);
+}
+
+[data-theme="dark"] .hv-card::after {
+    background: rgba(199, 230, 0, 0.035);
+}
+
+/* ========================================================= MODO OSCURO — TÍTULO MARCADOR ========================================================= */
+[data-theme="dark"] .hv-marker-title {
+    color: var(--hv-lima);
+}
+
+/* ========================================================= MODO OSCURO — NÚMEROS ========================================================= */
+[data-theme="dark"] .hv-card-number {
+    color: #5eb4ff;
+}
+
+/* ========================================================= RESPONSIVE — TABLET ========================================================= */
+@media (max-width: 900px) {
+    .hv-cards {
+        grid-template-columns: 1fr;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+}
+
+/* ========================================================= RESPONSIVE — CELULAR ========================================================= */
+@media (max-width: 600px) {
+    .hv-hero {
+        min-height: 270px;
+    }
+
+    .hv-hero h1 {
+        font-size: 47px;
+        line-height: 1.05;
+    }
+
+    .hv-section {
+        padding: 60px 17px 75px;
+    }
+
+    .hv-marker-title {
+        font-size: 37px;
+    }
+
+    .hv-card {
+        flex-direction: column;
+        gap: 20px;
+        padding: 28px 24px;
+        border-radius: 21px;
+    }
+
+    .hv-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 18px;
+        font-size: 25px;
+    }
+
+    .hv-card h3 {
+        font-size: 19px;
+    }
+
+    .hv-card p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .hv-button {
+        width: 100%;
+        min-height: 46px;
+    }
+}
+
+/* ========================================================= RESPONSIVE — CELULARES PEQUEÑOS ========================================================= */
+@media (max-width: 380px) {
+    .hv-hero h1 {
+        font-size: 41px;
+    }
+
+    .hv-marker-title {
+        font-size: 33px;
+    }
+
+    .hv-card {
+        padding: 24px 20px;
+    }
+}
