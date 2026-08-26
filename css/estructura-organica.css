@@ -1,0 +1,697 @@
+/* =========================================================
+   ESTRUCTURA ORGÁNICA
+========================================================= */
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.estructura-hero {
+    position: relative;
+    padding: 85px 20px 80px;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(103, 58, 183, 0.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 15% 80%,
+            rgba(0, 150, 136, 0.10),
+            transparent 35%
+        ),
+        var(--bg-primary);
+}
+
+.estructura-hero-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.estructura-hero h1 {
+    margin: 0;
+
+    font-family: 'Caveat Brush', cursive;
+    font-size: clamp(3.5rem, 7vw, 5.8rem);
+    line-height: 1;
+    font-weight: 400;
+
+    color: var(--text-primary);
+}
+
+
+/* =========================================================
+   SECCIÓN PRINCIPAL
+========================================================= */
+
+.estructura-section {
+    padding: 70px 20px 90px;
+    background: var(--bg-secondary);
+}
+
+
+/* =========================================================
+   CONTENEDOR DEL ORGANIGRAMA
+========================================================= */
+
+.organigrama-wrapper {
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   PREVISUALIZACIÓN
+========================================================= */
+
+.organigrama-preview {
+    position: relative;
+
+    display: block;
+    width: 100%;
+
+    padding: 0;
+    border: none;
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.10);
+
+    cursor: zoom-in;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.organigrama-preview:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 22px 55px rgba(0, 0, 0, 0.16);
+}
+
+
+/* =========================================================
+   IMAGEN
+========================================================= */
+
+.organigrama-preview img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    max-height: 780px;
+
+    object-fit: contain;
+
+    background: #ffffff;
+
+    transition:
+        transform 0.5s ease;
+}
+
+.organigrama-preview:hover img {
+    transform: scale(1.015);
+}
+
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.organigrama-overlay {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    opacity: 0;
+
+    background: rgba(0, 0, 0, 0.48);
+
+    color: #ffffff;
+
+    transition:
+        opacity 0.3s ease;
+}
+
+.organigrama-preview:hover .organigrama-overlay {
+    opacity: 1;
+}
+
+.organigrama-overlay span {
+    font-family: 'Inter', sans-serif;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    letter-spacing: 0.3px;
+}
+
+
+/* =========================================================
+   ICONO ZOOM
+========================================================= */
+
+.zoom-icon {
+    width: 54px;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    color: #333333;
+
+    font-size: 1.45rem;
+}
+
+
+/* =========================================================
+   DESCARGA
+========================================================= */
+
+.organigrama-download {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 16px;
+
+    margin-top: 35px;
+
+    text-align: center;
+}
+
+.organigrama-download p {
+    margin: 0;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 0.9rem;
+    line-height: 1.5;
+
+    color: var(--text-secondary);
+}
+
+
+/* =========================================================
+   BOTÓN DESCARGAR PDF
+   DEGRADADO ACTIVA
+========================================================= */
+
+.btn-download-organigrama {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 14px 26px;
+
+    border: none;
+    border-radius: 50px;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    /*
+       Degradado con los tres colores de ACTIVA
+    */
+    background:
+        linear-gradient(
+            135deg,
+            #90cb1b 0%,
+            #009944 50%,
+            #3366CC 100%
+        );
+
+    box-shadow:
+        0 8px 22px rgba(91, 42, 134, 0.25);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+.btn-download-organigrama i {
+    font-size: 1.25rem;
+}
+
+.btn-download-organigrama:hover {
+    transform: translateY(-3px);
+
+    filter: brightness(1.06);
+
+    box-shadow:
+        0 13px 30px rgba(91, 42, 134, 0.32);
+}
+
+.btn-download-organigrama:active {
+    transform: translateY(0);
+
+    box-shadow:
+        0 6px 15px rgba(91, 42, 134, 0.22);
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.organigrama-modal {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    visibility: hidden;
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.organigrama-modal.active {
+    visibility: visible;
+
+    opacity: 1;
+
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   FONDO DEL MODAL
+========================================================= */
+
+.modal-backdrop {
+    position: absolute;
+    inset: 0;
+
+    background:
+        rgba(8, 8, 15, 0.90);
+
+    backdrop-filter: blur(8px);
+}
+
+
+/* =========================================================
+   CONTENIDO MODAL
+========================================================= */
+
+.organigrama-modal-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(1400px, 96vw);
+    height: min(900px, 92vh);
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: #111111;
+
+    box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.45);
+
+    transform: scale(0.94);
+
+    transition:
+        transform 0.35s ease;
+}
+
+.organigrama-modal.active .organigrama-modal-content {
+    transform: scale(1);
+}
+
+
+/* =========================================================
+   BOTÓN CERRAR
+========================================================= */
+
+.modal-close {
+    position: absolute;
+
+    top: 18px;
+    right: 18px;
+
+    z-index: 10;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    color: #ffffff;
+
+    font-size: 1.35rem;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.18);
+
+    transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   CONTROLES DE ZOOM
+========================================================= */
+
+.modal-controls {
+    position: absolute;
+
+    top: 18px;
+    left: 18px;
+
+    z-index: 10;
+
+    display: flex;
+
+    gap: 7px;
+
+    padding: 6px;
+
+    border-radius: 50px;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    backdrop-filter: blur(6px);
+}
+
+.modal-controls button {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-size: 1.1rem;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.modal-controls button:hover {
+    background: rgba(255, 255, 255, 0.18);
+
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   VISOR
+========================================================= */
+
+.organigrama-viewer {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: auto;
+
+    padding: 70px 40px 55px;
+
+    cursor: grab;
+
+    scrollbar-width: thin;
+}
+
+.organigrama-viewer:active {
+    cursor: grabbing;
+}
+
+.organigrama-viewer img {
+    display: block;
+
+    width: auto;
+    height: auto;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+
+    user-select: none;
+
+    transform-origin: center center;
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+/* =========================================================
+   AYUDA
+========================================================= */
+
+.modal-help {
+    position: absolute;
+
+    bottom: 14px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 7px 13px;
+
+    border-radius: 50px;
+
+    background: rgba(0, 0, 0, 0.60);
+
+    color: rgba(255, 255, 255, 0.85);
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 0.72rem;
+
+    white-space: nowrap;
+
+    pointer-events: none;
+}
+
+.modal-help i {
+    font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
+[data-theme="dark"] .estructura-hero {
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(130, 80, 220, 0.14),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 15% 80%,
+            rgba(0, 150, 136, 0.08),
+            transparent 35%
+        ),
+        var(--bg-primary);
+}
+
+[data-theme="dark"] .organigrama-preview {
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .estructura-hero {
+        padding: 70px 20px 65px;
+    }
+
+    .estructura-section {
+        padding: 60px 18px 75px;
+    }
+
+    .organigrama-preview {
+        border-radius: 18px;
+    }
+
+    .organigrama-preview img {
+        max-height: 600px;
+    }
+
+    .organigrama-modal {
+        padding: 12px;
+    }
+
+    .organigrama-modal-content {
+        width: 100%;
+        height: 94vh;
+
+        border-radius: 15px;
+    }
+
+    .organigrama-viewer {
+        padding: 65px 15px 50px;
+    }
+}
+
+
+/* =========================================================
+   MÓVIL
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .estructura-hero {
+        padding: 60px 18px 55px;
+    }
+
+    .estructura-hero h1 {
+        font-size: 3.1rem;
+    }
+
+    .estructura-section {
+        padding: 50px 14px 65px;
+    }
+
+    .organigrama-preview img {
+        max-height: 450px;
+    }
+
+    .organigrama-overlay {
+        opacity: 1;
+
+        background:
+            linear-gradient(
+                to top,
+                rgba(0, 0, 0, 0.50),
+                transparent 45%
+            );
+
+        justify-content: flex-end;
+
+        padding-bottom: 20px;
+    }
+
+    .zoom-icon {
+        width: 44px;
+        height: 44px;
+
+        font-size: 1.15rem;
+    }
+
+    .organigrama-overlay span {
+        font-size: 0.75rem;
+    }
+
+    .btn-download-organigrama {
+        padding: 12px 21px;
+
+        font-size: 0.82rem;
+    }
+
+    .modal-controls {
+        top: 12px;
+        left: 12px;
+    }
+
+    .modal-close {
+        top: 12px;
+        right: 12px;
+    }
+
+    .modal-help {
+        display: none;
+    }
+}

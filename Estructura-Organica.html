@@ -11,7 +11,7 @@
     <link rel="icon" href="assets/logo_activa.webp" type="image/webp">
 
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/directorio.css">
+    <link rel="stylesheet" href="css/estructura-organica.css">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,16 +19,14 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
 
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
 </head>
 
-
 <body>
-
 
     <div class="gov-bar">
 
@@ -173,7 +171,7 @@
 
                         <div class="transparency-item">
 
-                            <a href="#">
+                            <a href="Estructura-Organica.html">
                                 Estructura Orgánica
                             </a>
 
@@ -658,107 +656,171 @@
 
     </nav>
 
-
-<!-- =========================
-         ENCABEZADO / HERO
-    ========================== -->
-    <section class="directorio-hero">
-
-        <div class="directorio-overlay"></div>
-
-        <div class="directorio-hero-content">
-            <span class="directorio-subtitle">ACTIVA</span>
-
-            <h1>Directorio Institucional</h1>
-
-            <div class="directorio-line"></div>
-        </div>
-
-    </section>
+    <main class="estructura-page">
 
 
-<!-- =========================
-     CONTENIDO DIRECTORIO
-========================== -->
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
 
-<main class="directorio-main">
+        <section class="estructura-hero">
 
-    <section class="directorio-section">
+            <div class="container">
 
-        <!-- Introducción -->
-        <div class="directorio-intro">
+                <div class="estructura-hero-content">
 
-            <span class="directorio-intro-label">
-                Información institucional
-            </span>
-
-            <h2>Directorio Institucional</h2>
-
-            <p>
-                Encuentra la información de contacto de los funcionarios
-                que hacen parte de ACTIVA.
-            </p>
-
-        </div>
-
-
-        <!-- Tarjeta -->
-        <div class="directorio-card">
-
-            <!-- Ícono -->
-            <div class="directorio-icon-wrapper">
-
-                <div class="directorio-icon">
-                    <i class="fa-solid fa-file"></i>
-                </div>
-
-            </div>
-
-
-            <!-- Contenido -->
-            <div class="directorio-card-content">
-
-                <h2>Directorio Institucional</h2>
-
-                <p>
-                    Consulta y descarga el directorio actualizado de
-                    funcionarios de ACTIVA y encuentra la información
-                    necesaria para establecer contacto con nuestra entidad.
-                </p>
-
-
-                <a
-                    href="https://activa.com.co/wp-content/uploads/2026/07/Directorio-de-funcionarios-JULIO-2026.xlsx"
-                    class="directorio-download"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    download
-                >
-
-                    <i class="fa-solid fa-download"></i>
-
-                    <span>
-                        Descarga el Directorio Institucional
-                    </span>
-
-                </a>
-
-
-                <div class="directorio-file-info">
-
-                    <i class="fa-solid fa-file-excel"></i>
-
-                    Archivo Excel · Julio 2026
+                    <h1>
+                        ORGANIGRAMA
+                    </h1>
 
                 </div>
 
             </div>
 
+        </section>
+
+
+        <!-- =====================================================
+             ESTRUCTURA ORGANIZACIONAL
+        ====================================================== -->
+
+        <section class="estructura-section">
+
+                <!-- =================================================
+                     IMAGEN DEL ORGANIGRAMA
+                ================================================== -->
+
+                <div class="organigrama-wrapper">
+
+                    <button class="organigrama-preview" id="organigramaOpen" type="button"
+                        aria-label="Ver estructura orgánica en tamaño completo">
+
+                        <img src="assets/ORGANIGRAMA.webp" alt="Estructura Orgánica de ACTIVA" id="organigramaImage">
+
+                        <div class="organigrama-overlay">
+
+                            <div class="zoom-icon">
+
+                                <i class="ph ph-magnifying-glass-plus"></i>
+
+                            </div>
+
+                            <span>
+                                Haz clic para ampliar
+                            </span>
+
+                        </div>
+
+                    </button>
+
+                </div>
+
+
+                <!-- =================================================
+                     DESCARGA
+                ================================================== -->
+
+                <div class="organigrama-download">
+
+                    <p>
+                        ¿Necesitas conservar o compartir esta información?
+                    </p>
+
+
+                    <button type="button" class="btn-download-organigrama" id="downloadOrganigrama">
+
+                        <i class="ph ph-file-pdf"></i>
+
+                        <span>
+                            Descargar en PDF
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         MODAL / VISOR DE IMAGEN
+    ========================================================== -->
+
+    <div class="organigrama-modal" id="organigramaModal" aria-hidden="true">
+
+        <div class="modal-backdrop"></div>
+
+
+        <div class="organigrama-modal-content" role="dialog" aria-modal="true"
+            aria-label="Estructura Orgánica ampliada">
+
+
+            <!-- BOTÓN CERRAR -->
+
+            <button class="modal-close" id="organigramaClose" type="button" aria-label="Cerrar imagen">
+
+                <i class="ph ph-x"></i>
+
+            </button>
+
+
+            <!-- CONTROLES -->
+
+            <div class="modal-controls">
+
+                <button type="button" id="zoomOut" title="Reducir">
+
+                    <i class="ph ph-minus"></i>
+
+                </button>
+
+
+                <button type="button" id="zoomReset" title="Restablecer zoom">
+
+                    <i class="ph ph-arrows-in"></i>
+
+                </button>
+
+
+                <button type="button" id="zoomIn" title="Ampliar">
+
+                    <i class="ph ph-plus"></i>
+
+                </button>
+
+            </div>
+
+
+            <!-- IMAGEN -->
+
+            <div class="organigrama-viewer" id="organigramaViewer">
+
+                <img src="assets/ORGANIGRAMA.webp" alt="Estructura Orgánica de ACTIVA" id="organigramaModalImage">
+
+            </div>
+
+
+            <!-- INDICACIÓN -->
+
+            <div class="modal-help">
+
+                <i class="ph ph-hand"></i>
+
+                <span>
+                    Puedes ampliar la imagen para consultar los detalles.
+                </span>
+
+            </div>
+
         </div>
 
-    </section>
+    </div>
 
-</main>
+
 
     <footer>
         <div class="container">
@@ -812,6 +874,7 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="js/estructura-organica.js"></script>
 
 
 </body>
