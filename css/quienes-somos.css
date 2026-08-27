@@ -1,41 +1,95 @@
 /* =========================================================
    QUIÉNES SOMOS
    CSS EXCLUSIVO DE LA VISTA
-   Basado en la identidad visual global de ACTIVA
+   IDENTIDAD VISUAL ACTIVA
 ========================================================= */
 
 
 /* =========================================================
    VARIABLES COMPLEMENTARIAS
-   Extienden las variables definidas en style.css
 ========================================================= */
 
 :root {
 
-    /* Texto */
-    --text-dark: #111827;
-    --text-light: #ffffff;
+    /* ================= COLORES ACTIVA ================= */
 
-    /* Superficies especiales */
-    --accent-green-soft: #ecf8ef;
+    --about-blue: #0b3f5a;
+    --about-blue-light: #125f91;
 
-    /* Azul profundo para overlays */
-    --brand-blue-deep: #0b3f5a;
+    --about-green: #4caf50;
+    --about-lime: #90cb1b;
 
-    /* Transparencias */
-    --overlay-light: rgba(255, 255, 255, 0.10);
-    --overlay-border: rgba(255, 255, 255, 0.30);
+    /* Degradado principal ACTIVA */
+    --about-gradient:
+        linear-gradient(
+            135deg,
+            #90cb1b 0%,
+            #4caf50 48%,
+            #125f91 100%
+        );
+
+    /* Degradado invertido */
+    --about-gradient-reverse:
+        linear-gradient(
+            135deg,
+            #125f91 0%,
+            #4caf50 52%,
+            #90cb1b 100%
+        );
+
+    /* ================= TEXTOS ================= */
+
+    --about-text-dark: #17212b;
+    --about-text-light: #ffffff;
+
+    /* ================= SUPERFICIES ================= */
+
+    --about-soft:
+        linear-gradient(
+            135deg,
+            rgba(144, 203, 27, 0.08),
+            rgba(76, 175, 80, 0.06),
+            rgba(18, 95, 145, 0.08)
+        );
+
+    --about-border:
+        rgba(18, 95, 145, 0.15);
+
+    /* ================= SOMBRAS ================= */
+
+    --about-shadow:
+        0 15px 40px rgba(11, 63, 90, 0.10);
+
+    --about-shadow-hover:
+        0 22px 50px rgba(11, 63, 90, 0.16);
 
 }
 
 
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
 [data-theme="dark"] {
 
-    /* Superficie verde suave adaptada al modo oscuro */
-    --accent-green-soft: #243b32;
+    --about-text-dark: #f1f5f9;
 
-    /* Azul profundo */
-    --brand-blue-deep: #081f2d;
+    --about-soft:
+        linear-gradient(
+            135deg,
+            rgba(144, 203, 27, 0.09),
+            rgba(76, 175, 80, 0.07),
+            rgba(18, 95, 145, 0.12)
+        );
+
+    --about-border:
+        rgba(255, 255, 255, 0.10);
+
+    --about-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.22);
+
+    --about-shadow-hover:
+        0 22px 50px rgba(0, 0, 0, 0.32);
 
 }
 
@@ -58,35 +112,43 @@
 
     border-radius: 50%;
 
-    background-color: var(--brand-lime);
-
-    color: var(--text-dark);
-
     border: none;
 
-    font-size: 28px;
+    background:
+        linear-gradient(
+            135deg,
+            var(--about-lime),
+            var(--about-green)
+        );
+
+    color: #ffffff;
+
+    font-size: 27px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     cursor: pointer;
 
     box-shadow:
-        0 4px 15px rgba(0, 0, 0, 0.15);
+        0 8px 25px rgba(76, 175, 80, 0.28);
 
     transition:
         transform 0.3s ease,
-        background-color 0.3s ease;
+        box-shadow 0.3s ease;
 }
 
 
 .btn-accesibilidad:hover {
 
-    transform: scale(1.1) rotate(5deg);
+    transform:
+        scale(1.08)
+        rotate(5deg);
 
-    background-color: var(--brand-lime);
-
+    box-shadow:
+        0 12px 30px rgba(76, 175, 80, 0.35);
 }
 
 
@@ -116,11 +178,12 @@
     min-height: 88vh;
 
     display: flex;
+
     align-items: center;
 
     overflow: hidden;
 
-    color: var(--text-light);
+    color: var(--about-text-light);
 
     isolation: isolate;
 }
@@ -136,41 +199,52 @@
 
     inset: 0;
 
-    background-image: url("https://activa.com.co/wp-content/uploads/2025/08/25935254-9add-4145-95f6-e3cb788ed112.jpg");
-
+    background-image:
+        url(
+            "https://activa.com.co/wp-content/uploads/2025/08/25935254-9add-4145-95f6-e3cb788ed112.jpg"
+        );
 
     background-size: cover;
 
     background-position: center;
 
-    transform: scale(1.04);
+    transform: scale(1.05);
 
     animation:
-        aboutHeroZoom 10s ease-out forwards;
+        aboutHeroZoom
+        10s
+        ease-out
+        forwards;
 
     z-index: -3;
 }
 
 
 /* =========================================================
-   ANIMACIÓN DE ZOOM
+   ANIMACIÓN HERO
 ========================================================= */
 
 @keyframes aboutHeroZoom {
 
     from {
-        transform: scale(1.08);
+
+        transform:
+            scale(1.08);
+
     }
 
     to {
-        transform: scale(1);
+
+        transform:
+            scale(1);
+
     }
 
 }
 
 
 /* =========================================================
-   OVERLAY DEL HERO
+   OVERLAY HERO
 ========================================================= */
 
 .about-hero-overlay {
@@ -184,13 +258,13 @@
         linear-gradient(
             90deg,
 
-            rgba(11, 63, 90, 0.94) 0%,
+            rgba(11, 63, 90, 0.96) 0%,
 
-            rgba(18, 95, 145, 0.72) 38%,
+            rgba(11, 63, 90, 0.82) 30%,
 
-            rgba(18, 95, 145, 0.22) 75%,
+            rgba(18, 95, 145, 0.48) 62%,
 
-            rgba(18, 95, 145, 0.08) 100%
+            rgba(18, 95, 145, 0.10) 100%
         );
 
     z-index: -2;
@@ -198,7 +272,7 @@
 
 
 /* =========================================================
-   CONTENIDO DEL HERO
+   CONTENIDO HERO
 ========================================================= */
 
 .about-hero-content {
@@ -213,12 +287,15 @@
     padding-bottom: 100px;
 
     animation:
-        aboutHeroContent 1s ease-out forwards;
+        aboutHeroContent
+        1s
+        ease-out
+        forwards;
 }
 
 
 /* =========================================================
-   ANIMACIÓN DEL CONTENIDO
+   ANIMACIÓN CONTENIDO
 ========================================================= */
 
 @keyframes aboutHeroContent {
@@ -245,7 +322,7 @@
 
 
 /* =========================================================
-   TÍTULO DEL HERO
+   TÍTULO HERO
 ========================================================= */
 
 .about-hero h1 {
@@ -253,6 +330,7 @@
     margin: 0;
 
     font-family:
+        var(--font-main),
         'Poppins',
         sans-serif;
 
@@ -275,12 +353,12 @@
 
     display: block;
 
-    margin-top: 4px;
+    margin-top: 8px;
 
-    color: var(--brand-lime);
+    color: var(--about-lime);
 
     font-family:
-        'Pinyon Script',
+        'Caveat Brush',
         cursive;
 
     font-size:
@@ -292,15 +370,19 @@
 
     letter-spacing: 0;
 
-    transform: rotate(-3deg);
+    transform:
+        rotate(-3deg);
 
     transform-origin:
         left center;
+
+    text-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.12);
 }
 
 
 /* =========================================================
-   TEXTO DEL HERO
+   TEXTO HERO
 ========================================================= */
 
 .about-hero p {
@@ -311,6 +393,7 @@
     margin-bottom: 30px;
 
     font-family:
+        var(--font-main),
         'Poppins',
         sans-serif;
 
@@ -319,12 +402,12 @@
     line-height: 1.8;
 
     color:
-        rgba(255, 255, 255, 0.90);
+        rgba(255, 255, 255, 0.92);
 }
 
 
 /* =========================================================
-   ACCIONES DEL HERO
+   ACCIONES HERO
 ========================================================= */
 
 .about-hero-actions {
@@ -336,7 +419,7 @@
 
 
 /* =========================================================
-   BOTÓN DEL HERO
+   BOTÓN HERO
 ========================================================= */
 
 .about-hero-btn {
@@ -345,20 +428,23 @@
 
     align-items: center;
 
+    justify-content: center;
+
     gap: 10px;
 
     padding:
-        13px 22px;
+        13px 23px;
 
     border-radius: 999px;
 
-    background-color:
-        var(--brand-lime);
+    background:
+        var(--about-gradient);
 
     color:
-        var(--text-dark);
+        #ffffff;
 
     font-family:
+        var(--font-main),
         'Poppins',
         sans-serif;
 
@@ -366,9 +452,17 @@
 
     font-weight: 600;
 
+    text-decoration: none;
+
+    border: none;
+
+    box-shadow:
+        0 8px 22px rgba(11, 63, 90, 0.22);
+
     transition:
         transform 0.3s ease,
-        box-shadow 0.3s ease;
+        box-shadow 0.3s ease,
+        filter 0.3s ease;
 }
 
 
@@ -378,8 +472,10 @@
         translateY(-3px);
 
     box-shadow:
-        0 12px 25px
-        rgba(144, 203, 27, 0.25);
+        0 14px 30px rgba(11, 63, 90, 0.30);
+
+    filter:
+        brightness(1.05);
 }
 
 
@@ -422,6 +518,7 @@
         rgba(255, 255, 255, 0.85);
 
     font-family:
+        var(--font-main),
         'Poppins',
         sans-serif;
 
@@ -446,7 +543,7 @@
 
 
 /* =========================================================
-   ANIMACIÓN DE SCROLL
+   ANIMACIÓN SCROLL
 ========================================================= */
 
 @keyframes scrollArrow {
@@ -470,7 +567,7 @@
 
 
 /* =========================================================
-   LÍNEA DECORATIVA
+   LÍNEA DECORATIVA HERO
 ========================================================= */
 
 .about-hero-line {
@@ -480,40 +577,94 @@
     left: 0;
     bottom: 0;
 
-    width: 38%;
+    width: 42%;
 
     height: 5px;
 
     background:
+        var(--about-gradient);
 
-        linear-gradient(
-            90deg,
-            var(--brand-lime),
-            var(--brand-green)
-        );
+    z-index: 4;
 }
 
 
 /* =========================================================
    NUESTRO EQUIPO
-   ESTILO EDITORIAL
 ========================================================= */
 
 .team-editorial {
 
     padding:
-        100px 20px;
+        110px 20px;
 
-    background-color:
+    background:
         var(--bg-surface);
 
     color:
         var(--text-main);
+
+    position: relative;
+
+    overflow: hidden;
 }
 
 
 /* =========================================================
-   ENCABEZADO DEL EQUIPO
+   DECORACIÓN DE FONDO
+========================================================= */
+
+.team-editorial::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    top: -120px;
+    right: -100px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(144, 203, 27, 0.12),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+.team-editorial::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    bottom: -120px;
+    left: -100px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(18, 95, 145, 0.10),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   ENCABEZADO EQUIPO
 ========================================================= */
 
 .team-header-center {
@@ -524,38 +675,102 @@
 
     margin:
         0 auto 80px;
+
+    position: relative;
+
+    z-index: 2;
 }
 
+
+/* =========================================================
+   TÍTULO EQUIPO
+========================================================= */
 
 .team-header-center h2 {
-    font-family: var(--font-main);
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 20px;
-    color: var(--brand-blue);
+
+    font-family:
+        'Caveat Brush',
+        cursive;
+
+    font-size:
+        clamp(3rem, 5vw, 4.8rem);
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    margin:
+        0 0 20px;
+
+    color:
+        var(--brand-blue);
 }
+
+
+/* =========================================================
+   DESTACADO
+========================================================= */
 
 .team-header-center .highlight {
-    color: var(--brand-green);
+
+    color:
+        var(--brand-green);
+
+    position: relative;
 }
 
-.team-header-description {
-    max-width: 760px;
-    margin: 0 auto;
 
-    font-family: var(--font-main);
+/* Línea decorativa debajo del destacado */
+
+.team-header-center .highlight::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 5%;
+    right: 5%;
+
+    bottom: -6px;
+
+    height: 3px;
+
+    border-radius: 999px;
+
+    background:
+        var(--about-gradient);
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN EQUIPO
+========================================================= */
+
+.team-header-description {
+
+    max-width: 760px;
+
+    margin:
+        0 auto;
+
+    font-family:
+        var(--font-main),
+        'Poppins',
+        sans-serif;
+
     font-size: 1rem;
+
     line-height: 1.7;
 
-    color: var(--text-muted);
+    color:
+        var(--text-muted);
 
     font-weight: 400;
 }
 
 
 /* =========================================================
-   LISTA DEL EQUIPO
+   LISTA EQUIPO
 ========================================================= */
 
 .team-list {
@@ -564,16 +779,21 @@
 
     flex-direction: column;
 
-    gap: 60px;
+    gap: 70px;
 
-    max-width: 1000px;
+    max-width: 1050px;
 
-    margin: 0 auto;
+    margin:
+        0 auto;
+
+    position: relative;
+
+    z-index: 2;
 }
 
 
 /* =========================================================
-   FILA DE EQUIPO
+   FILA EQUIPO
 ========================================================= */
 
 .team-row {
@@ -584,13 +804,12 @@
 
     justify-content: space-between;
 
-    gap: 40px;
+    gap: 50px;
 }
 
 
 /* =========================================================
    FILAS PARES
-   INVERSIÓN DE ORDEN
 ========================================================= */
 
 .team-row:nth-child(even) {
@@ -601,7 +820,7 @@
 
 
 /* =========================================================
-   COLUMNA DE IMAGEN
+   COLUMNA IMAGEN
 ========================================================= */
 
 .team-image-col {
@@ -614,10 +833,10 @@
 
     position: relative;
 
-    padding: 5px;
+    padding: 6px;
 
     border-radius:
-        16px;
+        18px;
 
     animation:
         floatingImage
@@ -628,7 +847,7 @@
 
 
 /* =========================================================
-   ANIMACIÓN DE FLOTACIÓN
+   ANIMACIÓN FLOTACIÓN
 ========================================================= */
 
 @keyframes floatingImage {
@@ -644,7 +863,7 @@
     50% {
 
         transform:
-            translateY(-10px);
+            translateY(-8px);
 
     }
 
@@ -664,22 +883,16 @@
     inset: 0;
 
     border-radius:
-        16px;
+        18px;
 
     background:
-
-        linear-gradient(
-            135deg,
-            var(--brand-lime),
-            var(--brand-green),
-            var(--brand-blue-dark)
-        );
+        var(--about-gradient);
 
     -webkit-mask-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0,0 H100 V65 C 90,65 90,85 80,85 C 70,85 70,55 60,55 C 50,55 50,95 40,95 C 30,95 30,60 20,60 C 10,60 10,80 0,80 Z'/%3E%3C/svg%3E");
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0,0 H100 V65 C90,65 90,85 80,85 C70,85 70,55 60,55 C50,55 50,95 40,95 C30,95 30,60 20,60 C10,60 10,80 0,80 Z'/%3E%3C/svg%3E");
 
     mask-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0,0 H100 V65 C 90,65 90,85 80,85 C 70,85 70,55 60,55 C 50,55 50,95 40,95 C 30,95 30,60 20,60 C 10,60 10,80 0,80 Z'/%3E%3C/svg%3E");
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0,0 H100 V65 C90,65 90,85 80,85 C70,85 70,55 60,55 C50,55 50,95 40,95 C30,95 30,60 20,60 C10,60 10,80 0,80 Z'/%3E%3C/svg%3E");
 
     -webkit-mask-size:
         100% 100%;
@@ -693,7 +906,7 @@
 
 
 /* =========================================================
-   CONTENEDOR DE IMAGEN
+   CONTENEDOR IMAGEN
 ========================================================= */
 
 .image-wrapper {
@@ -706,16 +919,18 @@
         3 / 4;
 
     border-radius:
-        12px;
+        13px;
+
+    overflow: hidden;
 
     z-index:
         2;
 
     -webkit-mask-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0,0 H100 V65 C 90,65 90,85 80,85 C 70,85 70,55 60,55 C 50,55 50,95 40,95 C 30,95 30,60 20,60 C 10,60 10,80 0,80 Z'/%3E%3C/svg%3E");
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0,0 H100 V65 C90,65 90,85 80,85 C70,85 70,55 60,55 C50,55 50,95 40,95 C30,95 30,60 20,60 C10,60 10,80 0,80 Z'/%3E%3C/svg%3E");
 
     mask-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0,0 H100 V65 C 90,65 90,85 80,85 C 70,85 70,55 60,55 C 50,55 50,95 40,95 C 30,95 30,60 20,60 C 10,60 10,80 0,80 Z'/%3E%3C/svg%3E");
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0,0 H100 V65 C90,65 90,85 80,85 C70,85 70,55 60,55 C50,55 50,95 40,95 C30,95 30,60 20,60 C10,60 10,80 0,80 Z'/%3E%3C/svg%3E");
 
     -webkit-mask-size:
         100% 100%;
@@ -726,7 +941,7 @@
 
 
 /* =========================================================
-   IMAGEN DEL EQUIPO
+   IMAGEN EQUIPO
 ========================================================= */
 
 .image-wrapper img {
@@ -735,6 +950,8 @@
     height: 100%;
 
     object-fit: cover;
+
+    display: block;
 
     transition:
         transform 0.5s ease;
@@ -745,12 +962,12 @@
 .image-wrapper img {
 
     transform:
-        scale(1.03);
+        scale(1.04);
 }
 
 
 /* =========================================================
-   COLUMNA DE TEXTO
+   COLUMNA TEXTO
 ========================================================= */
 
 .team-text-col {
@@ -759,38 +976,80 @@
         0 0 55%;
 
     background:
-        var(--accent-green-soft);
+        var(--about-soft);
 
     padding:
-        40px;
+        42px;
 
     border-radius:
-        12px;
+        18px;
 
     border:
         1px solid
-        var(--card-border);
+        var(--about-border);
 
     box-shadow:
-        var(--card-shadow);
+        var(--about-shadow);
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 
 /* =========================================================
-   TEXTO — MODO OSCURO
+   DETALLE DECORATIVO TARJETA
 ========================================================= */
 
-[data-theme="dark"]
-.team-text-col {
+.team-text-col::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
 
     background:
-        var(--card-bg);
+        var(--about-gradient);
+}
 
-    border-color:
-        var(--card-border);
+
+/* =========================================================
+   HOVER TARJETA
+========================================================= */
+
+.team-text-col:hover {
+
+    transform:
+        translateY(-5px);
 
     box-shadow:
-        var(--card-shadow);
+        var(--about-shadow-hover);
+}
+
+
+/* =========================================================
+   MODO OSCURO TARJETA
+========================================================= */
+
+[data-theme="dark"] .team-text-col {
+
+    background:
+        var(--about-soft);
+
+    border-color:
+        rgba(255, 255, 255, 0.10);
+
+    box-shadow:
+        var(--about-shadow);
 }
 
 
@@ -803,11 +1062,12 @@
     display: block;
 
     font-family:
+        var(--font-main),
         'Poppins',
         sans-serif;
 
     font-size:
-        1.1rem;
+        1rem;
 
     font-weight:
         700;
@@ -816,13 +1076,13 @@
         uppercase;
 
     letter-spacing:
-        1px;
+        1.2px;
 
     color:
         var(--brand-green);
 
     margin-bottom:
-        5px;
+        7px;
 }
 
 
@@ -833,6 +1093,7 @@
 .team-text-col h3 {
 
     font-family:
+        var(--font-main),
         'Poppins',
         sans-serif;
 
@@ -845,11 +1106,22 @@
     line-height:
         1.1;
 
-    margin-bottom:
-        20px;
+    margin:
+        0 0 20px;
 
     color:
-        var(--brand-green);
+        var(--brand-blue);
+}
+
+
+/* =========================================================
+   NOMBRE MODO OSCURO
+========================================================= */
+
+[data-theme="dark"] .team-text-col h3 {
+
+    color:
+        #ffffff;
 }
 
 
@@ -860,6 +1132,7 @@
 .team-desc p {
 
     font-family:
+        var(--font-main),
         'Poppins',
         sans-serif;
 
@@ -867,17 +1140,21 @@
         1rem;
 
     line-height:
-        1.6;
+        1.7;
 
     color:
         var(--text-main);
 
     opacity:
         0.95;
+
+    margin:
+        0;
 }
 
+
 /* =========================================================
-   RESPONSIVE — QUIÉNES SOMOS
+   RESPONSIVE
 ========================================================= */
 
 
@@ -887,56 +1164,73 @@
 
 @media (max-width: 1200px) {
 
-    /* ================= HERO ================= */
-
     .about-hero {
-        min-height: 82vh;
+
+        min-height:
+            82vh;
     }
+
 
     .about-hero-content {
-        max-width: 700px;
 
-        padding-top: 70px;
-        padding-bottom: 90px;
+        max-width:
+            700px;
+
+        padding-top:
+            70px;
+
+        padding-bottom:
+            90px;
     }
 
+
     .about-hero h1 {
+
         font-size:
             clamp(3.2rem, 6vw, 5.8rem);
     }
 
+
     .about-script {
+
         font-size:
             clamp(4.2rem, 7vw, 7rem);
     }
 
 
-    /* ================= EQUIPO ================= */
-
     .team-editorial {
+
         padding:
             90px 20px;
     }
 
+
     .team-header-center {
+
         margin-bottom:
             65px;
     }
 
+
     .team-list {
+
         max-width:
             920px;
 
         gap:
-            50px;
+            55px;
     }
+
 
     .team-row {
+
         gap:
-            30px;
+            35px;
     }
 
+
     .team-image-col {
+
         flex:
             0 0 38%;
 
@@ -944,15 +1238,19 @@
             240px;
     }
 
+
     .team-text-col {
+
         flex:
             0 0 58%;
 
         padding:
-            32px;
+            34px;
     }
 
+
     .team-text-col h3 {
+
         font-size:
             clamp(1.7rem, 2.7vw, 2.2rem);
     }
@@ -966,14 +1264,15 @@
 
 @media (max-width: 1024px) {
 
-    /* ================= HERO ================= */
-
     .about-hero {
+
         min-height:
             76vh;
     }
 
+
     .about-hero-content {
+
         max-width:
             650px;
 
@@ -984,7 +1283,9 @@
             80px;
     }
 
+
     .about-hero h1 {
+
         font-size:
             clamp(3rem, 7vw, 5rem);
 
@@ -992,12 +1293,16 @@
             -2px;
     }
 
+
     .about-script {
+
         font-size:
             clamp(4rem, 8vw, 6.8rem);
     }
 
+
     .about-hero p {
+
         max-width:
             560px;
 
@@ -1009,11 +1314,14 @@
     /* ================= EQUIPO ================= */
 
     .team-editorial {
+
         padding:
             80px 20px;
     }
 
+
     .team-header-center {
+
         max-width:
             720px;
 
@@ -1021,7 +1329,9 @@
             55px;
     }
 
+
     .team-list {
+
         max-width:
             850px;
 
@@ -1029,8 +1339,10 @@
             45px;
     }
 
+
     .team-row,
     .team-row:nth-child(even) {
+
         flex-direction:
             column;
 
@@ -1048,9 +1360,10 @@
     }
 
 
-    /* FOTO */
+    /* ================= FOTO ================= */
 
     .team-image-col {
+
         width:
             min(72%, 420px);
 
@@ -1070,13 +1383,15 @@
             2;
     }
 
+
     .image-wrapper img {
+
         height:
             auto;
     }
 
 
-    /* TARJETA DE TEXTO */
+    /* ================= TARJETA ================= */
 
     .team-text-col,
     .team-row:nth-child(even)
@@ -1106,24 +1421,30 @@
 
 
     .team-role {
+
         font-size:
             1rem;
     }
 
+
     .team-text-col h3 {
+
         font-size:
             clamp(1.8rem, 4vw, 2.4rem);
     }
 
+
     .team-desc p {
+
         font-size:
             0.96rem;
     }
 
 
-    /* BOTONES FLOTANTES */
+    /* ================= BOTONES ================= */
 
     .btn-accesibilidad {
+
         bottom:
             18px;
 
@@ -1131,7 +1452,9 @@
             18px;
     }
 
+
     .btn-theme-toggle {
+
         bottom:
             18px;
 
@@ -1151,6 +1474,7 @@
     /* ================= HERO ================= */
 
     .about-hero {
+
         min-height:
             72vh;
 
@@ -1158,7 +1482,9 @@
             center;
     }
 
+
     .about-hero-content {
+
         padding:
             50px 20px 80px;
 
@@ -1166,7 +1492,9 @@
             600px;
     }
 
+
     .about-hero h1 {
+
         font-size:
             clamp(2.7rem, 9vw, 4.4rem);
 
@@ -1177,7 +1505,9 @@
             -1.5px;
     }
 
+
     .about-script {
+
         font-size:
             clamp(3.8rem, 13vw, 6rem);
 
@@ -1185,7 +1515,9 @@
             6px;
     }
 
+
     .about-hero p {
+
         margin-top:
             28px;
 
@@ -1199,7 +1531,9 @@
             1.7;
     }
 
+
     .about-hero-btn {
+
         padding:
             12px 20px;
 
@@ -1207,7 +1541,9 @@
             0.88rem;
     }
 
+
     .about-scroll-indicator {
+
         right:
             20px;
 
@@ -1219,21 +1555,28 @@
     /* ================= EQUIPO ================= */
 
     .team-editorial {
+
         padding:
             70px 16px;
     }
 
+
     .team-header-center {
+
         margin-bottom:
             45px;
     }
 
+
     .team-header-center h2 {
+
         font-size:
-            clamp(2.5rem, 8vw, 3.4rem);
+            clamp(2.8rem, 8vw, 3.8rem);
     }
 
+
     .team-header-description {
+
         max-width:
             620px;
 
@@ -1244,21 +1587,24 @@
             1.65;
     }
 
+
     .team-list {
+
         gap:
             40px;
     }
 
 
-    /* FOTO */
+    /* ================= FOTO ================= */
 
     .team-image-col {
+
         width:
             min(78%, 360px);
     }
 
 
-    /* TEXTO */
+    /* ================= TEXTO ================= */
 
     .team-text-col,
     .team-row:nth-child(even)
@@ -1274,7 +1620,9 @@
             30px 24px;
     }
 
+
     .team-role {
+
         font-size:
             0.92rem;
 
@@ -1282,7 +1630,9 @@
             0.8px;
     }
 
+
     .team-text-col h3 {
+
         font-size:
             clamp(1.7rem, 6vw, 2.2rem);
 
@@ -1293,7 +1643,9 @@
             18px;
     }
 
+
     .team-desc p {
+
         font-size:
             0.92rem;
 
@@ -1305,9 +1657,10 @@
     }
 
 
-    /* BOTONES */
+    /* ================= BOTONES ================= */
 
     .btn-accesibilidad {
+
         width:
             48px;
 
@@ -1324,7 +1677,9 @@
             15px;
     }
 
+
     .btn-theme-toggle {
+
         bottom:
             15px;
 
@@ -1344,6 +1699,7 @@
     /* ================= HERO ================= */
 
     .about-hero {
+
         min-height:
             76vh;
 
@@ -1351,22 +1707,28 @@
             flex-end;
     }
 
+
     .about-hero-image {
+
         background-position:
             60% center;
     }
 
+
     .about-hero-overlay {
+
         background:
             linear-gradient(
                 180deg,
-                rgba(11, 63, 90, 0.18) 0%,
-                rgba(18, 95, 145, 0.58) 42%,
+                rgba(11, 63, 90, 0.15) 0%,
+                rgba(18, 95, 145, 0.55) 42%,
                 rgba(11, 63, 90, 0.97) 100%
             );
     }
 
+
     .about-hero-content {
+
         width:
             100%;
 
@@ -1374,7 +1736,9 @@
             100px 16px 82px;
     }
 
+
     .about-hero h1 {
+
         font-size:
             clamp(2.5rem, 11vw, 3.8rem);
 
@@ -1385,7 +1749,9 @@
             -1px;
     }
 
+
     .about-script {
+
         font-size:
             clamp(3.8rem, 18vw, 5.8rem);
 
@@ -1393,7 +1759,9 @@
             0.85;
     }
 
+
     .about-hero p {
+
         max-width:
             100%;
 
@@ -1407,12 +1775,16 @@
             1.65;
     }
 
+
     .about-hero-actions {
+
         width:
             100%;
     }
 
+
     .about-hero-btn {
+
         padding:
             11px 18px;
 
@@ -1420,7 +1792,9 @@
             0.84rem;
     }
 
+
     .about-scroll-indicator {
+
         right:
             15px;
 
@@ -1434,12 +1808,16 @@
             1.5px;
     }
 
+
     .about-scroll-indicator i {
+
         font-size:
             18px;
     }
 
+
     .about-hero-line {
+
         width:
             68%;
 
@@ -1451,24 +1829,31 @@
     /* ================= EQUIPO ================= */
 
     .team-editorial {
+
         padding:
             60px 12px;
     }
 
+
     .team-header-center {
+
         margin-bottom:
             38px;
     }
 
+
     .team-header-center h2 {
+
         font-size:
-            clamp(2.2rem, 10vw, 3rem);
+            clamp(2.5rem, 10vw, 3.3rem);
 
         margin-bottom:
             16px;
     }
 
+
     .team-header-description {
+
         font-size:
             0.88rem;
 
@@ -1476,15 +1861,18 @@
             1.65;
     }
 
+
     .team-list {
+
         gap:
             34px;
     }
 
 
-    /* FOTO */
+    /* ================= FOTO ================= */
 
     .team-image-col {
+
         width:
             88%;
 
@@ -1495,7 +1883,9 @@
             4px;
     }
 
+
     .image-wrapper {
+
         aspect-ratio:
             3 / 4;
 
@@ -1504,7 +1894,7 @@
     }
 
 
-    /* TEXTO */
+    /* ================= TEXTO ================= */
 
     .team-text-col,
     .team-row:nth-child(even)
@@ -1523,7 +1913,9 @@
             12px;
     }
 
+
     .team-role {
+
         font-size:
             0.82rem;
 
@@ -1534,7 +1926,9 @@
             1.4;
     }
 
+
     .team-text-col h3 {
+
         font-size:
             clamp(1.5rem, 7vw, 2rem);
 
@@ -1542,7 +1936,9 @@
             16px;
     }
 
+
     .team-desc p {
+
         font-size:
             0.86rem;
 
@@ -1551,9 +1947,10 @@
     }
 
 
-    /* BOTONES */
+    /* ================= BOTONES ================= */
 
     .btn-accesibilidad {
+
         width:
             44px;
 
@@ -1570,7 +1967,9 @@
             14px;
     }
 
+
     .btn-theme-toggle {
+
         bottom:
             14px;
 
@@ -1590,31 +1989,42 @@
     /* ================= HERO ================= */
 
     .about-hero {
+
         min-height:
             78vh;
     }
 
+
     .about-hero-content {
+
         padding:
             95px 14px 78px;
     }
 
+
     .about-hero h1 {
+
         font-size:
             2.35rem;
     }
 
+
     .about-script {
+
         font-size:
             4rem;
     }
 
+
     .about-hero p {
+
         font-size:
             0.84rem;
     }
 
+
     .about-hero-btn {
+
         padding:
             10px 16px;
 
@@ -1622,7 +2032,9 @@
             0.8rem;
     }
 
+
     .about-scroll-indicator {
+
         display:
             none;
     }
@@ -1631,29 +2043,37 @@
     /* ================= EQUIPO ================= */
 
     .team-editorial {
+
         padding:
             50px 10px;
     }
 
+
     .team-header-center h2 {
+
         font-size:
-            2.1rem;
+            2.35rem;
     }
 
+
     .team-header-description {
+
         font-size:
             0.83rem;
     }
 
+
     .team-list {
+
         gap:
             30px;
     }
 
 
-    /* FOTO */
+    /* ================= FOTO ================= */
 
     .team-image-col {
+
         width:
             92%;
 
@@ -1662,7 +2082,7 @@
     }
 
 
-    /* TEXTO */
+    /* ================= TEXTO ================= */
 
     .team-text-col,
     .team-row:nth-child(even)
@@ -1678,17 +2098,23 @@
             22px 15px;
     }
 
+
     .team-role {
+
         font-size:
             0.76rem;
     }
 
+
     .team-text-col h3 {
+
         font-size:
             1.42rem;
     }
 
+
     .team-desc p {
+
         font-size:
             0.81rem;
 
@@ -1697,9 +2123,10 @@
     }
 
 
-    /* BOTONES */
+    /* ================= BOTONES ================= */
 
     .btn-accesibilidad {
+
         width:
             41px;
 
@@ -1708,6 +2135,35 @@
 
         font-size:
             18px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCCIÓN DE MOVIMIENTO
+   ACCESIBILIDAD
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .about-hero-image,
+    .about-hero-content,
+    .about-scroll-indicator i,
+    .team-image-col {
+
+        animation:
+            none;
+    }
+
+
+    .about-hero-btn,
+    .team-text-col,
+    .image-wrapper img,
+    .btn-accesibilidad {
+
+        transition:
+            none;
     }
 
 }

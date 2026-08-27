@@ -1,866 +1,452 @@
-/* =========================================================
-   MISIÓN, VISIÓN, DEBERES Y POLÍTICAS
-========================================================= */
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.mv-hero {
-
-    position: relative;
-
-    min-height: 310px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    overflow: hidden;
-
-    background:
-        linear-gradient(
-            120deg,
-            #125f91 0%,
-            #1b88cb 48%,
-            #009944 100%
-        );
-
+:root {
+    --mv-lima: #C7E600;
+    --mv-verde: #00A651;
+    --mv-azul: #0072CE;
+    --mv-gradient: linear-gradient(135deg, #C7E600 0%, #00A651 48%, #0072CE 100%);
+    --mv-gradient-hover: linear-gradient(135deg, #B7D400 0%, #009447 48%, #0065B8 100%);
+    --mv-bg: #f7faf8;
+    --mv-card: #ffffff;
+    --mv-text: #1d2924;
+    --mv-muted: #65716b;
+    --mv-border: rgba(0, 114, 206, 0.10);
+    --mv-shadow: 0 15px 40px rgba(0, 80, 70, 0.09);
 }
 
+/* ========================================================= MODO OSCURO ========================================================= */
+[data-theme="dark"] {
+    --mv-bg: #0f172a;
+    --mv-card: #24364d;
+    --mv-text: #f8fafc;
+    --mv-muted: #94a3b8;
+    --mv-border: #3b5068;
+    --mv-shadow: 0 15px 35px rgba(0, 0, 0, 0.28);
+}
 
-/* Círculos decorativos */
+/* ========================================================= HERO ========================================================= */
+.mv-hero {
+    position: relative;
+    min-height: 310px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(115deg, #0072CE 0%, #00A651 52%, #C7E600 100%);
+}
 
+/* ========================================================= CÍRCULOS DECORATIVOS ========================================================= */
 .mv-hero::before {
-
     content: "";
-
     position: absolute;
-
     width: 430px;
     height: 430px;
-
     border-radius: 50%;
-
-    background: rgba(255, 255, 255, 0.07);
-
     top: -260px;
     right: 8%;
-
+    background: rgba(255, 255, 255, 0.13);
 }
-
 
 .mv-hero::after {
-
     content: "";
-
     position: absolute;
-
     width: 320px;
     height: 320px;
-
     border-radius: 50%;
-
-    background: rgba(255, 255, 255, 0.06);
-
+    background: rgba(255, 255, 255, 0.10);
     bottom: -220px;
     left: 5%;
-
 }
 
-
+/* ========================================================= HERO CONTENT ========================================================= */
 .mv-hero-content {
-
     position: relative;
-
     z-index: 2;
-
     text-align: center;
-
     padding: 70px 20px;
-
 }
-
 
 .mv-hero h1 {
-
     margin: 0;
-
     color: #ffffff;
-
     font-family: 'Caveat Brush', cursive;
-
     font-size: clamp(2.8rem, 5.5vw, 4.8rem);
-
     font-weight: 400;
-
     line-height: 1.1;
-
-    text-shadow:
-        0 5px 20px rgba(0, 0, 0, 0.18);
-
+    text-shadow: 0 5px 20px rgba(0, 60, 90, 0.18);
 }
 
-
-/* =========================================================
-   CONTENEDOR PRINCIPAL
-========================================================= */
-
+/* ========================================================= CONTENEDOR PRINCIPAL ========================================================= */
 .mv-page {
-
     padding: 85px 0 95px;
-
-    background: var(--bg-body, #f4f8f4);
-
+    background: var(--mv-bg);
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
-
-/* =========================================================
-   MISIÓN + VISIÓN
-========================================================= */
-
+/* ========================================================= MISIÓN + VISIÓN ========================================================= */
 .mv-content {
-
     display: grid;
-
-    grid-template-columns:
-        minmax(300px, 0.78fr)
-        minmax(0, 1.45fr);
-
+    grid-template-columns: minmax(300px, 0.78fr) minmax(0, 1.45fr);
     align-items: center;
-
     gap: 70px;
-
 }
 
-
-/* =========================================================
-   IMAGEN
-========================================================= */
-
+/* ========================================================= IMAGEN ========================================================= */
 .mv-image-wrapper {
-
     position: relative;
-
     width: 100%;
-
     max-width: 420px;
-
     margin: 0 auto;
-
 }
 
-
+/* ========================================================= DECORACIÓN DE LA IMAGEN ========================================================= */
 .mv-image-decoration {
-
     position: absolute;
-
     width: 100%;
     height: 100%;
-
     border-radius: 24px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #125f91,
-            #1b88cb,
-            #009944
-        );
-
+    background: linear-gradient(135deg, var(--mv-lima), var(--mv-verde), var(--mv-azul));
     transform: rotate(-4deg);
-
     opacity: 0.25;
-
 }
 
-
+/* ========================================================= IMAGEN PRINCIPAL ========================================================= */
 .mv-image {
-
     position: relative;
-
     display: block;
-
     z-index: 1;
-
     width: 100%;
-
     height: 470px;
-
     object-fit: cover;
-
     border-radius: 22px;
-
-    box-shadow:
-        0 18px 45px rgba(18, 95, 145, 0.16);
-
-    transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
-
+    box-shadow: 0 18px 45px rgba(0, 80, 70, 0.16);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
-
 
 .mv-image:hover {
-
     transform: translateY(-7px);
-
-    box-shadow:
-        0 25px 55px rgba(18, 95, 145, 0.22);
-
+    box-shadow: 0 25px 55px rgba(0, 80, 70, 0.22);
 }
 
-
-/* =========================================================
-   TEXTOS
-========================================================= */
-
+/* ========================================================= TEXTOS ========================================================= */
 .mv-text {
-
     display: flex;
-
     flex-direction: column;
-
     gap: 38px;
-
 }
 
-
+/* ========================================================= ITEM ========================================================= */
 .mv-item {
-
     position: relative;
-
     padding-left: 25px;
-
 }
 
-
+/* ========================================================= LÍNEA LATERAL DEGRADADA ========================================================= */
 .mv-item::before {
-
     content: "";
-
     position: absolute;
-
     left: 0;
-
     top: 5px;
-
     bottom: 5px;
-
     width: 4px;
-
     border-radius: 10px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #125f91,
-            #1b88cb,
-            #009944
-        );
-
+    background: linear-gradient(180deg, var(--mv-lima), var(--mv-verde), var(--mv-azul));
 }
 
-
+/* ========================================================= TÍTULOS MISIÓN / VISIÓN ========================================================= */
 .mv-item h2 {
-
     margin: 0 0 12px;
-
     font-family: 'Caveat Brush', cursive;
-
     font-size: 2.5rem;
-
     font-weight: 400;
-
     line-height: 1;
-
-    color: var(--brand-blue, #1b88cb);
-
+    color: var(--mv-azul);
+    transition: color 0.3s ease;
 }
 
-
+/* ========================================================= PÁRRAFOS ========================================================= */
 .mv-item p {
-
     margin: 0;
-
     font-family: 'Inter', sans-serif;
-
     font-size: 1rem;
-
     font-weight: 400;
-
     line-height: 1.85;
-
     text-align: justify;
-
-    color: var(--text-main, #17324d);
-
+    color: var(--mv-text);
+    transition: color 0.3s ease;
 }
-
 
 .mv-item strong {
-
     font-weight: 800;
-
+    color: var(--mv-verde);
 }
 
-
-/* =========================================================
-   CAJITA MANUAL DE FUNCIONES
-========================================================= */
-
+/* ========================================================= CAJITA MANUAL DE FUNCIONES ========================================================= */
 .manual-box {
-
     position: relative;
-
     display: flex;
-
     align-items: center;
-
     gap: 24px;
-
     margin-top: 85px;
-
     padding: 28px 30px;
-
     border-radius: 22px;
-
     overflow: hidden;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(27, 136, 203, 0.08),
-            rgba(0, 153, 68, 0.08),
-            rgba(144, 203, 27, 0.08)
-        );
-
-    border: 1px solid rgba(27, 136, 203, 0.14);
-
-    box-shadow:
-        0 10px 35px rgba(18, 95, 145, 0.07);
-
+    background: linear-gradient(135deg, rgba(199, 230, 0, 0.08), rgba(0, 166, 81, 0.08), rgba(0, 114, 206, 0.08));
+    border: 1px solid rgba(0, 114, 206, 0.14);
+    box-shadow: 0 10px 35px rgba(0, 80, 70, 0.07);
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-
-/* Línea superior degradada */
-
+/* ========================================================= LÍNEA SUPERIOR DEGRADADA ========================================================= */
 .manual-box::before {
-
     content: "";
-
     position: absolute;
-
     top: 0;
     left: 0;
-
     width: 100%;
     height: 4px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #125f91,
-            #1b88cb,
-            #009944
-        );
-
+    background: linear-gradient(90deg, var(--mv-lima), var(--mv-verde), var(--mv-azul));
 }
 
-
-/* =========================================================
-   ÍCONO DEL MANUAL
-========================================================= */
-
+/* ========================================================= ÍCONO DEL MANUAL ========================================================= */
 .manual-box-icon {
-
     flex-shrink: 0;
-
     width: 65px;
     height: 65px;
-
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     border-radius: 17px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #125f91,
-            #1b88cb,
-            #009944
-        );
-
+    background: linear-gradient(135deg, var(--mv-lima), var(--mv-verde), var(--mv-azul));
     color: #ffffff;
-
     font-size: 2rem;
-
-    box-shadow:
-        0 8px 20px rgba(18, 95, 145, 0.20);
-
+    box-shadow: 0 8px 20px rgba(0, 130, 90, 0.20);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
-/* =========================================================
-   INFORMACIÓN
-========================================================= */
-
+/* ========================================================= INFORMACIÓN ========================================================= */
 .manual-box-info {
-
     flex: 1;
-
 }
-
 
 .manual-box-info h2 {
-
     margin: 0 0 5px;
-
     font-family: 'Inter', sans-serif;
-
     font-size: 1.35rem;
-
     font-weight: 700;
-
-    color: var(--text-main, #17324d);
-
+    color: var(--mv-text);
 }
-
 
 .manual-box-info p {
-
     margin: 0;
-
     font-family: 'Inter', sans-serif;
-
     font-size: 0.94rem;
-
     line-height: 1.5;
-
-    color: var(--text-muted, #617587);
-
+    color: var(--mv-muted);
 }
 
-
-/* =========================================================
-   BOTÓN DESCARGAR
-========================================================= */
-
+/* ========================================================= BOTÓN DESCARGAR ========================================================= */
 .manual-box-button {
-
     position: relative;
-
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
-
     gap: 10px;
-
     flex-shrink: 0;
-
     min-width: 175px;
-
     padding: 14px 24px;
-
     border-radius: 13px;
-
     overflow: hidden;
-
-    background:
-        linear-gradient(
-            135deg,
-            #125f91 0%,
-            #1b88cb 48%,
-            #009944 100%
-        );
-
+    background: linear-gradient(135deg, var(--mv-lima) 0%, var(--mv-verde) 48%, var(--mv-azul) 100%);
     color: #ffffff;
-
     font-family: 'Inter', sans-serif;
-
     font-size: 0.92rem;
-
     font-weight: 700;
-
     text-decoration: none;
-
-    box-shadow:
-        0 9px 22px rgba(18, 95, 145, 0.22);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-
+    box-shadow: 0 9px 22px rgba(0, 130, 90, 0.22);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
 }
 
-
-/* Efecto de brillo */
-
+/* ========================================================= EFECTO DE BRILLO ========================================================= */
 .manual-box-button::before {
-
     content: "";
-
     position: absolute;
-
     top: 0;
-
     left: -110%;
-
     width: 70%;
-
     height: 100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255, 255, 255, 0.38),
-            transparent
-        );
-
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.38), transparent);
     transform: skewX(-20deg);
-
     transition: left 0.6s ease;
-
 }
-
 
 .manual-box-button:hover {
-
     transform: translateY(-4px);
-
-    box-shadow:
-        0 15px 30px rgba(18, 95, 145, 0.30);
-
+    filter: brightness(1.06);
+    box-shadow: 0 15px 30px rgba(0, 130, 90, 0.30);
 }
-
 
 .manual-box-button:hover::before {
-
     left: 145%;
-
 }
-
 
 .manual-box-button i {
-
     font-size: 1.25rem;
-
-    transition:
-        transform 0.3s ease;
-
+    transition: transform 0.3s ease;
 }
-
 
 .manual-box-button:hover i {
-
     transform: translateY(3px);
-
 }
 
-
-/* =========================================================
-   MODO OSCURO
-========================================================= */
-
+/* ========================================================= MODO OSCURO ========================================================= */
 [data-theme="dark"] .mv-page {
-
-    background: var(--bg-body, #071b2b);
-
+    background: var(--mv-bg);
 }
 
-
+/* ========================================================= MODO OSCURO — TÍTULOS ========================================================= */
 [data-theme="dark"] .mv-item h2 {
-
-    color: #90cb1b;
-
+    color: var(--mv-lima);
 }
 
-
+/* ========================================================= MODO OSCURO — TEXTO ========================================================= */
 [data-theme="dark"] .mv-item p {
-
-    color: #d8e7ef;
-
+    color: var(--mv-text);
 }
 
-
+/* ========================================================= MODO OSCURO — LÍNEA ========================================================= */
 [data-theme="dark"] .mv-item::before {
-
-    background:
-        linear-gradient(
-            180deg,
-            #1b88cb,
-            #90cb1b,
-            #009944
-        );
-
+    background: linear-gradient(180deg, var(--mv-lima), var(--mv-verde), var(--mv-azul));
 }
 
-
+/* ========================================================= MODO OSCURO — DECORACIÓN IMAGEN ========================================================= */
 [data-theme="dark"] .mv-image-decoration {
-
-    background:
-        linear-gradient(
-            135deg,
-            #1b88cb,
-            #009944,
-            #90cb1b
-        );
-
+    background: linear-gradient(135deg, var(--mv-azul), var(--mv-verde), var(--mv-lima));
     opacity: 0.30;
-
 }
 
-
+/* ========================================================= MODO OSCURO — MANUAL ========================================================= */
 [data-theme="dark"] .manual-box {
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(27, 136, 203, 0.18),
-            rgba(0, 153, 68, 0.16),
-            rgba(144, 203, 27, 0.10)
-        );
-
-    border-color:
-        rgba(27, 136, 203, 0.28);
-
-    box-shadow:
-        0 12px 35px rgba(0, 0, 0, 0.25);
-
+    background: linear-gradient(135deg, rgba(0, 114, 206, 0.18), rgba(0, 166, 81, 0.16), rgba(199, 230, 0, 0.08));
+    border-color: rgba(0, 114, 206, 0.28);
+    box-shadow: var(--mv-shadow);
 }
 
-
+/* ========================================================= MODO OSCURO — LÍNEA MANUAL ========================================================= */
 [data-theme="dark"] .manual-box::before {
-
-    background:
-        linear-gradient(
-            90deg,
-            #125f91,
-            #1b88cb,
-            #90cb1b
-        );
-
+    background: linear-gradient(90deg, var(--mv-lima), var(--mv-verde), var(--mv-azul));
 }
 
-
+/* ========================================================= MODO OSCURO — INFORMACIÓN ========================================================= */
 [data-theme="dark"] .manual-box-info h2 {
-
-    color: #f4f9fc;
-
+    color: #f8fafc;
 }
-
 
 [data-theme="dark"] .manual-box-info p {
-
-    color: #a8bfce;
-
+    color: #94a3b8;
 }
 
-
+/* ========================================================= MODO OSCURO — BOTÓN ========================================================= */
 [data-theme="dark"] .manual-box-button {
-
-    background:
-        linear-gradient(
-            135deg,
-            #125f91 0%,
-            #1b88cb 48%,
-            #009944 100%
-        );
-
-    box-shadow:
-        0 10px 28px rgba(0, 0, 0, 0.35);
-
+    background: linear-gradient(135deg, #B7D400 0%, #009447 48%, #0065B8 100%);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
 }
-
 
 [data-theme="dark"] .manual-box-button:hover {
-
-    box-shadow:
-        0 16px 35px rgba(0, 0, 0, 0.45);
-
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.45);
 }
 
-
-/* =========================================================
-   TABLET
-========================================================= */
-
+/* ========================================================= TABLET ========================================================= */
 @media (max-width: 900px) {
-
     .mv-content {
-
         grid-template-columns: 1fr;
-
         gap: 55px;
-
     }
-
 
     .mv-image-wrapper {
-
         max-width: 500px;
-
     }
-
 
     .mv-image {
-
         height: 430px;
-
     }
-
 
     .manual-box {
-
         flex-wrap: wrap;
-
     }
-
 
     .manual-box-info {
-
         min-width: 200px;
-
     }
-
 
     .manual-box-button {
-
         margin-left: 89px;
-
     }
-
 }
 
-
-/* =========================================================
-   MÓVIL
-========================================================= */
-
+/* ========================================================= MÓVIL ========================================================= */
 @media (max-width: 600px) {
-
     .mv-hero {
-
         min-height: 240px;
-
     }
-
 
     .mv-hero-content {
-
         padding: 55px 18px;
-
     }
-
 
     .mv-hero h1 {
-
         font-size: 2.7rem;
-
     }
-
 
     .mv-page {
-
         padding: 50px 0 60px;
-
     }
-
 
     .mv-content {
-
         gap: 45px;
-
     }
-
 
     .mv-image-wrapper {
-
         max-width: calc(100% - 20px);
-
     }
-
 
     .mv-image {
-
         height: 350px;
-
     }
-
 
     .mv-text {
-
         gap: 30px;
-
     }
-
 
     .mv-item {
-
         padding-left: 19px;
-
     }
-
 
     .mv-item h2 {
-
         font-size: 2.2rem;
-
     }
-
 
     .mv-item p {
-
         font-size: 0.94rem;
-
         line-height: 1.75;
-
     }
-
 
     .manual-box {
-
         flex-direction: column;
-
         align-items: stretch;
-
         text-align: center;
-
         margin-top: 55px;
-
         padding: 28px 20px;
-
     }
-
 
     .manual-box-icon {
-
         margin: 0 auto;
-
     }
-
 
     .manual-box-info {
-
         width: 100%;
-
     }
-
 
     .manual-box-button {
-
         width: 100%;
-
         margin-left: 0;
-
     }
-
 }

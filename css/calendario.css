@@ -1,6 +1,72 @@
 /* =========================================================
    CALENDARIO DE ACTIVIDADES Y EVENTOS
+   IDENTIDAD VISUAL ACTIVA
 ========================================================= */
+
+
+/* =========================================================
+   VARIABLES DE COLOR
+========================================================= */
+
+:root {
+
+    --hv-lima: #C7E600;
+
+    --hv-verde: #00A651;
+
+    --hv-azul: #0072CE;
+
+    --hv-gradient:
+        linear-gradient(
+            135deg,
+            #C7E600 0%,
+            #00A651 48%,
+            #0072CE 100%
+        );
+
+    --hv-gradient-hover:
+        linear-gradient(
+            135deg,
+            #B7D400 0%,
+            #009447 48%,
+            #0065B8 100%
+        );
+
+    --hv-bg: #f7faf8;
+
+    --hv-card: #ffffff;
+
+    --hv-text: #1d2924;
+
+    --hv-muted: #65716b;
+
+    --hv-border:
+        rgba(0, 114, 206, 0.10);
+
+    --hv-shadow:
+        0 15px 40px rgba(0, 80, 70, 0.09);
+}
+
+
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
+[data-theme="dark"] {
+
+    --hv-bg: #0f172a;
+
+    --hv-card: #24364d;
+
+    --hv-text: #f8fafc;
+
+    --hv-muted: #94a3b8;
+
+    --hv-border: #3b5068;
+
+    --hv-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.28);
+}
 
 
 /* =========================================================
@@ -16,7 +82,12 @@
     overflow: hidden;
 
     background:
-        #111;
+        linear-gradient(
+            115deg,
+            #0072CE 0%,
+            #00A651 52%,
+            #C7E600 100%
+        );
 }
 
 
@@ -31,6 +102,7 @@
 .calendar-hero-image img {
 
     width: 100%;
+
     height: 100%;
 
     object-fit: cover;
@@ -38,6 +110,10 @@
     display: block;
 }
 
+
+/* =========================================================
+   OVERLAY DEL HERO
+========================================================= */
 
 .calendar-hero-overlay {
 
@@ -48,12 +124,17 @@
     background:
         linear-gradient(
             90deg,
-            rgba(15, 23, 42, 0.78),
-            rgba(15, 23, 42, 0.30),
-            rgba(15, 23, 42, 0.68)
+            rgba(0, 114, 206, 0.88) 0%,
+            rgba(0, 166, 81, 0.48) 45%,
+            rgba(0, 114, 206, 0.28) 75%,
+            rgba(0, 114, 206, 0.65) 100%
         );
 }
 
+
+/* =========================================================
+   CONTENIDO DEL HERO
+========================================================= */
 
 .calendar-hero-content {
 
@@ -77,11 +158,13 @@
 
     text-align: center;
 
-    color: white;
+    color: #ffffff;
 }
 
 
-/* Kicker */
+/* =========================================================
+   KICKER
+========================================================= */
 
 .calendar-kicker {
 
@@ -93,8 +176,7 @@
 
     margin-bottom: 18px;
 
-    font-family:
-        var(--font-main);
+    font-family: var(--font-main);
 
     font-size: 13px;
 
@@ -118,11 +200,13 @@
     border-radius: 50px;
 
     background:
-        rgba(255,255,255,0.75);
+        rgba(255, 255, 255, 0.80);
 }
 
 
-/* Título */
+/* =========================================================
+   TÍTULO DEL HERO
+========================================================= */
 
 .calendar-hero h1 {
 
@@ -143,32 +227,31 @@
 
     font-weight: 400;
 
+    color: #ffffff;
+
     text-shadow:
         0 8px 30px
-        rgba(0,0,0,0.25);
+        rgba(0, 60, 90, 0.22);
 }
 
 
-/* Línea */
+/* =========================================================
+   LÍNEA DECORATIVA
+========================================================= */
 
 .calendar-hero-line {
 
     width: 100px;
 
-    height: 3px;
+    height: 4px;
 
     margin-top: 28px;
 
     border-radius: 50px;
 
     background:
-        linear-gradient(
-            90deg,
-            var(--brand-blue),
-            var(--brand-green)
-        );
+        var(--hv-gradient);
 }
-
 
 
 /* =========================================================
@@ -182,17 +265,25 @@
         110px;
 
     background:
-        var(--bg-body);
+        var(--hv-bg);
+
+    color:
+        var(--hv-text);
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
 }
 
 
 .calendar-container {
 
-    width: min(1100px, 92%);
+    width:
+        min(1100px, 92%);
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 }
-
 
 
 /* =========================================================
@@ -213,6 +304,10 @@
 }
 
 
+/* =========================================================
+   ETIQUETA DE SECCIÓN
+========================================================= */
+
 .calendar-section-label {
 
     display: block;
@@ -220,7 +315,10 @@
     margin-bottom: 8px;
 
     color:
-        var(--brand-green);
+        var(--hv-verde);
+
+    font-family:
+        var(--font-main);
 
     font-size: 12px;
 
@@ -232,12 +330,16 @@
 }
 
 
+/* =========================================================
+   TÍTULO DEL CALENDARIO
+========================================================= */
+
 .calendar-heading h2 {
 
     margin: 0;
 
     color:
-        var(--text-primary);
+        var(--hv-text);
 
     font-family:
         "Caveat Brush",
@@ -251,8 +353,10 @@
     font-weight: 400;
 
     text-transform: capitalize;
-}
 
+    transition:
+        color 0.3s ease;
+}
 
 
 /* =========================================================
@@ -269,14 +373,20 @@
 }
 
 
+/* =========================================================
+   BOTONES DE NAVEGACIÓN
+========================================================= */
+
 .calendar-nav-btn {
 
     width: 45px;
+
     height: 45px;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     border: none;
@@ -284,13 +394,9 @@
     border-radius: 50%;
 
     background:
-        linear-gradient(
-            135deg,
-            var(--brand-blue),
-            var(--brand-green)
-        );
+        var(--hv-gradient);
 
-    color: white;
+    color: #ffffff;
 
     font-size: 19px;
 
@@ -298,11 +404,12 @@
 
     box-shadow:
         0 8px 20px
-        rgba(27,136,203,0.18);
+        rgba(0, 114, 206, 0.18);
 
     transition:
         transform 0.3s ease,
-        box-shadow 0.3s ease;
+        box-shadow 0.3s ease,
+        background 0.3s ease;
 }
 
 
@@ -311,11 +418,18 @@
     transform:
         translateY(-3px);
 
+    background:
+        var(--hv-gradient-hover);
+
     box-shadow:
         0 12px 25px
-        rgba(27,136,203,0.28);
+        rgba(0, 114, 206, 0.28);
 }
 
+
+/* =========================================================
+   BOTÓN HOY
+========================================================= */
 
 .calendar-today-btn {
 
@@ -326,15 +440,15 @@
 
     border:
         1px solid
-        rgba(127,127,127,0.20);
+        var(--hv-border);
 
     border-radius: 50px;
 
     background:
-        var(--bg-card);
+        var(--hv-card);
 
     color:
-        var(--text-primary);
+        var(--hv-text);
 
     font-family:
         var(--font-main);
@@ -348,7 +462,8 @@
     transition:
         transform 0.3s ease,
         border-color 0.3s ease,
-        color 0.3s ease;
+        color 0.3s ease,
+        background 0.3s ease;
 }
 
 
@@ -358,12 +473,11 @@
         translateY(-2px);
 
     border-color:
-        var(--brand-blue);
+        var(--hv-azul);
 
     color:
-        var(--brand-blue);
+        var(--hv-azul);
 }
-
 
 
 /* =========================================================
@@ -375,19 +489,22 @@
     overflow: hidden;
 
     background:
-        var(--bg-card);
+        var(--hv-card);
 
     border-radius: 24px;
 
     box-shadow:
-        0 20px 55px
-        rgba(0,0,0,0.08);
+        var(--hv-shadow);
 
     border:
         1px solid
-        rgba(127,127,127,0.08);
-}
+        var(--hv-border);
 
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
 
 
 /* =========================================================
@@ -402,13 +519,9 @@
         repeat(7, 1fr);
 
     background:
-        linear-gradient(
-            135deg,
-            var(--brand-blue),
-            var(--brand-green)
-        );
+        var(--hv-gradient);
 
-    color: white;
+    color: #ffffff;
 }
 
 
@@ -429,7 +542,6 @@
 }
 
 
-
 /* =========================================================
    GRID DE DÍAS
 ========================================================= */
@@ -441,7 +553,6 @@
     grid-template-columns:
         repeat(7, 1fr);
 }
-
 
 
 /* =========================================================
@@ -458,33 +569,33 @@
 
     border-right:
         1px solid
-        rgba(127,127,127,0.13);
+        var(--hv-border);
 
     border-bottom:
         1px solid
-        rgba(127,127,127,0.13);
+        var(--hv-border);
 
     color:
-        var(--text-primary);
+        var(--hv-text);
 
     background:
-        var(--bg-card);
+        var(--hv-card);
 
     transition:
-        background 0.25s ease;
+        background 0.25s ease,
+        color 0.25s ease;
 }
 
 
 .calendar-day:hover {
 
     background:
-        rgba(27,136,203,0.05);
+        rgba(0, 114, 206, 0.05);
 }
 
 
-
 /* =========================================================
-   NÚMERO
+   NÚMERO DEL DÍA
 ========================================================= */
 
 .calendar-day-number {
@@ -492,9 +603,11 @@
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     width: 32px;
+
     height: 32px;
 
     border-radius: 50%;
@@ -505,23 +618,21 @@
 }
 
 
-.calendar-day.today
-.calendar-day-number {
+/* =========================================================
+   DÍA ACTUAL
+========================================================= */
+
+.calendar-day.today .calendar-day-number {
 
     background:
-        linear-gradient(
-            135deg,
-            var(--brand-blue),
-            var(--brand-green)
-        );
+        var(--hv-gradient);
 
-    color: white;
+    color: #ffffff;
 
     box-shadow:
         0 5px 12px
-        rgba(27,136,203,0.20);
+        rgba(0, 114, 206, 0.20);
 }
-
 
 
 /* =========================================================
@@ -531,12 +642,11 @@
 .calendar-day.other-month {
 
     color:
-        rgba(127,127,127,0.45);
+        var(--hv-muted);
 
     background:
-        rgba(127,127,127,0.025);
+        rgba(101, 113, 107, 0.045);
 }
-
 
 
 /* =========================================================
@@ -545,24 +655,76 @@
 
 [data-theme="dark"] .calendar-card {
 
+    background:
+        var(--hv-card);
+
+    border-color:
+        var(--hv-border);
+
     box-shadow:
-        0 20px 55px
-        rgba(0,0,0,0.25);
+        var(--hv-shadow);
+}
+
+
+[data-theme="dark"] .calendar-day {
+
+    background:
+        var(--hv-card);
+
+    color:
+        var(--hv-text);
+
+    border-color:
+        var(--hv-border);
 }
 
 
 [data-theme="dark"] .calendar-day:hover {
 
     background:
-        rgba(27,136,203,0.10);
+        rgba(0, 114, 206, 0.14);
 }
 
 
 [data-theme="dark"] .calendar-day.other-month {
 
     background:
-        rgba(0,0,0,0.08);
+        rgba(15, 23, 42, 0.45);
+
+    color:
+        var(--hv-muted);
 }
+
+
+[data-theme="dark"] .calendar-today-btn {
+
+    background:
+        var(--hv-card);
+
+    color:
+        var(--hv-text);
+
+    border-color:
+        var(--hv-border);
+}
+
+
+[data-theme="dark"] .calendar-today-btn:hover {
+
+    border-color:
+        var(--hv-lima);
+
+    color:
+        var(--hv-lima);
+}
+
+
+[data-theme="dark"] .calendar-section-label {
+
+    color:
+        var(--hv-lima);
+}
+
 
 /* =========================================================
    RESPONSIVE
@@ -575,9 +737,7 @@
 
 @media (max-width: 900px) {
 
-    /* =====================================================
-       HERO
-    ===================================================== */
+    /* ================= HERO ================= */
 
     .calendar-hero {
 
@@ -618,9 +778,7 @@
     }
 
 
-    /* =====================================================
-       SECCIÓN
-    ===================================================== */
+    /* ================= SECCIÓN ================= */
 
     .calendar-section {
 
@@ -636,9 +794,7 @@
     }
 
 
-    /* =====================================================
-       ENCABEZADO
-    ===================================================== */
+    /* ================= ENCABEZADO ================= */
 
     .calendar-heading {
 
@@ -657,9 +813,7 @@
     }
 
 
-    /* =====================================================
-       NAVEGACIÓN
-    ===================================================== */
+    /* ================= NAVEGACIÓN ================= */
 
     .calendar-navigation {
 
@@ -688,9 +842,7 @@
     }
 
 
-    /* =====================================================
-       CALENDARIO
-    ===================================================== */
+    /* ================= CALENDARIO ================= */
 
     .calendar-card {
 
@@ -732,9 +884,7 @@
 
 @media (max-width: 750px) {
 
-    /* =====================================================
-       HERO
-    ===================================================== */
+    /* ================= HERO ================= */
 
     .calendar-hero {
 
@@ -749,9 +899,7 @@
     }
 
 
-    /* =====================================================
-       ENCABEZADO
-    ===================================================== */
+    /* ================= ENCABEZADO ================= */
 
     .calendar-heading {
 
@@ -770,9 +918,7 @@
     }
 
 
-    /* =====================================================
-       NAVEGACIÓN
-    ===================================================== */
+    /* ================= NAVEGACIÓN ================= */
 
     .calendar-navigation {
 
@@ -780,9 +926,7 @@
     }
 
 
-    /* =====================================================
-       DÍAS
-    ===================================================== */
+    /* ================= DÍAS ================= */
 
     .calendar-day {
 
@@ -799,9 +943,7 @@
 
 @media (max-width: 600px) {
 
-    /* =====================================================
-       HERO
-    ===================================================== */
+    /* ================= HERO ================= */
 
     .calendar-hero {
 
@@ -818,7 +960,7 @@
     }
 
 
-    /* KICKER */
+    /* ================= KICKER ================= */
 
     .calendar-kicker {
 
@@ -843,7 +985,7 @@
     }
 
 
-    /* TÍTULO */
+    /* ================= TÍTULO ================= */
 
     .calendar-hero h1 {
 
@@ -856,21 +998,19 @@
     }
 
 
-    /* LÍNEA */
+    /* ================= LÍNEA ================= */
 
     .calendar-hero-line {
 
         width: 75px;
 
-        height: 3px;
+        height: 4px;
 
         margin-top: 24px;
     }
 
 
-    /* =====================================================
-       SECCIÓN
-    ===================================================== */
+    /* ================= SECCIÓN ================= */
 
     .calendar-section {
 
@@ -886,9 +1026,7 @@
     }
 
 
-    /* =====================================================
-       ENCABEZADO
-    ===================================================== */
+    /* ================= ENCABEZADO ================= */
 
     .calendar-heading {
 
@@ -917,9 +1055,7 @@
     }
 
 
-    /* =====================================================
-       NAVEGACIÓN
-    ===================================================== */
+    /* ================= NAVEGACIÓN ================= */
 
     .calendar-navigation {
 
@@ -954,23 +1090,18 @@
     }
 
 
-    /* =====================================================
-       TARJETA
-    ===================================================== */
+    /* ================= TARJETA ================= */
 
     .calendar-card {
 
         border-radius: 15px;
 
         box-shadow:
-            0 15px 35px
-            rgba(0,0,0,0.07);
+            var(--hv-shadow);
     }
 
 
-    /* =====================================================
-       DÍAS DE LA SEMANA
-    ===================================================== */
+    /* ================= DÍAS DE LA SEMANA ================= */
 
     .calendar-weekdays div {
 
@@ -983,9 +1114,7 @@
     }
 
 
-    /* =====================================================
-       DÍAS
-    ===================================================== */
+    /* ================= DÍAS ================= */
 
     .calendar-day {
 
@@ -995,17 +1124,15 @@
 
         border-right:
             1px solid
-            rgba(127,127,127,0.10);
+            var(--hv-border);
 
         border-bottom:
             1px solid
-            rgba(127,127,127,0.10);
+            var(--hv-border);
     }
 
 
-    /* =====================================================
-       NÚMERO DEL DÍA
-    ===================================================== */
+    /* ================= NÚMERO DEL DÍA ================= */
 
     .calendar-day-number {
 
@@ -1024,9 +1151,7 @@
 
 @media (max-width: 400px) {
 
-    /* =====================================================
-       HERO
-    ===================================================== */
+    /* ================= HERO ================= */
 
     .calendar-hero {
 
@@ -1072,9 +1197,7 @@
     }
 
 
-    /* =====================================================
-       SECCIÓN
-    ===================================================== */
+    /* ================= SECCIÓN ================= */
 
     .calendar-section {
 
@@ -1090,9 +1213,7 @@
     }
 
 
-    /* =====================================================
-       ENCABEZADO
-    ===================================================== */
+    /* ================= ENCABEZADO ================= */
 
     .calendar-section-label {
 
@@ -1108,9 +1229,7 @@
     }
 
 
-    /* =====================================================
-       NAVEGACIÓN
-    ===================================================== */
+    /* ================= NAVEGACIÓN ================= */
 
     .calendar-navigation {
 
@@ -1139,9 +1258,7 @@
     }
 
 
-    /* =====================================================
-       CALENDARIO
-    ===================================================== */
+    /* ================= CALENDARIO ================= */
 
     .calendar-card {
 

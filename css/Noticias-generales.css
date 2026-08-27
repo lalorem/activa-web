@@ -1,6 +1,68 @@
 /* =========================================================
    NOTICIAS GENERALES - ACTIVA
+   Paleta oficial: Lima + Verde + Azul
 ========================================================= */
+
+
+/* =========================================================
+   VARIABLES DE ESTA VISTA
+========================================================= */
+
+:root {
+
+    --news-lima: #C7E600;
+    --news-verde: #00A651;
+    --news-azul: #0072CE;
+
+    --news-gradient:
+        linear-gradient(
+            135deg,
+            #C7E600 0%,
+            #00A651 48%,
+            #0072CE 100%
+        );
+
+    --news-gradient-hover:
+        linear-gradient(
+            135deg,
+            #B7D400 0%,
+            #009447 48%,
+            #0065B8 100%
+        );
+
+    --news-bg: #f7faf8;
+    --news-card: #ffffff;
+
+    --news-text: #1d2924;
+    --news-muted: #65716b;
+
+    --news-border:
+        rgba(0, 114, 206, 0.10);
+
+    --news-shadow:
+        0 15px 40px
+        rgba(0, 80, 70, 0.09);
+}
+
+
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
+[data-theme="dark"] {
+
+    --news-bg: #0f172a;
+    --news-card: #24364d;
+
+    --news-text: #f8fafc;
+    --news-muted: #94a3b8;
+
+    --news-border: #3b5068;
+
+    --news-shadow:
+        0 15px 35px
+        rgba(0, 0, 0, 0.28);
+}
 
 
 /* =========================================================
@@ -10,7 +72,6 @@
 .general-news-container {
 
     width: min(1100px, 90%);
-
     margin: 0 auto;
 }
 
@@ -28,8 +89,12 @@
     overflow: hidden;
 
     background:
-        #111;
-
+        linear-gradient(
+            135deg,
+            #0072CE 0%,
+            #00A651 52%,
+            #C7E600 100%
+        );
 }
 
 
@@ -80,8 +145,7 @@
 
     display: block;
 
-    transform:
-        scale(1.03);
+    transform: scale(1.03);
 
     transition:
         transform 5s ease;
@@ -90,8 +154,7 @@
 
 .general-news-slide.active img {
 
-    transform:
-        scale(1);
+    transform: scale(1);
 }
 
 
@@ -110,10 +173,12 @@
     background:
         linear-gradient(
             90deg,
-            rgba(15, 23, 42, 0.78),
-            rgba(15, 23, 42, 0.30),
-            rgba(15, 23, 42, 0.65)
+            rgba(0, 57, 105, 0.80),
+            rgba(0, 166, 81, 0.24),
+            rgba(0, 74, 130, 0.68)
         );
+
+    pointer-events: none;
 }
 
 
@@ -143,11 +208,13 @@
 
     text-align: center;
 
-    color: white;
+    color: #ffffff;
 }
 
 
-/* Kicker */
+/* =========================================================
+   KICKER
+========================================================= */
 
 .general-news-kicker {
 
@@ -184,11 +251,18 @@
     border-radius: 50px;
 
     background:
-        rgba(255,255,255,0.75);
+        linear-gradient(
+            90deg,
+            #C7E600,
+            #00A651,
+            #0072CE
+        );
 }
 
 
-/* Título */
+/* =========================================================
+   TÍTULO HERO
+========================================================= */
 
 .general-news-hero h1 {
 
@@ -209,17 +283,19 @@
 
     text-shadow:
         0 8px 30px
-        rgba(0,0,0,0.25);
+        rgba(0, 50, 80, 0.28);
 }
 
 
-/* Línea */
+/* =========================================================
+   LÍNEA
+========================================================= */
 
 .general-news-line {
 
     width: 100px;
 
-    height: 3px;
+    height: 4px;
 
     margin-top: 30px;
 
@@ -228,9 +304,14 @@
     background:
         linear-gradient(
             90deg,
-            var(--brand-blue),
-            var(--brand-green)
+            var(--news-lima),
+            var(--news-verde),
+            var(--news-azul)
         );
+
+    box-shadow:
+        0 4px 14px
+        rgba(0, 166, 81, 0.25);
 }
 
 
@@ -245,9 +326,13 @@
         70px;
 
     background:
-        var(--bg-body);
+        var(--news-bg);
 
     text-align: center;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
 }
 
 
@@ -257,7 +342,9 @@
 }
 
 
-/* Etiqueta */
+/* =========================================================
+   ETIQUETA
+========================================================= */
 
 .general-news-section-label {
 
@@ -266,7 +353,7 @@
     margin-bottom: 12px;
 
     color:
-        var(--brand-green);
+        var(--news-verde);
 
     font-family:
         var(--font-main);
@@ -281,14 +368,16 @@
 }
 
 
-/* Título */
+/* =========================================================
+   TÍTULO INTRO
+========================================================= */
 
 .general-news-intro h2 {
 
     margin: 0;
 
     font-family:
-        Georgia,
+        "Georgia",
         "Times New Roman",
         serif;
 
@@ -300,11 +389,16 @@
     letter-spacing: -1px;
 
     color:
-        var(--text-primary);
+        var(--news-text);
+
+    transition:
+        color 0.3s ease;
 }
 
 
-/* Texto */
+/* =========================================================
+   TEXTO INTRO
+========================================================= */
 
 .general-news-intro p {
 
@@ -314,11 +408,14 @@
         22px auto 0;
 
     color:
-        var(--text-secondary);
+        var(--news-muted);
 
     font-size: 18px;
 
     line-height: 1.8;
+
+    transition:
+        color 0.3s ease;
 }
 
 
@@ -333,7 +430,10 @@
         110px;
 
     background:
-        var(--bg-body);
+        var(--news-bg);
+
+    transition:
+        background 0.3s ease;
 }
 
 
@@ -354,8 +454,8 @@
     padding-bottom: 25px;
 
     border-bottom:
-        1px solid
-        rgba(127, 127, 127, 0.18);
+        2px solid
+        rgba(0, 166, 81, 0.14);
 }
 
 
@@ -364,7 +464,7 @@
     margin: 0;
 
     font-family:
-        Georgia,
+        "Georgia",
         "Times New Roman",
         serif;
 
@@ -374,7 +474,10 @@
     line-height: 1;
 
     color:
-        var(--text-primary);
+        var(--news-text);
+
+    transition:
+        color 0.3s ease;
 }
 
 
@@ -399,20 +502,53 @@
 
 .general-news-card {
 
+    position: relative;
+
     overflow: hidden;
 
     background:
-        var(--bg-card);
+        var(--news-card);
 
-    border-radius: 18px;
+    border:
+        1px solid
+        var(--news-border);
+
+    border-radius: 20px;
 
     box-shadow:
-        0 15px 40px
-        rgba(0,0,0,0.07);
+        var(--news-shadow);
 
     transition:
         transform 0.35s ease,
-        box-shadow 0.35s ease;
+        box-shadow 0.35s ease,
+        border-color 0.35s ease,
+        background 0.3s ease;
+}
+
+
+/* Línea superior */
+
+.general-news-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--news-lima),
+            var(--news-verde),
+            var(--news-azul)
+        );
+
+    z-index: 2;
 }
 
 
@@ -423,7 +559,10 @@
 
     box-shadow:
         0 25px 55px
-        rgba(0,0,0,0.13);
+        rgba(0, 100, 90, 0.15);
+
+    border-color:
+        rgba(0, 166, 81, 0.25);
 }
 
 
@@ -444,6 +583,7 @@
 .general-news-image img {
 
     width: 100%;
+
     height: 100%;
 
     object-fit: cover;
@@ -481,9 +621,13 @@
     border-radius: 50px;
 
     background:
-        rgba(15,23,42,0.78);
+        linear-gradient(
+            135deg,
+            rgba(0, 166, 81, 0.94),
+            rgba(0, 114, 206, 0.94)
+        );
 
-    color: white;
+    color: #ffffff;
 
     font-family:
         var(--font-main);
@@ -493,6 +637,10 @@
     font-weight: 800;
 
     letter-spacing: 1px;
+
+    box-shadow:
+        0 6px 18px
+        rgba(0, 80, 100, 0.22);
 }
 
 
@@ -502,12 +650,16 @@
 
 .general-news-card-content {
 
+    position: relative;
+
     padding:
         28px;
 }
 
 
-/* Fecha */
+/* =========================================================
+   FECHA
+========================================================= */
 
 .general-news-date {
 
@@ -520,7 +672,7 @@
     margin-bottom: 12px;
 
     color:
-        var(--brand-blue);
+        var(--news-azul);
 
     font-size: 12px;
 
@@ -531,10 +683,15 @@
 .general-news-date i {
 
     font-size: 15px;
+
+    color:
+        var(--news-verde);
 }
 
 
-/* Título */
+/* =========================================================
+   TÍTULO CARD
+========================================================= */
 
 .general-news-card h3 {
 
@@ -542,7 +699,7 @@
         0 0 14px;
 
     font-family:
-        Georgia,
+        "Georgia",
         "Times New Roman",
         serif;
 
@@ -551,11 +708,16 @@
     line-height: 1.15;
 
     color:
-        var(--text-primary);
+        var(--news-text);
+
+    transition:
+        color 0.3s ease;
 }
 
 
-/* Descripción */
+/* =========================================================
+   DESCRIPCIÓN
+========================================================= */
 
 .general-news-card p {
 
@@ -563,17 +725,16 @@
         0 0 24px;
 
     color:
-        var(--text-secondary);
+        var(--news-muted);
 
     font-size: 15px;
 
     line-height: 1.7;
+
+    transition:
+        color 0.3s ease;
 }
 
-
-/* =========================================================
-   LEER MÁS
-========================================================= */
 
 /* =========================================================
    BOTÓN LEER MÁS
@@ -584,6 +745,7 @@
     display: inline-flex;
 
     align-items: center;
+
     justify-content: center;
 
     gap: 9px;
@@ -596,13 +758,9 @@
     border-radius: 50px;
 
     background:
-        linear-gradient(
-            135deg,
-            var(--brand-blue),
-            var(--brand-green)
-        );
+        var(--news-gradient);
 
-    color: white;
+    color: #ffffff;
 
     font-family:
         var(--font-main);
@@ -615,16 +773,19 @@
 
     box-shadow:
         0 8px 20px
-        rgba(27, 136, 203, 0.18);
+        rgba(0, 130, 90, 0.18);
 
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease,
+        background 0.3s ease,
         gap 0.3s ease;
 }
 
 
-/* Hover */
+/* =========================================================
+   HOVER BOTÓN
+========================================================= */
 
 .general-news-read:hover {
 
@@ -633,15 +794,20 @@
 
     gap: 13px;
 
-    color: white;
+    color: #ffffff;
+
+    background:
+        var(--news-gradient-hover);
 
     box-shadow:
-        0 12px 25px
-        rgba(27, 136, 203, 0.28);
+        0 12px 26px
+        rgba(0, 130, 90, 0.28);
 }
 
 
-/* Ícono */
+/* =========================================================
+   ÍCONO BOTÓN
+========================================================= */
 
 .general-news-read i {
 
@@ -663,11 +829,24 @@
    MODO OSCURO
 ========================================================= */
 
+[data-theme="dark"] .general-news-intro,
+[data-theme="dark"] .general-news-list {
+
+    background:
+        var(--news-bg);
+}
+
+
 [data-theme="dark"] .general-news-card {
 
+    background:
+        var(--news-card);
+
+    border-color:
+        var(--news-border);
+
     box-shadow:
-        0 15px 40px
-        rgba(0,0,0,0.22);
+        var(--news-shadow);
 }
 
 
@@ -675,29 +854,88 @@
 
     box-shadow:
         0 25px 55px
-        rgba(0,0,0,0.32);
+        rgba(0, 0, 0, 0.38);
+
+    border-color:
+        rgba(199, 230, 0, 0.25);
 }
 
+
+/* =========================================================
+   OVERLAY MODO OSCURO
+========================================================= */
 
 [data-theme="dark"] .general-news-overlay {
 
     background:
         linear-gradient(
             90deg,
-            rgba(5, 15, 25, 0.82),
-            rgba(5, 15, 25, 0.40),
-            rgba(5, 15, 25, 0.72)
+            rgba(0, 35, 65, 0.92),
+            rgba(0, 80, 50, 0.50),
+            rgba(0, 40, 75, 0.86)
         );
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   MODO OSCURO — KICKER
 ========================================================= */
+
+[data-theme="dark"] .general-news-kicker::before,
+[data-theme="dark"] .general-news-kicker::after {
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--news-lima),
+            var(--news-verde),
+            var(--news-azul)
+        );
+}
 
 
 /* =========================================================
-   TABLETS
+   MODO OSCURO — ETIQUETA
+========================================================= */
+
+[data-theme="dark"] .general-news-section-label {
+
+    color:
+        var(--news-lima);
+}
+
+
+/* =========================================================
+   MODO OSCURO — FECHA
+========================================================= */
+
+[data-theme="dark"] .general-news-date {
+
+    color:
+        #5eb4ff;
+}
+
+
+[data-theme="dark"] .general-news-date i {
+
+    color:
+        var(--news-lima);
+}
+
+
+/* =========================================================
+   MODO OSCURO — ENCABEZADO
+========================================================= */
+
+[data-theme="dark"] .general-news-heading {
+
+    border-bottom-color:
+        rgba(199, 230, 0, 0.18);
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLETS
 ========================================================= */
 
 @media (max-width: 900px) {
@@ -706,7 +944,8 @@
 
     .general-news-container {
 
-        width: min(92%, 700px);
+        width:
+            min(92%, 700px);
     }
 
 
@@ -746,7 +985,8 @@
     }
 
 
-    .general-news-intro .general-news-container {
+    .general-news-intro
+    .general-news-container {
 
         max-width: 700px;
     }
@@ -825,7 +1065,7 @@
 
 
 /* =========================================================
-   CELULARES GRANDES
+   RESPONSIVE — CELULARES GRANDES
 ========================================================= */
 
 @media (max-width: 600px) {
@@ -1000,11 +1240,11 @@
 
     .general-news-card {
 
-        border-radius: 15px;
+        border-radius: 17px;
 
         box-shadow:
             0 10px 30px
-            rgba(0,0,0,0.07);
+            rgba(0, 80, 70, 0.09);
     }
 
 
@@ -1103,7 +1343,7 @@
 
 
 /* =========================================================
-   CELULARES PEQUEÑOS
+   RESPONSIVE — CELULARES PEQUEÑOS
 ========================================================= */
 
 @media (max-width: 400px) {
@@ -1139,7 +1379,9 @@
     }
 
 
-    /* INTRO */
+    /* =====================================================
+       INTRO
+    ===================================================== */
 
     .general-news-intro {
 
@@ -1161,7 +1403,9 @@
     }
 
 
-    /* LISTADO */
+    /* =====================================================
+       LISTADO
+    ===================================================== */
 
     .general-news-list {
 

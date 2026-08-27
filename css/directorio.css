@@ -1,7 +1,72 @@
 /* =========================================================
    DIRECTORIO INSTITUCIONAL - ACTIVA
-   Basado en la identidad visual de Noticias
+   IDENTIDAD VISUAL ACTIVA
 ========================================================= */
+
+
+/* =========================================================
+   VARIABLES DE COLOR
+========================================================= */
+
+:root {
+
+    --hv-lima: #C7E600;
+
+    --hv-verde: #00A651;
+
+    --hv-azul: #0072CE;
+
+    --hv-gradient:
+        linear-gradient(
+            135deg,
+            #C7E600 0%,
+            #00A651 48%,
+            #0072CE 100%
+        );
+
+    --hv-gradient-hover:
+        linear-gradient(
+            135deg,
+            #B7D400 0%,
+            #009447 48%,
+            #0065B8 100%
+        );
+
+    --hv-bg: #f7faf8;
+
+    --hv-card: #ffffff;
+
+    --hv-text: #1d2924;
+
+    --hv-muted: #65716b;
+
+    --hv-border:
+        rgba(0, 114, 206, 0.10);
+
+    --hv-shadow:
+        0 15px 40px rgba(0, 80, 70, 0.09);
+}
+
+
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
+[data-theme="dark"] {
+
+    --hv-bg: #0f172a;
+
+    --hv-card: #24364d;
+
+    --hv-text: #f8fafc;
+
+    --hv-muted: #94a3b8;
+
+    --hv-border: #3b5068;
+
+    --hv-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.28);
+}
 
 
 /* =========================================================
@@ -15,7 +80,9 @@
     min-height: 470px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     overflow: hidden;
@@ -23,17 +90,20 @@
     background:
         linear-gradient(
             135deg,
-            rgba(27, 136, 203, 0.92),
-            rgba(0, 153, 68, 0.72)
+            rgba(0, 114, 206, 0.92),
+            rgba(0, 166, 81, 0.72)
         ),
         url("https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=2000&q=90");
 
     background-size: cover;
+
     background-position: center;
 }
 
 
-/* Capa de profundidad */
+/* =========================================================
+   CAPA DE PROFUNDIDAD
+========================================================= */
 
 .directorio-hero::before {
 
@@ -42,6 +112,7 @@
     position: absolute;
 
     width: 600px;
+
     height: 600px;
 
     border-radius: 50%;
@@ -51,11 +122,14 @@
         rgba(255, 255, 255, 0.20);
 
     right: -230px;
+
     top: -280px;
 }
 
 
-/* Segundo círculo */
+/* =========================================================
+   SEGUNDO CÍRCULO
+========================================================= */
 
 .directorio-hero::after {
 
@@ -64,6 +138,7 @@
     position: absolute;
 
     width: 350px;
+
     height: 350px;
 
     border-radius: 50%;
@@ -73,11 +148,14 @@
         rgba(255, 255, 255, 0.16);
 
     left: -170px;
+
     bottom: -190px;
 }
 
 
-/* Overlay */
+/* =========================================================
+   OVERLAY
+========================================================= */
 
 .directorio-overlay {
 
@@ -111,11 +189,13 @@
 
     text-align: center;
 
-    color: white;
+    color: #ffffff;
 }
 
 
-/* Pequeño título */
+/* =========================================================
+   PEQUEÑO TÍTULO
+========================================================= */
 
 .directorio-subtitle {
 
@@ -127,7 +207,7 @@
 
     margin-bottom: 18px;
 
-    color: white;
+    color: #ffffff;
 
     font-family:
         var(--font-main);
@@ -148,6 +228,7 @@
     content: "";
 
     width: 35px;
+
     height: 2px;
 
     border-radius: 20px;
@@ -157,14 +238,16 @@
 }
 
 
-/* Título principal */
+/* =========================================================
+   TÍTULO PRINCIPAL
+========================================================= */
 
 .directorio-hero h1 {
 
     margin: 0;
 
     font-family:
-        Georgia,
+        "Georgia",
         "Times New Roman",
         serif;
 
@@ -177,30 +260,30 @@
 
     font-weight: 700;
 
+    color: #ffffff;
+
     text-shadow:
         0 8px 25px
-        rgba(0, 0, 0, 0.20);
+        rgba(0, 60, 90, 0.20);
 }
 
 
-/* Línea */
+/* =========================================================
+   LÍNEA
+========================================================= */
 
 .directorio-line {
 
     width: 100px;
 
-    height: 3px;
+    height: 4px;
 
     margin: 30px auto 0;
 
     border-radius: 50px;
 
     background:
-        linear-gradient(
-            90deg,
-            white,
-            rgba(255,255,255,0.3)
-        );
+        var(--hv-gradient);
 }
 
 
@@ -217,13 +300,22 @@
         110px;
 
     background:
-        var(--bg-body);
+        var(--hv-bg);
+
+    color:
+        var(--hv-text);
 
     overflow: hidden;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
 }
 
 
-/* Mancha decorativa azul */
+/* =========================================================
+   MANCHA DECORATIVA AZUL
+========================================================= */
 
 .directorio-main::before {
 
@@ -232,6 +324,7 @@
     position: absolute;
 
     width: 500px;
+
     height: 500px;
 
     border-radius: 50%;
@@ -239,18 +332,21 @@
     background:
         radial-gradient(
             circle,
-            rgba(27, 136, 203, 0.09),
+            rgba(0, 114, 206, 0.09),
             transparent 70%
         );
 
     top: -250px;
+
     right: -150px;
 
     pointer-events: none;
 }
 
 
-/* Mancha verde */
+/* =========================================================
+   MANCHA VERDE
+========================================================= */
 
 .directorio-main::after {
 
@@ -259,6 +355,7 @@
     position: absolute;
 
     width: 400px;
+
     height: 400px;
 
     border-radius: 50%;
@@ -266,11 +363,12 @@
     background:
         radial-gradient(
             circle,
-            rgba(0, 153, 68, 0.07),
+            rgba(0, 166, 81, 0.07),
             transparent 70%
         );
 
     bottom: -220px;
+
     left: -150px;
 
     pointer-events: none;
@@ -307,7 +405,9 @@
 }
 
 
-/* Kicker */
+/* =========================================================
+   KICKER
+========================================================= */
 
 .directorio-intro-label {
 
@@ -316,7 +416,7 @@
     margin-bottom: 12px;
 
     color:
-        var(--brand-green);
+        var(--hv-verde);
 
     font-family:
         var(--font-main);
@@ -331,14 +431,16 @@
 }
 
 
-/* Título */
+/* =========================================================
+   TÍTULO
+========================================================= */
 
 .directorio-intro h2 {
 
     margin: 0;
 
     font-family:
-        Georgia,
+        "Georgia",
         "Times New Roman",
         serif;
 
@@ -348,11 +450,16 @@
     line-height: 1.05;
 
     color:
-        var(--text-primary);
+        var(--hv-text);
+
+    transition:
+        color 0.3s ease;
 }
 
 
-/* Texto */
+/* =========================================================
+   TEXTO
+========================================================= */
 
 .directorio-intro p {
 
@@ -361,15 +468,20 @@
     margin: 18px auto 0;
 
     color:
-        var(--text-secondary);
+        var(--hv-muted);
 
     font-size: 17px;
 
     line-height: 1.7;
+
+    transition:
+        color 0.3s ease;
 }
 
 
-/* Línea decorativa */
+/* =========================================================
+   LÍNEA DECORATIVA
+========================================================= */
 
 .directorio-intro::after {
 
@@ -379,7 +491,7 @@
 
     width: 100%;
 
-    height: 1px;
+    height: 2px;
 
     margin-top: 35px;
 
@@ -387,8 +499,9 @@
         linear-gradient(
             90deg,
             transparent,
-            var(--brand-blue),
-            var(--brand-green),
+            var(--hv-lima),
+            var(--hv-verde),
+            var(--hv-azul),
             transparent
         );
 }
@@ -414,23 +527,24 @@
     padding: 45px 50px;
 
     background:
-        var(--bg-card);
+        var(--hv-card);
 
     border:
         1px solid
-        rgba(127, 127, 127, 0.12);
+        var(--hv-border);
 
     border-radius: 20px;
 
     box-shadow:
-        0 20px 50px
-        rgba(0, 0, 0, 0.08);
+        var(--hv-shadow);
 
     overflow: hidden;
 
     transition:
         transform 0.35s ease,
-        box-shadow 0.35s ease;
+        box-shadow 0.35s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
 }
 
 
@@ -441,11 +555,13 @@
 
     box-shadow:
         0 28px 60px
-        rgba(0, 0, 0, 0.13);
+        rgba(0, 80, 70, 0.14);
 }
 
 
-/* Línea lateral */
+/* =========================================================
+   LÍNEA LATERAL
+========================================================= */
 
 .directorio-card::before {
 
@@ -454,7 +570,9 @@
     position: absolute;
 
     left: 0;
+
     top: 0;
+
     bottom: 0;
 
     width: 5px;
@@ -462,13 +580,16 @@
     background:
         linear-gradient(
             180deg,
-            var(--brand-blue),
-            var(--brand-green)
+            var(--hv-lima),
+            var(--hv-verde),
+            var(--hv-azul)
         );
 }
 
 
-/* Círculo decorativo */
+/* =========================================================
+   CÍRCULO DECORATIVO
+========================================================= */
 
 .directorio-card::after {
 
@@ -477,15 +598,17 @@
     position: absolute;
 
     width: 260px;
+
     height: 260px;
 
     border-radius: 50%;
 
     border:
         1px solid
-        rgba(127, 127, 127, 0.10);
+        var(--hv-border);
 
     right: -130px;
+
     bottom: -150px;
 }
 
@@ -499,6 +622,7 @@
     position: relative;
 
     width: 175px;
+
     height: 175px;
 
     margin: auto;
@@ -506,11 +630,14 @@
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 }
 
 
-/* Aro */
+/* =========================================================
+   ARO
+========================================================= */
 
 .directorio-icon-wrapper::before {
 
@@ -522,7 +649,7 @@
 
     border:
         2px dashed
-        var(--brand-blue);
+        var(--hv-azul);
 
     border-radius: 50%;
 
@@ -534,7 +661,9 @@
 }
 
 
-/* Círculo */
+/* =========================================================
+   CÍRCULO
+========================================================= */
 
 .directorio-icon-wrapper::after {
 
@@ -543,24 +672,23 @@
     position: absolute;
 
     width: 125px;
+
     height: 125px;
 
     border-radius: 50%;
 
     background:
-        linear-gradient(
-            135deg,
-            var(--brand-blue),
-            var(--brand-green)
-        );
+        var(--hv-gradient);
 
     box-shadow:
         0 15px 35px
-        rgba(27, 136, 203, 0.22);
+        rgba(0, 114, 206, 0.22);
 }
 
 
-/* Icono */
+/* =========================================================
+   ICONO
+========================================================= */
 
 .directorio-icon {
 
@@ -571,12 +699,14 @@
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     width: 80px;
+
     height: 80px;
 
-    color: white;
+    color: #ffffff;
 
     font-size: 42px;
 }
@@ -598,14 +728,22 @@
 }
 
 
+/* =========================================================
+   ANIMACIÓN DEL ARO
+========================================================= */
+
 @keyframes directorioSpin {
 
     from {
-        transform: rotate(0deg);
+
+        transform:
+            rotate(0deg);
     }
 
     to {
-        transform: rotate(360deg);
+
+        transform:
+            rotate(360deg);
     }
 }
 
@@ -622,27 +760,34 @@
 }
 
 
-/* Título */
+/* =========================================================
+   TÍTULO
+========================================================= */
 
 .directorio-card h2 {
 
     margin: 0 0 15px;
 
     color:
-        var(--text-primary);
+        var(--hv-text);
 
     font-family:
-        Georgia,
+        "Georgia",
         "Times New Roman",
         serif;
 
     font-size: 34px;
 
     line-height: 1.1;
+
+    transition:
+        color 0.3s ease;
 }
 
 
-/* Texto */
+/* =========================================================
+   TEXTO
+========================================================= */
 
 .directorio-card p {
 
@@ -651,11 +796,14 @@
     margin: 0 0 25px;
 
     color:
-        var(--text-secondary);
+        var(--hv-muted);
 
     font-size: 16px;
 
     line-height: 1.75;
+
+    transition:
+        color 0.3s ease;
 }
 
 
@@ -677,13 +825,9 @@
     border-radius: 50px;
 
     background:
-        linear-gradient(
-            135deg,
-            var(--brand-blue),
-            var(--brand-green)
-        );
+        var(--hv-gradient);
 
-    color: white;
+    color: #ffffff;
 
     text-decoration: none;
 
@@ -696,27 +840,31 @@
 
     box-shadow:
         0 10px 25px
-        rgba(27, 136, 203, 0.20);
+        rgba(0, 114, 206, 0.20);
 
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease,
-        gap 0.3s ease;
+        gap 0.3s ease,
+        background 0.3s ease;
 }
 
 
 .directorio-download:hover {
 
-    color: white;
+    color: #ffffff;
 
     transform:
         translateY(-3px);
 
     gap: 14px;
 
+    background:
+        var(--hv-gradient-hover);
+
     box-shadow:
         0 15px 30px
-        rgba(27, 136, 203, 0.28);
+        rgba(0, 114, 206, 0.28);
 }
 
 
@@ -741,16 +889,19 @@
     margin-top: 15px;
 
     color:
-        var(--text-secondary);
+        var(--hv-muted);
 
     font-size: 12px;
+
+    transition:
+        color 0.3s ease;
 }
 
 
 .directorio-file-info i {
 
     color:
-        var(--brand-green);
+        var(--hv-verde);
 }
 
 
@@ -758,34 +909,33 @@
    MODO OSCURO
 ========================================================= */
 
-/*
-   IMPORTANTE:
-   No creamos colores nuevos aquí.
-   El directorio utiliza las mismas variables
-   globales de ACTIVA:
-   
-   --bg-body
-   --bg-card
-   --text-primary
-   --text-secondary
-   --brand-blue
-   --brand-green
-   --brand-lime
-*/
+[data-theme="dark"] .directorio-main {
+
+    background:
+        var(--hv-bg);
+}
 
 
 [data-theme="dark"] .directorio-card {
 
+    background:
+        var(--hv-card);
+
+    border-color:
+        var(--hv-border);
+
     box-shadow:
-        0 20px 55px
-        rgba(0, 0, 0, 0.25);
+        var(--hv-shadow);
 }
 
 
 [data-theme="dark"] .directorio-card:hover {
 
+    background:
+        var(--hv-card);
+
     box-shadow:
-        0 28px 65px
+        0 20px 55px
         rgba(0, 0, 0, 0.35);
 }
 
@@ -795,7 +945,7 @@
     background:
         radial-gradient(
             circle,
-            rgba(27, 136, 203, 0.13),
+            rgba(0, 114, 206, 0.12),
             transparent 70%
         );
 }
@@ -806,9 +956,30 @@
     background:
         radial-gradient(
             circle,
-            rgba(0, 153, 68, 0.10),
+            rgba(0, 166, 81, 0.10),
             transparent 70%
         );
+}
+
+
+[data-theme="dark"] .directorio-intro-label {
+
+    color:
+        var(--hv-lima);
+}
+
+
+[data-theme="dark"] .directorio-icon-wrapper::before {
+
+    border-color:
+        var(--hv-lima);
+}
+
+
+[data-theme="dark"] .directorio-card::after {
+
+    border-color:
+        var(--hv-border);
 }
 
 
@@ -958,7 +1129,9 @@
     }
 
 
-    /* ICONO */
+    /* =====================================================
+       ICONO
+    ===================================================== */
 
     .directorio-icon-wrapper {
 
@@ -986,7 +1159,9 @@
     }
 
 
-    /* CONTENIDO */
+    /* =====================================================
+       CONTENIDO
+    ===================================================== */
 
     .directorio-card h2 {
 
@@ -1002,7 +1177,9 @@
     }
 
 
-    /* BOTÓN */
+    /* =====================================================
+       BOTÓN
+    ===================================================== */
 
     .directorio-download {
 
@@ -1092,7 +1269,9 @@
     }
 
 
-    /* SUBTÍTULO */
+    /* =====================================================
+       SUBTÍTULO
+    ===================================================== */
 
     .directorio-subtitle {
 
@@ -1115,7 +1294,9 @@
     }
 
 
-    /* TÍTULO */
+    /* =====================================================
+       TÍTULO
+    ===================================================== */
 
     .directorio-hero h1 {
 
@@ -1128,13 +1309,15 @@
     }
 
 
-    /* LÍNEA */
+    /* =====================================================
+       LÍNEA
+    ===================================================== */
 
     .directorio-line {
 
         width: 75px;
 
-        height: 3px;
+        height: 4px;
 
         margin-top: 25px;
     }
@@ -1245,12 +1428,13 @@
         border-radius: 16px;
 
         box-shadow:
-            0 15px 35px
-            rgba(0, 0, 0, 0.07);
+            var(--hv-shadow);
     }
 
 
-    /* LÍNEA LATERAL */
+    /* =====================================================
+       LÍNEA LATERAL
+    ===================================================== */
 
     .directorio-card::before {
 
@@ -1464,7 +1648,9 @@
     }
 
 
-    /* ICONO */
+    /* =====================================================
+       ICONO
+    ===================================================== */
 
     .directorio-icon-wrapper {
 
@@ -1492,7 +1678,9 @@
     }
 
 
-    /* TEXTO */
+    /* =====================================================
+       TEXTO
+    ===================================================== */
 
     .directorio-card h2 {
 
@@ -1508,7 +1696,9 @@
     }
 
 
-    /* BOTÓN */
+    /* =====================================================
+       BOTÓN
+    ===================================================== */
 
     .directorio-download {
 
