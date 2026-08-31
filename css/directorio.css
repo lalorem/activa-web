@@ -1,13 +1,3 @@
-/* =========================================================
-   DIRECTORIO INSTITUCIONAL - ACTIVA
-   IDENTIDAD VISUAL ACTIVA
-========================================================= */
-
-
-/* =========================================================
-   VARIABLES DE COLOR
-========================================================= */
-
 :root {
 
     --hv-lima: #C7E600;
@@ -89,9 +79,10 @@
 
     background:
         linear-gradient(
-            135deg,
-            rgba(0, 114, 206, 0.92),
-            rgba(0, 166, 81, 0.72)
+            115deg,
+            #0072CE 0%,
+            #00A651 52%,
+            #C7E600 100%
         ),
         url("https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=2000&q=90");
 
@@ -101,35 +92,29 @@
 }
 
 
-/* =========================================================
-   CAPA DE PROFUNDIDAD
-========================================================= */
-
 .directorio-hero::before {
 
     content: "";
 
     position: absolute;
 
-    width: 600px;
+    width: 470px;
 
-    height: 600px;
+    height: 470px;
 
     border-radius: 50%;
 
-    border:
-        1px solid
-        rgba(255, 255, 255, 0.20);
+    top: -290px;
 
-    right: -230px;
+    right: -80px;
 
-    top: -280px;
+    background:
+        rgba(255, 255, 255, 0.13);
+
+    z-index: 1;
+
+    pointer-events: none;
 }
-
-
-/* =========================================================
-   SEGUNDO CÍRCULO
-========================================================= */
 
 .directorio-hero::after {
 
@@ -143,19 +128,17 @@
 
     border-radius: 50%;
 
-    border:
-        1px solid
-        rgba(255, 255, 255, 0.16);
+    bottom: -245px;
 
-    left: -170px;
+    left: -90px;
 
-    bottom: -190px;
+    background:
+        rgba(255, 255, 255, 0.10);
+
+    z-index: 1;
+
+    pointer-events: none;
 }
-
-
-/* =========================================================
-   OVERLAY
-========================================================= */
 
 .directorio-overlay {
 
@@ -166,10 +149,13 @@
     background:
         linear-gradient(
             90deg,
-            rgba(15, 23, 42, 0.68),
-            rgba(15, 23, 42, 0.25),
-            rgba(15, 23, 42, 0.50)
+            rgba(0, 60, 110, 0.22),
+            rgba(0, 166, 81, 0.04)
         );
+
+    pointer-events: none;
+
+    z-index: 1;
 }
 
 

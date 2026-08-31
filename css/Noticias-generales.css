@@ -80,17 +80,29 @@
    HERO
 ========================================================= */
 
+/* =========================================================
+   HERO - NOTICIAS ACTIVA
+========================================================= */
+
 .general-news-hero {
 
     position: relative;
 
-    height: 560px;
+    min-height: 320px;
+
+    height: 320px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
 
     overflow: hidden;
 
     background:
         linear-gradient(
-            135deg,
+            115deg,
             #0072CE 0%,
             #00A651 52%,
             #C7E600 100%
@@ -99,62 +111,52 @@
 
 
 /* =========================================================
-   SLIDES
+   DECORACIONES DEL HERO
 ========================================================= */
 
-.general-news-slides {
+.general-news-hero::before {
+
+    content: "";
 
     position: absolute;
 
-    inset: 0;
+    width: 470px;
 
-    width: 100%;
-    height: 100%;
+    height: 470px;
+
+    border-radius: 50%;
+
+    top: -290px;
+
+    right: -80px;
+
+    background:
+        rgba(255, 255, 255, 0.13);
+
+    pointer-events: none;
 }
 
 
-.general-news-slide {
+.general-news-hero::after {
+
+    content: "";
 
     position: absolute;
 
-    inset: 0;
+    width: 350px;
 
-    opacity: 0;
+    height: 350px;
 
-    transition:
-        opacity 1.2s ease-in-out;
+    border-radius: 50%;
 
-    z-index: 1;
-}
+    bottom: -245px;
 
+    left: -90px;
 
-.general-news-slide.active {
+    background:
+        rgba(255, 255, 255, 0.10);
 
-    opacity: 1;
-
-    z-index: 2;
-}
-
-
-.general-news-slide img {
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    display: block;
-
-    transform: scale(1.03);
-
-    transition:
-        transform 5s ease;
-}
-
-
-.general-news-slide.active img {
-
-    transform: scale(1);
+    pointer-events: none;
 }
 
 
@@ -168,14 +170,11 @@
 
     inset: 0;
 
-    z-index: 3;
-
     background:
         linear-gradient(
             90deg,
-            rgba(0, 57, 105, 0.80),
-            rgba(0, 166, 81, 0.24),
-            rgba(0, 74, 130, 0.68)
+            rgba(0, 60, 110, 0.22),
+            rgba(0, 166, 81, 0.04)
         );
 
     pointer-events: none;
@@ -183,28 +182,16 @@
 
 
 /* =========================================================
-   HERO CONTENT
+   CONTENIDO HERO
 ========================================================= */
 
 .general-news-hero-content {
 
     position: relative;
 
-    z-index: 5;
-
-    height: 100%;
+    z-index: 2;
 
     width: min(1100px, 90%);
-
-    margin: 0 auto;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
 
     text-align: center;
 
@@ -213,55 +200,7 @@
 
 
 /* =========================================================
-   KICKER
-========================================================= */
-
-.general-news-kicker {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    margin-bottom: 18px;
-
-    font-family:
-        var(--font-main);
-
-    font-size: 13px;
-
-    font-weight: 800;
-
-    letter-spacing: 3px;
-
-    text-transform: uppercase;
-}
-
-
-.general-news-kicker::before,
-.general-news-kicker::after {
-
-    content: "";
-
-    width: 35px;
-
-    height: 2px;
-
-    border-radius: 50px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #C7E600,
-            #00A651,
-            #0072CE
-        );
-}
-
-
-/* =========================================================
-   TÍTULO HERO
+   TÍTULO
 ========================================================= */
 
 .general-news-hero h1 {
@@ -269,37 +208,37 @@
     margin: 0;
 
     font-family:
-        "Caveat Brush",
+        'Caveat Brush',
         cursive;
 
     font-size:
-        clamp(65px, 9vw, 105px);
-
-    line-height: 0.95;
-
-    letter-spacing: 1px;
+        clamp(48px, 6vw, 76px);
 
     font-weight: 400;
 
+    line-height: 1.05;
+
+    letter-spacing: 0.2px;
+
     text-shadow:
-        0 8px 30px
-        rgba(0, 50, 80, 0.28);
+        0 5px 18px
+        rgba(0, 60, 90, 0.18);
 }
 
 
 /* =========================================================
-   LÍNEA
+   LÍNEA DECORATIVA
 ========================================================= */
 
 .general-news-line {
 
-    width: 100px;
+    width: 65px;
 
     height: 4px;
 
-    margin-top: 30px;
+    margin: 10px auto 0;
 
-    border-radius: 50px;
+    border-radius: 10px;
 
     background:
         linear-gradient(
@@ -308,12 +247,7 @@
             var(--news-verde),
             var(--news-azul)
         );
-
-    box-shadow:
-        0 4px 14px
-        rgba(0, 166, 81, 0.25);
 }
-
 
 /* =========================================================
    INTRO
@@ -870,9 +804,8 @@
     background:
         linear-gradient(
             90deg,
-            rgba(0, 35, 65, 0.92),
-            rgba(0, 80, 50, 0.50),
-            rgba(0, 40, 75, 0.86)
+            rgba(0, 20, 35, 0.35),
+            rgba(0, 80, 50, 0.10)
         );
 }
 

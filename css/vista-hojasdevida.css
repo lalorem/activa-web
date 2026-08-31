@@ -68,7 +68,7 @@
     position: absolute;
     inset: 0;
     background: linear-gradient(90deg, rgba(0, 60, 110, 0.22), rgba(0, 166, 81, 0.04));
-    pointer-events: none;
+    pointer-events: none; 
 }
 
 /* ========================================================= HERO CONTENT ========================================================= */
