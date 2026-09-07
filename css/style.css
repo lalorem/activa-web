@@ -1569,6 +1569,614 @@ footer {
     }
 }
 
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
 @media (max-width: 1024px) {
-    /* Si tienes más reglas para tablet y móvil en este bloque, pégalas a continuación */
+
+    /* ---------- NAVBAR ---------- */
+
+    .navbar {
+        padding: 16px 0;
+    }
+
+    .nav-container {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 15px;
+    }
+
+    .brand-img {
+        height: 52px;
+    }
+
+    .menu-toggle {
+        display: flex;
+        justify-self: end;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0;
+
+        background: var(--nav-bg);
+        border-bottom: 1px solid var(--border-color);
+        padding: 15px 24px 20px;
+
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.12);
+        z-index: 2000;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu > li {
+        width: 100%;
+    }
+
+    .nav-menu > li > a {
+        width: 100%;
+        text-align: left;
+        font-size: 14px;
+        padding: 14px 8px;
+    }
+
+    .nav-dropdown > a {
+        justify-content: space-between;
+    }
+
+    /* ---------- DROPDOWN MÓVIL ---------- */
+
+    .transparency-menu {
+        position: static;
+        width: 100%;
+        transform: none;
+        margin-top: 8px;
+        display: none;
+
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+
+        border-radius: 12px;
+        box-shadow: none;
+    }
+
+    .transparency-menu::before,
+    .nav-dropdown::after {
+        display: none;
+    }
+
+    .nav-dropdown.active .transparency-menu {
+        display: block;
+    }
+
+    .transparency-submenu {
+        position: static;
+        width: 100%;
+        margin-top: 6px;
+        padding: 6px;
+
+        display: none;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: none;
+
+        box-shadow: none;
+        border-radius: 12px;
+    }
+
+    .transparency-submenu::before {
+        display: none;
+    }
+
+    .transparency-item.has-submenu.active .transparency-submenu {
+        display: block;
+    }
+
+    .transparency-item > a {
+        font-size: 13px;
+    }
+
+    /* ---------- ACCIONES ---------- */
+
+    .nav-actions {
+        gap: 10px;
+    }
+
+    .social-icons {
+        display: none;
+    }
+
+    .search-icon-btn,
+    .theme-icon-btn {
+        font-size: 23px;
+    }
+
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+        min-height: 70vh;
+    }
+
+    .hero-content {
+        max-width: 700px;
+        padding-top: 60px;
+        padding-bottom: 90px;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero p {
+        font-size: 1.05rem;
+    }
+
+
+    /* ---------- ESTADÍSTICAS ---------- */
+
+    .stats-section {
+        padding: 60px 0 90px;
+    }
+
+    .stat-number {
+        font-size: 3rem;
+    }
+
+
+    /* ---------- SERVICIOS ---------- */
+
+    .services-section {
+        padding: 75px 0;
+    }
+
+    .section-header h2 {
+        font-size: 3.2rem;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+    }
+
+
+    /* ---------- NOTICIAS ---------- */
+
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+    }
+
+
+    /* ---------- CLIENTES ---------- */
+
+    .client-logo {
+        min-width: 160px;
+        height: 160px;
+    }
+
+
+    /* ---------- FOOTER ---------- */
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 45px 30px;
+    }
+
+    .footer-brand {
+        padding: 0;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MÓVIL
+========================================================= */
+
+@media (max-width: 768px) {
+
+    /* ---------- CONTENEDOR ---------- */
+
+    .container {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+
+    /* ---------- GOV.CO ---------- */
+
+    .gov-img {
+        height: 26px;
+    }
+
+
+    /* ---------- SUB NAV ---------- */
+
+    .sub-nav-bar {
+        font-size: 11px;
+    }
+
+    .sub-nav-content {
+        justify-content: center;
+        text-align: center;
+    }
+
+
+    /* ---------- NAVBAR ---------- */
+
+    .navbar {
+        padding: 12px 0;
+    }
+
+    .nav-container {
+        gap: 10px;
+    }
+
+    .brand-img {
+        height: 45px;
+    }
+
+    .nav-menu {
+        padding: 12px 18px 20px;
+    }
+
+    .nav-actions {
+        gap: 6px;
+    }
+
+    .search-icon-btn,
+    .theme-icon-btn {
+        font-size: 21px;
+    }
+
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+        min-height: 650px;
+        align-items: center;
+    }
+
+    .hero-content {
+        padding-top: 70px;
+        padding-bottom: 100px;
+    }
+
+    .hero-badge {
+        font-size: 10px;
+        padding: 6px 12px;
+        margin-bottom: 18px;
+    }
+
+    .hero h1 {
+        font-size: 2.6rem;
+        line-height: 1.15;
+        margin-bottom: 16px;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 28px;
+    }
+
+    .hero-actions {
+        flex-wrap: wrap;
+    }
+
+    .hero-actions .btn {
+        padding: 11px 20px;
+        font-size: 14px;
+    }
+
+    .wave-bottom svg {
+        height: 55px;
+    }
+
+
+    /* ---------- ESTADÍSTICAS ---------- */
+
+    .stats-section {
+        padding: 55px 0 75px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .stat-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        padding: 0 15px 30px;
+    }
+
+    .stat-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .stat-number {
+        font-size: 3rem;
+    }
+
+
+    /* ---------- TÍTULOS ---------- */
+
+    .section-header {
+        margin-bottom: 35px;
+    }
+
+    .section-header h2 {
+        font-size: 2.6rem;
+        line-height: 1.15;
+    }
+
+
+    /* ---------- SERVICIOS ---------- */
+
+    .services-section {
+        padding: 65px 0;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .service-img {
+        height: 220px;
+    }
+
+
+    /* ---------- CLIENTES ---------- */
+
+    .clients-section {
+        padding: 65px 0;
+    }
+
+    .clients-carousel {
+        gap: 10px;
+    }
+
+    .client-logo {
+        min-width: 145px;
+        height: 145px;
+        padding: 15px;
+    }
+
+    .client-logo img {
+        max-width: 115px;
+        max-height: 80px;
+    }
+
+    .clients-prev,
+    .clients-next {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+
+    /* ---------- NOTICIAS ---------- */
+
+    .news-section {
+        padding: 70px 0;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .news-image {
+        height: 240px;
+    }
+
+
+    /* ---------- UBICACIÓN ---------- */
+
+    .location-section {
+        padding: 70px 0;
+    }
+
+    .location-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .map-container,
+    .video-container {
+        height: 350px;
+    }
+
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+        padding: 45px 0 20px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .footer-brand {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-logo {
+        width: 170px;
+        margin: 0 auto 20px;
+    }
+
+    .footer-title {
+        margin-bottom: 12px;
+    }
+
+
+    /* ---------- BUSCADOR ---------- */
+
+    .search-box {
+        width: 90%;
+    }
+
+    .search-label {
+        font-size: 1.6rem;
+    }
+
+    .search-close {
+        top: -60px;
+        right: 0;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE — CELULARES PEQUEÑOS
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+
+    /* ---------- NAVBAR ---------- */
+
+    .brand-img {
+        height: 40px;
+    }
+
+    .menu-toggle {
+        font-size: 25px;
+    }
+
+    .search-icon-btn,
+    .theme-icon-btn {
+        font-size: 19px;
+    }
+
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+        min-height: 600px;
+    }
+
+    .hero h1 {
+        font-size: 2.1rem;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+
+    /* ---------- TÍTULOS ---------- */
+
+    .section-header h2 {
+        font-size: 2.1rem;
+    }
+
+    .badge-title {
+        font-size: 11px;
+    }
+
+
+    /* ---------- TARJETAS ---------- */
+
+    .service-img {
+        height: 190px;
+    }
+
+    .service-content {
+        padding: 34px 18px 20px;
+    }
+
+    .news-content {
+        padding: 20px;
+    }
+
+    .news-image {
+        height: 210px;
+    }
+
+
+    /* ---------- CLIENTES ---------- */
+
+    .client-logo {
+        min-width: 125px;
+        height: 125px;
+    }
+
+    .clients-prev,
+    .clients-next {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+
+
+    /* ---------- UBICACIÓN ---------- */
+
+    .location-title {
+        padding: 20px;
+    }
+
+    .location-title > i {
+        width: 42px;
+        height: 42px;
+        font-size: 20px;
+    }
+
+    .location-title h3 {
+        font-size: 1.05rem;
+    }
+
+    .map-container,
+    .video-container {
+        height: 280px;
+    }
+
+
+    /* ---------- BUSCADOR ---------- */
+
+    .search-input-container {
+        padding: 6px 6px 6px 16px;
+    }
+
+    .search-input-container input {
+        font-size: 0.9rem;
+        padding: 10px 5px;
+    }
+
+    .search-submit {
+        width: 46px;
+        height: 46px;
+        font-size: 19px;
+    }
 }
