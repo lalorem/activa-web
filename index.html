@@ -690,150 +690,327 @@
 
     </nav>
 
-    <header class="hero">
+<!-- =========================================================
+     HERO PRINCIPAL
+========================================================= -->
 
-        <div class="hero-carousel" id="heroCarousel">
+<header class="hero">
 
-            <div class="carousel-slide active" style="background-image: url('assets/header1.jpeg');">
-            </div>
+    <!-- Carrusel de imágenes -->
+    <div class="hero-carousel" id="heroCarousel">
 
-            <div class="carousel-slide" style="background-image: url('assets/header2.jpeg');">
-            </div>
+        <div class="carousel-slide active"
+            style="background-image: url('assets/header1.jpeg');">
+        </div>
 
-            <div class="carousel-slide" style="background-image: url('assets/header3.png');">
-            </div>
+        <div class="carousel-slide"
+            style="background-image: url('assets/header2.jpeg');">
+        </div>
+
+        <div class="carousel-slide"
+            style="background-image: url('assets/header3.png');">
+        </div>
+
+    </div>
+
+
+    <!-- Capas de color -->
+    <div class="hero-overlay"></div>
+
+    <!-- Elementos decorativos -->
+    <div class="hero-decoration hero-decoration-one"></div>
+    <div class="hero-decoration hero-decoration-two"></div>
+    <div class="hero-decoration hero-decoration-three"></div>
+
+
+    <!-- Contenido principal -->
+    <div class="container hero-content">
+
+        <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            Empresa de la Gobernación de Antioquia
+        </div>
+
+
+        <h1>
+            Hacemos posible
+            <span class="hero-highlight">
+                grandes experiencias
+            </span>
+        </h1>
+
+
+        <p>
+            Somos una empresa industrial y comercial de la Gobernación
+            de Antioquia. Diseñamos, planeamos y operamos soluciones
+            logísticas para proyectos, eventos y experiencias que
+            generan impacto.
+        </p>
+
+
+        <div class="hero-actions">
+
+            <a href="#servicios" class="btn btn-hero-primary">
+
+                <span>Conoce nuestros servicios</span>
+
+                <i class="ph-bold ph-arrow-right"></i>
+
+            </a>
+
+
+            <a href="quienes-somos.html" class="btn btn-hero-secondary">
+
+                <span>Conoce ACTIVA</span>
+
+                <i class="ph-bold ph-arrow-up-right"></i>
+
+            </a>
 
         </div>
 
 
-        <div class="hero-overlay"></div>
+        <!-- Indicadores del carrusel -->
+        <div class="hero-carousel-indicators">
+
+            <button class="hero-indicator active"
+                type="button"
+                aria-label="Ir a la imagen 1">
+            </button>
+
+            <button class="hero-indicator"
+                type="button"
+                aria-label="Ir a la imagen 2">
+            </button>
+
+            <button class="hero-indicator"
+                type="button"
+                aria-label="Ir a la imagen 3">
+            </button>
+
+        </div>
+
+    </div>
 
 
-        <div class="container hero-content">
+    <!-- Información decorativa lateral -->
+    <div class="hero-side-info">
 
-            <h1>Bienvenidos a <span class="marker-title">Activa</span></h1>
+        <span class="hero-side-line"></span>
+
+        <span class="hero-side-text">
+            ANTIOQUIA · COLOMBIA
+        </span>
+
+    </div>
+
+
+    <!-- Onda inferior -->
+    <div class="wave-bottom hero-wave">
+
+        <svg viewBox="0 0 1440 140"
+            preserveAspectRatio="none">
+
+            <path
+    d="M0,64L60,58.7C120,53,240,43,360,48C480,53,600,75,720,80C840,85,960,75,1080,64C1200,53,1320,43,1380,37.3L1440,32L1440,140L0,140Z"
+    fill="url(#heroWaveGradient)">
+</path>
+
+<defs>
+    <linearGradient
+        id="heroWaveGradient"
+        x1="0%"
+        y1="0%"
+        x2="100%"
+        y2="100%">
+
+        <stop
+            offset="0%"
+            stop-color="#0072CE">
+        </stop>
+
+        <stop
+            offset="48%"
+            stop-color="#006f9d">
+        </stop>
+
+        <stop
+            offset="100%"
+            stop-color="#00A651">
+        </stop>
+
+    </linearGradient>
+</defs>
+
+        </svg>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     ESTADÍSTICAS
+========================================================= -->
+
+<section class="stats-section">
+
+    <!-- Fondo decorativo -->
+    <div class="stats-decoration stats-decoration-one"></div>
+    <div class="stats-decoration stats-decoration-two"></div>
+
+
+    <div class="container">
+
+        <div class="stats-intro">
+
+            <span class="stats-mini-title">
+                ACTIVA EN CIFRAS
+            </span>
 
             <p>
-                Somos una empresa industrial y comercial de la Gobernación de Antioquia.
-                Diseñamos y operamos logística de alto nivel.
+                Trabajamos para transformar ideas en experiencias
+                y proyectos con impacto.
             </p>
 
-
-            <div class="hero-actions">
-
-                <a href="#servicios" class="btn btn-lime">
-
-                    Nuestros Servicios
-
-                    <i class="ph-bold ph-arrow-right"></i>
-
-                </a>
-
-
-                <a href="#nosotros" class="btn btn-outline">
-
-                    Conócenos
-
-                </a>
-
-            </div>
-
         </div>
 
 
-        <div class="wave-bottom">
+        <div class="stats-grid">
 
-            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
 
-                <path
-                    d="M0,64L60,58.7C120,53,240,43,360,48C480,53,600,75,720,80C840,85,960,75,1080,64C1200,53,1320,43,1380,37.3L1440,32L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"
-                    style="fill: var(--bg-stats);">
-                </path>
-
-            </svg>
-
-        </div>
-
-    </header>
-
-    <section class="stats-section">
-
-        <div class="container stats-grid">
-
+            <!-- Estadística 1 -->
 
             <div class="stat-item">
 
-                <i class="ph ph-calendar-blank stat-icon"></i>
+                <div class="stat-icon-container">
 
-                <div class="stat-number">
-                    +<span class="counter" data-target="5400">0</span>
+                    <i class="ph ph-calendar-blank stat-icon"></i>
+
                 </div>
 
-                <div class="stat-title">
-                    Eventos Gestionados
-                </div>
 
-                <div class="stat-desc">
-                    A nivel nacional
-                </div>
+                <div class="stat-content">
 
-            </div>
+                    <div class="stat-number">
+
+                        +<span class="counter"
+                            data-target="5400">
+                            0
+                        </span>
+
+                    </div>
 
 
-            <div class="stat-item">
+                    <div class="stat-title">
+                        Eventos Gestionados
+                    </div>
 
-                <i class="ph ph-map-pin stat-icon"></i>
 
-                <div class="stat-number">
-                    +<span class="counter" data-target="125">0</span>
-                </div>
+                    <div class="stat-desc">
+                        A nivel nacional
+                    </div>
 
-                <div class="stat-title">
-                    Municipios Atendidos
-                </div>
-
-                <div class="stat-desc">
-                    En todo el país
                 </div>
 
             </div>
 
 
+            <!-- Estadística 2 -->
+
             <div class="stat-item">
 
-                <i class="ph ph-users stat-icon"></i>
+                <div class="stat-icon-container">
 
-                <div class="stat-number">
-                    +<span class="counter" data-target="23">0</span>
+                    <i class="ph ph-map-pin stat-icon"></i>
+
                 </div>
 
-                <div class="stat-title">
-                    Clientes Satisfechos
+
+                <div class="stat-content">
+
+                    <div class="stat-number">
+
+                        +<span class="counter"
+                            data-target="125">
+                            0
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat-title">
+                        Municipios Atendidos
+                    </div>
+
+
+                    <div class="stat-desc">
+                        En todo el país
+                    </div>
+
                 </div>
 
-                <div class="stat-desc">
-                    Sector público
+            </div>
+
+
+            <!-- Estadística 3 -->
+
+            <div class="stat-item">
+
+                <div class="stat-icon-container">
+
+                    <i class="ph ph-users stat-icon"></i>
+
+                </div>
+
+
+                <div class="stat-content">
+
+                    <div class="stat-number">
+
+                        +<span class="counter"
+                            data-target="23">
+                            0
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat-title">
+                        Clientes Satisfechos
+                    </div>
+
+
+                    <div class="stat-desc">
+                        Sector público
+                    </div>
+
                 </div>
 
             </div>
 
         </div>
 
+    </div>
 
-        <div class="wave-bottom">
 
-            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+    <!-- Onda inferior -->
 
-                <path
-                    d="M0,64L60,69.3C120,75,240,85,360,80C480,75,600,53,720,48C840,43,960,53,1080,64C1200,75,1320,85,1380,89.3L1440,96L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"
-                    style="fill: var(--bg-body);">
-                </path>
+    <div class="wave-bottom stats-wave">
 
-            </svg>
+        <svg viewBox="0 0 1440 120"
+            preserveAspectRatio="none">
 
-        </div>
+            <path
+                d="M0,64L60,69.3C120,75,240,85,360,80C480,75,600,53,720,48C840,43,960,53,1080,64C1200,75,1320,85,1380,89.3L1440,96L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"
+                style="fill: var(--bg-body);">
+            </path>
 
-    </section>
+        </svg>
+
+    </div>
+
+</section>
 
     <section id="servicios" class="services-section">
 

@@ -15,15 +15,15 @@
 /* ========================================================= MODO OSCURO ========================================================= */
 [data-theme="dark"] {
 
-    --hv-bg: #0f172a;
+    --hv-bg: #1a1a1a;
 
-    --hv-card: #24364d;
+    --hv-card: #ffffff;
 
-    --hv-text: #f8fafc;
+    --hv-text: #ffffff;
 
-    --hv-muted: #94a3b8;
+    --hv-muted: #65716b;
 
-    --hv-border: #3b5068;
+    --hv-border: #444444;
 
     --hv-shadow: 0 15px 35px rgba(0, 0, 0, 0.28);
 
@@ -87,7 +87,7 @@
     font-weight: 400;
     line-height: 1.05;
     letter-spacing: 0.2px;
-    text-shadow: 0 5px 18px rgba(0, 60, 90, 0.18);
+    text-shadow: 0 5px 18px rgba(0, 114, 206, 0.18);
 }
 
 /* ========================================================= CONTENIDO ========================================================= */
@@ -176,8 +176,8 @@
 
 .hv-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 22px 48px rgba(0, 100, 90, 0.14);
-    border-color: rgba(0, 166, 81, 0.25);
+    box-shadow: 0 22px 48px rgba(0, 114, 206, 0.14);
+    border-color: rgba(0, 0, 0, 0.25);
 }
 
 .hv-card:hover::after {
@@ -290,7 +290,7 @@
 }
 
 [data-theme="dark"] .hv-hero-overlay {
-    background: linear-gradient(90deg, rgba(0, 20, 35, 0.35), rgba(0, 80, 50, 0.10));
+    background: linear-gradient(90deg, rgba(0, 60, 110, 0.35), rgba(0, 166, 81, 0.1));
 }
 
 /* ========================================================= MODO OSCURO — CARDS ========================================================= */
@@ -301,11 +301,11 @@
 
 [data-theme="dark"] .hv-card:hover {
     box-shadow: 0 24px 52px rgba(0, 0, 0, 0.38);
-    border-color: rgba(199, 230, 0, 0.25);
+    border-color: rgba(0, 0, 0, 0.25);
 }
 
 [data-theme="dark"] .hv-card::after {
-    background: rgba(199, 230, 0, 0.035);
+    background: rgba(0, 0, 0, 0.035);
 }
 
 /* ========================================================= MODO OSCURO — TÍTULO MARCADOR ========================================================= */

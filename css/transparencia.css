@@ -28,8 +28,8 @@
 
     background:
         linear-gradient(135deg,
-            rgba(8, 42, 58, 0.72),
-            rgba(0, 70, 55, 0.58));
+            rgba(64, 64, 64, 0.72),
+            rgba(128, 128, 128, 0.58));
 
     z-index: 1;
 }
@@ -147,10 +147,10 @@
 
 
 .transparency-module[open] {
-    border-color: rgba(0, 153, 68, 0.28);
+    border-color: rgba(0, 0, 0, 0.28);
 
     box-shadow:
-        0 10px 28px rgba(15, 23, 42, 0.08);
+        0 10px 28px rgba(0, 0, 0, 0.08);
 }
 
 

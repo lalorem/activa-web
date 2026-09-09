@@ -61,7 +61,7 @@
     line-height: 1.05;
     letter-spacing: 0.2px;
     color: #ffffff;
-    text-shadow: 0 5px 18px rgba(0, 60, 90, 0.20);
+    text-shadow: 0 5px 18px rgba(0, 114, 206, 0.2);
 }
 
 /* ========================================================= IMPORTANTE: NO CAMBIAR EL HERO EN MODO OSCURO El header conserva exactamente la misma identidad azul + verde + lima en ambos temas. ========================================================= */
@@ -96,14 +96,14 @@
     border-radius: 24px;
     overflow: hidden;
     background: #ffffff;
-    box-shadow: 0 15px 45px rgba(0, 80, 70, 0.10);
+    box-shadow: 0 15px 45px rgba(0, 114, 206, 0.1);
     cursor: zoom-in;
     transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .organigrama-preview:hover {
     transform: translateY(-5px);
-    box-shadow: 0 22px 55px rgba(0, 80, 70, 0.16);
+    box-shadow: 0 22px 55px rgba(0, 114, 206, 0.16);
 }
 
 /* ========================================================= IMAGEN ========================================================= */
@@ -131,7 +131,7 @@
     justify-content: center;
     gap: 10px;
     opacity: 0;
-    background: rgba(0, 0, 0, 0.48);
+    background: rgba(0, 166, 81, 0.48);
     color: #ffffff;
     transition: opacity 0.3s ease;
 }
@@ -205,12 +205,12 @@
 .btn-download-organigrama:hover {
     transform: translateY(-3px);
     filter: brightness(1.06);
-    box-shadow: 0 13px 30px rgba(0, 114, 206, 0.30);
+    box-shadow: 0 13px 30px rgba(0, 114, 206, 0.3);
 }
 
 .btn-download-organigrama:active {
     transform: translateY(0);
-    box-shadow: 0 6px 15px rgba(0, 166, 81, 0.22);
+    box-shadow: 0 6px 15px rgba(0, 114, 206, 0.22);
 }
 
 /* ========================================================= MODAL ========================================================= */
@@ -253,7 +253,7 @@
     overflow: hidden;
     border-radius: 20px;
     background: #0b1f2a;
-    box-shadow: 0 30px 90px rgba(0, 80, 70, 0.45);
+    box-shadow: 0 30px 90px rgba(0, 114, 206, 0.45);
     transform: scale(0.94);
     transition: transform 0.35s ease;
 }
@@ -275,7 +275,7 @@
     justify-content: center;
     border: none;
     border-radius: 50%;
-    background: rgba(0, 114, 206, 0.65);
+    background: rgba(0, 0, 0, 0.65);
     color: #ffffff;
     font-size: 1.35rem;
     cursor: pointer;
@@ -297,7 +297,7 @@
     gap: 7px;
     padding: 6px;
     border-radius: 50px;
-    background: rgba(0, 80, 110, 0.70);
+    background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(6px);
 }
 
@@ -317,7 +317,7 @@
 }
 
 .modal-controls button:hover {
-    background: rgba(0, 166, 81, 0.55);
+    background: rgba(0, 0, 0, 0.55);
     transform: scale(1.05);
 }
 
@@ -361,7 +361,7 @@
     gap: 7px;
     padding: 7px 13px;
     border-radius: 50px;
-    background: rgba(0, 80, 110, 0.65);
+    background: rgba(0, 0, 0, 0.65);
     color: rgba(255, 255, 255, 0.88);
     font-family: 'Inter', sans-serif;
     font-size: 0.72rem;
@@ -375,7 +375,7 @@
 
 /* ========================================================= MODO OSCURO SOLO ELEMENTOS QUE REALMENTE NECESITAN CAMBIAR OJO: NO modificar nuevamente el fondo del HERO. ========================================================= */
 [data-theme="dark"] .organigrama-preview {
-    box-shadow: 0 15px 45px rgba(0, 114, 206, 0.16);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.16);
 }
 
 /* ========================================================= RESPONSIVE ========================================================= */
