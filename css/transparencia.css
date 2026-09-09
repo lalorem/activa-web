@@ -1,727 +1,713 @@
-/* =========================================================
-   HERO TRANSPARENCIA
-========================================================= */
+/* ========================================================= VARIABLES INSTITUCIONALES ACTIVA ========================================================= */
+:root {
+    --hv-lima: #C7E600;
+    --hv-verde: #00A651;
+    --hv-azul: #0072CE;
+    --hv-gradient: linear-gradient(135deg, #C7E600 0%, #00A651 48%, #0072CE 100%);
+    --hv-gradient-hover: linear-gradient(135deg, #B7D400 0%, #009447 48%, #0065B8 100%);
+    --hv-bg: #f7faf8;
+    --hv-card: #ffffff;
+    --hv-text: #1d2924;
+    --hv-muted: #65716b;
+    --hv-border: rgba(0, 114, 206, 0.10);
+    --hv-shadow: 0 15px 40px rgba(0, 80, 70, 0.09);
+}
 
+/* ========================================================= MODO OSCURO ========================================================= */
+[data-theme="dark"] {
+    --hv-bg: #0f172a;
+    --hv-card: #24364d;
+    --hv-text: #f8fafc;
+    --hv-muted: #94a3b8;
+    --hv-border: #3b5068;
+    --hv-shadow: 0 15px 35px rgba(0, 0, 0, 0.28);
+}
+
+/* ========================================================= HERO TRANSPARENCIA REDISEÑADO ========================================================= */
 .transparency-hero {
     position: relative;
-
-    min-height: 560px;
-
+    min-height: 75vh;
     display: flex;
     align-items: center;
     justify-content: center;
-
     overflow: hidden;
-
+    isolation: isolate;
     background-image: url("../assets/header1.jpeg");
     background-size: cover;
     background-position: center;
 }
 
-
-/* CAPA OSCURA */
-
-.transparency-hero-overlay {
+.transparency-hero-carousel {
     position: absolute;
-
     inset: 0;
-
-    background:
-        linear-gradient(135deg,
-            rgba(64, 64, 64, 0.72),
-            rgba(128, 128, 128, 0.58));
-
+    width: 100%;
+    height: 100%;
     z-index: 1;
 }
 
+.transparency-carousel-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transform: scale(1.05);
+    transition: opacity 1s ease-in-out, transform 6s ease;
+}
 
-/* CONTENIDO */
+.transparency-carousel-slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
 
+/* ========================================================= CAPA OVERLAY ========================================================= */
+.transparency-hero-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 47, 91, 0.88) 0%, rgba(0, 85, 120, 0.72) 42%, rgba(0, 114, 206, 0.40) 70%, rgba(0, 166, 81, 0.15) 100%);
+    z-index: 2;
+}
+
+[data-theme="dark"] .transparency-hero-overlay {
+    background: linear-gradient(90deg, rgba(4, 13, 28, 0.94) 0%, rgba(7, 33, 55, 0.88) 45%, rgba(0, 75, 95, 0.60) 75%, rgba(0, 166, 81, 0.20) 100%);
+}
+
+/* ========================================================= DECORACIONES ========================================================= */
+.transparency-hero-decoration {
+    position: absolute;
+    z-index: 3;
+    pointer-events: none;
+    border-radius: 50%;
+    filter: blur(2px);
+    animation: transparencyFloat 8s ease-in-out infinite;
+}
+
+.transparency-decoration-one {
+    width: 360px;
+    height: 360px;
+    top: -150px;
+    right: -100px;
+    background: radial-gradient(circle, rgba(199, 230, 0, 0.28) 0%, rgba(199, 230, 0, 0.04) 65%, transparent 75%);
+}
+
+.transparency-decoration-two {
+    width: 280px;
+    height: 280px;
+    bottom: 60px;
+    right: 18%;
+    background: radial-gradient(circle, rgba(0, 166, 81, 0.22) 0%, rgba(0, 166, 81, 0.02) 70%, transparent 80%);
+    animation-delay: -3s;
+}
+
+.transparency-decoration-three {
+    width: 220px;
+    height: 220px;
+    top: 22%;
+    right: 5%;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent);
+    animation-delay: -5s;
+}
+
+@keyframes transparencyFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+
+    50% {
+        transform: translateY(-18px) translateX(-10px);
+    }
+}
+
+/* ========================================================= CONTENIDO DEL HERO ========================================================= */
 .transparency-hero-content {
     position: relative;
-
-    z-index: 2;
-
+    z-index: 10;
+    max-width: 850px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    text-align: center;
+    color: white;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    min-height: 560px;
-
-    text-align: center;
-
-    color: white;
 }
 
+/* ========================================================= BADGE ========================================================= */
+.transparency-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 18px;
+    margin-bottom: 26px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    backdrop-filter: blur(12px);
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
 
-/* TÍTULO */
+.transparency-hero-badge-dot {
+    width: 9px;
+    height: 9px;
+    background: var(--hv-lima);
+    border-radius: 50%;
+    box-shadow: 0 0 0 5px rgba(199, 230, 0, 0.15);
+}
 
+/* ========================================================= TÍTULO ========================================================= */
 .transparency-hero h1 {
-    margin: 0;
-
-    font-size: clamp(3.5rem, 7vw, 6rem);
-
+    max-width: 850px;
+    margin: 0 0 22px;
+    font-size: clamp(3.2rem, 6vw, 6.4rem);
     font-weight: 800;
-
-    line-height: 1;
-
-    letter-spacing: -2px;
-
-    color: white;
-
-    text-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.25);
+    line-height: 0.98;
+    letter-spacing: -2.5px;
+    color: #ffffff;
 }
 
-/* =========================================================
-   INTRODUCCIÓN
-========================================================= */
+.transparency-hero-subtitle {
+    max-width: 700px;
+    margin-bottom: 35px;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+}
 
+/* ========================================================= INFORMACIÓN LATERAL ========================================================= */
+.transparency-hero-side-info {
+    position: absolute;
+    right: 35px;
+    top: 50%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: rgba(255, 255, 255, 0.65);
+    transform: rotate(90deg) translateY(-50%);
+    transform-origin: right center;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.transparency-hero-side-line {
+    display: block;
+    width: 55px;
+    height: 1px;
+    background: var(--hv-lima);
+}
+
+/* ========================================================= ONDA INFERIOR ========================================================= */
+.wave-bottom.transparency-wave {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 160px;
+    z-index: 15;
+    overflow: hidden;
+}
+
+.wave-bottom.transparency-wave svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* ========================================================= INTRODUCCIÓN ========================================================= */
 .transparency-intro {
     padding: 75px 0 45px;
-
-    background: var(--bg-body);
+    background: var(--hv-bg);
+    transition: background 0.3s ease;
 }
-
 
 .transparency-intro .container {
     max-width: 900px;
 }
 
-
 .transparency-intro p {
     margin: 0;
-
-    color: var(--text-muted);
-
+    color: var(--hv-muted);
     font-size: 1rem;
-
     line-height: 1.9;
-
     text-align: center;
 }
 
-/* =========================================================
-   MÓDULOS DE TRANSPARENCIA
-========================================================= */
-
+/* ========================================================= MÓDULOS DE TRANSPARENCIA ========================================================= */
 .transparency-modules {
-    padding: 35px 0 100px;
-
-    background: var(--bg-body);
+    padding: 75px 20px 100px;
+    background: var(--hv-bg);
+    transition: background 0.3s ease;
 }
-
 
 .transparency-module-list {
-    max-width: 900px;
-
+    width: min(1120px, 100%);
     margin: 0 auto;
-
     display: flex;
     flex-direction: column;
-
-    gap: 12px;
+    gap: 18px;
 }
 
-/* =========================================================
-   MÓDULOS
-========================================================= */
-
+/* ========================================================= MÓDULO PRINCIPAL ========================================================= */
 .transparency-module {
+    position: relative;
     width: 100%;
-
-    background: var(--bg-surface);
-
-    border: 1px solid var(--border-color);
-
-    border-radius: 14px;
-
+    margin-bottom: 0;
+    background: var(--hv-card);
+    border: 1px solid var(--hv-border);
+    border-radius: 22px;
+    box-shadow: var(--hv-shadow);
     overflow: hidden;
-
-    box-shadow: 0 5px 18px rgba(15, 23, 42, 0.04);
-
-    transition:
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-
-.transparency-module[open] {
-    border-color: rgba(0, 0, 0, 0.28);
-
-    box-shadow:
-        0 10px 28px rgba(0, 0, 0, 0.08);
-}
-
-
-/* CABECERA */
-
+/* ========================================================= SUMMARY ========================================================= */
 .transparency-module summary {
-    list-style: none;
-
-    cursor: pointer;
-
+    position: relative;
     display: flex;
-
     align-items: center;
     justify-content: space-between;
-
-    gap: 20px;
-
+    gap: 25px;
     width: 100%;
-
-    padding: 18px 20px;
-
-    color: var(--text-main);
-
-    transition:
-        background-color 0.25s ease,
-        color 0.25s ease;
+    padding: 26px 30px;
+    box-sizing: border-box;
+    cursor: pointer;
+    list-style: none;
+    color: var(--hv-text);
+    transition: background 0.3s ease, color 0.3s ease;
 }
-
 
 .transparency-module summary::-webkit-details-marker {
     display: none;
 }
 
+.transparency-module summary::marker {
+    display: none;
+}
 
-/* INFORMACIÓN DEL MÓDULO */
+/* ========================================================= HOVER DEL MÓDULO ========================================================= */
+.transparency-module summary:hover {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.03));
+}
 
+/* ========================================================= INFORMACIÓN DEL MÓDULO ========================================================= */
 .module-info {
     display: flex;
-
     align-items: center;
-
-    gap: 15px;
-
+    gap: 22px;
     min-width: 0;
 }
 
-
-/* NÚMERO */
-
+/* ========================================================= NÚMERO DEL MÓDULO ========================================================= */
 .module-number {
+    flex-shrink: 0;
     display: flex;
-
     align-items: center;
     justify-content: center;
-
-    width: 38px;
-    height: 38px;
-
-    min-width: 38px;
-
-    border-radius: 10px;
-
-    background:
-        linear-gradient(135deg,
-            rgba(27, 136, 203, 0.12),
-            rgba(0, 153, 68, 0.10));
-
-    color: var(--brand-green);
-
-    font-size: 11px;
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
+    border-radius: 17px;
+    color: #ffffff;
+    background: var(--hv-gradient);
+    font-size: 16px;
     font-weight: 800;
-
     letter-spacing: 0.5px;
+    box-shadow: 0 8px 20px rgba(0, 130, 90, 0.16);
 }
 
-
-/* TÍTULO */
-
+/* ========================================================= TÍTULO DEL MÓDULO ========================================================= */
 .module-title {
-    font-size: 0.94rem;
-
-    font-weight: 700;
-
+    color: var(--hv-text);
+    font-size: 17px;
+    font-weight: 800;
     line-height: 1.4;
-
     text-align: left;
 }
 
-
-/* BOTÓN + */
-
+/* ========================================================= BOTÓN + / X ========================================================= */
 .module-toggle {
+    flex-shrink: 0;
     display: flex;
-
     align-items: center;
     justify-content: center;
-
-    width: 34px;
-    height: 34px;
-
-    min-width: 34px;
-
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    border: 1px solid var(--hv-border);
     border-radius: 50%;
-
-    background: var(--brand-lime);
-
-    color: #111827;
-
-    font-size: 19px;
-
-    transition:
-        transform 0.3s ease,
-        background-color 0.3s ease;
+    color: var(--hv-azul);
+    background: var(--hv-card);
+    font-size: 21px;
+    transition: transform 0.35s ease, background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-
-/* CUANDO ESTÁ ABIERTO */
-
+/* ========================================================= MÓDULO ABIERTO ========================================================= */
 .transparency-module[open] .module-toggle {
     transform: rotate(45deg);
-
-    background: var(--brand-green);
-
-    color: white;
+    color: #ffffff;
+    background: var(--hv-gradient);
+    border-color: transparent;
 }
 
-
-/* HOVER */
-
-.transparency-module summary:hover {
-    background:
-        linear-gradient(135deg,
-            rgba(27, 136, 203, 0.035),
-            rgba(0, 153, 68, 0.035));
-}
-
-
-/* CONTENIDO */
-
+/* ========================================================= CONTENIDO DESPLEGABLE ========================================================= */
 .module-content {
-    padding: 0 20px 20px;
-
-    border-top: 1px solid var(--border-color);
+    padding: 0 30px 30px;
+    border-top: 1px solid var(--hv-border);
+    color: var(--hv-text);
 }
 
+/* ========================================================= GRID DE ENLACES ========================================================= */
+.module-links-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    padding-top: 25px;
+}
 
-/* ENLACE */
-
+/* ========================================================= TARJETA DE DOCUMENTO ========================================================= */
 .module-link {
+    position: relative;
     display: flex;
-
     align-items: center;
-
-    gap: 13px;
-
+    gap: 17px;
+    min-height: 100px;
     width: 100%;
-
-    margin-top: 16px;
-
-    padding: 13px 15px;
-
-    border: 1px solid var(--border-color);
-
-    border-radius: 11px;
-
-    background: rgba(148, 163, 184, 0.05);
-
-    color: var(--text-main);
-
-    transition:
-        background-color 0.25s ease,
-        border-color 0.25s ease,
-        transform 0.25s ease;
+    margin-top: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid var(--hv-border);
+    border-radius: 18px;
+    background: var(--hv-card);
+    color: var(--hv-text);
+    text-decoration: none;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
 }
 
+/* ========================================================= LÍNEA LATERAL DECORATIVA ========================================================= */
+.module-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 5px;
+    background: var(--hv-gradient);
+    transition: width 0.3s ease;
+}
 
+/* ========================================================= HOVER TARJETA ========================================================= */
 .module-link:hover {
-    background: rgba(0, 153, 68, 0.06);
-
-    border-color: rgba(0, 153, 68, 0.24);
-
-    transform: translateX(4px);
+    transform: translateY(-5px);
+    border-color: rgba(0, 0, 0, 0.28);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.10);
 }
 
+.module-link:hover::before {
+    width: 8px;
+}
 
-/* ICONO DEL ENLACE */
-
+/* ========================================================= ICONO DEL DOCUMENTO ========================================================= */
 .module-link-icon {
-    width: 38px;
-    height: 38px;
-
-    min-width: 38px;
-
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
     display: flex;
-
     align-items: center;
     justify-content: center;
-
-    border-radius: 10px;
-
-    background: rgba(0, 153, 68, 0.10);
-
-    color: var(--brand-green);
-
-    font-size: 18px;
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    border-radius: 15px;
+    color: #ffffff;
+    background: var(--hv-gradient);
+    font-size: 23px;
+    box-shadow: 0 8px 18px rgba(0, 130, 90, 0.15);
 }
 
-
-/* TEXTO DEL ENLACE */
-
+/* ========================================================= TEXTO DEL DOCUMENTO ========================================================= */
 .module-link-text {
+    position: relative;
+    z-index: 2;
     flex: 1;
+    min-width: 0;
 }
 
 .module-link-text strong {
     display: block;
-
-    margin-bottom: 2px;
-
-    font-size: 0.88rem;
+    margin-bottom: 5px;
+    color: var(--hv-text);
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.45;
 }
 
 .module-link-text span {
-    color: var(--text-muted);
-
-    font-size: 0.77rem;
+    display: block;
+    color: var(--hv-muted);
+    font-size: 12px;
+    line-height: 1.5;
 }
 
-
-/* FLECHA */
-
+/* ========================================================= FLECHA DEL DOCUMENTO ========================================================= */
 .module-link-arrow {
-    color: var(--text-muted);
-
-    font-size: 17px;
-
-    transition:
-        transform 0.25s ease,
-        color 0.25s ease;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+    color: var(--hv-azul);
+    font-size: 19px;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
-
 
 .module-link:hover .module-link-arrow {
-    color: var(--brand-green);
-
     transform: translate(3px, -3px);
+    color: var(--hv-verde);
 }
 
-
-/* MODO OSCURO */
-
-[data-theme="dark"] .transparency-module[open] {
-    border-color: rgba(144, 203, 27, 0.25);
-}
-
-[data-theme="dark"] .transparency-module summary:hover {
-    background: rgba(255, 255, 255, 0.03);
-}
-
-[data-theme="dark"] .module-link {
-    background: rgba(255, 255, 255, 0.03);
-}
-
-[data-theme="dark"] .module-link:hover {
-    background: rgba(144, 203, 27, 0.07);
-}
-
-[data-theme="dark"] .module-text-section h4 {
-    color: #60a5fa;
-}
-
-/* ================= TEXTO DE MÓDULOS ================= */
-
+/* ========================================================= TEXTO DE MÓDULOS ========================================================= */
 .module-text-section {
-    margin-top: 16px;
-    margin-bottom: 24px;
+    margin-top: 22px;
+    margin-bottom: 28px;
 }
 
 .module-text-section h4 {
-    margin-bottom: 8px;
-
-    color: var(--brand-blue);
-
-    font-size: 1rem;
-    font-weight: 700;
+    margin: 0 0 10px;
+    color: var(--hv-azul);
+    font-size: 16px;
+    font-weight: 800;
 }
 
 .module-text-section p {
     margin: 0;
-
-    color: var(--text-muted);
-
-    font-size: 0.9rem;
+    color: var(--hv-muted);
+    font-size: 14px;
     line-height: 1.8;
 }
 
-/* ================= SUBSECCIONES DE MÓDULOS ================= */
-
+/* ========================================================= SUBSECCIONES ========================================================= */
 .module-subsection {
-    padding: 18px 0 6px;
+    padding: 22px 0 8px;
 }
 
 .module-subsection+.module-subsection {
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--hv-border);
 }
-
 
 .module-subsection h4 {
-    margin: 0 0 12px;
-
-    color: var(--brand-blue);
-
-    font-size: 0.95rem;
-    font-weight: 700;
+    margin: 0 0 14px;
+    color: var(--hv-azul);
+    font-size: 15px;
+    font-weight: 800;
 }
 
-
-[data-theme="dark"] .module-subsection h4 {
-    color: #60a5fa;
-}
-
-
-.module-links-grid {
-    display: grid;
-
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-
-    gap: 10px;
-}
-
-
-.module-links-grid .module-link {
-    margin-top: 0;
-}
-
-/* =========================================================
-   MÓDULO PARTICIPA
-========================================================= */
-
+/* ========================================================= MÓDULO PARTICIPA ========================================================= */
 .participa-intro {
-    margin-bottom: 24px;
+    margin-bottom: 28px;
 }
 
 .participa-intro h4,
 .participa-info h4,
 .participa-social h4 {
-    margin: 0 0 8px;
-
-    color: var(--brand-blue);
-
-    font-size: 0.95rem;
-    font-weight: 700;
+    margin: 0 0 10px;
+    color: var(--hv-azul);
+    font-size: 15px;
+    font-weight: 800;
 }
-
-
-[data-theme="dark"] .participa-intro h4,
-[data-theme="dark"] .participa-info h4,
-[data-theme="dark"] .participa-social h4 {
-    color: #60a5fa;
-}
-
 
 .participa-intro>p,
 .participa-description {
-    margin: 0 0 14px;
-
-    color: var(--text-muted);
-
-    font-size: 0.9rem;
-
+    margin: 0 0 16px;
+    color: var(--hv-muted);
+    font-size: 14px;
     line-height: 1.7;
 }
 
-
-/* HORARIO */
-
+/* ========================================================= INFORMACIÓN PARTICIPA ========================================================= */
 .participa-info {
     display: flex;
-
     align-items: flex-start;
-
-    gap: 14px;
-
-    margin: 20px 0;
-
-    padding: 16px;
-
-    border: 1px solid var(--border-color);
-
-    border-radius: 12px;
-
-    background: rgba(27, 136, 203, 0.04);
+    gap: 17px;
+    margin: 22px 0;
+    padding: 20px;
+    border: 1px solid var(--hv-border);
+    border-radius: 18px;
+    background: rgba(0, 114, 206, 0.04);
 }
-
 
 .participa-info-icon {
+    flex-shrink: 0;
     display: flex;
-
     align-items: center;
     justify-content: center;
-
-    width: 40px;
-    height: 40px;
-
-    min-width: 40px;
-
-    border-radius: 10px;
-
-    background: rgba(27, 136, 203, 0.10);
-
-    color: var(--brand-blue);
-
-    font-size: 20px;
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    border-radius: 15px;
+    color: #ffffff;
+    background: var(--hv-gradient);
+    font-size: 22px;
+    box-shadow: 0 8px 18px rgba(0, 130, 90, 0.15);
 }
-
-
-[data-theme="dark"] .participa-info {
-    background: rgba(96, 165, 250, 0.05);
-}
-
-
-[data-theme="dark"] .participa-info-icon {
-    background: rgba(96, 165, 250, 0.12);
-
-    color: #60a5fa;
-}
-
 
 .participa-info p {
     margin: 0;
-
-    color: var(--text-muted);
-
-    font-size: 0.88rem;
-
+    color: var(--hv-muted);
+    font-size: 13px;
     line-height: 1.7;
 }
 
-
-/* REDES */
-
+/* ========================================================= REDES SOCIALES ========================================================= */
 .participa-social {
-    margin-top: 26px;
-
-    padding-top: 22px;
-
-    border-top: 1px solid var(--border-color);
-
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--hv-border);
     text-align: center;
 }
 
-
 .participa-social-links {
     display: flex;
-
     justify-content: center;
-
     gap: 12px;
-
-    margin-top: 14px;
+    margin-top: 16px;
 }
-
 
 .participa-social-links a {
     display: flex;
-
     align-items: center;
     justify-content: center;
-
-    width: 42px;
-    height: 42px;
-
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
-
-    background: rgba(27, 136, 203, 0.08);
-
-    color: var(--brand-blue);
-
+    color: #ffffff;
+    background: var(--hv-gradient);
     font-size: 19px;
-
-    transition:
-        transform 0.25s ease,
-        background-color 0.25s ease,
-        color 0.25s ease;
+    box-shadow: 0 8px 18px rgba(0, 130, 90, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
-
 
 .participa-social-links a:hover {
-    transform: translateY(-3px);
-
-    background: var(--brand-green);
-
-    color: white;
-}
-
-
-[data-theme="dark"] .participa-social-links a {
-    background: rgba(96, 165, 250, 0.10);
-
-    color: #60a5fa;
-}
-
-
-[data-theme="dark"] .participa-social-links a:hover {
-    background: var(--brand-lime);
-
-    color: #111827;
+    transform: translateY(-4px);
+    background: var(--hv-gradient-hover);
+    box-shadow: 0 14px 28px rgba(0, 130, 90, 0.20);
 }
 
 /* ========================================================= MÓDULOS SIN INFORMACIÓN ========================================================= */
 .empty-module {
     display: flex;
     align-items: center;
-    gap: 14px;
-    padding: 18px;
-    border: 1px dashed var(--border-color);
-    border-radius: 12px;
-    background: rgba(148, 163, 184, 0.04);
+    gap: 17px;
+    padding: 20px;
+    border: 1px dashed var(--hv-border);
+    border-radius: 18px;
+    background: rgba(0, 114, 206, 0.04);
 }
 
 .empty-module-icon {
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 42px;
-    height: 42px;
-    min-width: 42px;
-    border-radius: 10px;
-    background: rgba(27, 136, 203, 0.08);
-    color: var(--brand-blue);
-    font-size: 20px;
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    border-radius: 15px;
+    color: #ffffff;
+    background: var(--hv-gradient);
+    font-size: 21px;
+    box-shadow: 0 8px 18px rgba(0, 130, 90, 0.12);
 }
 
 .empty-module h4 {
-    margin: 0 0 3px;
-    color: var(--brand-blue);
-    font-size: 0.9rem;
-    font-weight: 700;
+    margin: 0 0 5px;
+    color: var(--hv-azul);
+    font-size: 14px;
+    font-weight: 800;
 }
 
 .empty-module p {
     margin: 0;
-    color: var(--text-muted);
-    font-size: 0.82rem;
+    color: var(--hv-muted);
+    font-size: 12px;
     line-height: 1.5;
+}
+
+/* ========================================================= MODO OSCURO — MÓDULOS ========================================================= */
+[data-theme="dark"] .transparency-module {
+    background: var(--hv-card);
+    border-color: var(--hv-border);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+}
+
+[data-theme="dark"] .transparency-module summary:hover {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.05));
+}
+
+[data-theme="dark"] .module-toggle {
+    background: #1c2c40;
+    color: #5eb4ff;
+    border-color: var(--hv-border);
+}
+
+[data-theme="dark"] .transparency-module[open] .module-toggle {
+    color: #ffffff;
+    background: var(--hv-gradient);
+    border-color: transparent;
+}
+
+[data-theme="dark"] .module-link {
+    background: #1d2d42;
+    border-color: var(--hv-border);
+}
+
+[data-theme="dark"] .module-link:hover {
+    border-color: rgba(0, 166, 81, 0.35);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
+}
+
+[data-theme="dark"] .module-link-text strong {
+    color: var(--hv-text);
+}
+
+[data-theme="dark"] .module-link-text span {
+    color: var(--hv-muted);
+}
+
+[data-theme="dark"] .module-text-section h4,
+[data-theme="dark"] .module-subsection h4,
+[data-theme="dark"] .participa-intro h4,
+[data-theme="dark"] .participa-info h4,
+[data-theme="dark"] .participa-social h4,
+[data-theme="dark"] .empty-module h4 {
+    color: #60b9ff;
+}
+
+[data-theme="dark"] .participa-info {
+    background: rgba(0, 114, 206, 0.08);
+    border-color: var(--hv-border);
 }
 
 [data-theme="dark"] .empty-module {
     background: rgba(255, 255, 255, 0.025);
+    border-color: var(--hv-border);
 }
 
-[data-theme="dark"] .empty-module-icon {
-    background: rgba(96, 165, 250, 0.10);
-    color: #60a5fa;
-}
-
-[data-theme="dark"] .empty-module h4 {
-    color: #60a5fa;
-}
-
-/* =========================================================
-   RESPONSIVE — TRANSPARENCIA
-========================================================= */
-
-
-/* =========================================================
-   LAPTOPS
-========================================================= */
-
+/* ========================================================= LAPTOPS ========================================================= */
 @media (max-width: 1200px) {
-
     .transparency-hero {
         min-height: 520px;
     }
@@ -735,47 +721,32 @@
     }
 
     .transparency-module-list {
-        max-width: 850px;
+        width: min(100%, 950px);
     }
-
 }
 
-
-/* =========================================================
-   TABLETS GRANDES
-========================================================= */
-
+/* ========================================================= TABLETS GRANDES ========================================================= */
 @media (max-width: 1024px) {
 
     /* ================= HERO ================= */
-
     .transparency-hero {
         min-height: 500px;
-
-        background-position:
-            center center;
+        background-position: center center;
     }
 
     .transparency-hero-content {
         min-height: 500px;
-
-        padding:
-            40px 20px;
+        padding: 40px 20px;
     }
 
     .transparency-hero h1 {
         font-size: clamp(3rem, 7vw, 5rem);
-
-        letter-spacing:
-            -1.5px;
+        letter-spacing: -1.5px;
     }
 
-
     /* ================= INTRO ================= */
-
     .transparency-intro {
-        padding:
-            65px 0 40px;
+        padding: 65px 20px 40px;
     }
 
     .transparency-intro .container {
@@ -783,680 +754,507 @@
     }
 
     .transparency-intro p {
-        font-size:
-            0.98rem;
-
-        line-height:
-            1.8;
+        font-size: 0.98rem;
+        line-height: 1.8;
     }
 
-
     /* ================= MÓDULOS ================= */
-
     .transparency-modules {
-        padding:
-            30px 0 80px;
+        padding: 60px 20px 80px;
     }
 
     .transparency-module-list {
-        max-width:
-            850px;
-
-        padding:
-            0 18px;
+        width: 100%;
+        padding: 0;
     }
 
     .transparency-module summary {
-        padding:
-            17px 18px;
+        padding: 24px 25px;
+    }
+
+    .module-content {
+        padding: 0 25px 28px;
     }
 
     .module-title {
-        font-size:
-            0.92rem;
+        font-size: 16px;
     }
-
 }
 
-
-/* =========================================================
-   TABLETS PEQUEÑAS
-========================================================= */
-
+/* ========================================================= TABLETS PEQUEÑAS ========================================================= */
 @media (max-width: 768px) {
 
     /* ================= HERO ================= */
-
     .transparency-hero {
-        min-height:
-            450px;
-
-        background-position:
-            center center;
+        min-height: 500px;
+        background-position: center center;
     }
 
     .transparency-hero-content {
-        min-height:
-            450px;
-
-        padding:
-            35px 20px;
+        padding: 50px 20px 100px;
     }
 
     .transparency-hero h1 {
-        font-size:
-            clamp(2.8rem, 10vw, 4.5rem);
-
-        letter-spacing:
-            -1px;
-
-        line-height:
-            1.02;
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        letter-spacing: -1.2px;
+        margin-bottom: 16px;
     }
 
+    .transparency-hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+
+    .transparency-hero-side-info {
+        display: none;
+    }
+
+    .transparency-decoration-one {
+        width: 260px;
+        height: 260px;
+        top: -80px;
+        right: -80px;
+    }
+
+    .transparency-decoration-two {
+        width: 200px;
+        height: 200px;
+        right: 10%;
+        bottom: 100px;
+    }
+
+    .transparency-decoration-three {
+        display: none;
+    }
 
     /* ================= INTRO ================= */
-
     .transparency-intro {
-        padding:
-            55px 0 35px;
+        padding: 55px 20px 35px;
     }
 
     .transparency-intro p {
-        font-size:
-            0.95rem;
-
-        line-height:
-            1.75;
+        font-size: 0.95rem;
+        line-height: 1.75;
     }
 
-
     /* ================= MÓDULOS ================= */
-
     .transparency-modules {
-        padding:
-            25px 0 65px;
+        padding: 50px 16px 70px;
     }
 
     .transparency-module-list {
-        width:
-            100%;
-
-        padding:
-            0 16px;
-
-        gap:
-            10px;
+        width: 100%;
+        gap: 14px;
+        padding: 0;
     }
 
     .transparency-module {
-        border-radius:
-            13px;
+        border-radius: 18px;
     }
 
-
-    /* CABECERA */
-
+    /* ================= CABECERA ================= */
     .transparency-module summary {
-        gap:
-            12px;
-
-        padding:
-            15px 16px;
+        gap: 16px;
+        padding: 20px;
     }
 
-
-    /* INFORMACIÓN */
-
+    /* ================= INFORMACIÓN ================= */
     .module-info {
-        gap:
-            12px;
+        gap: 16px;
     }
 
-
-    /* NÚMERO */
-
+    /* ================= NÚMERO ================= */
     .module-number {
-        width:
-            36px;
-
-        height:
-            36px;
-
-        min-width:
-            36px;
-
-        border-radius:
-            9px;
-
-        font-size:
-            10px;
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        border-radius: 14px;
+        font-size: 14px;
     }
 
-
-    /* TÍTULO */
-
+    /* ================= TÍTULO ================= */
     .module-title {
-        font-size:
-            0.88rem;
-
-        line-height:
-            1.35;
+        font-size: 15px;
+        line-height: 1.35;
     }
 
-
-    /* BOTÓN */
-
+    /* ================= BOTÓN ================= */
     .module-toggle {
-        width:
-            32px;
-
-        height:
-            32px;
-
-        min-width:
-            32px;
-
-        font-size:
-            18px;
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+        font-size: 19px;
     }
 
-
-    /* CONTENIDO */
-
+    /* ================= CONTENIDO ================= */
     .module-content {
-        padding:
-            0 16px 18px;
+        padding: 0 20px 25px;
     }
 
-
-    /* ENLACES */
-
+    /* ================= ENLACES ================= */
     .module-links-grid {
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding-top: 20px;
     }
 
     .module-link {
-        gap:
-            10px;
-
-        padding:
-            11px 12px;
+        min-height: 90px;
+        padding: 17px;
     }
 
     .module-link-icon {
-        width:
-            36px;
-
-        height:
-            36px;
-
-        min-width:
-            36px;
-
-        font-size:
-            17px;
+        width: 46px;
+        height: 46px;
+        min-width: 46px;
+        border-radius: 13px;
+        font-size: 20px;
     }
 
     .module-link-text strong {
-        font-size:
-            0.84rem;
+        font-size: 13px;
     }
 
     .module-link-text span {
-        font-size:
-            0.74rem;
+        font-size: 11px;
     }
 
-
     /* ================= PARTICIPA ================= */
-
     .participa-info {
-        gap:
-            12px;
-
-        padding:
-            14px;
+        gap: 14px;
+        padding: 17px;
     }
 
     .participa-info-icon {
-        width:
-            38px;
-
-        height:
-            38px;
-
-        min-width:
-            38px;
+        width: 46px;
+        height: 46px;
+        min-width: 46px;
     }
 
     .participa-social-links {
-        gap:
-            10px;
+        gap: 10px;
     }
-
 }
 
-
-/* =========================================================
-   CELULARES
-========================================================= */
-
+/* ========================================================= CELULARES ========================================================= */
 @media (max-width: 600px) {
 
     /* ================= HERO ================= */
-
     .transparency-hero {
-        min-height:
-            400px;
-
-        background-position:
-            center center;
+        min-height: 450px;
+        background-position: center center;
     }
 
     .transparency-hero-overlay {
-        background:
-            linear-gradient(
-                180deg,
-                rgba(8, 42, 58, 0.45),
-                rgba(0, 70, 55, 0.78)
-            );
+        background: linear-gradient(180deg, rgba(8, 42, 58, 0.60), rgba(0, 70, 55, 0.80));
     }
 
     .transparency-hero-content {
-        min-height:
-            400px;
-
-        padding:
-            30px 16px;
+        padding: 40px 16px 60px;
     }
 
     .transparency-hero h1 {
-        font-size:
-            clamp(2.5rem, 12vw, 3.5rem);
-
-        letter-spacing:
-            -0.5px;
+        font-size: clamp(2.2rem, 10vw, 3.2rem);
+        letter-spacing: -0.8px;
+        margin-bottom: 14px;
     }
 
+    .transparency-hero-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+    }
+
+    .transparency-decoration-one {
+        width: 200px;
+        height: 200px;
+        top: -60px;
+        right: -60px;
+        opacity: 0.6;
+    }
+
+    .transparency-decoration-two {
+        width: 150px;
+        height: 150px;
+        right: 5%;
+        bottom: 80px;
+        opacity: 0.5;
+    }
 
     /* ================= INTRO ================= */
-
     .transparency-intro {
-        padding:
-            50px 0 30px;
+        padding: 50px 16px 30px;
     }
 
     .transparency-intro p {
-        font-size:
-            0.92rem;
-
-        line-height:
-            1.7;
+        font-size: 0.92rem;
+        line-height: 1.7;
     }
 
-
     /* ================= MÓDULOS ================= */
-
     .transparency-modules {
-        padding:
-            22px 0 55px;
+        padding: 45px 12px 60px;
     }
 
     .transparency-module-list {
-        padding:
-            0 12px;
-
-        gap:
-            9px;
+        padding: 0;
+        gap: 12px;
     }
 
+    .transparency-module {
+        border-radius: 16px;
+    }
 
-    /* CABECERA */
-
+    /* ================= CABECERA ================= */
     .transparency-module summary {
-        padding:
-            13px 12px;
-
-        gap:
-            8px;
+        padding: 17px 15px;
+        gap: 10px;
     }
-
 
     .module-info {
-        gap:
-            9px;
+        gap: 11px;
     }
 
-
-    /* NÚMERO */
-
+    /* ================= NÚMERO ================= */
     .module-number {
-        width:
-            33px;
-
-        height:
-            33px;
-
-        min-width:
-            33px;
-
-        border-radius:
-            8px;
-
-        font-size:
-            9px;
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+        border-radius: 12px;
+        font-size: 12px;
     }
 
-
-    /* TÍTULO */
-
+    /* ================= TÍTULO ================= */
     .module-title {
-        font-size:
-            0.82rem;
-
-        line-height:
-            1.3;
+        font-size: 13px;
+        line-height: 1.35;
     }
 
-
-    /* BOTÓN + */
-
+    /* ================= BOTÓN ================= */
     .module-toggle {
-        width:
-            29px;
-
-        height:
-            29px;
-
-        min-width:
-            29px;
-
-        font-size:
-            17px;
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+        font-size: 18px;
     }
 
-
-    /* CONTENIDO */
-
+    /* ================= CONTENIDO ================= */
     .module-content {
-        padding:
-            0 12px 15px;
+        padding: 0 15px 20px;
     }
 
-
-    /* TEXTO */
-
+    /* ================= TEXTO ================= */
     .module-text-section {
-        margin-top:
-            13px;
-
-        margin-bottom:
-            20px;
+        margin-top: 18px;
+        margin-bottom: 22px;
     }
 
     .module-text-section h4 {
-        font-size:
-            0.92rem;
+        font-size: 14px;
     }
 
     .module-text-section p {
-        font-size:
-            0.84rem;
-
-        line-height:
-            1.7;
+        font-size: 13px;
+        line-height: 1.7;
     }
 
-
-    /* SUBSECCIONES */
-
+    /* ================= SUBSECCIONES ================= */
     .module-subsection {
-        padding:
-            15px 0 5px;
+        padding: 18px 0 6px;
     }
 
     .module-subsection h4 {
-        font-size:
-            0.88rem;
+        font-size: 13px;
     }
 
-
-    /* ENLACES */
+    /* ================= ENLACES ================= */
+    .module-links-grid {
+        gap: 12px;
+        padding-top: 17px;
+    }
 
     .module-link {
-        margin-top:
-            10px;
-
-        padding:
-            10px;
+        min-height: 82px;
+        padding: 14px;
     }
 
     .module-link-icon {
-        width:
-            34px;
-
-        height:
-            34px;
-
-        min-width:
-            34px;
-
-        font-size:
-            16px;
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+        border-radius: 12px;
+        font-size: 18px;
     }
 
     .module-link-text strong {
-        font-size:
-            0.8rem;
-
-        line-height:
-            1.35;
+        font-size: 12px;
+        line-height: 1.35;
     }
 
     .module-link-text span {
-        font-size:
-            0.7rem;
-
-        line-height:
-            1.35;
+        font-size: 10px;
+        line-height: 1.4;
     }
 
     .module-link-arrow {
-        font-size:
-            15px;
+        font-size: 16px;
     }
 
-
     /* ================= PARTICIPA ================= */
-
     .participa-intro h4,
     .participa-info h4,
     .participa-social h4 {
-        font-size:
-            0.88rem;
+        font-size: 13px;
     }
 
-    .participa-intro > p,
+    .participa-intro>p,
     .participa-description,
     .participa-info p {
-        font-size:
-            0.82rem;
-
-        line-height:
-            1.65;
+        font-size: 12px;
+        line-height: 1.65;
     }
 
     .participa-info {
-        flex-direction:
-            row;
+        flex-direction: row;
+        gap: 11px;
+        padding: 14px;
+    }
 
-        padding:
-            13px;
+    .participa-info-icon {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        border-radius: 12px;
+        font-size: 18px;
     }
 
     .participa-social {
-        margin-top:
-            22px;
-
-        padding-top:
-            18px;
+        margin-top: 22px;
+        padding-top: 18px;
     }
 
     .participa-social-links {
-        gap:
-            8px;
+        gap: 8px;
     }
 
     .participa-social-links a {
-        width:
-            38px;
-
-        height:
-            38px;
-
-        font-size:
-            17px;
+        width: 38px;
+        height: 38px;
+        font-size: 17px;
     }
 
-
     /* ================= MÓDULO VACÍO ================= */
-
     .empty-module {
-        gap:
-            10px;
-
-        padding:
-            14px;
+        gap: 11px;
+        padding: 15px;
     }
 
     .empty-module-icon {
-        width:
-            36px;
-
-        height:
-            36px;
-
-        min-width:
-            36px;
-
-        font-size:
-            18px;
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        border-radius: 12px;
+        font-size: 18px;
     }
 
     .empty-module h4 {
-        font-size:
-            0.82rem;
+        font-size: 12px;
     }
 
     .empty-module p {
-        font-size:
-            0.75rem;
+        font-size: 10px;
     }
-
 }
 
-
-/* =========================================================
-   CELULARES PEQUEÑOS
-========================================================= */
-
+/* ========================================================= CELULARES PEQUEÑOS ========================================================= */
 @media (max-width: 400px) {
-
     .transparency-hero {
-        min-height:
-            370px;
+        min-height: 370px;
     }
 
     .transparency-hero-content {
-        min-height:
-            370px;
+        min-height: 370px;
     }
 
     .transparency-hero h1 {
-        font-size:
-            2.35rem;
+        font-size: 2.35rem;
     }
 
-
     .transparency-intro {
-        padding:
-            45px 0 25px;
+        padding: 45px 14px 25px;
     }
 
     .transparency-intro p {
-        font-size:
-            0.86rem;
+        font-size: 0.86rem;
     }
 
+    /* ================= MÓDULOS ================= */
+    .transparency-modules {
+        padding: 40px 10px 50px;
+    }
 
     .transparency-module-list {
-        padding:
-            0 10px;
+        gap: 10px;
     }
-
 
     .transparency-module summary {
-        padding:
-            12px 10px;
+        padding: 14px 11px;
+        gap: 7px;
     }
 
+    .module-info {
+        gap: 8px;
+    }
 
     .module-number {
-        width:
-            30px;
-
-        height:
-            30px;
-
-        min-width:
-            30px;
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        border-radius: 10px;
+        font-size: 10px;
     }
-
 
     .module-title {
-        font-size:
-            0.77rem;
+        font-size: 11.5px;
     }
-
 
     .module-toggle {
-        width:
-            27px;
-
-        height:
-            27px;
-
-        min-width:
-            27px;
-
-        font-size:
-            15px;
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+        font-size: 16px;
     }
-
 
     .module-content {
-        padding:
-            0 10px 13px;
+        padding: 0 11px 16px;
     }
 
+    .module-links-grid {
+        gap: 10px;
+        padding-top: 14px;
+    }
 
     .module-link {
-        padding:
-            9px;
+        min-height: 76px;
+        padding: 11px;
     }
-
 
     .module-link-icon {
-        width:
-            32px;
-
-        height:
-            32px;
-
-        min-width:
-            32px;
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+        border-radius: 10px;
+        font-size: 16px;
     }
 
+    .module-link-text strong {
+        font-size: 11px;
+    }
+
+    .module-link-text span {
+        font-size: 9px;
+    }
+
+    .module-link-arrow {
+        font-size: 14px;
+    }
 }
