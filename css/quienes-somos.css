@@ -1,3 +1,7 @@
+/* =========================================================
+   QUIÉNES SOMOS — ACTIVA
+========================================================= */
+
 :root {
 
     /* ================= COLORES ACTIVA ================= */
@@ -51,6 +55,11 @@
 
     --about-shadow-hover:
         0 22px 50px rgba(11, 63, 90, 0.16);
+
+    /* ================= ONDA DE LAS FOTOS ================= */
+
+    --team-wave:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0,0 H100 V72 C90,72 90,82 80,82 C70,82 70,65 60,65 C50,65 50,88 40,88 C30,88 30,68 20,68 C10,68 10,82 0,82 Z'/%3E%3C/svg%3E");
 
 }
 
@@ -700,7 +709,8 @@
    DESTACADO
 ========================================================= */
 
-.team-header-center .highlight {
+.team-header-center .highlight,
+.team-header-center .marker-title {
 
     color:
         var(--brand-green);
@@ -709,9 +719,12 @@
 }
 
 
-/* Línea decorativa debajo del destacado */
+/* =========================================================
+   LÍNEA DECORATIVA
+========================================================= */
 
-.team-header-center .highlight::after {
+.team-header-center .highlight::after,
+.team-header-center .marker-title::after {
 
     content: "";
 
@@ -768,9 +781,9 @@
 
     flex-direction: column;
 
-    gap: 70px;
+    gap: 58px;
 
-    max-width: 1050px;
+    max-width: 1080px;
 
     margin:
         0 auto;
@@ -778,6 +791,8 @@
     position: relative;
 
     z-index: 2;
+
+    counter-reset: team;
 }
 
 
@@ -793,7 +808,11 @@
 
     justify-content: space-between;
 
-    gap: 50px;
+    gap: 42px;
+
+    position: relative;
+
+    counter-increment: team;
 }
 
 
@@ -809,29 +828,119 @@
 
 
 /* =========================================================
+   NÚMERO DECORATIVO
+========================================================= */
+
+.team-row::before {
+
+    content:
+        "0" counter(team);
+
+    position: absolute;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    font-size:
+        clamp(5rem, 9vw, 8rem);
+
+    font-weight:
+        800;
+
+    line-height:
+        1;
+
+    letter-spacing:
+        -5px;
+
+    color:
+        rgba(18, 95, 145, 0.055);
+
+    z-index:
+        -1;
+
+    pointer-events:
+        none;
+}
+
+
+.team-row:nth-child(odd)::before {
+
+    left:
+        -25px;
+}
+
+
+.team-row:nth-child(even)::before {
+
+    right:
+        -25px;
+}
+
+
+/* =========================================================
    COLUMNA IMAGEN
 ========================================================= */
 
 .team-image-col {
 
     flex:
-        0 0 40%;
+        0 0 285px;
 
-    min-width:
-        280px;
+    width:
+        285px;
 
-    position: relative;
+    height:
+        430px;
 
-    padding: 6px;
+    position:
+        relative;
 
-    border-radius:
-        18px;
+    flex-shrink:
+        0;
 
     animation:
         floatingImage
         4s
         ease-in-out
         infinite;
+}
+
+
+/* =========================================================
+   HALO DIFUMINADO DE TODA LA CARD
+========================================================= */
+
+.team-image-col::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        -18px;
+
+    border-radius:
+        32px;
+
+    background:
+        var(--about-gradient);
+
+    filter:
+        blur(24px);
+
+    opacity:
+        0.30;
+
+    z-index:
+        -2;
+
+    pointer-events:
+        none;
 }
 
 
@@ -852,7 +961,7 @@
     50% {
 
         transform:
-            translateY(-8px);
+            translateY(-6px);
 
     }
 
@@ -860,28 +969,31 @@
 
 
 /* =========================================================
-   BORDE DE TRES COLORES
+   MARCO DEGRADADO
 ========================================================= */
 
 .team-image-col::before {
 
-    content: "";
+    content:
+        "";
 
-    position: absolute;
+    position:
+        absolute;
 
-    inset: 0;
+    inset:
+        0;
 
     border-radius:
-        18px;
+        22px;
 
     background:
         var(--about-gradient);
 
     -webkit-mask-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0,0 H100 V65 C90,65 90,85 80,85 C70,85 70,55 60,55 C50,55 50,95 40,95 C30,95 30,60 20,60 C10,60 10,80 0,80 Z'/%3E%3C/svg%3E");
+        var(--team-wave);
 
     mask-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0,0 H100 V65 C90,65 90,85 80,85 C70,85 70,55 60,55 C50,55 50,95 40,95 C30,95 30,60 20,60 C10,60 10,80 0,80 Z'/%3E%3C/svg%3E");
+        var(--team-wave);
 
     -webkit-mask-size:
         100% 100%;
@@ -889,61 +1001,153 @@
     mask-size:
         100% 100%;
 
+    -webkit-mask-repeat:
+        no-repeat;
+
+    mask-repeat:
+        no-repeat;
+
+    -webkit-mask-position:
+        center;
+
+    mask-position:
+        center;
+
     z-index:
         1;
+
+    pointer-events:
+        none;
 }
 
 
 /* =========================================================
-   CONTENEDOR IMAGEN
+   CONTENEDOR DE LA FOTO
 ========================================================= */
 
 .image-wrapper {
 
-    position: relative;
+    position:
+        absolute;
 
-    width: 100%;
+    inset:
+        7px;
 
-    aspect-ratio:
-        3 / 4;
+    overflow:
+        hidden;
 
     border-radius:
-        13px;
-
-    overflow: hidden;
+        18px;
 
     z-index:
         2;
 
+    box-sizing:
+        border-box;
+
+    background:
+        transparent;
+
     -webkit-mask-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0,0 H100 V65 C90,65 90,85 80,85 C70,85 70,55 60,55 C50,55 50,95 40,95 C30,95 30,60 20,60 C10,60 10,80 0,80 Z'/%3E%3C/svg%3E");
+        var(--team-wave);
 
     mask-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0,0 H100 V65 C90,65 90,85 80,85 C70,85 70,55 60,55 C50,55 50,95 40,95 C30,95 30,60 20,60 C10,60 10,80 0,80 Z'/%3E%3C/svg%3E");
+        var(--team-wave);
 
     -webkit-mask-size:
         100% 100%;
 
     mask-size:
         100% 100%;
+
+    -webkit-mask-repeat:
+        no-repeat;
+
+    mask-repeat:
+        no-repeat;
+
+    -webkit-mask-position:
+        center;
+
+    mask-position:
+        center;
+
+    transition:
+        transform 0.4s ease;
 }
 
 
 /* =========================================================
-   IMAGEN EQUIPO
+   FOTO
 ========================================================= */
 
 .image-wrapper img {
 
-    width: 100%;
-    height: 100%;
+    display:
+        block;
 
-    object-fit: cover;
+    width:
+        100%;
 
-    display: block;
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+    object-position:
+        center top;
+
+    border-radius:
+        15px;
 
     transition:
         transform 0.5s ease;
+}
+
+
+/* =========================================================
+   BORDE BLANCO FINO
+========================================================= */
+
+.image-wrapper::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        3px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.95);
+
+    border-radius:
+        16px;
+
+    pointer-events:
+        none;
+
+    z-index:
+        4;
+
+    box-sizing:
+        border-box;
+}
+
+
+/* =========================================================
+   HOVER IMAGEN
+========================================================= */
+
+.team-row:hover
+.image-wrapper {
+
+    transform:
+        translateY(-4px);
 }
 
 
@@ -951,7 +1155,7 @@
 .image-wrapper img {
 
     transform:
-        scale(1.04);
+        scale(1.035);
 }
 
 
@@ -962,16 +1166,19 @@
 .team-text-col {
 
     flex:
-        0 0 55%;
+        1;
+
+    min-width:
+        0;
 
     background:
         var(--about-soft);
 
     padding:
-        42px;
+        32px 36px;
 
     border-radius:
-        18px;
+        20px;
 
     border:
         1px solid
@@ -980,9 +1187,11 @@
     box-shadow:
         var(--about-shadow);
 
-    position: relative;
+    position:
+        relative;
 
-    overflow: hidden;
+    overflow:
+        hidden;
 
     transition:
         transform 0.3s ease,
@@ -991,23 +1200,70 @@
 
 
 /* =========================================================
-   DETALLE DECORATIVO TARJETA
+   DETALLE SUPERIOR DEGRADADO
 ========================================================= */
 
 .team-text-col::before {
 
-    content: "";
+    content:
+        "";
 
-    position: absolute;
+    position:
+        absolute;
 
-    top: 0;
-    left: 0;
+    top:
+        0;
 
-    width: 100%;
-    height: 4px;
+    left:
+        0;
+
+    width:
+        100%;
+
+    height:
+        4px;
 
     background:
         var(--about-gradient);
+}
+
+
+/* =========================================================
+   DETALLE DECORATIVO INTERNO
+========================================================= */
+
+.team-text-col::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        150px;
+
+    height:
+        150px;
+
+    right:
+        -70px;
+
+    bottom:
+        -75px;
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(144, 203, 27, 0.12),
+            transparent 70%
+        );
+
+    pointer-events:
+        none;
 }
 
 
@@ -1048,7 +1304,14 @@
 
 .team-role {
 
-    display: block;
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
 
     font-family:
         var(--font-main),
@@ -1056,7 +1319,7 @@
         sans-serif;
 
     font-size:
-        1rem;
+        0.78rem;
 
     font-weight:
         700;
@@ -1065,13 +1328,43 @@
         uppercase;
 
     letter-spacing:
-        1.2px;
+        1px;
 
     color:
         var(--brand-green);
 
     margin-bottom:
+        8px;
+}
+
+
+/* =========================================================
+   PUNTICO DEL CARGO
+========================================================= */
+
+.team-role::before {
+
+    content:
+        "";
+
+    width:
         7px;
+
+    height:
+        7px;
+
+    flex:
+        0 0 7px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--about-lime);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(144, 203, 27, 0.13);
 }
 
 
@@ -1087,7 +1380,7 @@
         sans-serif;
 
     font-size:
-        clamp(1.8rem, 3vw, 2.5rem);
+        clamp(1.65rem, 2.5vw, 2.25rem);
 
     font-weight:
         800;
@@ -1096,10 +1389,19 @@
         1.1;
 
     margin:
-        0 0 20px;
+        0 0 16px;
 
     color:
         var(--brand-blue);
+
+    letter-spacing:
+        -0.5px;
+
+    position:
+        relative;
+
+    z-index:
+        2;
 }
 
 
@@ -1126,10 +1428,10 @@
         sans-serif;
 
     font-size:
-        1rem;
+        0.93rem;
 
     line-height:
-        1.7;
+        1.72;
 
     color:
         var(--text-main);
@@ -1139,12 +1441,42 @@
 
     margin:
         0;
+
+    position:
+        relative;
+
+    z-index:
+        2;
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   PEQUEÑO DETALLE AL FINAL
 ========================================================= */
+
+.team-desc p::after {
+
+    content:
+        "";
+
+    display:
+        block;
+
+    width:
+        42px;
+
+    height:
+        3px;
+
+    margin-top:
+        18px;
+
+    border-radius:
+        999px;
+
+    background:
+        var(--about-gradient);
+}
 
 
 /* =========================================================
@@ -1204,44 +1536,44 @@
     .team-list {
 
         max-width:
-            920px;
+            980px;
 
         gap:
-            55px;
+            50px;
     }
 
 
     .team-row {
 
         gap:
-            35px;
+            32px;
     }
 
 
     .team-image-col {
 
         flex:
-            0 0 38%;
+            0 0 265px;
 
-        min-width:
-            240px;
+        width:
+            265px;
+
+        height:
+            405px;
     }
 
 
     .team-text-col {
 
-        flex:
-            0 0 58%;
-
         padding:
-            34px;
+            30px 32px;
     }
 
 
     .team-text-col h3 {
 
         font-size:
-            clamp(1.7rem, 2.7vw, 2.2rem);
+            clamp(1.6rem, 2.7vw, 2.15rem);
     }
 
 }
@@ -1354,13 +1686,16 @@
     .team-image-col {
 
         width:
-            min(72%, 420px);
+            min(72%, 360px);
 
         max-width:
-            420px;
+            360px;
 
         min-width:
             0;
+
+        height:
+            450px;
 
         flex:
             0 0 auto;
@@ -1370,13 +1705,6 @@
 
         z-index:
             2;
-    }
-
-
-    .image-wrapper img {
-
-        height:
-            auto;
     }
 
 
@@ -1396,10 +1724,10 @@
             0 0 auto;
 
         margin:
-            -45px auto 0;
+            -32px auto 0;
 
         padding:
-            35px 30px;
+            32px 30px;
 
         position:
             relative;
@@ -1412,21 +1740,21 @@
     .team-role {
 
         font-size:
-            1rem;
+            0.82rem;
     }
 
 
     .team-text-col h3 {
 
         font-size:
-            clamp(1.8rem, 4vw, 2.4rem);
+            clamp(1.75rem, 4vw, 2.3rem);
     }
 
 
     .team-desc p {
 
         font-size:
-            0.96rem;
+            0.94rem;
     }
 
 
@@ -1589,7 +1917,13 @@
     .team-image-col {
 
         width:
-            min(78%, 360px);
+            min(78%, 330px);
+
+        max-width:
+            330px;
+
+        height:
+            420px;
     }
 
 
@@ -1603,7 +1937,7 @@
             94%;
 
         margin-top:
-            -40px;
+            -30px;
 
         padding:
             30px 24px;
@@ -1613,7 +1947,7 @@
     .team-role {
 
         font-size:
-            0.92rem;
+            0.8rem;
 
         letter-spacing:
             0.8px;
@@ -1629,7 +1963,7 @@
             1.1;
 
         margin-bottom:
-            18px;
+            17px;
     }
 
 
@@ -1866,20 +2200,46 @@
             88%;
 
         max-width:
-            340px;
+            310px;
+
+        height:
+            385px;
 
         padding:
-            4px;
+            0;
+    }
+
+
+    .team-image-col::after {
+
+        inset:
+            -14px;
+
+        filter:
+            blur(19px);
+
+        opacity:
+            0.28;
     }
 
 
     .image-wrapper {
 
-        aspect-ratio:
-            3 / 4;
+        inset:
+            5px;
 
         border-radius:
-            10px;
+            15px;
+    }
+
+
+    .image-wrapper::after {
+
+        inset:
+            3px;
+
+        border-width:
+            1px;
     }
 
 
@@ -1893,20 +2253,20 @@
             94%;
 
         margin-top:
-            -35px;
+            -28px;
 
         padding:
             25px 18px;
 
         border-radius:
-            12px;
+            14px;
     }
 
 
     .team-role {
 
         font-size:
-            0.82rem;
+            0.76rem;
 
         letter-spacing:
             0.7px;
@@ -2067,7 +2427,43 @@
             92%;
 
         max-width:
-            310px;
+            290px;
+
+        height:
+            360px;
+    }
+
+
+    .team-image-col::after {
+
+        inset:
+            -12px;
+
+        filter:
+            blur(17px);
+
+        opacity:
+            0.25;
+    }
+
+
+    .image-wrapper {
+
+        inset:
+            5px;
+
+        border-radius:
+            14px;
+    }
+
+
+    .image-wrapper::after {
+
+        inset:
+            3px;
+
+        border-width:
+            1px;
     }
 
 
@@ -2081,7 +2477,7 @@
             96%;
 
         margin-top:
-            -30px;
+            -25px;
 
         padding:
             22px 15px;
@@ -2091,7 +2487,7 @@
     .team-role {
 
         font-size:
-            0.76rem;
+            0.72rem;
     }
 
 
@@ -2148,6 +2544,7 @@
 
     .about-hero-btn,
     .team-text-col,
+    .image-wrapper,
     .image-wrapper img,
     .btn-accesibilidad {
 
