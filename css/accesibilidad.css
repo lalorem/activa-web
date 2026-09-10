@@ -1,0 +1,1427 @@
+.accessibility-page {
+
+    /* ================= PALETA ACTIVA ================= */
+
+    --hv-lima: #C7E600;
+    --hv-verde: #00A651;
+    --hv-azul: #0072CE;
+
+    --hv-gradient:
+        linear-gradient(
+            135deg,
+            #C7E600 0%,
+            #00A651 48%,
+            #0072CE 100%
+        );
+
+    --hv-gradient-hover:
+        linear-gradient(
+            135deg,
+            #B7D400 0%,
+            #009447 48%,
+            #0065B8 100%
+        );
+
+
+    /* ================= FONDOS ================= */
+
+    --hv-bg: #f7faf8;
+    --hv-card: #ffffff;
+
+
+    /* ================= TEXTOS ================= */
+
+    --hv-text: #1d2924;
+    --hv-muted: #65716b;
+
+
+    /* ================= BORDES / SOMBRAS ================= */
+
+    --hv-border: rgba(0, 114, 206, 0.10);
+
+    --hv-shadow:
+        0 15px 40px rgba(0, 80, 70, 0.09);
+
+
+    width: 100%;
+
+    background: var(--hv-bg);
+
+    color: var(--hv-text);
+
+    overflow: hidden;
+
+    font-family: 'Inter', sans-serif;
+
+}
+
+
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
+[data-theme="dark"] .accessibility-page {
+
+    --hv-bg: #1a1a1a;
+
+    --hv-card: #ffffff;
+
+    --hv-text: #ffffff;
+
+    --hv-muted: #65716b;
+
+    --hv-border: #444444;
+
+    --hv-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.28);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.accessibility-hero {
+
+    position: relative;
+
+    min-height: 320px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            115deg,
+            #0072CE 0%,
+            #00A651 52%,
+            #C7E600 100%
+        );
+}
+
+
+/* =========================================================
+   DECORACIONES DEL HERO
+========================================================= */
+
+.accessibility-hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 470px;
+    height: 470px;
+
+    border-radius: 50%;
+
+    top: -290px;
+    right: -80px;
+
+    background:
+        rgba(255, 255, 255, 0.13);
+}
+
+
+.accessibility-hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    bottom: -245px;
+    left: -90px;
+
+    background:
+        rgba(255, 255, 255, 0.10);
+}
+
+
+/* =========================================================
+   OVERLAY DEL HERO
+========================================================= */
+
+.accessibility-hero-bg {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 60, 110, 0.22),
+            rgba(0, 166, 81, 0.04)
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTENIDO DEL HERO
+========================================================= */
+
+.accessibility-hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(1100px, 90%);
+
+    text-align: center;
+
+    color: #ffffff;
+
+    padding: 70px 0;
+}
+
+
+/* =========================================================
+   ETIQUETA SUPERIOR
+========================================================= */
+
+.accessibility-eyebrow {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 15px;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: rgba(255, 255, 255, 0.92);
+}
+
+
+.accessibility-eyebrow::before {
+
+    content: "";
+
+    width: 32px;
+    height: 3px;
+
+    border-radius: 20px;
+
+    background: var(--hv-lima);
+}
+
+
+/* =========================================================
+   TÍTULO HERO
+========================================================= */
+
+.accessibility-hero h1 {
+
+    margin: 0;
+
+    font-family: 'Caveat Brush', cursive;
+
+    font-size: clamp(48px, 6vw, 76px);
+
+    font-weight: 400;
+
+    line-height: 1.05;
+
+    letter-spacing: 0.2px;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 5px 18px rgba(0, 114, 206, 0.18);
+}
+
+
+.accessibility-hero h1 span {
+
+    color: var(--hv-lima);
+}
+
+
+/* =========================================================
+   TEXTO DEL HERO
+========================================================= */
+
+.accessibility-hero p {
+
+    max-width: 600px;
+
+    margin: 22px auto 0;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 400;
+
+    line-height: 1.7;
+
+    color: rgba(255, 255, 255, 0.92);
+}
+
+
+/* =========================================================
+   FIGURAS DECORATIVAS
+========================================================= */
+
+.accessibility-hero-shape {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+.shape-one {
+
+    width: 390px;
+    height: 390px;
+
+    right: -100px;
+    top: -170px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.25);
+
+    box-shadow:
+        0 0 0 35px rgba(255, 255, 255, 0.04),
+        0 0 0 70px rgba(255, 255, 255, 0.025);
+}
+
+
+.shape-two {
+
+    width: 170px;
+    height: 170px;
+
+    right: 190px;
+    bottom: -95px;
+
+    border:
+        35px solid rgba(199, 230, 0, 0.18);
+}
+
+
+/* =========================================================
+   SECCIÓN PRINCIPAL
+========================================================= */
+
+.accessibility-intro,
+.accessibility-certificates,
+.accessibility-bottom {
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   INTRODUCCIÓN
+========================================================= */
+
+.accessibility-intro {
+
+    width: min(1080px, 88%);
+
+    margin: 0 auto;
+
+    padding: 65px 0 35px;
+
+    display: grid;
+
+    grid-template-columns: 6px 1fr;
+
+    gap: 28px;
+
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   LÍNEA DECORATIVA
+========================================================= */
+
+.accessibility-intro-line {
+
+    width: 6px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--hv-lima),
+            var(--hv-verde),
+            var(--hv-azul)
+        );
+}
+
+
+/* =========================================================
+   CONTENIDO INTRO
+========================================================= */
+
+.accessibility-intro-content {
+
+    max-width: 920px;
+}
+
+
+/* =========================================================
+   ETIQUETAS
+========================================================= */
+
+.accessibility-section-label {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+
+    color: var(--hv-verde);
+}
+
+
+/* =========================================================
+   TEXTO INTRODUCTORIO
+========================================================= */
+
+.accessibility-intro p {
+
+    margin: 0;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 400;
+
+    line-height: 1.8;
+
+    color: var(--hv-text);
+
+    text-align: justify;
+}
+
+
+/* =========================================================
+   SECCIÓN CERTIFICADOS
+========================================================= */
+
+.accessibility-certificates {
+
+    width: min(1120px, 90%);
+
+    margin: 0 auto;
+
+    padding: 45px 0 90px;
+}
+
+
+/* =========================================================
+   CABECERA DE CERTIFICADOS
+========================================================= */
+
+.accessibility-section-heading {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 50px;
+
+    margin-bottom: 42px;
+}
+
+
+/* =========================================================
+   TÍTULO DE SECCIÓN
+========================================================= */
+
+.accessibility-section-heading h2 {
+
+    margin: 0;
+
+    font-family: 'Caveat Brush', cursive;
+
+    font-size: clamp(38px, 4vw, 52px);
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    color: var(--hv-text);
+}
+
+
+.accessibility-section-heading h2 span {
+
+    color: var(--hv-verde);
+}
+
+
+/* =========================================================
+   TEXTO LATERAL
+========================================================= */
+
+.accessibility-section-heading > p {
+
+    max-width: 390px;
+
+    margin: 0;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 400;
+
+    line-height: 1.7;
+
+    color: var(--hv-muted);
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.accessibility-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 28px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.accessibility-card {
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-height: 345px;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+    text-decoration: none;
+
+    background: var(--hv-card);
+
+    border:
+        1px solid var(--hv-border);
+
+    border-radius: 24px;
+
+    box-shadow: var(--hv-shadow);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+/* =========================================================
+   LÍNEA SUPERIOR
+========================================================= */
+
+.accessibility-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--hv-lima),
+            var(--hv-verde),
+            var(--hv-azul)
+        );
+
+    transform:
+        scaleX(0.18);
+
+    transform-origin: left;
+
+    transition:
+        transform 0.35s ease;
+}
+
+
+/* =========================================================
+   BRILLO LATERAL
+========================================================= */
+
+.accessibility-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    right: -105px;
+    bottom: -105px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 166, 81, 0.045);
+
+    transition:
+        transform 0.4s ease;
+}
+
+
+/* =========================================================
+   HOVER CARD
+========================================================= */
+
+.accessibility-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 22px 48px rgba(0, 114, 206, 0.14);
+
+    border-color:
+        rgba(0, 114, 206, 0.20);
+}
+
+
+.accessibility-card:hover::before {
+
+    transform:
+        scaleX(1);
+}
+
+
+.accessibility-card:hover::after {
+
+    transform:
+        scale(1.45);
+}
+
+
+/* =========================================================
+   PARTE SUPERIOR CARD
+========================================================= */
+
+.accessibility-card-top {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 27px;
+}
+
+
+/* =========================================================
+   NÚMERO
+========================================================= */
+
+.accessibility-number {
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: var(--hv-azul);
+}
+
+
+/* =========================================================
+   ICONO
+========================================================= */
+
+.accessibility-card-icon {
+
+    width: 66px;
+    height: 66px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 20px;
+
+    color: #ffffff;
+
+    font-size: 29px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--hv-lima) 0%,
+            var(--hv-verde) 48%,
+            var(--hv-azul) 100%
+        );
+
+    box-shadow:
+        0 10px 24px rgba(0, 130, 90, 0.20);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+
+.accessibility-card:hover
+.accessibility-card-icon {
+
+    transform:
+        translateY(-3px)
+        rotate(-4deg)
+        scale(1.06);
+
+    background:
+        var(--hv-gradient-hover);
+
+    box-shadow:
+        0 14px 28px rgba(0, 130, 90, 0.26);
+}
+
+
+/* =========================================================
+   CONTENIDO CARD
+========================================================= */
+
+.accessibility-card-body {
+
+    position: relative;
+
+    z-index: 2;
+
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+/* =========================================================
+   CATEGORÍA
+========================================================= */
+
+.accessibility-card-category {
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    color: var(--hv-verde);
+}
+
+
+/* =========================================================
+   TÍTULO CARD
+========================================================= */
+
+.accessibility-card h3 {
+
+    margin: 0 0 12px;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    line-height: 1.35;
+
+    color: var(--hv-text);
+
+    transition:
+        color 0.3s ease;
+}
+
+
+.accessibility-card:hover h3 {
+
+    color: var(--hv-azul);
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN
+========================================================= */
+
+.accessibility-card-body p {
+
+    margin: 0;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 400;
+
+    line-height: 1.7;
+
+    color: var(--hv-muted);
+}
+
+
+/* =========================================================
+   ACCIÓN
+========================================================= */
+
+.accessibility-card-action {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+    padding-top: 17px;
+
+    border-top:
+        1px solid rgba(0, 114, 206, 0.08);
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    color: var(--hv-text);
+}
+
+
+/* =========================================================
+   FLECHA
+========================================================= */
+
+.accessibility-arrow {
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 114, 206, 0.07);
+
+    color: var(--hv-azul);
+
+    font-size: 17px;
+
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease,
+        color 0.35s ease;
+}
+
+
+.accessibility-card:hover
+.accessibility-arrow {
+
+    transform:
+        translate(3px, -3px);
+
+    background:
+        var(--hv-gradient);
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   BLOQUE FINAL
+========================================================= */
+
+.accessibility-bottom {
+
+    position: relative;
+
+    width: min(1120px, 90%);
+
+    margin: 0 auto 90px;
+
+    padding: 34px 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 24px;
+
+    overflow: hidden;
+
+    border-radius: 24px;
+
+    background:
+        var(--hv-gradient);
+
+    color: #ffffff;
+
+    box-shadow:
+        0 18px 40px rgba(0, 114, 206, 0.14);
+}
+
+
+/* =========================================================
+   DECORACIÓN BLOQUE FINAL
+========================================================= */
+
+.accessibility-bottom::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    right: -90px;
+    top: -100px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.25);
+
+    box-shadow:
+        0 0 0 25px rgba(255, 255, 255, 0.04),
+        0 0 0 50px rgba(255, 255, 255, 0.025);
+}
+
+
+/* =========================================================
+   ICONO BLOQUE FINAL
+========================================================= */
+
+.accessibility-bottom-icon {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.16);
+
+    backdrop-filter:
+        blur(8px);
+
+    font-size: 28px;
+}
+
+
+/* =========================================================
+   TEXTO BLOQUE FINAL
+========================================================= */
+
+.accessibility-bottom > div:last-child {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.accessibility-bottom span {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.7px;
+
+    color: rgba(255, 255, 255, 0.85);
+}
+
+
+.accessibility-bottom h2 {
+
+    margin: 0;
+
+    font-family: 'Caveat Brush', cursive;
+
+    font-size: clamp(25px, 3vw, 34px);
+
+    font-weight: 400;
+
+    line-height: 1.1;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   MODO OSCURO — HERO
+========================================================= */
+
+[data-theme="dark"] .accessibility-hero {
+
+    background:
+        linear-gradient(
+            115deg,
+            #00579c 0%,
+            #007d3f 52%,
+            #91a900 100%
+        );
+}
+
+
+[data-theme="dark"] .accessibility-hero-bg {
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 60, 110, 0.35),
+            rgba(0, 166, 81, 0.10)
+        );
+}
+
+
+/* =========================================================
+   MODO OSCURO — CARDS
+========================================================= */
+
+[data-theme="dark"] .accessibility-card {
+
+    background:
+        var(--hv-card);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.28);
+}
+
+
+[data-theme="dark"] .accessibility-card:hover {
+
+    box-shadow:
+        0 24px 52px rgba(0, 0, 0, 0.38);
+
+    border-color:
+        rgba(0, 0, 0, 0.25);
+}
+
+
+[data-theme="dark"] .accessibility-card::after {
+
+    background:
+        rgba(0, 0, 0, 0.035);
+}
+
+
+/* =========================================================
+   MODO OSCURO — NÚMEROS
+========================================================= */
+
+[data-theme="dark"] .accessibility-number {
+
+    color: #5eb4ff;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .accessibility-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 22px;
+    }
+
+
+    .accessibility-section-heading {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+
+    .accessibility-section-heading > p {
+
+        max-width: 600px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — CELULAR
+========================================================= */
+
+@media (max-width: 600px) {
+
+
+    /* ================= HERO ================= */
+
+    .accessibility-hero {
+
+        min-height: 270px;
+    }
+
+
+    .accessibility-hero-content {
+
+        width: 88%;
+
+        padding: 55px 0;
+    }
+
+
+    .accessibility-eyebrow {
+
+        font-size: 10px;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    .accessibility-hero h1 {
+
+        font-size: 47px;
+
+        line-height: 1.05;
+    }
+
+
+    .accessibility-hero p {
+
+        margin-top: 17px;
+
+        font-size: 13px;
+
+        line-height: 1.65;
+    }
+
+
+    /* ================= DECORACIONES ================= */
+
+    .shape-one {
+
+        width: 280px;
+        height: 280px;
+
+        right: -150px;
+        top: -100px;
+    }
+
+
+    .shape-two {
+
+        width: 120px;
+        height: 120px;
+
+        right: 40px;
+        bottom: -80px;
+
+        border-width: 25px;
+    }
+
+
+    /* ================= INTRO ================= */
+
+    .accessibility-intro {
+
+        width: 86%;
+
+        padding: 48px 0 25px;
+
+        grid-template-columns: 4px 1fr;
+
+        gap: 18px;
+    }
+
+
+    .accessibility-intro-line {
+
+        width: 4px;
+    }
+
+
+    .accessibility-intro p {
+
+        font-size: 14px;
+
+        line-height: 1.75;
+
+        text-align: justify;
+    }
+
+
+    /* ================= CERTIFICADOS ================= */
+
+    .accessibility-certificates {
+
+        width: 88%;
+
+        padding: 35px 0 65px;
+    }
+
+
+    .accessibility-section-heading {
+
+        margin-bottom: 30px;
+    }
+
+
+    .accessibility-section-heading h2 {
+
+        font-size: 39px;
+    }
+
+
+    .accessibility-section-heading > p {
+
+        font-size: 13px;
+
+        line-height: 1.6;
+    }
+
+
+    /* ================= GRID ================= */
+
+    .accessibility-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 17px;
+    }
+
+
+    /* ================= CARDS ================= */
+
+    .accessibility-card {
+
+        min-height: auto;
+
+        padding: 25px;
+
+        border-radius: 21px;
+    }
+
+
+    .accessibility-card-top {
+
+        margin-bottom: 23px;
+    }
+
+
+    .accessibility-card-icon {
+
+        width: 62px;
+        height: 62px;
+
+        border-radius: 18px;
+
+        font-size: 26px;
+    }
+
+
+    .accessibility-card h3 {
+
+        font-size: 19px;
+    }
+
+
+    .accessibility-card-body p {
+
+        font-size: 13px;
+
+        line-height: 1.7;
+    }
+
+
+    /* ================= BLOQUE FINAL ================= */
+
+    .accessibility-bottom {
+
+        width: 88%;
+
+        margin-bottom: 55px;
+
+        padding: 25px;
+
+        gap: 17px;
+
+        border-radius: 20px;
+    }
+
+
+    .accessibility-bottom-icon {
+
+        width: 49px;
+        height: 49px;
+
+        border-radius: 15px;
+
+        font-size: 23px;
+    }
+
+
+    .accessibility-bottom span {
+
+        font-size: 9px;
+    }
+
+
+    .accessibility-bottom h2 {
+
+        font-size: 24px;
+    }
+
+
+    .accessibility-bottom::after {
+
+        width: 160px;
+        height: 160px;
+
+        right: -80px;
+        top: -70px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — CELULARES PEQUEÑOS
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .accessibility-hero h1 {
+
+        font-size: 41px;
+    }
+
+
+    .accessibility-section-heading h2 {
+
+        font-size: 35px;
+    }
+
+
+    .accessibility-card {
+
+        padding: 22px;
+    }
+
+
+    .accessibility-bottom {
+
+        align-items: flex-start;
+    }
+
+}
