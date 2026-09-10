@@ -1,0 +1,2695 @@
+/* =========================================================
+   INFORMACIÓN PARA NIÑOS, NIÑAS Y ADOLESCENTES — ACTIVA
+========================================================= */
+
+:root {
+
+    /* =====================================================
+       COLORES ACTIVA
+    ===================================================== */
+
+    --nna-blue: #0b3f5a;
+    --nna-blue-light: #125f91;
+    --nna-green: #4caf50;
+    --nna-lime: #90cb1b;
+
+    /* =====================================================
+       DEGRADADOS
+    ===================================================== */
+
+    --nna-gradient:
+        linear-gradient(
+            135deg,
+            #90cb1b 0%,
+            #4caf50 48%,
+            #125f91 100%
+        );
+
+    --nna-gradient-reverse:
+        linear-gradient(
+            135deg,
+            #125f91 0%,
+            #4caf50 52%,
+            #90cb1b 100%
+        );
+
+    /* =====================================================
+       TEXTOS
+    ===================================================== */
+
+    --nna-text: #17212b;
+    --nna-muted: #53616d;
+
+    /* =====================================================
+       SUPERFICIES
+    ===================================================== */
+
+    --nna-surface: #ffffff;
+
+    --nna-soft:
+        linear-gradient(
+            135deg,
+            rgba(144, 203, 27, 0.08),
+            rgba(76, 175, 80, 0.06),
+            rgba(18, 95, 145, 0.08)
+        );
+
+    --nna-border: rgba(18, 95, 145, 0.14);
+
+    /* =====================================================
+       SOMBRAS
+    ===================================================== */
+
+    --nna-shadow:
+        0 18px 45px rgba(11, 63, 90, 0.10);
+
+    --nna-shadow-hover:
+        0 25px 55px rgba(11, 63, 90, 0.17);
+
+    /* =====================================================
+       ONDA
+    ===================================================== */
+
+    --nna-wave:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0,0 H100 V72 C90,72 90,82 80,82 C70,82 70,65 60,65 C50,65 50,88 40,88 C30,88 30,68 20,68 C10,68 10,82 0,82 Z'/%3E%3C/svg%3E");
+
+}
+
+
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
+[data-theme="dark"] {
+
+    --nna-text: #f4f7f9;
+    --nna-muted: #b9c4cc;
+
+    --nna-surface: #101a23;
+
+    --nna-soft:
+        linear-gradient(
+            135deg,
+            rgba(144, 203, 27, 0.07),
+            rgba(76, 175, 80, 0.06),
+            rgba(18, 95, 145, 0.09)
+        );
+
+    --nna-border: rgba(255, 255, 255, 0.10);
+
+    --nna-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.28);
+
+    --nna-shadow-hover:
+        0 25px 55px rgba(0, 0, 0, 0.38);
+
+}
+
+
+/* =========================================================
+   CONTENEDOR
+========================================================= */
+
+.nna-container {
+
+    width: min(1180px, calc(100% - 40px));
+
+    margin: 0 auto;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.nna-hero {
+
+    position: relative;
+
+    min-height: 72vh;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    color: #ffffff;
+
+    isolation: isolate;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(199, 230, 0, 0.24),
+            transparent 32%
+        ),
+
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(0, 114, 206, 0.28),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #0b3f5a 0%,
+            #0d5670 45%,
+            #087a72 72%,
+            #00a651 100%
+        );
+
+}
+
+
+/* =========================================================
+   BRILLO SUPERIOR
+========================================================= */
+
+.nna-hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    top: -230px;
+    right: -140px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(199, 230, 0, 0.28) 0%,
+            rgba(0, 166, 81, 0.14) 42%,
+            transparent 72%
+        );
+
+    filter: blur(18px);
+
+    pointer-events: none;
+
+    z-index: -1;
+
+}
+
+
+/* =========================================================
+   BRILLO INFERIOR
+========================================================= */
+
+.nna-hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 480px;
+    height: 480px;
+
+    bottom: -250px;
+    left: -170px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0, 114, 206, 0.30) 0%,
+            rgba(0, 166, 81, 0.15) 45%,
+            transparent 72%
+        );
+
+    filter: blur(22px);
+
+    pointer-events: none;
+
+    z-index: -1;
+
+}
+
+
+/* =========================================================
+   BRILLO CENTRAL
+========================================================= */
+
+.nna-hero-bg {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -2;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255, 255, 255, 0.08) 0%,
+            transparent 58%
+        );
+
+}
+
+
+/* =========================================================
+   CONTENIDO HERO
+========================================================= */
+
+.nna-hero-content {
+
+    max-width: 900px;
+
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    animation:
+        nnaHeroContent
+        1s
+        ease-out
+        forwards;
+
+}
+
+
+@keyframes nnaHeroContent {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(35px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   ETIQUETA HERO
+========================================================= */
+
+.nna-hero-label {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+
+    font-family:
+        var(--font-main),
+        'Poppins',
+        sans-serif;
+
+    font-size: 0.75rem;
+
+    font-weight: 800;
+
+    letter-spacing: 2.5px;
+
+    text-transform: uppercase;
+
+    color: var(--nna-lime);
+
+}
+
+
+.nna-hero-label::before {
+
+    content: "";
+
+    width: 35px;
+
+    height: 3px;
+
+    border-radius: 999px;
+
+    background: var(--nna-lime);
+
+}
+
+
+/* =========================================================
+   TÍTULO HERO
+========================================================= */
+
+.nna-hero h1 {
+
+    margin: 0;
+
+    max-width: 900px;
+
+    font-family:
+        var(--font-main),
+        'Poppins',
+        sans-serif;
+
+    font-size:
+        clamp(3.2rem, 6.5vw, 6.1rem);
+
+    line-height: 0.98;
+
+    font-weight: 800;
+
+    letter-spacing: -3px;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 6px 25px rgba(0, 0, 0, 0.16);
+
+}
+
+
+.nna-hero h1 span {
+
+    color: var(--nna-lime);
+
+}
+
+
+/* =========================================================
+   TEXTO HERO
+========================================================= */
+
+.nna-hero-content > p {
+
+    max-width: 650px;
+
+    margin: 30px 0 0;
+
+    font-family:
+        var(--font-main),
+        'Poppins',
+        sans-serif;
+
+    font-size: 1.05rem;
+
+    line-height: 1.8;
+
+    color:
+        rgba(255, 255, 255, 0.92);
+
+}
+
+
+/* =========================================================
+   SCROLL
+========================================================= */
+
+.nna-scroll {
+
+    position: absolute;
+
+    right: 42px;
+    bottom: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color:
+        rgba(255, 255, 255, 0.85);
+
+    font-family:
+        var(--font-main),
+        'Poppins',
+        sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+.nna-scroll i {
+
+    font-size: 21px;
+
+    animation:
+        nnaArrow
+        1.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes nnaArrow {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(7px);
+
+    }
+
+}
+
+
+/* =========================================================
+   LÍNEA HERO
+========================================================= */
+
+.nna-hero-line {
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 42%;
+
+    height: 5px;
+
+    background:
+        var(--nna-gradient);
+
+    z-index: 4;
+
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.nna-intro {
+
+    position: relative;
+
+    padding: 115px 0 100px;
+
+    background:
+        var(--nna-surface);
+
+    color:
+        var(--nna-text);
+
+    overflow: hidden;
+
+}
+
+
+.nna-intro::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    top: -220px;
+    right: -160px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(144, 203, 27, 0.13),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.nna-intro::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    bottom: -190px;
+    left: -160px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(18, 95, 145, 0.10),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   ENCABEZADO
+========================================================= */
+
+.nna-section-heading {
+
+    max-width: 850px;
+
+    margin:
+        0 auto 70px;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.nna-eyebrow {
+
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    font-family:
+        var(--font-main),
+        'Poppins',
+        sans-serif;
+
+    font-size: 0.75rem;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2.5px;
+
+    color:
+        var(--nna-green);
+
+}
+
+
+.nna-section-heading h2,
+.nna-trivias-heading h2 {
+
+    margin: 0;
+
+    font-family:
+        'Caveat Brush',
+        cursive;
+
+    font-size:
+        clamp(3rem, 6vw, 5.2rem);
+
+    font-weight: 400;
+
+    line-height: 0.98;
+
+    color:
+        var(--nna-blue);
+
+}
+
+
+.nna-section-heading h2 span,
+.nna-trivias-heading h2 span {
+
+    color:
+        var(--nna-green);
+
+}
+
+
+[data-theme="dark"]
+.nna-section-heading h2,
+[data-theme="dark"]
+.nna-trivias-heading h2 {
+
+    color: #ffffff;
+
+}
+
+
+/* =========================================================
+   CONTENIDO INTRO
+========================================================= */
+
+.nna-intro-content {
+
+    display: grid;
+
+    grid-template-columns:
+        0.9fr 1.1fr;
+
+    gap: 70px;
+
+    align-items: center;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+/* =========================================================
+   TEXTO
+========================================================= */
+
+.nna-intro-text {
+
+    padding: 15px 0;
+
+}
+
+
+.nna-intro-text::before {
+
+    content: "“";
+
+    display: block;
+
+    height: 48px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 6rem;
+
+    line-height: 0.7;
+
+    color:
+        var(--nna-lime);
+
+    opacity: 0.65;
+
+}
+
+
+.nna-intro-text p {
+
+    margin: 15px 0 0;
+
+    font-family:
+        var(--font-main),
+        'Poppins',
+        sans-serif;
+
+    font-size: 1.08rem;
+
+    line-height: 1.9;
+
+    text-align: justify;
+
+    color:
+        var(--nna-text);
+
+}
+
+
+.nna-intro-text strong {
+
+    color:
+        var(--nna-green);
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   HIGHLIGHTS
+========================================================= */
+
+.nna-highlights {
+
+    padding: 32px;
+
+    border-radius: 24px;
+
+    background:
+        var(--nna-soft);
+
+    border:
+        1px solid var(--nna-border);
+
+    box-shadow:
+        var(--nna-shadow);
+
+}
+
+
+/* =========================================================
+   HIGHLIGHT ITEM
+========================================================= */
+
+.nna-highlight {
+
+    display: grid;
+
+    grid-template-columns:
+        50px 1fr;
+
+    gap: 18px;
+
+    padding: 22px 0;
+
+}
+
+
+.nna-highlight + .nna-highlight {
+
+    border-top:
+        1px solid var(--nna-border);
+
+}
+
+
+/* =========================================================
+   ICONO
+========================================================= */
+
+.nna-highlight-icon {
+
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        var(--nna-gradient);
+
+    color: #ffffff;
+
+    font-size: 22px;
+
+    box-shadow:
+        0 8px 20px
+        rgba(76, 175, 80, 0.20);
+
+}
+
+
+.nna-highlight h3 {
+
+    margin: 0 0 8px;
+
+    font-family:
+        var(--font-main),
+        'Poppins',
+        sans-serif;
+
+    font-size: 1rem;
+
+    line-height: 1.4;
+
+    font-weight: 800;
+
+    color:
+        var(--nna-green);
+
+}
+
+
+.nna-highlight p {
+
+    margin: 0;
+
+    font-family:
+        var(--font-main),
+        'Poppins',
+        sans-serif;
+
+    font-size: 0.91rem;
+
+    line-height: 1.72;
+
+    text-align: justify;
+
+    color:
+        var(--nna-text);
+
+    opacity: 0.92;
+
+}
+
+
+/* =========================================================
+   MENSAJE FINAL
+========================================================= */
+
+.nna-final-message {
+
+    max-width: 900px;
+
+    margin:
+        80px auto 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.nna-final-message span {
+
+    width: 55px;
+
+    height: 3px;
+
+    flex:
+        0 0 55px;
+
+    border-radius: 999px;
+
+    background:
+        var(--nna-gradient);
+
+}
+
+
+.nna-final-message p {
+
+    margin: 0;
+
+    text-align: center;
+
+    font-family:
+        var(--font-main),
+        'Poppins',
+        sans-serif;
+
+    font-size: 1.03rem;
+
+    line-height: 1.75;
+
+    color:
+        var(--nna-text);
+
+}
+
+
+.nna-final-message strong {
+
+    color:
+        var(--nna-green);
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   TRIVIAS
+========================================================= */
+
+.nna-trivias {
+
+    position: relative;
+
+    padding: 110px 0 125px;
+
+    background:
+        var(--nna-soft);
+
+    color:
+        var(--nna-text);
+
+    overflow: hidden;
+
+}
+
+
+.nna-trivias::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    top: -280px;
+    left: -180px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(144, 203, 27, 0.12),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.nna-trivias::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    right: -220px;
+    bottom: -270px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(18, 95, 145, 0.12),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   ENCABEZADO TRIVIAS
+========================================================= */
+
+.nna-trivias-heading {
+
+    max-width: 780px;
+
+    margin:
+        0 auto 75px;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.nna-trivias-heading p {
+
+    max-width: 650px;
+
+    margin:
+        22px auto 0;
+
+    font-family:
+        var(--font-main),
+        'Poppins',
+        sans-serif;
+
+    font-size: 1rem;
+
+    line-height: 1.75;
+
+    color:
+        var(--nna-muted);
+
+}
+
+
+/* =========================================================
+   GRID TRIVIAS
+========================================================= */
+
+.nna-trivia-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 45px;
+
+    max-width: 1120px;
+
+    margin: 0 auto;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.nna-trivia-card {
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    background:
+        var(--nna-surface);
+
+    border:
+        1px solid var(--nna-border);
+
+    box-shadow:
+        var(--nna-shadow);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+
+}
+
+
+.nna-trivia-card:hover {
+
+    transform:
+        translateY(-7px);
+
+    box-shadow:
+        var(--nna-shadow-hover);
+
+}
+
+
+/* =========================================================
+   IMAGEN
+========================================================= */
+
+.nna-trivia-image {
+
+    height: 270px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        var(--nna-gradient);
+
+}
+
+
+.nna-trivia-image::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 45%,
+            rgba(11, 63, 90, 0.40) 100%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.nna-trivia-image img {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.6s ease;
+
+}
+
+
+.nna-trivia-card:hover
+.nna-trivia-image img {
+
+    transform:
+        scale(1.045);
+
+}
+
+
+/* =========================================================
+   BADGE
+========================================================= */
+
+.nna-trivia-image-badge {
+
+    position: absolute;
+
+    right: 20px;
+    bottom: 20px;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background:
+        rgba(255, 255, 255, 0.94);
+
+    color:
+        var(--nna-green);
+
+    font-size: 23px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.16);
+
+    z-index: 2;
+
+}
+
+
+/* =========================================================
+   CONTENIDO CARD
+========================================================= */
+
+.nna-trivia-content {
+
+    padding: 35px 34px 38px;
+
+}
+
+
+/* =========================================================
+   NÚMERO
+========================================================= */
+
+.nna-trivia-number {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-family:
+        var(--font-main),
+        'Poppins',
+        sans-serif;
+
+    font-size: 0.72rem;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color:
+        var(--nna-green);
+
+}
+
+
+/* =========================================================
+   TÍTULO CARD
+========================================================= */
+
+.nna-trivia-content h3 {
+
+    margin: 0 0 28px;
+
+    font-family:
+        var(--font-main),
+        'Poppins',
+        sans-serif;
+
+    font-size: 1.55rem;
+
+    line-height: 1.25;
+
+    font-weight: 800;
+
+    color:
+        var(--nna-blue);
+
+}
+
+
+[data-theme="dark"]
+.nna-trivia-content h3 {
+
+    color: #ffffff;
+
+}
+
+
+/* =========================================================
+   PREGUNTA
+========================================================= */
+
+.nna-question {
+
+    padding:
+        20px 0;
+
+    border-top:
+        1px solid var(--nna-border);
+
+}
+
+
+.nna-question h4 {
+
+    margin: 0 0 9px;
+
+    font-family:
+        var(--font-main),
+        'Poppins',
+        sans-serif;
+
+    font-size: 0.94rem;
+
+    line-height: 1.55;
+
+    font-weight: 800;
+
+    color:
+        var(--nna-text);
+
+}
+
+
+.nna-question p {
+
+    margin: 0;
+
+    font-family:
+        var(--font-main),
+        'Poppins',
+        sans-serif;
+
+    font-size: 0.88rem;
+
+    line-height: 1.72;
+
+    text-align: justify;
+
+    color:
+        var(--nna-muted);
+
+}
+
+
+.nna-question p strong {
+
+    color:
+        var(--nna-green);
+
+}
+
+
+/* =========================================================
+   DATO CURIOSO
+========================================================= */
+
+.nna-fun-fact {
+
+    display: grid;
+
+    grid-template-columns:
+        42px 1fr;
+
+    gap: 14px;
+
+    margin-top: 18px;
+
+    padding: 20px;
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(144, 203, 27, 0.10),
+            rgba(76, 175, 80, 0.07)
+        );
+
+    border:
+        1px solid
+        rgba(144, 203, 27, 0.20);
+
+}
+
+
+.nna-fun-fact-icon {
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        var(--nna-lime);
+
+    font-size: 19px;
+
+}
+
+
+.nna-fun-fact strong {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-family:
+        var(--font-main),
+        'Poppins',
+        sans-serif;
+
+    font-size: 0.9rem;
+
+    font-weight: 800;
+
+    color:
+        var(--nna-green);
+
+}
+
+
+.nna-fun-fact p {
+
+    margin: 0;
+
+    font-family:
+        var(--font-main),
+        'Poppins',
+        sans-serif;
+
+    font-size: 0.83rem;
+
+    line-height: 1.65;
+
+    text-align: justify;
+
+    color:
+        var(--nna-text);
+
+}
+
+
+/* =========================================================
+   CIERRE
+========================================================= */
+
+.nna-closing {
+
+    position: relative;
+
+    padding:
+        115px 20px;
+
+    overflow: hidden;
+
+    background:
+        var(--nna-blue);
+
+    color: #ffffff;
+
+    text-align: center;
+
+}
+
+
+.nna-closing::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    top: -300px;
+    left: -180px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(144, 203, 27, 0.25),
+            transparent 70%
+        );
+
+}
+
+
+.nna-closing::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    right: -200px;
+    bottom: -280px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(18, 95, 145, 0.40),
+            transparent 70%
+        );
+
+}
+
+
+.nna-closing-content {
+
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.nna-closing-icon {
+
+    display: block;
+
+    margin-bottom: 18px;
+
+    color:
+        var(--nna-lime);
+
+    font-size: 1.8rem;
+
+}
+
+
+.nna-closing h2 {
+
+    margin: 0;
+
+    font-family:
+        'Caveat Brush',
+        cursive;
+
+    font-size:
+        clamp(3rem, 6vw, 5rem);
+
+    line-height: 1;
+
+    font-weight: 400;
+
+}
+
+
+.nna-closing h2 span {
+
+    color:
+        var(--nna-lime);
+
+}
+
+
+.nna-closing p {
+
+    max-width: 650px;
+
+    margin:
+        25px auto 0;
+
+    font-family:
+        var(--font-main),
+        'Poppins',
+        sans-serif;
+
+    font-size: 0.98rem;
+
+    line-height: 1.75;
+
+    color:
+        rgba(255, 255, 255, 0.82);
+
+}
+
+
+/* =========================================================
+   MODO OSCURO — TRIVIAS
+========================================================= */
+
+[data-theme="dark"]
+.nna-trivias {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(144, 203, 27, 0.04),
+            rgba(18, 95, 145, 0.07)
+        );
+
+}
+
+
+[data-theme="dark"]
+.nna-fun-fact {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(144, 203, 27, 0.08),
+            rgba(76, 175, 80, 0.05)
+        );
+
+    border-color:
+        rgba(144, 203, 27, 0.15);
+
+}
+
+
+/* =========================================================
+   TABLETS
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    .nna-container {
+
+        width:
+            min(1080px, calc(100% - 40px));
+
+    }
+
+
+    .nna-hero {
+
+        min-height: 70vh;
+
+    }
+
+
+    .nna-hero h1 {
+
+        font-size:
+            clamp(3rem, 7vw, 5.3rem);
+
+        letter-spacing:
+            -2px;
+
+    }
+
+
+    .nna-intro {
+
+        padding:
+            90px 0;
+
+    }
+
+
+    .nna-intro-content {
+
+        gap: 45px;
+
+    }
+
+
+    .nna-trivia-grid {
+
+        gap: 30px;
+
+    }
+
+}
+
+
+/* =========================================================
+   TABLETS PEQUEÑAS
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .nna-container {
+
+        width:
+            calc(100% - 32px);
+
+    }
+
+
+    /* HERO */
+
+    .nna-hero {
+
+        min-height:
+            72vh;
+
+    }
+
+
+    .nna-hero-content {
+
+        padding:
+            80px 0 90px;
+
+    }
+
+
+    .nna-hero h1 {
+
+        font-size:
+            clamp(2.7rem, 9vw, 4.5rem);
+
+        line-height:
+            0.98;
+
+        letter-spacing:
+            -1.5px;
+
+    }
+
+
+    .nna-hero-content > p {
+
+        font-size:
+            0.95rem;
+
+        line-height:
+            1.7;
+
+    }
+
+
+    .nna-scroll {
+
+        right:
+            20px;
+
+        bottom:
+            20px;
+
+    }
+
+
+    /* INTRO */
+
+    .nna-intro {
+
+        padding:
+            75px 0 80px;
+
+    }
+
+
+    .nna-section-heading {
+
+        margin-bottom:
+            50px;
+
+    }
+
+
+    .nna-section-heading h2,
+    .nna-trivias-heading h2 {
+
+        font-size:
+            clamp(2.8rem, 9vw, 4rem);
+
+    }
+
+
+    .nna-intro-content {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            40px;
+
+    }
+
+
+    .nna-intro-text {
+
+        max-width:
+            800px;
+
+        margin:
+            0 auto;
+
+    }
+
+
+    .nna-intro-text p {
+
+        font-size:
+            0.95rem;
+
+        line-height:
+            1.78;
+
+    }
+
+
+    .nna-highlights {
+
+        max-width:
+            800px;
+
+        width:
+            100%;
+
+        box-sizing:
+            border-box;
+
+        margin:
+            0 auto;
+
+    }
+
+
+    .nna-final-message {
+
+        margin-top:
+            60px;
+
+    }
+
+
+    /* TRIVIAS */
+
+    .nna-trivias {
+
+        padding:
+            80px 0 90px;
+
+    }
+
+
+    .nna-trivias-heading {
+
+        margin-bottom:
+            55px;
+
+    }
+
+
+    .nna-trivia-grid {
+
+        grid-template-columns:
+            1fr;
+
+        max-width:
+            620px;
+
+    }
+
+
+    /* CIERRE */
+
+    .nna-closing {
+
+        padding:
+            90px 20px;
+
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .nna-container {
+
+        width:
+            calc(100% - 28px);
+
+    }
+
+
+    /* HERO */
+
+    .nna-hero {
+
+        min-height:
+            75vh;
+
+        align-items:
+            center;
+
+    }
+
+
+    .nna-hero-content {
+
+        padding:
+            100px 0 85px;
+
+    }
+
+
+    .nna-hero-label {
+
+        font-size:
+            0.67rem;
+
+        letter-spacing:
+            2px;
+
+    }
+
+
+    .nna-hero-label::before {
+
+        width:
+            25px;
+
+    }
+
+
+    .nna-hero h1 {
+
+        font-size:
+            clamp(2.4rem, 11vw, 3.7rem);
+
+        line-height:
+            0.99;
+
+        letter-spacing:
+            -1px;
+
+    }
+
+
+    .nna-hero-content > p {
+
+        margin-top:
+            23px;
+
+        font-size:
+            0.88rem;
+
+        line-height:
+            1.65;
+
+    }
+
+
+    .nna-scroll {
+
+        right:
+            13px;
+
+        bottom:
+            17px;
+
+        font-size:
+            7px;
+
+        letter-spacing:
+            1.5px;
+
+    }
+
+
+    .nna-scroll i {
+
+        font-size:
+            17px;
+
+    }
+
+
+    .nna-hero-line {
+
+        width:
+            68%;
+
+        height:
+            4px;
+
+    }
+
+
+    .nna-hero::before {
+
+        width:
+            360px;
+
+        height:
+            360px;
+
+        top:
+            -180px;
+
+        right:
+            -170px;
+
+    }
+
+
+    .nna-hero::after {
+
+        width:
+            350px;
+
+        height:
+            350px;
+
+        bottom:
+            -180px;
+
+        left:
+            -170px;
+
+    }
+
+
+    /* INTRO */
+
+    .nna-intro {
+
+        padding:
+            60px 0 65px;
+
+    }
+
+
+    .nna-section-heading {
+
+        margin-bottom:
+            40px;
+
+    }
+
+
+    .nna-eyebrow {
+
+        font-size:
+            0.66rem;
+
+        letter-spacing:
+            1.8px;
+
+    }
+
+
+    .nna-section-heading h2,
+    .nna-trivias-heading h2 {
+
+        font-size:
+            clamp(2.45rem, 11vw, 3.4rem);
+
+        line-height:
+            1;
+
+    }
+
+
+    .nna-intro-text {
+
+        padding:
+            0;
+
+    }
+
+
+    .nna-intro-text::before {
+
+        font-size:
+            5rem;
+
+    }
+
+
+    .nna-intro-text p {
+
+        margin-top:
+            10px;
+
+        font-size:
+            0.88rem;
+
+        line-height:
+            1.72;
+
+        text-align:
+            justify;
+
+    }
+
+
+    .nna-highlights {
+
+        padding:
+            22px 17px;
+
+        border-radius:
+            16px;
+
+    }
+
+
+    .nna-highlight {
+
+        grid-template-columns:
+            40px 1fr;
+
+        gap:
+            13px;
+
+        padding:
+            18px 0;
+
+    }
+
+
+    .nna-highlight-icon {
+
+        width:
+            38px;
+
+        height:
+            38px;
+
+        border-radius:
+            11px;
+
+        font-size:
+            18px;
+
+    }
+
+
+    .nna-highlight h3 {
+
+        font-size:
+            0.88rem;
+
+    }
+
+
+    .nna-highlight p {
+
+        font-size:
+            0.81rem;
+
+        line-height:
+            1.63;
+
+        text-align:
+            left;
+
+    }
+
+
+    .nna-final-message {
+
+        margin-top:
+            45px;
+
+        gap:
+            9px;
+
+    }
+
+
+    .nna-final-message span {
+
+        width:
+            20px;
+
+        flex-basis:
+            20px;
+
+        height:
+            2px;
+
+    }
+
+
+    .nna-final-message p {
+
+        font-size:
+            0.81rem;
+
+        line-height:
+            1.6;
+
+    }
+
+
+    /* TRIVIAS */
+
+    .nna-trivias {
+
+        padding:
+            60px 0 70px;
+
+    }
+
+
+    .nna-trivias-heading {
+
+        margin-bottom:
+            45px;
+
+    }
+
+
+    .nna-trivias-heading p {
+
+        margin-top:
+            17px;
+
+        font-size:
+            0.83rem;
+
+        line-height:
+            1.65;
+
+    }
+
+
+    .nna-trivia-grid {
+
+        gap:
+            30px;
+
+    }
+
+
+    .nna-trivia-card {
+
+        border-radius:
+            18px;
+
+    }
+
+
+    .nna-trivia-image {
+
+        height:
+            225px;
+
+    }
+
+
+    .nna-trivia-image-badge {
+
+        width:
+            42px;
+
+        height:
+            42px;
+
+        right:
+            15px;
+
+        bottom:
+            15px;
+
+        border-radius:
+            12px;
+
+        font-size:
+            20px;
+
+    }
+
+
+    .nna-trivia-content {
+
+        padding:
+            25px 19px 28px;
+
+    }
+
+
+    .nna-trivia-number {
+
+        font-size:
+            0.65rem;
+
+    }
+
+
+    .nna-trivia-content h3 {
+
+        margin-bottom:
+            22px;
+
+        font-size:
+            1.2rem;
+
+    }
+
+
+    .nna-question {
+
+        padding:
+            17px 0;
+
+    }
+
+
+    .nna-question h4 {
+
+        font-size:
+            0.86rem;
+
+        line-height:
+            1.5;
+
+    }
+
+
+    .nna-question p {
+
+        font-size:
+            0.8rem;
+
+        line-height:
+            1.65;
+
+        text-align:
+            left;
+
+    }
+
+
+    .nna-fun-fact {
+
+        grid-template-columns:
+            36px 1fr;
+
+        gap:
+            10px;
+
+        padding:
+            15px;
+
+        border-radius:
+            14px;
+
+    }
+
+
+    .nna-fun-fact-icon {
+
+        width:
+            34px;
+
+        height:
+            34px;
+
+        font-size:
+            16px;
+
+        border-radius:
+            10px;
+
+    }
+
+
+    .nna-fun-fact strong {
+
+        font-size:
+            0.82rem;
+
+    }
+
+
+    .nna-fun-fact p {
+
+        font-size:
+            0.76rem;
+
+        line-height:
+            1.58;
+
+        text-align:
+            left;
+
+    }
+
+
+    /* CIERRE */
+
+    .nna-closing {
+
+        padding:
+            70px 18px;
+
+    }
+
+
+    .nna-closing-icon {
+
+        font-size:
+            1.5rem;
+
+    }
+
+
+    .nna-closing h2 {
+
+        font-size:
+            clamp(2.4rem, 11vw, 3.4rem);
+
+        line-height:
+            1.03;
+
+    }
+
+
+    .nna-closing p {
+
+        margin-top:
+            20px;
+
+        font-size:
+            0.82rem;
+
+        line-height:
+            1.65;
+
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES PEQUEÑOS
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .nna-container {
+
+        width:
+            calc(100% - 24px);
+
+    }
+
+
+    .nna-hero {
+
+        min-height:
+            77vh;
+
+    }
+
+
+    .nna-hero-content {
+
+        padding:
+            90px 0 78px;
+
+    }
+
+
+    .nna-hero h1 {
+
+        font-size:
+            2.25rem;
+
+    }
+
+
+    .nna-hero-content > p {
+
+        font-size:
+            0.81rem;
+
+    }
+
+
+    .nna-intro {
+
+        padding:
+            52px 0 58px;
+
+    }
+
+
+    .nna-section-heading h2,
+    .nna-trivias-heading h2 {
+
+        font-size:
+            2.3rem;
+
+    }
+
+
+    .nna-intro-text p {
+
+        font-size:
+            0.81rem;
+
+    }
+
+
+    .nna-highlights {
+
+        padding:
+            20px 14px;
+
+    }
+
+
+    .nna-highlight {
+
+        grid-template-columns:
+            36px 1fr;
+
+        gap:
+            10px;
+
+    }
+
+
+    .nna-highlight-icon {
+
+        width:
+            34px;
+
+        height:
+            34px;
+
+        font-size:
+            16px;
+
+    }
+
+
+    .nna-highlight h3 {
+
+        font-size:
+            0.82rem;
+
+    }
+
+
+    .nna-highlight p {
+
+        font-size:
+            0.75rem;
+
+    }
+
+
+    .nna-final-message p {
+
+        font-size:
+            0.74rem;
+
+    }
+
+
+    .nna-trivias {
+
+        padding:
+            52px 0 60px;
+
+    }
+
+
+    .nna-trivia-image {
+
+        height:
+            205px;
+
+    }
+
+
+    .nna-trivia-content {
+
+        padding:
+            21px 15px 23px;
+
+    }
+
+
+    .nna-trivia-content h3 {
+
+        font-size:
+            1.05rem;
+
+    }
+
+
+    .nna-question h4 {
+
+        font-size:
+            0.81rem;
+
+    }
+
+
+    .nna-question p {
+
+        font-size:
+            0.75rem;
+
+    }
+
+
+    .nna-fun-fact {
+
+        padding:
+            13px;
+
+    }
+
+
+    .nna-fun-fact p {
+
+        font-size:
+            0.71rem;
+
+    }
+
+
+    .nna-closing {
+
+        padding:
+            60px 15px;
+
+    }
+
+
+    .nna-closing h2 {
+
+        font-size:
+            2.25rem;
+
+    }
+
+
+    .nna-closing p {
+
+        font-size:
+            0.74rem;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCCIÓN DE MOVIMIENTO
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .nna-hero-content,
+    .nna-scroll i {
+
+        animation:
+            none;
+
+    }
+
+
+    .nna-trivia-card,
+    .nna-trivia-image img {
+
+        transition:
+            none;
+
+    }
+
+}
