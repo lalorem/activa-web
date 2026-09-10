@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Activa | Empresa de la Gobernación de Antioquia</title>
+
+    <link rel="icon" href="assets/logo_activa.webp" type="image/webp">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/planeacion.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+</head>
+
+
+<body>
+
+
+    <div class="gov-bar">
+
+        <div class="container">
+
+            <div class="gov-logo">
+
+                <a href="https://www.gov.co" target="_blank" rel="noopener noreferrer">
+
+                    <img src="assets/logo_gov.webp" alt="Logo GOV.CO" class="gov-img">
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Botón subir -->
+
+    <button class="btn-subir">
+        <i class="ph ph-arrow-fat-line-up"></i>
+    </button>
+
+
+    <!-- Buscador -->
+
+    <div class="search-overlay" id="searchOverlay">
+
+        <div class="search-box">
+
+            <button class="search-close" id="searchClose" aria-label="Cerrar buscador">
+                <i class="ph ph-x"></i>
+            </button>
+
+            <span class="search-label">
+                ¿Qué estás buscando?
+            </span>
+
+            <div class="search-input-container">
+
+                <input type="text" placeholder="Escribe aquí..." id="searchInput">
+
+                <button class="search-submit" type="button">
+                    <i class="ph ph-magnifying-glass"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ======== NAVBAR ======== -->
+
+    <nav class="navbar" id="navbar">
+
+        <div class="container nav-container">
+
+            <div style="display: flex; align-items: center; gap: 16px;">
+
+                <a href="#" class="brand-logo">
+
+                    <img src="assets/logo_activa.webp" alt="Logo Activa" class="brand-img">
+
+                </a>
+
+            </div>
+
+            <ul class="nav-menu">
+
+                <li>
+                    <a href="index.html">INICIO</a>
+                </li>
+
+
+                <li class="nav-dropdown">
+
+                    <a href="quienes-somos.html">
+
+                        QUIÉNES SOMOS
+
+                        <i class="ph ph-caret-down"></i>
+
+                    </a>
+
+
+                    <div class="transparency-menu">
+
+                        <div class="transparency-title">
+                            Quiénes Somos
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="quienes-somos.html">
+                                Quiénes Somos
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="calendario.html">
+                                Calendario de Actividades y Eventos
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="directorio-institucional.html">
+                                Directorio Institucional
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="NoticiasGeneral.html">
+                                Noticias ACTIVA
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="lineas-accion.html">
+                                Líneas de Acción
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="Estructura-Organica.html">
+                                Estructura Orgánica
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="mision-vision.html">
+                                Misión, Visión, Deberes, Políticas
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="vista-hojasdevida.html">
+                                Publicación Hojas de Vida
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+
+                <!-- TRANSPARENCIA -->
+
+                <li class="nav-dropdown">
+
+                    <a href="transparencia.html">
+
+                        TRANSPARENCIA
+
+                        <i class="ph ph-caret-down"></i>
+
+                    </a>
+
+
+                    <div class="transparency-menu">
+
+                         <div class="transparency-title">
+                            Transparencia
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="transparencia.html">
+                                Transparencia
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="controlinterno.html">
+                                Oficina de Control Interno
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Caracterizaciones
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="Accesibilidad.html">
+                                Certificados Accesibilidad
+                            </a>
+
+                        </div>
+
+
+                        <!-- SUBMENÚ PLANEACIÓN -->
+
+                        <div class="transparency-item has-submenu">
+
+                            <a href="planeacion-presupuestos-informes.html">
+
+                                Planeación Presupuestos e Informes
+
+                                <i class="ph ph-caret-right"></i>
+
+                            </a>
+
+
+                            <div class="transparency-submenu">
+
+                                <a href="informacion-mujeres.html">
+                                    Información para Mujeres
+                                </a>
+
+                                <a href="informacion-niños-adolescentes.html">
+                                    Información para Niños, Niñas y Adolescentes (NNA)
+                                </a>
+
+                                <a href="grupos-interes.html">
+                                    Otros Grupos de interés
+                                </a>
+
+                                <a href="planeacion.html">
+                                    Planeación
+                                </a>
+
+                                <a href="sistema-gestion-calidad.html">
+                                    Sistema de Gestión de Calidad
+                                </a>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- SUBMENÚ NORMATIVA -->
+
+                        <div class="transparency-item has-submenu">
+
+                            <a href="#">
+
+                                Normativa
+
+                                <i class="ph ph-caret-right"></i>
+
+                            </a>
+
+
+                            <div class="transparency-submenu">
+
+                                <a href="#">
+                                    Normativa de la Entidad
+                                </a>
+
+                                <a href="#">
+                                    Resoluciones
+                                </a>
+
+                                <a href="#">
+                                    Acuerdos
+                                </a>
+
+                                <a href="#">
+                                    Políticas, Lineamientos y Manuales
+                                </a>
+
+                                <a href="#">
+                                    SUIN
+                                </a>
+
+                                <a href="#">
+                                    Estados Financieros
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+
+                <!-- PARTICIPA -->
+
+                <li class="nav-dropdown">
+
+                    <a href="#">
+
+                        PARTICIPA
+
+                        <i class="ph ph-caret-down"></i>
+
+                    </a>
+
+
+                    <div class="transparency-menu">
+
+                        <div class="transparency-title">
+                            Participa
+                        </div>
+
+                        <div class="transparency-item">
+
+                            <a href="participa.html">
+                                Participa
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="https://activa.com.co/menu-participa/">
+                                Descripción General
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="https://activa.com.co/rendicion-de-cuentas/">
+                                Rendición de Cuentas
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a
+                                href="https://activa.com.co/pqrs/#:~:text=de%20Antioquia%20ACTIVA.-,CONTACTO,-ADMINISTRATIVO%3A%20En%20la">
+                                Formulario de Contacto
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="https://activa.com.co/canales-de-atencion-presencial-y-telefonica/">
+                                Canales de Atención Presencial y Telefónica
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="https://activa.com.co/consulta-ciudadana/">
+                                Consulta Ciudadana
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="https://activa.com.co/contratacion/">
+                                Invitaciones Públicas
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="https://activa.com.co/documentos/#">
+                                Servicio al Público, Normas, Formularios y Protocolos de Atención
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="https://activa.com.co/en-construccion/">
+                                Procedimientos que se Siguen para Tomar Decisiones en las Diferentes Áreas
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+
+                <!-- ATENCIÓN Y SERVICIO -->
+
+                <li>
+
+                    <a href="#">
+                        ATENCIÓN Y SERVICIO A LA CIUDADANÍA
+                    </a>
+
+                </li>
+
+
+                <!-- CONTRATACIÓN -->
+
+                <li class="nav-dropdown">
+
+                    <a href="#">
+
+                        CONTRATACIÓN
+
+                        <i class="ph ph-caret-down"></i>
+
+                    </a>
+
+
+                    <div class="transparency-menu">
+
+                        <div class="transparency-title">
+                            Contratación
+                        </div>
+
+                        <div class="transparency-item">
+
+                            <a href="contratacion.html">
+                                Contratación
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Manifestaciones de Interés
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Proveedores
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Tutoriales y Accesos
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+
+                <!-- UNIDADES DE NEGOCIO -->
+
+                <li class="nav-dropdown">
+
+                    <a href="#">
+
+                        UNIDADES DE NEGOCIO
+
+                        <i class="ph ph-caret-down"></i>
+
+                    </a>
+
+
+                    <div class="transparency-menu">
+
+                        <div class="transparency-title">
+                            Unidades de Negocio
+                        </div>
+
+                        <div class="transparency-item">
+
+                            <a href="unidades-negocio.html">
+                                Unidades de Negocio
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Operación Logística Integral
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Eventos Propios
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Administración de Parques
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Parques ACTIVA
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Caféstival
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Galería de Eventos
+                            </a>
+
+                        </div>
+
+
+                        <div class="transparency-item">
+
+                            <a href="#">
+                                Portafolio
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+
+                <!-- PQRSDF -->
+
+                <li>
+
+                    <a href="#">
+                        PQRSDF
+                    </a>
+
+                </li>
+
+            </ul>
+
+
+            <!-- ACCIONES NAVBAR -->
+
+            <div class="nav-actions">
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+
+                    <i class="ph ph-list"></i>
+
+                </button>
+
+                <button class="theme-icon-btn" id="themeToggleBtn" onclick="toggleTheme()"
+                    title="Cambiar Tema (Claro / Oscuro)">
+
+                    <i class="ph ph-sun" id="themeIcon"></i>
+
+                </button>
+
+
+                <button class="search-icon-btn" id="searchButton" title="Buscar">
+
+                    <i class="ph ph-magnifying-glass"></i>
+
+                </button>
+
+
+                <div class="social-icons">
+
+                    <a href="https://www.facebook.com/activa.com.co" title="Facebook">
+
+                        <i class="ph ph-facebook-logo"></i>
+
+                    </a>
+
+
+                    <a href="https://x.com/ActivaCo" title="X (Twitter)">
+
+                        <i class="ph ph-x-logo"></i>
+
+                    </a>
+
+
+                    <a href="https://www.instagram.com/activa.antioquia/" title="Instagram">
+
+                        <i class="ph ph-instagram-logo"></i>
+
+                    </a>
+
+
+                    <a href="https://www.youtube.com/@ActivaAntioquia" title="YouTube">
+
+                        <i class="ph ph-youtube-logo"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- =========================================================
+     PLANEACIÓN — ACTIVA
+     ========================================================= -->
+
+<main class="planeacion-page">
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+    <section class="planeacion-hero">
+
+        <div class="planeacion-hero-decoration planeacion-decoration-one"></div>
+        <div class="planeacion-hero-decoration planeacion-decoration-two"></div>
+
+        <div class="planeacion-hero-content">
+
+            <span class="planeacion-label">
+                TRANSPARENCIA Y GESTIÓN INSTITUCIONAL
+            </span>
+
+            <h1>Planeación</h1>
+
+            <p>
+                Planeación, presupuesto, informes y documentos de gestión
+                de la Empresa de Parques y Eventos de Antioquia — ACTIVA.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         DOCUMENTOS
+         ===================================================== -->
+    <section class="planeacion-modules">
+
+        <div class="planeacion-container">
+
+
+            <!-- =================================================
+                 01 — PRESUPUESTO
+                 ================================================= -->
+            <details class="planeacion-module">
+
+                <summary>
+
+                    <div class="planeacion-module-info">
+
+                        <span class="planeacion-module-number">
+                            01
+                        </span>
+
+                        <span class="planeacion-module-title">
+                            Presupuesto y ejecución presupuestal
+                        </span>
+
+                    </div>
+
+                    <span class="planeacion-module-toggle">
+                        +
+                    </span>
+
+                </summary>
+
+
+                <div class="planeacion-module-content">
+
+                    <div class="planeacion-links-grid">
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2024/07/1.-Resolucion_Liquidacion-del-presupuesto-2024.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▣</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Presupuesto general de ingresos, gastos e inversión
+                                </strong>
+                                <span>
+                                    Resolución de liquidación del presupuesto 2024
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">
+                                ↗
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2025/08/Ejecucion-ACTIVA-Ingresos-y-gastos-2024.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▣</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Ejecución ACTIVA — Ingresos y gastos 2024
+                                </strong>
+                                <span>
+                                    Ejecución presupuestal de la vigencia 2024
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">
+                                ↗
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2025/08/Ejecucion-ACTIVA-Ingresos-y-Gastos-31072025.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▣</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Ejecución ACTIVA — Ingresos y gastos 31/07/2025
+                                </strong>
+                                <span>
+                                    Ejecución presupuestal con corte a julio de 2025
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">
+                                ↗
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </details>
+
+
+
+            <!-- =================================================
+                 02 — INFORMES
+                 ================================================= -->
+            <details class="planeacion-module">
+
+                <summary>
+
+                    <div class="planeacion-module-info">
+
+                        <span class="planeacion-module-number">
+                            02
+                        </span>
+
+                        <span class="planeacion-module-title">
+                            Informes de gestión, evaluación y auditoría
+                        </span>
+
+                    </div>
+
+                    <span class="planeacion-module-toggle">
+                        +
+                    </span>
+
+                </summary>
+
+
+                <div class="planeacion-module-content">
+
+                    <div class="planeacion-links-grid">
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2023/12/g.Informes-de-gestio%CC%81n-evaluacio%CC%81n-y-auditori%CC%81a1.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▤</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Informe de gestión, evaluación y auditoría 1
+                                </strong>
+                                <span>
+                                    Informe de gestión de la Dirección Administrativa y Financiera
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">
+                                ↗
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            href="https://www.activa.com.co/wp-content/uploads/2023/12/g.Informes-de-gestio%CC%81n-evaluacio%CC%81n-y-auditori%CC%81a2.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▤</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Informe de gestión, evaluación y auditoría 2
+                                </strong>
+                                <span>
+                                    Informe de gestión de la vigencia 2022
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">
+                                ↗
+                            </span>
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+            </details>
+
+
+
+            <!-- =================================================
+                 03 — ACCESO A LA INFORMACIÓN
+                 ================================================= -->
+            <details class="planeacion-module">
+
+                <summary>
+
+                    <div class="planeacion-module-info">
+
+                        <span class="planeacion-module-number">
+                            03
+                        </span>
+
+                        <span class="planeacion-module-title">
+                            Informes trimestrales sobre acceso a la información
+                        </span>
+
+                    </div>
+
+                    <span class="planeacion-module-toggle">
+                        +
+                    </span>
+
+                </summary>
+
+
+                <div class="planeacion-module-content">
+
+                    <div class="planeacion-links-grid">
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2023/12/j.-informes-trimetrales-sobre-acceso-a-la-informacio%CC%81n1.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▤</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Informe trimestral de acceso a la información 1
+                                </strong>
+                                <span>
+                                    Informe sobre acceso a la información pública
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">
+                                ↗
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2023/12/j.-informes-trimetrales-sobre-acceso-a-la-informacio%CC%81n2.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▤</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Informe trimestral de acceso a la información 2
+                                </strong>
+                                <span>
+                                    Informe sobre acceso a la información pública
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">
+                                ↗
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2023/12/j.-informes-trimetrales-sobre-acceso-a-la-informacio%CC%81n3.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▤</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Informe trimestral de acceso a la información 3
+                                </strong>
+                                <span>
+                                    Informe sobre acceso a la información pública
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">
+                                ↗
+                            </span>
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+            </details>
+
+
+
+            <!-- =================================================
+                 04 — PLANES INSTITUCIONALES
+                 ================================================= -->
+            <details class="planeacion-module">
+
+                <summary>
+
+                    <div class="planeacion-module-info">
+
+                        <span class="planeacion-module-number">
+                            04
+                        </span>
+
+                        <span class="planeacion-module-title">
+                            Planes institucionales
+                        </span>
+
+                    </div>
+
+                    <span class="planeacion-module-toggle">
+                        +
+                    </span>
+
+                </summary>
+
+
+                <div class="planeacion-module-content">
+
+                    <div class="planeacion-links-grid">
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2023/12/k.Planes-MATRIZ-DE-RIESGOS.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▣</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Matriz de riesgos
+                                </strong>
+                                <span>
+                                    Planes y matriz institucional de riesgos
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">↗</span>
+
+                        </a>
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2023/12/k.Planes-PGD.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▣</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Programa de Gestión Documental — PGD
+                                </strong>
+                                <span>
+                                    Programa institucional de gestión documental
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">↗</span>
+
+                        </a>
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2023/12/k.Planes-PLAN-ANTICORRUPCION-Y-DE-AT-ENCION-AL-CIUDADANO-2023.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▣</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Plan Anticorrupción y de Atención al Ciudadano 2023
+                                </strong>
+                                <span>
+                                    Plan institucional de transparencia y atención ciudadana
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">↗</span>
+
+                        </a>
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2025/02/Plan-Anticorrupcion-y-Atencion-al-Ciudadano_-tercer-cuatrimestre-ano-2024.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▣</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Plan Anticorrupción y Atención al Ciudadano 2024
+                                </strong>
+                                <span>
+                                    Seguimiento correspondiente a la vigencia 2024
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">↗</span>
+
+                        </a>
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2023/12/k.Planes-Plan-anual-de-trabajo-SGSST-2023.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▣</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Plan anual de trabajo SGSST 2023
+                                </strong>
+                                <span>
+                                    Seguridad y Salud en el Trabajo
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">↗</span>
+
+                        </a>
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2023/12/k.Planes-Plan-anual-de-vacantes.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▣</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Plan anual de vacantes
+                                </strong>
+                                <span>
+                                    Planeación de vacantes institucionales
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">↗</span>
+
+                        </a>
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2023/12/k.Planes-Plan-de-bienestar-social-laboral-e-incentivos-2023.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▣</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Plan de bienestar social, laboral e incentivos 2023
+                                </strong>
+                                <span>
+                                    Bienestar e incentivos institucionales
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">↗</span>
+
+                        </a>
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2023/12/k.Planes-Plan-de-prevision-de-recursos-humanos.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▣</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Plan de previsión de recursos humanos
+                                </strong>
+                                <span>
+                                    Planeación del recurso humano institucional
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">↗</span>
+
+                        </a>
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2023/12/k.Planes-Plan-Estrategico-de-Talento-Humano-2023.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▣</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Plan Estratégico de Talento Humano 2023
+                                </strong>
+                                <span>
+                                    Planeación estratégica del talento humano
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">↗</span>
+
+                        </a>
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2025/06/PLAN-ESTRATEGICO-DE-TECNOLOGIAS-DE-LA-INFORMACION-PETI-version-4-1.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▣</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Plan Estratégico de Tecnologías de la Información — PETI 2025
+                                </strong>
+                                <span>
+                                    Planeación estratégica de tecnologías de la información
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">↗</span>
+
+                        </a>
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2023/12/k.Planes-Plan-Institucional-de-Capacitacio%CC%81n.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▣</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Plan Institucional de Capacitación
+                                </strong>
+                                <span>
+                                    Plan de formación y capacitación institucional
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">↗</span>
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+            </details>
+
+
+
+            <!-- =================================================
+                 05 — POLÍTICAS
+                 ================================================= -->
+            <details class="planeacion-module">
+
+                <summary>
+
+                    <div class="planeacion-module-info">
+
+                        <span class="planeacion-module-number">
+                            05
+                        </span>
+
+                        <span class="planeacion-module-title">
+                            Políticas y lineamientos de gestión
+                        </span>
+
+                    </div>
+
+                    <span class="planeacion-module-toggle">
+                        +
+                    </span>
+
+                </summary>
+
+
+                <div class="planeacion-module-content">
+
+                    <div class="planeacion-links-grid">
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2023/12/n.-Poli%CC%81tica-de-Administracio%CC%81n-del-Riesgo.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">◈</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Política de Administración del Riesgo
+                                </strong>
+                                <span>
+                                    Lineamientos institucionales para la administración del riesgo
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">↗</span>
+
+                        </a>
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2023/12/m.-Poli%CC%81tica-de-privacidad-y-tratamiento-de-datos-personales..pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">◈</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Política de privacidad y tratamiento de datos personales
+                                </strong>
+                                <span>
+                                    Política institucional de protección y tratamiento de datos
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">↗</span>
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+            </details>
+
+
+
+            <!-- =================================================
+                 06 — CONTROL Y AUDITORÍA
+                 ================================================= -->
+            <details class="planeacion-module">
+
+                <summary>
+
+                    <div class="planeacion-module-info">
+
+                        <span class="planeacion-module-number">
+                            06
+                        </span>
+
+                        <span class="planeacion-module-title">
+                            Control, auditoría y planes de mejoramiento
+                        </span>
+
+                    </div>
+
+                    <span class="planeacion-module-toggle">
+                        +
+                    </span>
+
+                </summary>
+
+
+                <div class="planeacion-module-content">
+
+                    <div class="planeacion-links-grid">
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2025/08/INFORME-DEFINITIVO-ACTUACION-ESPECIAL-DE-FISCALIZACION-VIGENCIA-2023.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▤</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Informe definitivo de actuación especial de fiscalización — Vigencia 2023
+                                </strong>
+                                <span>
+                                    Informe de fiscalización institucional
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">↗</span>
+
+                        </a>
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2025/08/INFORME-DEFINITIVO-AUDITORIA-DE-CUMPLIMIENTO-CONTRATCTUAL-VIGENCIA-2023.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▤</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Informe definitivo de auditoría de cumplimiento contractual — Vigencia 2023
+                                </strong>
+                                <span>
+                                    Auditoría de cumplimiento contractual
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">↗</span>
+
+                        </a>
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2025/08/INFORME-DEFINITIVO-DE-CUMPLIMIENTO-_viegencia-2022.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▤</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Informe definitivo de cumplimiento — Vigencia 2022
+                                </strong>
+                                <span>
+                                    Informe definitivo de auditoría y cumplimiento
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">↗</span>
+
+                        </a>
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2025/08/INFORME-DEFINITIVO-REVISION-DE-LA-CUENT_viegencia-2023.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▤</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Informe definitivo de revisión de la cuenta — Vigencia 2023
+                                </strong>
+                                <span>
+                                    Revisión de la cuenta institucional
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">↗</span>
+
+                        </a>
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2025/08/Seguimiento-Plan-de-mejoramiento-2022-y-2023.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">✓</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Seguimiento al Plan de Mejoramiento 2022 y 2023
+                                </strong>
+                                <span>
+                                    Seguimiento de acciones de mejoramiento
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">↗</span>
+
+                        </a>
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2025/08/202403000283-2024-12-13-Remision-Plan-de-Mejoramiento.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">✓</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Remisión Plan de Mejoramiento 2024
+                                </strong>
+                                <span>
+                                    Documento de remisión del plan de mejoramiento
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">↗</span>
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+            </details>
+
+
+
+            <!-- =================================================
+                 07 — EJECUCIÓN Y CONTRALORÍA
+                 ================================================= -->
+            <details class="planeacion-module">
+
+                <summary>
+
+                    <div class="planeacion-module-info">
+
+                        <span class="planeacion-module-number">
+                            07
+                        </span>
+
+                        <span class="planeacion-module-title">
+                            Información para Contraloría y seguimiento
+                        </span>
+
+                    </div>
+
+                    <span class="planeacion-module-toggle">
+                        +
+                    </span>
+
+                </summary>
+
+
+                <div class="planeacion-module-content">
+
+                    <div class="planeacion-links-grid">
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2025/08/INFORME-DEFINITIVO-ACTUACION-ESPECIAL-DE-FISCALIZACION-VIGENCIA-2023.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▤</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Actuación especial de fiscalización — Vigencia 2023
+                                </strong>
+                                <span>
+                                    Informe definitivo de fiscalización
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">↗</span>
+
+                        </a>
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2025/08/INFORME-DEFINITIVO-DE-CUMPLIMIENTO-_viegencia-2022.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▤</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Informe de cumplimiento — Vigencia 2022
+                                </strong>
+                                <span>
+                                    Informe definitivo de cumplimiento de Contraloría
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">↗</span>
+
+                        </a>
+
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2025/08/INFORME-DEFINITIVO-REVISION-DE-LA-CUENT_viegencia-2023.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▤</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Revisión de la cuenta — Vigencia 2023
+                                </strong>
+                                <span>
+                                    Informe definitivo de revisión
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">↗</span>
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+            </details>
+
+
+
+            <!-- =================================================
+                 08 — PLAN INSTITUCIONAL DE ARCHIVOS
+                 ================================================= -->
+            <details class="planeacion-module">
+
+                <summary>
+
+                    <div class="planeacion-module-info">
+
+                        <span class="planeacion-module-number">
+                            08
+                        </span>
+
+                        <span class="planeacion-module-title">
+                            Plan Institucional de Archivos — PINAR
+                        </span>
+
+                    </div>
+
+                    <span class="planeacion-module-toggle">
+                        +
+                    </span>
+
+                </summary>
+
+
+                <div class="planeacion-module-content">
+
+                    <div class="planeacion-links-grid">
+
+                        <a
+                            href="https://activa.com.co/wp-content/uploads/2025/11/Plan-Institucional-de-Archivos-PINAR.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="planeacion-document"
+                        >
+
+                            <span class="planeacion-document-icon">▣</span>
+
+                            <span class="planeacion-document-text">
+                                <strong>
+                                    Plan Institucional de Archivos — PINAR
+                                </strong>
+                                <span>
+                                    Planeación institucional de la gestión de archivos
+                                </span>
+                            </span>
+
+                            <span class="planeacion-document-arrow">
+                                ↗
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </details>
+
+
+
+            <!-- =================================================
+                 BOTÓN FINAL
+                 ================================================= -->
+            <div class="planeacion-pqrs">
+
+                <a
+                    href="/pqrsdf/"
+                    class="planeacion-pqrs-button"
+                >
+                    <span>✦</span>
+                    Consultar PQRSDF
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+        <div class="container">
+            <div class="footer-grid"> <!-- LOGO ACTIVA -->
+                <div class="footer-brand"> <img src="assets/logo_activa.webp" alt="Logo ACTIVA" class="footer-logo">
+                </div>
+                <div>
+                    <h4 class="footer-title"> Oficina </h4>
+                    <ul class="footer-list">
+                        <li> Horario: lunes a jueves de 8:00 a. m. a 12:00 m. y de 2:00 p. m. a 4:30 p. m.; y los
+                            viernes de 8:00 a. m. a 12:00 m. y de 2:00 p. m. a 3:30 p. m. </li>
+                        <li> Oficina Principal / Dirección de correspondencia: Calle 42B Número 52-106 Centro
+                            Administrativo Departamental «José María Córdova» – La Alpujarra. Piso 6 – Oficina 610.
+                        </li>
+                        <li> Medellín, Antioquia-Colombia. </li>
+                        <li> Código postal: 050015 </li>
+                    </ul>
+                </div> <!-- LÍNEAS DE ATENCIÓN -->
+                <div>
+                    <h4 class="footer-title"> Líneas de Atención </h4>
+                    <ul class="footer-list">
+                        <li> Línea de Atención a la Ciudadanía: +57 604 383 80 42 </li>
+                        <li> Línea Anticorrupción: +57 604 383 80 42 </li>
+                        <li> Correos electrónicos de contacto: info@activa.com.co </li>
+                        <li> Correo electrónico para notificaciones judiciales: info@activa.com.co </li>
+                        <li> NIT: 901437957-8 </li>
+                    </ul>
+                </div> <!-- ENLACES DE INTERÉS -->
+                <div>
+                    <h4 class="footer-title"> Enlaces de Interés </h4>
+                    <ul class="footer-list">
+                        <li> <a href="https://www.antioquia.gov.co/"> Gobernación de Antioquia </a> </li>
+                        <li> <a href="https://www.mintic.gov.co/portal/inicio/"> Ministerio de Tecnología de la
+                                Información y las Comunicaciones </a> </li>
+                        <li> <a href="https://colombiacompra.gov.co/"> Colombia Compra Eficiente </a> </li>
+                        <li> <a href="http://svrpubindc.imprenta.gov.co/senado/"> Gaceta Oficial </a> </li>
+                        <li> <a href="https://activa.com.co/pqrs/"> PQRSDF </a> </li>
+                        <li> <a href="https://activa.com.co/mapa-del-sitio/"> Mapa del Sitio </a> </li>
+                        <li> <a href="https://activa.com.co/wp-content/uploads/2024/07/GA-F019-Politica-tramite-de-datos-personales.pdf"
+                                target="_blank" rel="noopener noreferrer"> Protección de Datos Personales </a> </li>
+                        <li> <a href="https://activa.com.co/wp-content/uploads/2024/07/Terminos-y-condiciones-pagina-web-ACTIVA.pdf"
+                                target="_blank" rel="noopener noreferrer"> Términos y Condiciones </a> </li>
+                    </ul>
+                </div>
+            </div> <!-- COPYRIGHT -->
+            <div class="footer-bottom">
+                <p> &copy; 2026 Activa. Empresa industrial y comercial de la Gobernación de Antioquia. NIT: 901437957-8
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+
+
+</body>
+
+</html>
