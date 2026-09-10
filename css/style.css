@@ -1,8 +1,4 @@
-    /* =========================================================
-    VARIABLES PRINCIPALES Y PALETA DE COLOR
-    ========================================================= */
-
-    :root {
+:root {
         /* Paleta Institucional HV */
         --hv-lima: #C7E600;
         --hv-verde: #00A651;
@@ -1812,741 +1808,1644 @@
         transform: rotate(90deg);
     }
 
+/* =========================================================
+   RESPONSIVE — SISTEMA UNIFICADO
+   Navbar, menú móvil, ondas y contenido
+   ========================================================= */
 
-    /* =========================================================
-    RESPONSIVE GLOBAL — MEDIA QUERIES
-    ========================================================= */
+/* ---------- TABLET / LAPTOP ---------- */
+@media (max-width: 1200px) {
 
-    @media (max-width: 1200px) {
-
-        .container {
-            padding-left: 24px;
-            padding-right: 24px;
-        }
-
-        .nav-container {
-            column-gap: 18px;
-        }
-
-        .nav-menu {
-            gap: 10px;
-        }
-
-        .nav-menu > li > a {
-            font-size: 10.5px;
-        }
-
-        .nav-actions {
-            gap: 10px;
-        }
-
-        .social-icons {
-            gap: 10px;
-            font-size: 22px;
-        }
-
-        .hero h1 {
-            font-size: 3.3rem;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-        }
-
-        .services-grid {
-            gap: 22px;
-        }
-
-        .news-grid {
-            gap: 18px;
-        }
-
-        .footer-grid {
-            gap: 30px;
-        }
-
-        .footer-brand {
-            padding-left: 25px;
-            padding-right: 10px;
-        }
-
-        .footer-logo {
-            width: 170px;
-        }
+    .container {
+        padding-left: 24px;
+        padding-right: 24px;
     }
 
-    /* =========================================================
-    RESPONSIVE — TABLET
-    ========================================================= */
+    .nav-container {
+        column-gap: 18px;
+    }
 
-    @media (max-width: 1024px) {
+    .nav-menu {
+        gap: 10px;
+    }
 
-        /* ---------- NAVBAR ---------- */
+    .nav-menu > li > a {
+        font-size: 10.5px;
+    }
 
-        .navbar {
-            padding: 16px 0;
-        }
+    .nav-actions {
+        gap: 10px;
+    }
 
-        .nav-container {
-            display: grid;
-            grid-template-columns: auto 1fr auto;
-            gap: 15px;
-        }
+    .social-icons {
+        gap: 10px;
+        font-size: 22px;
+    }
 
-        .brand-img {
-            height: 52px;
-        }
+    .hero h1 {
+        font-size: clamp(3.2rem, 6.8vw, 5.5rem);
+    }
 
-        .menu-toggle {
-            display: flex;
-            justify-self: end;
-        }
+    .hero p {
+        font-size: 1.1rem;
+    }
 
-        .nav-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            display: none;
-            flex-direction: column;
-            align-items: stretch;
-            justify-content: flex-start;
-            gap: 0;
+    .services-grid {
+        gap: 22px;
+    }
 
-            background: var(--nav-bg);
-            border-bottom: 1px solid var(--border-color);
-            padding: 15px 24px 20px;
+    .news-grid {
+        gap: 18px;
+    }
 
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.12);
-            z-index: 2000;
-        }
+    .footer-grid {
+        gap: 30px;
+    }
 
-        .nav-menu.active {
-            display: flex;
-        }
+    .footer-brand {
+        padding-left: 25px;
+        padding-right: 10px;
+    }
 
-        .nav-menu > li {
-            width: 100%;
-        }
-
-        .nav-menu > li > a {
-            width: 100%;
-            text-align: left;
-            font-size: 14px;
-            padding: 14px 8px;
-        }
-
-        .nav-dropdown > a {
-            justify-content: space-between;
-        }
-
-        /* ---------- DROPDOWN MÓVIL ---------- */
-
-        .transparency-menu {
-            position: static;
-            width: 100%;
-            transform: none;
-            margin-top: 8px;
-            display: none;
-
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-
-            border-radius: 12px;
-            box-shadow: none;
-        }
-
-        .transparency-menu::before,
-        .nav-dropdown::after {
-            display: none;
-        }
-
-        .nav-dropdown.active .transparency-menu {
-            display: block;
-        }
-
-        .transparency-submenu {
-            position: static;
-            width: 100%;
-            margin-top: 6px;
-            padding: 6px;
-
-            display: none;
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-            transform: none;
-
-            box-shadow: none;
-            border-radius: 12px;
-        }
-
-        .transparency-submenu::before {
-            display: none;
-        }
-
-        .transparency-item.has-submenu.active .transparency-submenu {
-            display: block;
-        }
-
-        .transparency-item > a {
-            font-size: 13px;
-        }
-
-        /* ---------- ACCIONES ---------- */
-
-        .nav-actions {
-            gap: 10px;
-        }
-
-        .social-icons {
-            display: none;
-        }
-
-        .search-icon-btn,
-        .theme-icon-btn {
-            font-size: 23px;
-        }
+    .footer-logo {
+        width: 170px;
+    }
+}
 
 
-        /* ---------- HERO ---------- */
+/* ---------- TABLET ---------- */
+@media (max-width: 1024px) {
 
-        .hero {
-            min-height: 70vh;
-        }
+    /* ================= NAVBAR ================= */
 
-        .hero-content {
-            max-width: 700px;
-            padding-top: 60px;
-            padding-bottom: 90px;
-        }
+    .navbar {
+        padding: 16px 0;
+    }
 
-        .hero h1 {
-            font-size: 3rem;
-        }
+    .nav-container {
+        position: relative;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 15px;
+    }
 
-        .hero p {
-            font-size: 1.05rem;
-        }
+    .brand-img {
+        height: 52px;
+    }
+
+    /* El botón sí aparece en tablet y móvil */
+    .menu-toggle {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        justify-self: end;
+        width: 42px;
+        height: 42px;
+        padding: 0;
+        flex-shrink: 0;
+        z-index: 3005;
+    }
+
+    /* Ocultamos el menú horizontal */
+    .nav-menu {
+        position: absolute;
+        top: calc(100% + 1px);
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-height: calc(100vh - 90px);
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0;
+
+        padding: 12px 18px 20px;
+        margin: 0;
+
+        background: var(--nav-bg);
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.14);
+
+        z-index: 3000;
+    }
+
+    /* Estado abierto por JS */
+    .nav-menu.active,
+    .nav-menu.open {
+        display: flex !important;
+    }
+
+    .nav-menu > li {
+        width: 100%;
+        flex: 0 0 auto;
+    }
+
+    .nav-menu > li > a {
+        width: 100%;
+        min-height: 46px;
+        padding: 12px 8px;
+        text-align: left;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .nav-dropdown > a {
+        justify-content: space-between;
+    }
+
+    .nav-actions {
+        gap: 10px;
+    }
+
+    .social-icons {
+        display: none;
+    }
+
+    .search-icon-btn,
+    .theme-icon-btn {
+        font-size: 23px;
+    }
+
+    /* ================= MENÚ TRANSPARENCIA ================= */
+
+    .transparency-menu {
+        position: static;
+        width: 100%;
+        max-width: none;
+        margin: 6px 0 4px;
+        padding: 8px;
+
+        display: none;
+
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: none;
+
+        border-radius: 12px;
+        box-shadow: none;
+    }
+
+    .nav-dropdown.active .transparency-menu,
+    .nav-dropdown.open .transparency-menu {
+        display: block !important;
+    }
+
+    .transparency-menu::before,
+    .nav-dropdown::after {
+        display: none;
+    }
+
+    .transparency-item {
+        width: 100%;
+    }
+
+    .transparency-item > a {
+        min-height: 44px;
+        padding: 11px 12px;
+        font-size: 13px;
+    }
+
+    .transparency-submenu {
+        position: static;
+        width: 100%;
+        margin: 5px 0 2px;
+        padding: 6px;
+
+        display: none;
+
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: none;
+
+        box-shadow: none;
+        border-radius: 12px;
+    }
+
+    .transparency-item.has-submenu.active .transparency-submenu,
+    .transparency-item.has-submenu.open .transparency-submenu {
+        display: block !important;
+    }
+
+    .transparency-submenu::before {
+        display: none;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+        min-height: 78vh;
+    }
+
+    .hero-content {
+        max-width: 760px;
+        padding-top: 70px;
+        padding-bottom: 125px;
+    }
+
+    .hero h1 {
+        font-size: clamp(3rem, 7vw, 5rem);
+    }
+
+    .hero-side-info {
+        display: none;
+    }
+
+    /* ================= ONDAS ================= */
+
+    .wave-bottom,
+    .hero-wave {
+        height: 105px;
+    }
+
+    .wave-bottom svg,
+    .hero-wave svg {
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        display: block;
+    }
+
+    .stats-wave {
+        height: 90px;
+    }
+
+    .stats-wave svg {
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        display: block;
+    }
+
+    /* ================= ESTADÍSTICAS ================= */
+
+    .stats-section {
+        padding: 45px 0 120px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-item {
+        max-width: 680px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    /* ================= SERVICIOS ================= */
+
+    .section-header h2 {
+        font-size: 3.2rem;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+    }
+
+    /* ================= NOTICIAS ================= */
+
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+    }
+
+    /* ================= CLIENTES ================= */
+
+    .client-logo {
+        min-width: 160px;
+        height: 160px;
+    }
+
+    /* ================= FOOTER ================= */
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 45px 30px;
+    }
+
+    .footer-brand {
+        padding: 0;
+    }
+}
 
 
-        /* ---------- ESTADÍSTICAS ---------- */
+/* ---------- MÓVIL ---------- */
+@media (max-width: 768px) {
 
-        .stats-section {
-            padding: 60px 0 90px;
-        }
+    /* ================= CONTENEDOR ================= */
 
-        .stat-number {
-            font-size: 3rem;
-        }
+    .container {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    /* ================= GOV.CO ================= */
+
+    .gov-img {
+        height: 26px;
+    }
+
+    /* ================= SUB NAV ================= */
+
+    .sub-nav-bar {
+        font-size: 11px;
+    }
+
+    .sub-nav-content {
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* ================= NAVBAR ================= */
+
+    .navbar {
+        padding: 10px 0;
+    }
+
+    .nav-container {
+        grid-template-columns: auto 1fr auto;
+        gap: 8px;
+    }
+
+    .brand-img {
+        height: 45px;
+    }
+
+    .nav-actions {
+        gap: 5px;
+    }
+
+    .search-icon-btn,
+    .theme-icon-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 21px;
+    }
+
+    .menu-toggle {
+        width: 38px;
+        height: 38px;
+        font-size: 25px;
+    }
+
+    .nav-menu {
+        top: calc(100% + 1px);
+        max-height: calc(100vh - 75px);
+        padding: 10px 18px 18px;
+    }
+
+    .nav-menu > li > a {
+        min-height: 44px;
+        padding: 11px 8px;
+        font-size: 14px;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+        min-height: 680px;
+        align-items: center;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        padding-top: 55px;
+        padding-bottom: 125px;
+    }
+
+    .hero-badge {
+        font-size: 9px;
+        letter-spacing: 0.5px;
+        padding: 8px 13px;
+        margin-bottom: 20px;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.55rem, 10vw, 3.4rem);
+        line-height: 1.05;
+        letter-spacing: -1.5px;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .btn-hero-primary,
+    .btn-hero-secondary {
+        width: 100%;
+        min-height: 52px;
+    }
+
+    .hero-carousel-indicators {
+        margin-top: 28px;
+    }
+
+    .hero-decoration-one {
+        width: 260px;
+        height: 260px;
+        top: -80px;
+        right: -120px;
+    }
+
+    .hero-decoration-two {
+        width: 180px;
+        height: 180px;
+        right: -50px;
+        bottom: 150px;
+    }
+
+    .hero-decoration-three {
+        display: none;
+    }
+
+    /* ================= ONDA HERO ================= */
+
+    .wave-bottom,
+    .hero-wave {
+        height: 82px;
+        bottom: -1px;
+    }
+
+    .wave-bottom svg,
+    .hero-wave svg {
+        width: 100%;
+        height: 100%;
+        min-width: 100%;
+        min-height: 0;
+        display: block;
+    }
+
+    /* ================= ESTADÍSTICAS ================= */
+
+    .stats-section {
+        padding: 35px 0 105px;
+    }
+
+    .stats-intro {
+        margin-bottom: 30px;
+    }
+
+    .stats-grid {
+        gap: 15px;
+    }
+
+    .stat-item {
+        min-height: 125px;
+        padding: 20px;
+        gap: 16px;
+        border-radius: 18px;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .stat-item:last-child {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        padding-bottom: 20px;
+    }
+
+    .stat-icon-container {
+        width: 52px;
+        height: 52px;
+        border-radius: 16px;
+    }
+
+    .stat-icon {
+        font-size: 25px;
+    }
+
+    .stat-number {
+        font-size: 2.6rem;
+    }
+
+    /* ================= ONDA ESTADÍSTICAS ================= */
+
+    .stats-wave {
+        height: 72px;
+        bottom: -1px;
+    }
+
+    .stats-wave svg {
+        width: 100%;
+        height: 100%;
+        min-width: 100%;
+        min-height: 0;
+        display: block;
+    }
+
+    /* ================= TÍTULOS ================= */
+
+    .section-header {
+        margin-bottom: 35px;
+    }
+
+    .section-header h2 {
+        font-size: 2.6rem;
+        line-height: 1.15;
+    }
+
+    /* ================= SERVICIOS ================= */
+
+    .services-section {
+        padding: 65px 0;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .service-img {
+        height: 220px;
+    }
+
+    /* ================= CLIENTES ================= */
+
+    .clients-section {
+        padding: 65px 0;
+    }
+
+    .clients-carousel {
+        gap: 10px;
+    }
+
+    .client-logo {
+        min-width: 145px;
+        height: 145px;
+        padding: 15px;
+    }
+
+    .client-logo img {
+        max-width: 115px;
+        max-height: 80px;
+    }
+
+    .clients-prev,
+    .clients-next {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    /* ================= NOTICIAS ================= */
+
+    .news-section {
+        padding: 70px 0;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .news-image {
+        height: 240px;
+    }
+
+    /* ================= UBICACIÓN ================= */
+
+    .location-section {
+        padding: 70px 0;
+    }
+
+    .location-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .map-container,
+    .video-container {
+        height: 350px;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+        padding: 45px 0 20px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .footer-brand {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-logo {
+        width: 170px;
+        margin: 0 auto 20px;
+    }
+
+    .footer-title {
+        margin-bottom: 12px;
+    }
+
+    /* ================= BUSCADOR ================= */
+
+    .search-box {
+        width: 90%;
+    }
+
+    .search-label {
+        font-size: 1.6rem;
+    }
+
+    .search-close {
+        top: -60px;
+        right: 0;
+    }
+}
 
 
-        /* ---------- SERVICIOS ---------- */
+/* ---------- CELULARES PEQUEÑOS ---------- */
+@media (max-width: 480px) {
 
-        .services-section {
-            padding: 75px 0;
-        }
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 
-        .section-header h2 {
-            font-size: 3.2rem;
-        }
+    /* ================= NAVBAR ================= */
 
-        .services-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 22px;
-        }
+    .navbar {
+        padding: 9px 0;
+    }
+
+    .brand-img {
+        height: 40px;
+    }
+
+    .menu-toggle {
+        width: 36px;
+        height: 36px;
+        font-size: 24px;
+    }
+
+    .search-icon-btn,
+    .theme-icon-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 19px;
+    }
+
+    .nav-menu {
+        max-height: calc(100vh - 65px);
+        padding: 8px 15px 16px;
+    }
+
+    .nav-menu > li > a {
+        min-height: 42px;
+        padding: 10px 8px;
+        font-size: 13.5px;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+        min-height: 650px;
+    }
+
+    .hero-content {
+        padding-top: 48px;
+        padding-bottom: 110px;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.2rem, 11vw, 2.8rem);
+        line-height: 1.08;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    /* ================= ONDAS ================= */
+
+    .wave-bottom,
+    .hero-wave {
+        height: 62px;
+    }
+
+    .stats-wave {
+        height: 58px;
+    }
+
+    /* ================= TÍTULOS ================= */
+
+    .section-header h2 {
+        font-size: 2.1rem;
+    }
+
+    .badge-title {
+        font-size: 11px;
+    }
+
+    /* ================= TARJETAS ================= */
+
+    .service-img {
+        height: 190px;
+    }
+
+    .service-content {
+        padding: 34px 18px 20px;
+    }
+
+    .news-content {
+        padding: 20px;
+    }
+
+    .news-image {
+        height: 210px;
+    }
+
+    /* ================= CLIENTES ================= */
+
+    .client-logo {
+        min-width: 125px;
+        height: 125px;
+    }
+
+    .clients-prev,
+    .clients-next {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+
+    /* ================= UBICACIÓN ================= */
+
+    .location-title {
+        padding: 20px;
+    }
+
+    .location-title > i {
+        width: 42px;
+        height: 42px;
+        font-size: 20px;
+    }
+
+    .location-title h3 {
+        font-size: 1.05rem;
+    }
+
+    .map-container,
+    .video-container {
+        height: 280px;
+    }
+
+    /* ================= BUSCADOR ================= */
+
+    .search-input-container {
+        padding: 6px 6px 6px 16px;
+    }
+
+    .search-input-container input {
+        min-width: 0;
+        font-size: 0.9rem;
+        padding: 10px 5px;
+    }
+
+    .search-submit {
+        width: 46px;
+        height: 46px;
+        font-size: 19px;
+        flex-shrink: 0;
+    }
+}
 
 
-        /* ---------- NOTICIAS ---------- */
+/* =========================================================
+   ACCESIBILIDAD — REDUCIR MOVIMIENTO
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
 
-        .news-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 22px;
-        }
+    .hero-decoration,
+    .carousel-slide,
+    .stat-item,
+    .btn-hero-primary,
+    .btn-hero-secondary,
+    .hero-indicator {
+        animation: none !important;
+        transition: none !important;
+    }
+}
 
+/* =========================================================
+   ACTIVA — MENÚ MÓVIL DEFINITIVO
+   Corrección de menú hamburguesa + submenús
+   ========================================================= */
 
-        /* ---------- CLIENTES ---------- */
+@media (max-width: 1024px) {
 
-        .client-logo {
-            min-width: 160px;
-            height: 160px;
-        }
+    /* =====================================================
+       NAVBAR
+       ===================================================== */
 
+    .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 9999;
+        padding: 10px 0;
+    }
 
-        /* ---------- FOOTER ---------- */
+    .nav-container {
+        position: relative;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        width: 100%;
+        min-width: 0;
+        gap: 12px;
+    }
 
-        .footer-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 45px 30px;
-        }
+    .brand-logo {
+        display: flex;
+        align-items: center;
+        min-width: 0;
+    }
 
-        .footer-brand {
-            padding: 0;
-        }
+    .brand-img {
+        height: 48px;
+        width: auto;
+        max-width: 150px;
+        object-fit: contain;
     }
 
 
-    /* =========================================================
-    RESPONSIVE — MÓVIL
-    ========================================================= */
+    /* =====================================================
+       BOTÓN HAMBURGUESA
+       ===================================================== */
 
-    @media (max-width: 768px) {
+    .menu-toggle {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
 
-        /* ---------- CONTENEDOR ---------- */
+        width: 42px;
+        height: 42px;
 
-        .container {
-            padding-left: 18px;
-            padding-right: 18px;
-        }
+        padding: 0;
+        margin: 0;
 
+        background: transparent;
+        border: none;
 
-        /* ---------- GOV.CO ---------- */
+        color: var(--text-main);
 
-        .gov-img {
-            height: 26px;
-        }
+        font-size: 27px;
+        line-height: 1;
 
+        cursor: pointer;
 
-        /* ---------- SUB NAV ---------- */
+        position: relative;
+        z-index: 10001;
 
-        .sub-nav-bar {
-            font-size: 11px;
-        }
+        flex-shrink: 0;
+    }
 
-        .sub-nav-content {
-            justify-content: center;
-            text-align: center;
-        }
-
-
-        /* ---------- NAVBAR ---------- */
-
-        .navbar {
-            padding: 12px 0;
-        }
-
-        .nav-container {
-            gap: 10px;
-        }
-
-        .brand-img {
-            height: 45px;
-        }
-
-        .nav-menu {
-            padding: 12px 18px 20px;
-        }
-
-        .nav-actions {
-            gap: 6px;
-        }
-
-        .search-icon-btn,
-        .theme-icon-btn {
-            font-size: 21px;
-        }
-
-
-        /* ---------- HERO ---------- */
-
-        .hero {
-            min-height: 650px;
-            align-items: center;
-        }
-
-        .hero-content {
-            padding-top: 70px;
-            padding-bottom: 100px;
-        }
-
-        .hero-badge {
-            font-size: 10px;
-            padding: 6px 12px;
-            margin-bottom: 18px;
-        }
-
-        .hero h1 {
-            font-size: 2.6rem;
-            line-height: 1.15;
-            margin-bottom: 16px;
-        }
-
-        .hero p {
-            font-size: 1rem;
-            margin-bottom: 28px;
-        }
-
-        .hero-actions {
-            flex-wrap: wrap;
-        }
-
-        .hero-actions .btn {
-            padding: 11px 20px;
-            font-size: 14px;
-        }
-
-        .wave-bottom svg {
-            height: 55px;
-        }
-
-
-        /* ---------- ESTADÍSTICAS ---------- */
-
-        .stats-section {
-            padding: 55px 0 75px;
-        }
-
-        .stats-grid {
-            grid-template-columns: 1fr;
-            gap: 35px;
-        }
-
-        .stat-item {
-            border-right: none;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-            padding: 0 15px 30px;
-        }
-
-        .stat-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-        }
-
-
-        /* ---------- TÍTULOS ---------- */
-
-        .section-header {
-            margin-bottom: 35px;
-        }
-
-        .section-header h2 {
-            font-size: 2.6rem;
-            line-height: 1.15;
-        }
-
-
-        /* ---------- SERVICIOS ---------- */
-
-        .services-section {
-            padding: 65px 0;
-        }
-
-        .services-grid {
-            grid-template-columns: 1fr;
-            gap: 24px;
-        }
-
-        .service-img {
-            height: 220px;
-        }
-
-
-        /* ---------- CLIENTES ---------- */
-
-        .clients-section {
-            padding: 65px 0;
-        }
-
-        .clients-carousel {
-            gap: 10px;
-        }
-
-        .client-logo {
-            min-width: 145px;
-            height: 145px;
-            padding: 15px;
-        }
-
-        .client-logo img {
-            max-width: 115px;
-            max-height: 80px;
-        }
-
-        .clients-prev,
-        .clients-next {
-            width: 40px;
-            height: 40px;
-            font-size: 18px;
-        }
-
-
-        /* ---------- NOTICIAS ---------- */
-
-        .news-section {
-            padding: 70px 0;
-        }
-
-        .news-grid {
-            grid-template-columns: 1fr;
-            gap: 24px;
-        }
-
-        .news-image {
-            height: 240px;
-        }
-
-
-        /* ---------- UBICACIÓN ---------- */
-
-        .location-section {
-            padding: 70px 0;
-        }
-
-        .location-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .map-container,
-        .video-container {
-            height: 350px;
-        }
-
-
-        /* ---------- FOOTER ---------- */
-
-        footer {
-            padding: 45px 0 20px;
-        }
-
-        .footer-grid {
-            grid-template-columns: 1fr;
-            gap: 35px;
-        }
-
-        .footer-brand {
-            align-items: center;
-            text-align: center;
-        }
-
-        .footer-logo {
-            width: 170px;
-            margin: 0 auto 20px;
-        }
-
-        .footer-title {
-            margin-bottom: 12px;
-        }
-
-
-        /* ---------- BUSCADOR ---------- */
-
-        .search-box {
-            width: 90%;
-        }
-
-        .search-label {
-            font-size: 1.6rem;
-        }
-
-        .search-close {
-            top: -60px;
-            right: 0;
-        }
+    .menu-toggle i,
+    .menu-toggle svg {
+        pointer-events: none;
     }
 
 
-    /* =========================================================
-    RESPONSIVE — CELULARES PEQUEÑOS
-    ========================================================= */
+    /* =====================================================
+       ACCIONES DERECHA
+       ===================================================== */
 
-    @media (max-width: 480px) {
-
-        .container {
-            padding-left: 15px;
-            padding-right: 15px;
-        }
-
-
-        /* ---------- NAVBAR ---------- */
-
-        .brand-img {
-            height: 40px;
-        }
-
-        .menu-toggle {
-            font-size: 25px;
-        }
-
-        .search-icon-btn,
-        .theme-icon-btn {
-            font-size: 19px;
-        }
-
-
-        /* ---------- HERO ---------- */
-
-        .hero {
-            min-height: 600px;
-        }
-
-        .hero h1 {
-            font-size: 2.1rem;
-        }
-
-        .hero p {
-            font-size: 0.95rem;
-        }
-
-        .hero-actions {
-            flex-direction: column;
-            align-items: stretch;
-        }
-
-        .hero-actions .btn {
-            width: 100%;
-        }
-
-
-        /* ---------- TÍTULOS ---------- */
-
-        .section-header h2 {
-            font-size: 2.1rem;
-        }
-
-        .badge-title {
-            font-size: 11px;
-        }
-
-
-        /* ---------- TARJETAS ---------- */
-
-        .service-img {
-            height: 190px;
-        }
-
-        .service-content {
-            padding: 34px 18px 20px;
-        }
-
-        .news-content {
-            padding: 20px;
-        }
-
-        .news-image {
-            height: 210px;
-        }
-
-
-        /* ---------- CLIENTES ---------- */
-
-        .client-logo {
-            min-width: 125px;
-            height: 125px;
-        }
-
-        .clients-prev,
-        .clients-next {
-            width: 36px;
-            height: 36px;
-            font-size: 16px;
-        }
-
-
-        /* ---------- UBICACIÓN ---------- */
-
-        .location-title {
-            padding: 20px;
-        }
-
-        .location-title > i {
-            width: 42px;
-            height: 42px;
-            font-size: 20px;
-        }
-
-        .location-title h3 {
-            font-size: 1.05rem;
-        }
-
-        .map-container,
-        .video-container {
-            height: 280px;
-        }
-
-
-        /* ---------- BUSCADOR ---------- */
-
-        .search-input-container {
-            padding: 6px 6px 6px 16px;
-        }
-
-        .search-input-container input {
-            font-size: 0.9rem;
-            padding: 10px 5px;
-        }
-
-        .search-submit {
-            width: 46px;
-            height: 46px;
-            font-size: 19px;
-        }
+    .nav-actions {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+        min-width: 0;
     }
 
-    /* =========================================================
-    RESPONSIVE FINAL — HERO Y ESTADÍSTICAS REDISEÑADAS
-    ========================================================= */
-
-    @media (max-width: 1200px) {
-        .hero h1 { font-size: clamp(3.2rem, 6.8vw, 5.5rem); }
+    .social-icons {
+        display: none !important;
     }
 
-    @media (max-width: 1024px) {
-        .hero { min-height: 78vh; }
-        .hero-content { max-width: 760px; padding-top: 70px; padding-bottom: 125px; }
-        .hero h1 { font-size: clamp(3rem, 7vw, 5rem); }
-        .hero-side-info { display: none; }
-        .stats-section { padding: 45px 0 120px; }
-        .stats-grid { grid-template-columns: 1fr; }
-        .stat-item { max-width: 680px; width: 100%; margin: 0 auto; }
+    .search-icon-btn,
+    .theme-icon-btn {
+        width: 36px;
+        height: 36px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 0;
+
+        font-size: 22px;
     }
 
-    @media (max-width: 768px) {
-        .hero { min-height: 760px; }
-        .hero-content { padding-top: 70px; padding-bottom: 130px; }
-        .hero h1 { font-size: 3.4rem; line-height: 1; letter-spacing: -1.5px; }
-        .hero p { font-size: 1rem; line-height: 1.7; }
-        .hero-badge { font-size: 9px; letter-spacing: 0.5px; padding: 8px 13px; margin-bottom: 20px; }
-        .hero-actions { flex-direction: column; align-items: stretch; width: 100%; }
-        .btn-hero-primary, .btn-hero-secondary { width: 100%; min-height: 52px; }
-        .hero-carousel-indicators { margin-top: 28px; }
-        .hero-decoration-one { width: 260px; height: 260px; top: -80px; right: -120px; }
-        .hero-decoration-two { width: 180px; height: 180px; right: -50px; bottom: 150px; }
-        .hero-decoration-three { display: none; }
-        .hero-wave svg { height: 100px; }
-        .stats-section { padding: 35px 0 110px; }
-        .stats-intro { margin-bottom: 30px; }
-        .stats-grid { gap: 15px; }
-        .stat-item { min-height: 125px; padding: 20px; gap: 16px; border-radius: 18px; border-bottom: 1px solid rgba(255,255,255,0.12); }
-        .stat-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 20px; }
-        .stat-icon-container { width: 52px; height: 52px; border-radius: 16px; }
-        .stat-icon { font-size: 25px; }
-        .stat-number { font-size: 2.6rem; }
-        .stats-wave svg { height: 90px; }
+
+    /* =====================================================
+       MENÚ PRINCIPAL
+       ===================================================== */
+
+    .nav-menu {
+        position: absolute !important;
+
+        top: calc(100% + 1px);
+        left: 0;
+        right: 0;
+
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+
+        max-height: calc(100vh - 75px);
+
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+
+        display: none !important;
+
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+
+        gap: 0 !important;
+
+        padding: 8px 12px 18px !important;
+        margin: 0 !important;
+
+        background: var(--nav-bg, #ffffff);
+
+        border-top: 1px solid rgba(0, 114, 206, 0.08);
+        border-bottom: 1px solid rgba(0, 114, 206, 0.12);
+
+        box-shadow:
+            0 12px 30px rgba(0, 0, 0, 0.12);
+
+        z-index: 10000 !important;
+
+        box-sizing: border-box;
     }
 
-    @media (max-width: 480px) {
-        .hero { min-height: 680px; }
-        .hero h1 { font-size: 2.8rem; }
-        .hero p { font-size: 0.95rem; }
-        .hero-content { padding-top: 55px; }
-        .stat-item { padding: 18px; gap: 13px; }
-        .stat-icon-container { width: 48px; height: 48px; }
-        .stat-number { font-size: 2.35rem; }
+
+    /* =====================================================
+       MENÚ ABIERTO
+       ===================================================== */
+
+    .nav-menu.active,
+    .nav-menu.open {
+        display: flex !important;
     }
 
-    @media (prefers-reduced-motion: reduce) {
-        .hero-decoration,
-        .carousel-slide,
-        .stat-item,
-        .btn-hero-primary,
-        .btn-hero-secondary,
-        .hero-indicator {
-            animation: none !important;
-            transition: none !important;
-        }
+
+    /* =====================================================
+       ELEMENTOS DEL MENÚ
+       ===================================================== */
+
+    .nav-menu > li {
+        display: block !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+
+        flex: 0 0 auto;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        box-sizing: border-box;
     }
+
+
+    /* =====================================================
+       ENLACES PRINCIPALES
+       ===================================================== */
+
+    .nav-menu > li > a {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+
+        min-height: 48px;
+
+        padding: 13px 9px !important;
+        margin: 0 !important;
+
+        box-sizing: border-box;
+
+        color: var(--text-main);
+
+        font-size: 13px !important;
+        font-weight: 700;
+
+        line-height: 1.3;
+        text-align: left !important;
+
+        text-decoration: none;
+
+        border-bottom: 1px solid rgba(0, 114, 206, 0.08);
+
+        white-space: normal;
+    }
+
+
+    .nav-menu > li > a:hover {
+        color: var(--brand-green);
+        background: rgba(0, 166, 81, 0.04);
+    }
+
+
+    /* =====================================================
+       FLECHAS DE LOS MENÚS
+       ===================================================== */
+
+    .nav-dropdown > a {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .nav-dropdown > a i {
+        flex-shrink: 0;
+        font-size: 12px;
+        transition: transform 0.25s ease;
+    }
+
+    .nav-dropdown.active > a i,
+    .nav-dropdown.open > a i {
+        transform: rotate(180deg);
+    }
+
+
+    /* =====================================================
+       IMPORTANTE:
+       ELIMINAR POSICIONAMIENTO DE ESCRITORIO
+       ===================================================== */
+
+    .nav-menu .transparency-menu,
+    .nav-menu .transparency-submenu,
+    .nav-menu .dropdown-menu,
+    .nav-menu .submenu,
+    .nav-menu .participa-menu,
+    .nav-menu .participa-submenu,
+    .nav-menu .mega-menu {
+        position: static !important;
+
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+
+        transform: none !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+
+        margin: 0 !important;
+
+        box-sizing: border-box;
+
+        overflow: hidden;
+    }
+
+
+    /* =====================================================
+       SUBMENÚS OCULTOS POR DEFECTO
+       ===================================================== */
+
+    .nav-menu .transparency-menu,
+    .nav-menu .dropdown-menu,
+    .nav-menu .submenu,
+    .nav-menu .participa-menu,
+    .nav-menu .participa-submenu,
+    .nav-menu .mega-menu {
+        display: none !important;
+
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+
+
+    /* =====================================================
+       SUBMENÚ ABIERTO
+       ===================================================== */
+
+    .nav-menu .nav-dropdown.active > .transparency-menu,
+    .nav-menu .nav-dropdown.open > .transparency-menu,
+
+    .nav-menu .nav-dropdown.active > .dropdown-menu,
+    .nav-menu .nav-dropdown.open > .dropdown-menu,
+
+    .nav-menu .nav-dropdown.active > .submenu,
+    .nav-menu .nav-dropdown.open > .submenu,
+
+    .nav-menu .nav-dropdown.active > .participa-menu,
+    .nav-menu .nav-dropdown.open > .participa-menu,
+
+    .nav-menu .nav-dropdown.active > .participa-submenu,
+    .nav-menu .nav-dropdown.open > .participa-submenu,
+
+    .nav-menu .nav-dropdown.active > .mega-menu,
+    .nav-menu .nav-dropdown.open > .mega-menu {
+        display: block !important;
+    }
+
+
+    /* =====================================================
+       REGLA EXTRA PARA SUBMENÚS DENTRO DE LI
+       ===================================================== */
+
+    .nav-menu li > ul,
+    .nav-menu li > ol {
+        position: static !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        box-sizing: border-box;
+    }
+
+    .nav-menu li > ul {
+        display: none !important;
+    }
+
+    .nav-menu li.active > ul,
+    .nav-menu li.open > ul {
+        display: block !important;
+    }
+
+
+    /* =====================================================
+       TRANSPARENCIA
+       ===================================================== */
+
+    .transparency-menu {
+        padding: 7px !important;
+
+        background: rgba(0, 114, 206, 0.035) !important;
+
+        border: 1px solid rgba(0, 114, 206, 0.10) !important;
+        border-radius: 12px !important;
+
+        box-shadow: none !important;
+
+        overflow: visible !important;
+    }
+
+    .transparency-menu::before,
+    .transparency-menu::after,
+    .nav-dropdown::after {
+        display: none !important;
+    }
+
+
+    /* =====================================================
+       ELEMENTOS DE TRANSPARENCIA
+       ===================================================== */
+
+    .transparency-item {
+        position: relative !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin: 0 0 3px !important;
+        padding: 0 !important;
+
+        box-sizing: border-box;
+    }
+
+    .transparency-item:last-child {
+        margin-bottom: 0 !important;
+    }
+
+    .transparency-item > a {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 100% !important;
+        min-width: 0 !important;
+
+        min-height: 42px;
+
+        padding: 10px 11px !important;
+
+        box-sizing: border-box;
+
+        font-size: 12px !important;
+        line-height: 1.35;
+
+        border-radius: 9px;
+
+        white-space: normal;
+    }
+
+
+    /* =====================================================
+       SUBMENÚ DE TRANSPARENCIA
+       ===================================================== */
+
+    .transparency-submenu {
+        position: static !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+
+        margin: 4px 0 5px !important;
+        padding: 5px !important;
+
+        background: rgba(0, 166, 81, 0.035) !important;
+
+        border: 1px solid rgba(0, 166, 81, 0.10) !important;
+        border-radius: 10px !important;
+
+        box-shadow: none !important;
+
+        transform: none !important;
+
+        box-sizing: border-box;
+
+        overflow: hidden;
+    }
+
+    .transparency-submenu::before {
+        display: none !important;
+    }
+
+    .transparency-submenu a {
+        display: flex !important;
+        align-items: center;
+
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+
+        min-height: 40px;
+
+        padding: 9px 10px !important;
+
+        box-sizing: border-box;
+
+        font-size: 11.5px !important;
+        line-height: 1.4;
+
+        white-space: normal;
+
+        word-break: normal;
+        overflow-wrap: anywhere;
+    }
+
+
+    /* =====================================================
+       SUBMENÚ INTERNO DE TRANSPARENCIA
+       ===================================================== */
+
+    .transparency-item.has-submenu > .transparency-submenu {
+        display: none !important;
+    }
+
+    .transparency-item.has-submenu.active > .transparency-submenu,
+    .transparency-item.has-submenu.open > .transparency-submenu {
+        display: block !important;
+    }
+
+
+    /* =====================================================
+       CORRECCIÓN ESPECÍFICA PARA PARTICIPA
+       ===================================================== */
+
+    .nav-menu li[class*="participa"],
+    .nav-menu li[class*="participate"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .nav-menu li[class*="participa"] > ul,
+    .nav-menu li[class*="participa"] > div,
+    .nav-menu li[class*="participate"] > ul,
+    .nav-menu li[class*="participate"] > div {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+
+        position: static !important;
+        transform: none !important;
+
+        box-sizing: border-box;
+    }
+
+
+    /* =====================================================
+       EVITAR QUE CUALQUIER CONTENIDO SE SALGA
+       ===================================================== */
+
+    .nav-menu *,
+    .nav-menu *::before,
+    .nav-menu *::after {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .nav-menu img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .nav-menu iframe,
+    .nav-menu video {
+        max-width: 100%;
+    }
+
+
+    /* =====================================================
+       SCROLLBAR DEL MENÚ
+       ===================================================== */
+
+    .nav-menu::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    .nav-menu::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .nav-menu::-webkit-scrollbar-thumb {
+        background: rgba(0, 114, 206, 0.25);
+        border-radius: 10px;
+    }
+
+
+    /* =====================================================
+       ONDAS — TABLET
+       ===================================================== */
+
+    .wave-bottom,
+    .hero-wave {
+        position: absolute;
+
+        left: 0;
+        right: 0;
+        bottom: -1px;
+
+        width: 100%;
+        height: 82px;
+
+        overflow: hidden;
+
+        line-height: 0;
+
+        z-index: 2;
+    }
+
+    .wave-bottom svg,
+    .hero-wave svg {
+        display: block;
+
+        width: 100% !important;
+        height: 100% !important;
+
+        min-width: 100%;
+        min-height: 0;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    .stats-wave {
+        position: absolute;
+
+        left: 0;
+        right: 0;
+        bottom: -1px;
+
+        width: 100%;
+        height: 72px;
+
+        overflow: hidden;
+
+        line-height: 0;
+    }
+
+    .stats-wave svg {
+        display: block;
+
+        width: 100% !important;
+        height: 100% !important;
+
+        min-width: 100%;
+        min-height: 0;
+    }
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 8px 0;
+    }
+
+    .nav-container {
+        padding-left: 12px;
+        padding-right: 12px;
+        gap: 8px;
+    }
+
+    .brand-img {
+        height: 43px;
+        max-width: 135px;
+    }
+
+    .nav-actions {
+        gap: 5px;
+    }
+
+    .search-icon-btn,
+    .theme-icon-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 20px;
+    }
+
+    .menu-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 25px;
+    }
+
+
+    /* -----------------------------------------------
+       MENÚ
+       ----------------------------------------------- */
+
+    .nav-menu {
+        top: calc(100% + 1px);
+
+        max-height: calc(100vh - 68px);
+
+        padding: 7px 10px 16px !important;
+
+        border-radius: 0 0 14px 14px;
+
+        box-shadow:
+            0 14px 28px rgba(0, 0, 0, 0.13);
+    }
+
+
+    .nav-menu > li > a {
+        min-height: 46px;
+
+        padding: 12px 8px !important;
+
+        font-size: 12.5px !important;
+    }
+
+
+    /* -----------------------------------------------
+       SUBMENÚS
+       ----------------------------------------------- */
+
+    .transparency-menu {
+        padding: 6px !important;
+        border-radius: 10px !important;
+    }
+
+    .transparency-item > a {
+        min-height: 40px;
+        padding: 9px 10px !important;
+        font-size: 11.5px !important;
+    }
+
+    .transparency-submenu {
+        padding: 4px !important;
+        border-radius: 9px !important;
+    }
+
+    .transparency-submenu a {
+        min-height: 38px;
+        padding: 8px 9px !important;
+        font-size: 11px !important;
+    }
+
+
+    /* -----------------------------------------------
+       ONDAS
+       ----------------------------------------------- */
+
+    .wave-bottom,
+    .hero-wave {
+        height: 62px;
+        bottom: -1px;
+    }
+
+    .wave-bottom svg,
+    .hero-wave svg {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .stats-wave {
+        height: 58px;
+        bottom: -1px;
+    }
+
+    .stats-wave svg {
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
+
+
+/* =========================================================
+   CELULAR PEQUEÑO
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .nav-container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .brand-img {
+        height: 40px;
+        max-width: 125px;
+    }
+
+    .nav-menu {
+        max-height: calc(100vh - 64px);
+
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+
+    .nav-menu > li > a {
+        min-height: 44px;
+        font-size: 12px !important;
+    }
+
+    .menu-toggle {
+        width: 38px;
+        height: 38px;
+        font-size: 24px;
+    }
+
+    .search-icon-btn,
+    .theme-icon-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 19px;
+    }
+
+
+    /* -----------------------------------------------
+       ONDAS PEQUEÑAS
+       ----------------------------------------------- */
+
+    .wave-bottom,
+    .hero-wave {
+        height: 52px;
+    }
+
+    .stats-wave {
+        height: 50px;
+    }
+}
