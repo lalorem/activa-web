@@ -1,0 +1,1093 @@
+/* =========================================================
+   PALETA ACTIVA
+   ========================================================= */
+
+.acuerdos-page {
+
+    --hv-lima: #C7E600;
+
+    --hv-verde: #00A651;
+
+    --hv-azul: #0072CE;
+
+    --hv-gradient:
+        linear-gradient(
+            135deg,
+            #C7E600 0%,
+            #00A651 48%,
+            #0072CE 100%
+        );
+
+    --hv-gradient-hover:
+        linear-gradient(
+            135deg,
+            #B7D400 0%,
+            #009447 48%,
+            #0065B8 100%
+        );
+
+    --hv-bg: #f7faf8;
+
+    --hv-card: #ffffff;
+
+    --hv-text: #1d2924;
+
+    --hv-muted: #65716b;
+
+    --hv-border:
+        rgba(0, 114, 206, 0.10);
+
+    --hv-shadow:
+        0 15px 40px rgba(0, 80, 70, 0.09);
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    background:
+        var(--hv-bg);
+
+    color:
+        var(--hv-text);
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   MODO OSCURO
+   ========================================================= */
+
+[data-theme="dark"] .acuerdos-page {
+
+    --hv-bg: #0f172a;
+
+    --hv-card: #24364d;
+
+    --hv-text: #f8fafc;
+
+    --hv-muted: #94a3b8;
+
+    --hv-border: #3b5068;
+
+    --hv-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.28);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.acuerdos-hero {
+
+    position: relative;
+
+    min-height: 320px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            115deg,
+            #0072CE 0%,
+            #00A651 52%,
+            #C7E600 100%
+        );
+}
+
+
+/* =========================================================
+   DECORACIONES HERO
+   ========================================================= */
+
+.acuerdos-hero-decoration {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+/* Círculo superior derecho */
+
+.acuerdos-decoration-one {
+
+    width: 470px;
+
+    height: 470px;
+
+    top: -290px;
+
+    right: -80px;
+
+    background:
+        rgba(255, 255, 255, 0.13);
+}
+
+
+/* Círculo inferior izquierdo */
+
+.acuerdos-decoration-two {
+
+    width: 350px;
+
+    height: 350px;
+
+    bottom: -245px;
+
+    left: -90px;
+
+    background:
+        rgba(255, 255, 255, 0.10);
+}
+
+
+/* =========================================================
+   CONTENIDO HERO
+   ========================================================= */
+
+.acuerdos-hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width:
+        min(1100px, 90%);
+
+    text-align: center;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   ETIQUETA
+   ========================================================= */
+
+.acuerdos-label {
+
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    opacity: 0.92;
+}
+
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+.acuerdos-hero h1 {
+
+    margin: 0;
+
+    color: #ffffff;
+
+    font-family:
+        "Caveat Brush",
+        cursive;
+
+    font-size:
+        clamp(
+            48px,
+            6vw,
+            76px
+        );
+
+    font-weight: 400;
+
+    line-height: 1.05;
+
+    text-shadow:
+        0 5px 18px
+        rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN
+   ========================================================= */
+
+.acuerdos-hero p {
+
+    max-width: 720px;
+
+    margin:
+        18px auto 0;
+
+    color:
+        rgba(255, 255, 255, 0.92);
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   SECCIÓN MÓDULOS
+   ========================================================= */
+
+.acuerdos-modules {
+
+    padding:
+        75px 20px 100px;
+
+    background:
+        var(--hv-bg);
+
+    transition:
+        background 0.3s ease;
+}
+
+
+/* =========================================================
+   CONTENEDOR
+   ========================================================= */
+
+.acuerdos-container {
+
+    width:
+        min(1120px, 100%);
+
+    margin:
+        0 auto;
+}
+
+
+/* =========================================================
+   MÓDULO
+   ========================================================= */
+
+.acuerdos-module {
+
+    position: relative;
+
+    margin-bottom: 18px;
+
+    background:
+        var(--hv-card);
+
+    border:
+        1px solid var(--hv-border);
+
+    border-radius: 22px;
+
+    box-shadow:
+        var(--hv-shadow);
+
+    overflow: hidden;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   SUMMARY
+   ========================================================= */
+
+.acuerdos-module summary {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    width: 100%;
+
+    padding:
+        26px 30px;
+
+    box-sizing: border-box;
+
+    cursor: pointer;
+
+    list-style: none;
+
+    transition:
+        background 0.3s ease;
+}
+
+
+.acuerdos-module summary::-webkit-details-marker {
+
+    display: none;
+}
+
+
+/* =========================================================
+   HOVER SUMMARY
+   ========================================================= */
+
+.acuerdos-module summary:hover {
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.06),
+            rgba(0, 0, 0, 0.03),
+            rgba(0, 0, 0, 0.03)
+        );
+}
+
+
+/* =========================================================
+   INFORMACIÓN
+   ========================================================= */
+
+.acuerdos-module-info {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    min-width: 0;
+}
+
+
+/* =========================================================
+   NÚMERO
+   ========================================================= */
+
+.acuerdos-module-number {
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 55px;
+
+    height: 55px;
+
+    border-radius: 17px;
+
+    color: #ffffff;
+
+    background:
+        var(--hv-gradient);
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 20px
+        rgba(0, 130, 90, 0.16);
+}
+
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+.acuerdos-module-title {
+
+    color:
+        var(--hv-text);
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    line-height: 1.4;
+
+    transition:
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   BOTÓN +
+   ========================================================= */
+
+.acuerdos-module-toggle {
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 46px;
+
+    height: 46px;
+
+    border:
+        1px solid var(--hv-border);
+
+    border-radius: 50%;
+
+    color:
+        var(--hv-azul);
+
+    background:
+        var(--hv-card);
+
+    font-size: 21px;
+
+    line-height: 1;
+
+    transition:
+        transform 0.35s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   MÓDULO ABIERTO
+   ========================================================= */
+
+.acuerdos-module[open]
+.acuerdos-module-toggle {
+
+    transform:
+        rotate(45deg);
+
+    color: #ffffff;
+
+    background:
+        var(--hv-gradient);
+}
+
+
+/* =========================================================
+   CONTENIDO
+   ========================================================= */
+
+.acuerdos-module-content {
+
+    padding:
+        0 30px 30px;
+
+    border-top:
+        1px solid var(--hv-border);
+}
+
+
+/* =========================================================
+   GRID
+   ========================================================= */
+
+.acuerdos-links-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 18px;
+
+    padding-top: 25px;
+}
+
+
+/* =========================================================
+   DOCUMENTO
+   ========================================================= */
+
+.acuerdos-document {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 17px;
+
+    min-height: 100px;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid var(--hv-border);
+
+    border-radius: 18px;
+
+    background:
+        var(--hv-card);
+
+    color:
+        var(--hv-text);
+
+    text-decoration: none;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+
+/* =========================================================
+   LÍNEA LATERAL
+   ========================================================= */
+
+.acuerdos-document::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 5px;
+
+    background:
+        var(--hv-gradient);
+
+    transition:
+        width 0.3s ease;
+}
+
+
+/* =========================================================
+   HOVER DOCUMENTO
+   ========================================================= */
+
+.acuerdos-document:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(0, 0, 0, 0.28);
+
+    box-shadow:
+        0 18px 35px
+        rgba(0, 0, 0, 0.10);
+}
+
+
+.acuerdos-document:hover::before {
+
+    width: 8px;
+}
+
+
+/* =========================================================
+   ICONO
+   ========================================================= */
+
+.acuerdos-document-icon {
+
+    position: relative;
+
+    z-index: 2;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 52px;
+
+    height: 52px;
+
+    border-radius: 15px;
+
+    color: #ffffff;
+
+    background:
+        var(--hv-gradient);
+
+    font-size: 23px;
+
+    box-shadow:
+        0 8px 18px
+        rgba(0, 130, 90, 0.15);
+}
+
+
+/* =========================================================
+   TEXTO
+   ========================================================= */
+
+.acuerdos-document-text {
+
+    position: relative;
+
+    z-index: 2;
+
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.acuerdos-document-text strong {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color:
+        var(--hv-text);
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    line-height: 1.45;
+
+    transition:
+        color 0.3s ease;
+}
+
+
+.acuerdos-document-text span {
+
+    display: block;
+
+    color:
+        var(--hv-muted);
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    transition:
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   FLECHA
+   ========================================================= */
+
+.acuerdos-document-arrow {
+
+    position: relative;
+
+    z-index: 2;
+
+    flex-shrink: 0;
+
+    color:
+        var(--hv-azul);
+
+    font-size: 19px;
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+
+.acuerdos-document:hover
+.acuerdos-document-arrow {
+
+    transform:
+        translate(3px, -3px);
+
+    color:
+        var(--hv-verde);
+}
+
+
+/* =========================================================
+   MODO OSCURO — HERO
+   ========================================================= */
+
+[data-theme="dark"]
+.acuerdos-hero {
+
+    background:
+        linear-gradient(
+            115deg,
+            #00579c 0%,
+            #007d3f 52%,
+            #91a900 100%
+        );
+}
+
+
+/* =========================================================
+   MODO OSCURO — MÓDULOS
+   ========================================================= */
+
+[data-theme="dark"]
+.acuerdos-module {
+
+    background:
+        var(--hv-card);
+
+    box-shadow:
+        0 18px 45px
+        rgba(0, 0, 0, 0.28);
+}
+
+
+/* =========================================================
+   MODO OSCURO — SUMMARY
+   ========================================================= */
+
+[data-theme="dark"]
+.acuerdos-module summary:hover {
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.05),
+            rgba(0, 0, 0, 0.04),
+            rgba(0, 0, 0, 0.05)
+        );
+}
+
+
+/* =========================================================
+   MODO OSCURO — BOTÓN
+   ========================================================= */
+
+[data-theme="dark"]
+.acuerdos-module-toggle {
+
+    background:
+        #1c2c40;
+
+    color:
+        #5eb4ff;
+
+    border-color:
+        var(--hv-border);
+}
+
+
+/* =========================================================
+   MODO OSCURO — DOCUMENTOS
+   ========================================================= */
+
+[data-theme="dark"]
+.acuerdos-document {
+
+    background:
+        #1d2d42;
+
+    border-color:
+        var(--hv-border);
+}
+
+
+/* =========================================================
+   MODO OSCURO — HOVER
+   ========================================================= */
+
+[data-theme="dark"]
+.acuerdos-document:hover {
+
+    border-color:
+        rgba(0, 0, 0, 0.25);
+
+    box-shadow:
+        0 18px 40px
+        rgba(0, 0, 0, 0.32);
+}
+
+
+/* =========================================================
+   MODO OSCURO — TEXTO
+   ========================================================= */
+
+[data-theme="dark"]
+.acuerdos-document-text strong {
+
+    color:
+        var(--hv-text);
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .acuerdos-links-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE — CELULAR
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    /* HERO */
+
+    .acuerdos-hero {
+
+        min-height: 270px;
+    }
+
+
+    .acuerdos-label {
+
+        font-size: 11px;
+
+        letter-spacing: 2.5px;
+    }
+
+
+    .acuerdos-hero h1 {
+
+        font-size: 47px;
+    }
+
+
+    .acuerdos-hero p {
+
+        font-size: 14px;
+
+        padding:
+            0 10px;
+    }
+
+
+    /* MÓDULOS */
+
+    .acuerdos-modules {
+
+        padding:
+            55px 16px 75px;
+    }
+
+
+    .acuerdos-module {
+
+        margin-bottom: 15px;
+
+        border-radius: 18px;
+    }
+
+
+    .acuerdos-module summary {
+
+        gap: 15px;
+
+        padding:
+            20px 17px;
+    }
+
+
+    .acuerdos-module-info {
+
+        gap: 14px;
+    }
+
+
+    .acuerdos-module-number {
+
+        width: 46px;
+
+        height: 46px;
+
+        border-radius: 14px;
+
+        font-size: 14px;
+    }
+
+
+    .acuerdos-module-title {
+
+        font-size: 14px;
+
+        line-height: 1.35;
+    }
+
+
+    .acuerdos-module-toggle {
+
+        width: 40px;
+
+        height: 40px;
+
+        font-size: 18px;
+    }
+
+
+    /* CONTENIDO */
+
+    .acuerdos-module-content {
+
+        padding:
+            0 17px 20px;
+    }
+
+
+    .acuerdos-links-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 14px;
+
+        padding-top: 18px;
+    }
+
+
+    /* TARJETAS */
+
+    .acuerdos-document {
+
+        gap: 13px;
+
+        min-height: auto;
+
+        padding: 17px;
+
+        border-radius: 15px;
+    }
+
+
+    .acuerdos-document-icon {
+
+        width: 45px;
+
+        height: 45px;
+
+        border-radius: 13px;
+
+        font-size: 20px;
+    }
+
+
+    .acuerdos-document-text strong {
+
+        font-size: 13px;
+    }
+
+
+    .acuerdos-document-text span {
+
+        font-size: 11px;
+    }
+
+
+    .acuerdos-document-arrow {
+
+        font-size: 17px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE — CELULARES PEQUEÑOS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .acuerdos-hero h1 {
+
+        font-size: 41px;
+    }
+
+
+    .acuerdos-module summary {
+
+        padding:
+            18px 14px;
+    }
+
+
+    .acuerdos-module-info {
+
+        gap: 10px;
+    }
+
+
+    .acuerdos-module-number {
+
+        width: 42px;
+
+        height: 42px;
+
+        font-size: 13px;
+    }
+
+
+    .acuerdos-module-title {
+
+        font-size: 12.5px;
+    }
+
+
+    .acuerdos-module-toggle {
+
+        width: 36px;
+
+        height: 36px;
+    }
+
+
+    .acuerdos-document {
+
+        padding: 15px;
+    }
+
+
+    .acuerdos-document-icon {
+
+        width: 42px;
+
+        height: 42px;
+
+        font-size: 18px;
+    }
+}
