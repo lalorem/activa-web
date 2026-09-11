@@ -1,0 +1,508 @@
+:root {
+    --hv-lima: #C7E600;
+    --hv-verde: #00A651;
+    --hv-azul: #0072CE;
+    --hv-gradient: linear-gradient(135deg, #C7E600 0%, #00A651 48%, #0072CE 100%);
+    --hv-gradient-hover: linear-gradient(135deg, #B7D400 0%, #009447 48%, #0065B8 100%);
+    --hv-bg: #f7faf8;
+    --hv-card: #ffffff;
+    --hv-text: #1d2924;
+    --hv-muted: #65716b;
+    --hv-border: rgba(0, 114, 206, 0.10);
+    --hv-shadow: 0 15px 40px rgba(0, 80, 70, 0.09);
+}
+
+/* ========================================================= MODO OSCURO ========================================================= */
+[data-theme="dark"] {
+    --hv-bg: #0f172a;
+    --hv-card: #24364d;
+    --hv-text: #f8fafc;
+    --hv-muted: #94a3b8;
+    --hv-border: #3b5068;
+    --hv-shadow: 0 15px 35px rgba(0, 0, 0, 0.28);
+}
+
+/* ========================================================= CONTENEDOR GENERAL ========================================================= */
+.resoluciones-page {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--hv-bg);
+    color: var(--hv-text);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* ========================================================= HERO ========================================================= */
+.resoluciones-hero {
+    position: relative;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(115deg, #0072CE 0%, #00A651 52%, #C7E600 100%);
+}
+
+/* ========================================================= DECORACIONES HERO ========================================================= */
+.resoluciones-hero-decoration {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Círculo superior derecho */
+.resoluciones-decoration-one {
+    width: 470px;
+    height: 470px;
+    top: -290px;
+    right: -80px;
+    background: rgba(255, 255, 255, 0.13);
+}
+
+/* Círculo inferior izquierdo */
+.resoluciones-decoration-two {
+    width: 350px;
+    height: 350px;
+    bottom: -245px;
+    left: -90px;
+    background: rgba(255, 255, 255, 0.10);
+}
+
+/* ========================================================= CONTENIDO HERO ========================================================= */
+.resoluciones-hero-content {
+    position: relative;
+    z-index: 2;
+    width: min(1100px, 90%);
+    text-align: center;
+    color: #ffffff;
+}
+
+/* ========================================================= ETIQUETA ========================================================= */
+.resoluciones-label {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    opacity: 0.92;
+}
+
+/* ========================================================= TÍTULO ========================================================= */
+.resoluciones-hero h1 {
+    margin: 0;
+    color: #ffffff;
+    font-family: "Caveat Brush", cursive;
+    font-size: clamp(48px, 6vw, 76px);
+    font-weight: 400;
+    line-height: 1.05;
+    text-shadow: 0 5px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* ========================================================= DESCRIPCIÓN ========================================================= */
+.resoluciones-hero p {
+    max-width: 720px;
+    margin: 18px auto 0;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* ========================================================= SECCIÓN ========================================================= */
+.resoluciones-modules {
+    padding: 75px 20px 100px;
+    background: var(--hv-bg);
+    transition: background 0.3s ease;
+}
+
+/* ========================================================= CONTENEDOR ========================================================= */
+.resoluciones-container {
+    width: min(1120px, 100%);
+    margin: 0 auto;
+}
+
+/* ========================================================= MÓDULO ========================================================= */
+.resoluciones-module {
+    position: relative;
+    margin-bottom: 18px;
+    background: var(--hv-card);
+    border: 1px solid var(--hv-border);
+    border-radius: 22px;
+    box-shadow: var(--hv-shadow);
+    overflow: hidden;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ========================================================= SUMMARY ========================================================= */
+.resoluciones-module summary {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    width: 100%;
+    padding: 26px 30px;
+    box-sizing: border-box;
+    cursor: pointer;
+    list-style: none;
+    transition: background 0.3s ease;
+}
+
+/* Quitar marcador */
+.resoluciones-module summary::-webkit-details-marker {
+    display: none;
+}
+
+/* ========================================================= HOVER SUMMARY ========================================================= */
+.resoluciones-module summary:hover {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.03));
+}
+
+/* ========================================================= INFORMACIÓN ========================================================= */
+.resoluciones-module-info {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    min-width: 0;
+}
+
+/* ========================================================= NÚMERO ========================================================= */
+.resoluciones-module-number {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    border-radius: 17px;
+    color: #ffffff;
+    background: var(--hv-gradient);
+    font-size: 16px;
+    font-weight: 800;
+    box-shadow: 0 8px 20px rgba(0, 130, 90, 0.16);
+}
+
+/* ========================================================= TÍTULO ========================================================= */
+.resoluciones-module-title {
+    color: var(--hv-text);
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+/* ========================================================= BOTÓN + ========================================================= */
+.resoluciones-module-toggle {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border: 1px solid var(--hv-border);
+    border-radius: 50%;
+    color: var(--hv-azul);
+    background: var(--hv-card);
+    font-size: 21px;
+    line-height: 1;
+    transition: transform 0.35s ease, background 0.3s ease, color 0.3s ease;
+}
+
+/* ========================================================= MÓDULO ABIERTO ========================================================= */
+.resoluciones-module[open] .resoluciones-module-toggle {
+    transform: rotate(45deg);
+    color: #ffffff;
+    background: var(--hv-gradient);
+}
+
+/* ========================================================= CONTENIDO ========================================================= */
+.resoluciones-module-content {
+    padding: 0 30px 30px;
+    border-top: 1px solid var(--hv-border);
+}
+
+/* ========================================================= GRID ========================================================= */
+.resoluciones-links-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    padding-top: 25px;
+}
+
+/* ========================================================= DOCUMENTO ========================================================= */
+.resoluciones-document {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    min-height: 100px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid var(--hv-border);
+    border-radius: 18px;
+    background: var(--hv-card);
+    color: var(--hv-text);
+    text-decoration: none;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+/* ========================================================= LÍNEA LATERAL ========================================================= */
+.resoluciones-document::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 5px;
+    background: var(--hv-gradient);
+    transition: width 0.3s ease;
+}
+
+/* ========================================================= HOVER ========================================================= */
+.resoluciones-document:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 0, 0, 0.28);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.10);
+}
+
+.resoluciones-document:hover::before {
+    width: 8px;
+}
+
+/* ========================================================= ICONO ========================================================= */
+.resoluciones-document-icon {
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 15px;
+    color: #ffffff;
+    background: var(--hv-gradient);
+    font-size: 23px;
+    box-shadow: 0 8px 18px rgba(0, 130, 90, 0.15);
+}
+
+/* ========================================================= TEXTO ========================================================= */
+.resoluciones-document-text {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    min-width: 0;
+}
+
+.resoluciones-document-text strong {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--hv-text);
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.45;
+    transition: color 0.3s ease;
+}
+
+.resoluciones-document-text span {
+    display: block;
+    color: var(--hv-muted);
+    font-size: 12px;
+    line-height: 1.5;
+    transition: color 0.3s ease;
+}
+
+/* ========================================================= FLECHA ========================================================= */
+.resoluciones-document-arrow {
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+    color: var(--hv-azul);
+    font-size: 19px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.resoluciones-document:hover .resoluciones-document-arrow {
+    transform: translate(3px, -3px);
+    color: var(--hv-verde);
+}
+
+/* ========================================================= MODO OSCURO — HERO ========================================================= */
+[data-theme="dark"] .resoluciones-hero {
+    background: linear-gradient(115deg, #00579c 0%, #007d3f 52%, #91a900 100%);
+}
+
+/* ========================================================= MODO OSCURO — MÓDULOS ========================================================= */
+[data-theme="dark"] .resoluciones-module {
+    background: var(--hv-card);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+}
+
+/* ========================================================= MODO OSCURO — HOVER SUMMARY ========================================================= */
+[data-theme="dark"] .resoluciones-module summary:hover {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.05));
+}
+
+/* ========================================================= MODO OSCURO — BOTÓN ========================================================= */
+[data-theme="dark"] .resoluciones-module-toggle {
+    background: #1c2c40;
+    color: #5eb4ff;
+    border-color: var(--hv-border);
+}
+
+/* ========================================================= MODO OSCURO — TARJETAS ========================================================= */
+[data-theme="dark"] .resoluciones-document {
+    background: #1d2d42;
+    border-color: var(--hv-border);
+}
+
+/* ========================================================= MODO OSCURO — HOVER ========================================================= */
+[data-theme="dark"] .resoluciones-document:hover {
+    border-color: rgba(0, 0, 0, 0.25);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
+}
+
+/* ========================================================= MODO OSCURO — TEXTO ========================================================= */
+[data-theme="dark"] .resoluciones-document-text strong {
+    color: var(--hv-text);
+}
+
+/* ========================================================= RESPONSIVE — TABLET ========================================================= */
+@media (max-width: 900px) {
+    .resoluciones-links-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========================================================= RESPONSIVE — CELULAR ========================================================= */
+@media (max-width: 600px) {
+    .resoluciones-hero {
+        min-height: 270px;
+    }
+
+    .resoluciones-label {
+        font-size: 11px;
+        letter-spacing: 2.5px;
+    }
+
+    .resoluciones-hero h1 {
+        font-size: 47px;
+    }
+
+    .resoluciones-hero p {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+
+    .resoluciones-modules {
+        padding: 55px 16px 75px;
+    }
+
+    .resoluciones-module {
+        margin-bottom: 15px;
+        border-radius: 18px;
+    }
+
+    .resoluciones-module summary {
+        gap: 15px;
+        padding: 20px 17px;
+    }
+
+    .resoluciones-module-info {
+        gap: 14px;
+    }
+
+    .resoluciones-module-number {
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        font-size: 14px;
+    }
+
+    .resoluciones-module-title {
+        font-size: 14px;
+        line-height: 1.35;
+    }
+
+    .resoluciones-module-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .resoluciones-module-content {
+        padding: 0 17px 20px;
+    }
+
+    .resoluciones-links-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding-top: 18px;
+    }
+
+    .resoluciones-document {
+        gap: 13px;
+        min-height: auto;
+        padding: 17px;
+        border-radius: 15px;
+    }
+
+    .resoluciones-document-icon {
+        width: 45px;
+        height: 45px;
+        border-radius: 13px;
+        font-size: 20px;
+    }
+
+    .resoluciones-document-text strong {
+        font-size: 13px;
+    }
+
+    .resoluciones-document-text span {
+        font-size: 11px;
+    }
+
+    .resoluciones-document-arrow {
+        font-size: 17px;
+    }
+}
+
+/* ========================================================= RESPONSIVE — CELULARES PEQUEÑOS ========================================================= */
+@media (max-width: 380px) {
+    .resoluciones-hero h1 {
+        font-size: 41px;
+    }
+
+    .resoluciones-module summary {
+        padding: 18px 14px;
+    }
+
+    .resoluciones-module-info {
+        gap: 10px;
+    }
+
+    .resoluciones-module-number {
+        width: 42px;
+        height: 42px;
+        font-size: 13px;
+    }
+
+    .resoluciones-module-title {
+        font-size: 12.5px;
+    }
+
+    .resoluciones-module-toggle {
+        width: 36px;
+        height: 36px;
+    }
+
+    .resoluciones-document {
+        padding: 15px;
+    }
+
+    .resoluciones-document-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+    }
+}
