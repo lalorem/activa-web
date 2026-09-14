@@ -11,7 +11,8 @@
     border-radius: 18px;
     /* background: #111;   <-- ELIMINADO FONDO NEGRO */
     /* box-shadow: 0 20px 55px rgba(0, 0, 0, 0.18);   <-- ELIMINADO SOMBRA DEL CONTENEDOR PRINCIPAL */
-    perspective: 1200px; /* Crea la profundidad 3D */
+    perspective: 1200px;
+    /* Crea la profundidad 3D */
 }
 
 /* Ajustamos el tamaño y centramos las tarjetas manualmente */
@@ -28,7 +29,8 @@
         opacity 0.7s ease;
     opacity: 0;
     z-index: 1;
-    box-shadow: 0 18px 40px rgba(0, 114, 206, 0.18); /* Mantenemos la sombra en las imágenes individuales */
+    box-shadow: 0 18px 40px rgba(0, 114, 206, 0.18);
+    /* Mantenemos la sombra en las imágenes individuales */
 }
 
 .news-slide img {
@@ -77,11 +79,15 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 10; /* Asegurar que estén por encima de las imágenes */
-    background: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
-    color: #333; /* Color de la flecha */
+    z-index: 10;
+    /* Asegurar que estén por encima de las imágenes */
+    background: rgba(255, 255, 255, 0.8);
+    /* Fondo blanco semi-transparente */
+    color: #333;
+    /* Color de la flecha */
     border: none;
-    border-radius: 50%; /* Círculo perfecto */
+    border-radius: 50%;
+    /* Círculo perfecto */
     width: 50px;
     height: 50px;
     display: flex;
@@ -90,20 +96,25 @@
     font-size: 24px;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 114, 206, 0.15); /* Sombra suave para que destaquen */
+    box-shadow: 0 4px 15px rgba(0, 114, 206, 0.15);
+    /* Sombra suave para que destaquen */
 }
 
 .news-slider-btn:hover {
-    background: rgba(255, 255, 255, 1); /* Opaco al pasar el mouse */
-    transform: translateY(-50%) scale(1.05); /* Ligeramente más grande */
+    background: rgba(255, 255, 255, 1);
+    /* Opaco al pasar el mouse */
+    transform: translateY(-50%) scale(1.05);
+    /* Ligeramente más grande */
 }
 
 .news-slider-prev {
-    left: 25px; /* Margen a la izquierda */
+    left: 25px;
+    /* Margen a la izquierda */
 }
 
 .news-slider-next {
-    right: 25px; /* Margen a la derecha */
+    right: 25px;
+    /* Margen a la derecha */
 }
 
 /* =========================================================
@@ -123,7 +134,8 @@
 .news-slider-dot {
     width: 12px;
     height: 12px;
-    background-color: rgba(199, 230, 0, 0.3); /* Color semi-transparente por defecto */
+    background-color: rgba(199, 230, 0, 0.3);
+    /* Color semi-transparente por defecto */
     border-radius: 50%;
     border: 2px solid #555;
     cursor: pointer;
@@ -131,8 +143,10 @@
 }
 
 .news-slider-dot.active {
-    background-color: white; /* Color cuando está activo */
+    background-color: white;
+    /* Color cuando está activo */
 }
+
 /* =========================================================
    CONTENIDO NOTICIA
 ========================================================= */
@@ -144,8 +158,7 @@
     margin: 0 auto;
 
     padding:
-        80px 0
-        90px;
+        80px 0 90px;
 }
 
 
@@ -206,7 +219,7 @@
         serif;
 
     font-size:
-        clamp(42px, 6vw, 82px);
+        clamp(36px, 5vw, 64px);
 
     line-height: 0.98;
 
@@ -214,7 +227,7 @@
 
     font-weight: 700;
 
-    color: var(--text-primary);
+    color: #000000;
 
 }
 
@@ -282,12 +295,10 @@
     margin-top: 35px;
 
     background:
-        linear-gradient(
-            90deg,
+        linear-gradient(90deg,
             var(--brand-blue),
             var(--brand-green),
-            transparent
-        );
+            transparent);
 
 }
 
@@ -333,8 +344,7 @@
 
     margin:
 
-        50px 0
-        20px;
+        50px 0 20px;
 
     font-family:
         Georgia,
@@ -361,8 +371,7 @@
     padding: 35px 40px;
 
     border-left:
-        5px solid
-        var(--brand-blue);
+        5px solid var(--brand-blue);
 
     background:
         rgba(0, 0, 0, 0.07);
@@ -410,8 +419,7 @@
     padding-top: 30px;
 
     border-top:
-        1px solid
-        rgba(127, 127, 127, 0.2);
+        1px solid rgba(127, 127, 127, 0.2);
 
     display: flex;
 
@@ -424,7 +432,7 @@
 }
 
 
-.news-share > span {
+.news-share>span {
 
     font-size: 14px;
 
@@ -496,6 +504,7 @@
    COMENTARIOS
 ========================================================= */
 
+
 .comments-section {
 
     padding:
@@ -505,9 +514,30 @@
     background:
         linear-gradient(
             135deg,
-            rgba(0, 0, 0, 0.09),
-            rgba(0, 0, 0, 0.06)
+            rgba(199, 230, 0, 0.358),
+            rgba(0, 166, 80, 0.475),
+            rgba(0, 113, 206, 0.523)
         );
+
+}
+
+
+/* Carta del formulario */
+
+.comment-form {
+
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    padding: 35px;
+
+    background: #FFFFFF;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.08);
 
 }
 
@@ -624,8 +654,7 @@
     padding: 15px 17px;
 
     border:
-        1px solid
-        rgba(127, 127, 127, 0.25);
+        1px solid rgba(127, 127, 127, 0.25);
 
     border-radius: 10px;
 
@@ -665,8 +694,7 @@
         var(--brand-blue);
 
     box-shadow:
-        0 0 0 4px
-        rgba(0, 0, 0, 0.1);
+        0 0 0 4px rgba(0, 0, 0, 0.1);
 
 }
 
@@ -698,11 +726,9 @@
     gap: 10px;
 
     background:
-        linear-gradient(
-            135deg,
+        linear-gradient(135deg,
             var(--brand-blue),
-            var(--brand-green)
-        );
+            var(--brand-green));
 
     color: white;
 
@@ -728,8 +754,7 @@
         translateY(-3px);
 
     box-shadow:
-        0 12px 25px
-        rgba(0, 0, 0, 0.25);
+        0 12px 25px rgba(0, 0, 0, 0.25);
 
 }
 
@@ -741,8 +766,7 @@
 .related-news {
 
     padding:
-        100px 0
-        110px;
+        100px 0 110px;
 
     background:
         var(--bg-body);
@@ -833,8 +857,7 @@
         var(--bg-card);
 
     box-shadow:
-        0 15px 40px
-        rgba(0, 0, 0, 0.08);
+        0 15px 40px rgba(0, 0, 0, 0.08);
 
     transition:
         transform 0.35s ease,
@@ -849,8 +872,7 @@
         translateY(-8px);
 
     box-shadow:
-        0 25px 50px
-        rgba(0, 0, 0, 0.13);
+        0 25px 50px rgba(0, 0, 0, 0.13);
 
 }
 
@@ -882,8 +904,7 @@
 }
 
 
-.related-card:hover
-.related-image img {
+.related-card:hover .related-image img {
 
     transform:
         scale(1.06);
@@ -999,6 +1020,36 @@
 
 }
 
+.news-title,
+.news-meta,
+.news-content,
+.news-content h2,
+.news-share > span,
+.comments-header h2,
+.comments-header p,
+.comment-field label,
+.related-heading h2,
+.related-content h3,
+.related-content p {
+    color: #000000;
+}
+
+
+/* MODO OSCURO */
+[data-theme="dark"] .news-title,
+[data-theme="dark"] .news-meta,
+[data-theme="dark"] .news-content,
+[data-theme="dark"] .news-content h2,
+[data-theme="dark"] .news-share > span,
+[data-theme="dark"] .comments-header h2,
+[data-theme="dark"] .comments-header p,
+[data-theme="dark"] .comment-field label,
+[data-theme="dark"] .related-heading h2,
+[data-theme="dark"] .related-content h3,
+[data-theme="dark"] .related-content p {
+    color: #FFFFFF;
+}
+
 
 /* =========================================================
    RESPONSIVE
@@ -1044,9 +1095,7 @@
     .news-slide.prev {
 
         transform:
-            translateX(-48%)
-            scale(0.80)
-            rotateY(30deg);
+            translateX(-48%) scale(0.80) rotateY(30deg);
 
         opacity: 0.5;
     }
@@ -1055,9 +1104,7 @@
     .news-slide.next {
 
         transform:
-            translateX(48%)
-            scale(0.80)
-            rotateY(-30deg);
+            translateX(48%) scale(0.80) rotateY(-30deg);
 
         opacity: 0.5;
     }
@@ -1114,8 +1161,7 @@
         width: 90%;
 
         padding:
-            65px 0
-            75px;
+            65px 0 75px;
     }
 
 
@@ -1180,8 +1226,7 @@
     .comments-section {
 
         padding:
-            75px 0
-            85px;
+            75px 0 85px;
     }
 
 
@@ -1207,8 +1252,7 @@
     .related-news {
 
         padding:
-            80px 0
-            90px;
+            80px 0 90px;
     }
 
 
@@ -1269,8 +1313,7 @@
         border-radius: 12px;
 
         box-shadow:
-            0 12px 30px
-        rgba(0, 0, 0, 0.16);
+            0 12px 30px rgba(0, 0, 0, 0.16);
     }
 
 
@@ -1282,9 +1325,7 @@
     .news-slide.prev {
 
         transform:
-            translateX(-43%)
-            scale(0.68)
-            rotateY(22deg);
+            translateX(-43%) scale(0.68) rotateY(22deg);
 
         opacity: 0.38;
     }
@@ -1293,9 +1334,7 @@
     .news-slide.next {
 
         transform:
-            translateX(43%)
-            scale(0.68)
-            rotateY(-22deg);
+            translateX(43%) scale(0.68) rotateY(-22deg);
 
         opacity: 0.38;
     }
@@ -1304,9 +1343,7 @@
     .news-slide.hidden {
 
         transform:
-            translateX(0)
-            scale(0.45)
-            translateZ(-250px);
+            translateX(0) scale(0.45) translateZ(-250px);
 
         opacity: 0;
     }
@@ -1372,8 +1409,7 @@
         width: 90%;
 
         padding:
-            55px 0
-            65px;
+            55px 0 65px;
     }
 
 
@@ -1479,8 +1515,7 @@
     .news-content h2 {
 
         margin:
-            38px 0
-            18px;
+            38px 0 18px;
 
         font-size: 28px;
 
@@ -1537,7 +1572,7 @@
     }
 
 
-    .news-share > span {
+    .news-share>span {
 
         font-size: 12px;
 
@@ -1567,8 +1602,7 @@
     .comments-section {
 
         padding:
-            60px 0
-            70px;
+            60px 0 70px;
     }
 
 
@@ -1683,8 +1717,7 @@
     .related-news {
 
         padding:
-            65px 0
-            75px;
+            65px 0 75px;
     }
 
 
@@ -1827,9 +1860,7 @@
     .news-slide.prev {
 
         transform:
-            translateX(-38%)
-            scale(0.60)
-            rotateY(18deg);
+            translateX(-38%) scale(0.60) rotateY(18deg);
 
         opacity: 0.30;
     }
@@ -1838,9 +1869,7 @@
     .news-slide.next {
 
         transform:
-            translateX(38%)
-            scale(0.60)
-            rotateY(-18deg);
+            translateX(38%) scale(0.60) rotateY(-18deg);
 
         opacity: 0.30;
     }
@@ -1877,8 +1906,7 @@
     .news-article {
 
         padding:
-            48px 0
-            55px;
+            48px 0 55px;
     }
 
 
@@ -1972,8 +2000,7 @@
     .related-news {
 
         padding:
-            55px 0
-            65px;
+            55px 0 65px;
     }
 
 
