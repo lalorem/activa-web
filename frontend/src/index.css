@@ -1,0 +1,83 @@
+/* =========================================================
+   ESTILOS GLOBALES DE ACTIVA
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Caveat+Brush&display=swap');
+
+/* Configuración general */
+
+:root {
+    font-family: 'Inter', sans-serif;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    color: #0f172a;
+    background: #ffffff;
+}
+
+/* Reinicio de estilos */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Contenedor principal de React */
+
+#root {
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Imágenes */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Enlaces */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Botones */
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+/* Elementos de formulario */
+
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Accesibilidad */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid #0072ce;
+    outline-offset: 3px;
+}
