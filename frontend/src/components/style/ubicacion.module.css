@@ -1,0 +1,162 @@
+
+/* =========================================================
+   UBICACIÓN
+========================================================= */
+
+.locationSection {
+    padding: 100px 0;
+    background-color: var(--bg-surface);
+}
+
+/* ---------- ENCABEZADO ---------- */
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.badgeTitle {
+    display: inline-block;
+    color: var(--brand-green);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.sectionHeader h2 {
+    color: var(--text-main);
+    font-size: clamp(2rem, 4vw, 2.7rem);
+    font-weight: 800;
+}
+
+.sectionHeader h2 span {
+    color: var(--brand-green);
+}
+
+.sectionHeader p {
+    max-width: 750px;
+    margin: 15px auto 0;
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* ---------- DISTRIBUCIÓN ---------- */
+
+.locationGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+}
+
+/* ---------- TARJETAS ---------- */
+
+.locationCard {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.locationCard:hover {
+    transform: translateY(-4px);
+}
+
+/* ---------- ENCABEZADO DE TARJETA ---------- */
+
+.locationTitle {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 24px 25px;
+}
+
+.titleIcon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--brand-lime);
+    color: #1d2924;
+    flex-shrink: 0;
+}
+
+.locationTitle h3 {
+    margin: 0 0 4px;
+    font-size: 1.2rem;
+    color: var(--text-main);
+}
+
+.locationTitle p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* ---------- MAPA ---------- */
+
+.mapContainer {
+    width: 100%;
+    height: 380px;
+}
+
+.mapContainer iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+/* ---------- VIDEO ---------- */
+
+.videoContainer {
+    width: 100%;
+    height: 380px;
+    background-color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.videoContainer video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 850px) {
+    .locationGrid {
+        grid-template-columns: 1fr;
+        max-width: 650px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .locationSection {
+        padding: 70px 0;
+    }
+
+    .sectionHeader {
+        margin-bottom: 35px;
+    }
+
+    .locationTitle {
+        padding: 20px;
+    }
+
+    .mapContainer,
+    .videoContainer {
+        height: 280px;
+    }
+}

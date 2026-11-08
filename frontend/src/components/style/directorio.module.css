@@ -1,0 +1,471 @@
+
+/* =========================================
+   DIRECTORIO INSTITUCIONAL
+========================================= */
+
+.directorioMain {
+  --hv-lima: #C7E600;
+  --hv-verde: #00A651;
+  --hv-azul: #0072CE;
+  --hv-gradient: linear-gradient(120deg, #0072CE, #00A651, #C7E600);
+  --hv-gradient-hover: linear-gradient(120deg, #005bb5, #008f46, #a9c900);
+
+  --hv-bg: #f7faf8;
+  --hv-card: #ffffff;
+  --hv-text: #1d2924;
+  --hv-muted: #65716b;
+  --hv-border: rgba(0, 114, 206, 0.10);
+  --hv-shadow: 0 15px 40px rgba(15, 35, 25, 0.08);
+
+  position: relative;
+  overflow: hidden;
+  background: var(--hv-bg);
+  color: var(--hv-text);
+  padding: 90px 0 110px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+:global([data-theme="dark"]) .directorioMain {
+  --hv-bg: #101a24;
+  --hv-card: #1b2936;
+  --hv-text: #f1f5f9;
+  --hv-muted: #a6b3bf;
+  --hv-border: rgba(255, 255, 255, 0.09);
+  --hv-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.directorioHero {
+  min-height: 470px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    linear-gradient(120deg, rgba(0, 114, 206, 0.85), rgba(0, 166, 81, 0.72)),
+    url('/assets/directorio-bg.jpg') center/cover no-repeat;
+}
+
+.directorioHero::before,
+.directorioHero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  pointer-events: none;
+}
+
+.directorioHero::before {
+  width: 420px;
+  height: 420px;
+  top: -180px;
+  right: -100px;
+}
+
+.directorioHero::after {
+  width: 300px;
+  height: 300px;
+  bottom: -160px;
+  left: -80px;
+}
+
+.directorioOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(8, 28, 45, 0.55),
+    rgba(8, 28, 45, 0.15)
+  );
+}
+
+.directorioHeroContent {
+  position: relative;
+  z-index: 1;
+  width: min(1100px, 90%);
+  text-align: center;
+  color: #ffffff;
+}
+
+.directorioHeroContent h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(48px, 7vw, 82px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+  text-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.directorioLine {
+  width: 100px;
+  height: 5px;
+  margin: 28px auto 0;
+  border-radius: 10px;
+  background: var(--hv-lima);
+}
+
+/* =========================================
+   CONTENIDO PRINCIPAL
+========================================= */
+
+.directorioMain::before,
+.directorioMain::after {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: rgba(0, 114, 206, 0.035);
+  pointer-events: none;
+}
+
+.directorioMain::before {
+  top: 50px;
+  left: -150px;
+}
+
+.directorioMain::after {
+  bottom: 20px;
+  right: -150px;
+}
+
+.directorioSection {
+  position: relative;
+  z-index: 1;
+  width: min(1050px, 90%);
+  margin: 0 auto;
+}
+
+/* =========================================
+   INTRODUCCIÓN
+========================================= */
+
+.directorioIntro {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.directorioIntroLabel {
+  display: inline-block;
+  color: var(--hv-verde);
+  background: rgba(0, 166, 81, 0.09);
+  padding: 9px 20px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.directorioIntro h2 {
+  color: var(--hv-text);
+  font-family: Georgia, serif;
+  font-size: clamp(30px, 4vw, 42px);
+  margin: 0 0 15px;
+}
+
+.directorioIntro p {
+  max-width: 650px;
+  margin: 0 auto;
+  color: var(--hv-muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.directorioIntro::after {
+  content: "";
+  display: block;
+  width: 75px;
+  height: 4px;
+  margin: 25px auto 0;
+  border-radius: 10px;
+  background: var(--hv-gradient);
+}
+
+/* =========================================
+   TARJETA
+========================================= */
+
+.directorioCard {
+  position: relative;
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  align-items: center;
+  gap: 50px;
+  padding: 45px 50px;
+  background: var(--hv-card);
+  border: 1px solid var(--hv-border);
+  border-radius: 25px;
+  box-shadow: var(--hv-shadow);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.directorioCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 50px rgba(0, 114, 206, 0.12);
+}
+
+.directorioCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 7px;
+  height: 100%;
+  background: var(--hv-gradient);
+}
+
+.directorioCard::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 114, 206, 0.07);
+  right: -80px;
+  bottom: -100px;
+  pointer-events: none;
+}
+
+/* =========================================
+   ICONO
+========================================= */
+
+.directorioIconWrapper {
+  width: 175px;
+  height: 175px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px dashed rgba(0, 166, 81, 0.35);
+  animation: directorioSpin 25s linear infinite;
+}
+
+.directorioIcon {
+  width: 125px;
+  height: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #ffffff;
+  background: var(--hv-gradient);
+  box-shadow: 0 12px 30px rgba(0, 114, 206, 0.22);
+  animation: directorioSpinReverse 25s linear infinite;
+  transition: transform 0.3s ease;
+}
+
+.directorioIcon svg {
+  width: 80px;
+  height: 80px;
+}
+
+.directorioCard:hover .directorioIcon {
+  transform: scale(1.08);
+}
+
+@keyframes directorioSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes directorioSpinReverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+/* =========================================
+   TEXTO DE LA TARJETA
+========================================= */
+
+.directorioCardContent {
+  position: relative;
+  z-index: 1;
+}
+
+.directorioCardContent h2 {
+  color: var(--hv-text);
+  font-family: Georgia, serif;
+  font-size: 34px;
+  margin: 0 0 18px;
+}
+
+.directorioCardContent p {
+  color: var(--hv-muted);
+  font-size: 16px;
+  line-height: 1.8;
+  margin: 0 0 28px;
+}
+
+/* =========================================
+   BOTÓN DE DESCARGA
+========================================= */
+
+.directorioDownload {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px 25px;
+  border-radius: 50px;
+  background: var(--hv-gradient);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0, 114, 206, 0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.directorioDownload:hover {
+  background: var(--hv-gradient-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 114, 206, 0.25);
+}
+
+.directorioDownload svg {
+  flex-shrink: 0;
+}
+
+/* =========================================
+   INFORMACIÓN DEL ARCHIVO
+========================================= */
+
+.directorioFileInfo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 22px;
+  color: var(--hv-muted);
+  font-size: 14px;
+}
+
+.directorioFileInfo svg {
+  color: #00A651;
+  flex-shrink: 0;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+  .directorioCard {
+    grid-template-columns: 170px 1fr;
+    gap: 30px;
+    padding: 40px 35px;
+  }
+
+  .directorioIconWrapper {
+    width: 150px;
+    height: 150px;
+  }
+
+  .directorioIcon {
+    width: 110px;
+    height: 110px;
+  }
+
+  .directorioIcon svg {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+@media (max-width: 750px) {
+  .directorioHero {
+    min-height: 380px;
+  }
+
+  .directorioMain {
+    padding: 70px 0 80px;
+  }
+
+  .directorioCard {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 40px 30px;
+    text-align: center;
+  }
+
+  .directorioCardContent h2 {
+    font-size: 30px;
+  }
+
+  .directorioFileInfo {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .directorioHero {
+    min-height: 320px;
+  }
+
+  .directorioHeroContent h1 {
+    font-size: clamp(38px, 10vw, 55px);
+  }
+
+  .directorioIntro {
+    margin-bottom: 40px;
+  }
+
+  .directorioIntro p {
+    font-size: 15px;
+  }
+
+  .directorioCard {
+    padding: 35px 22px;
+    border-radius: 20px;
+  }
+
+  .directorioCardContent h2 {
+    font-size: 27px;
+  }
+
+  .directorioCardContent p {
+    font-size: 15px;
+  }
+
+  .directorioDownload {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 18px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  .directorioHero {
+    min-height: 280px;
+  }
+
+  .directorioIconWrapper {
+    width: 135px;
+    height: 135px;
+  }
+
+  .directorioIcon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .directorioIcon svg {
+    width: 58px;
+    height: 58px;
+  }
+
+  .directorioCard {
+    padding: 30px 18px;
+  }
+}

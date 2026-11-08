@@ -1,0 +1,732 @@
+
+/* =========================================================
+   MISIÓN, VISIÓN, DEBERES Y POLÍTICAS - ACTIVA
+   Paleta oficial: Lima + Verde + Azul
+========================================================= */
+
+/* =========================================================
+   VARIABLES GENERALES
+========================================================= */
+
+.mvPage {
+    --mv-lima: #C7E600;
+    --mv-verde: #00A651;
+    --mv-azul: #0072CE;
+
+    --mv-gradient: linear-gradient(
+        135deg,
+        #C7E600 0%,
+        #00A651 48%,
+        #0072CE 100%
+    );
+
+    --mv-gradient-hover: linear-gradient(
+        135deg,
+        #B7D400 0%,
+        #009447 48%,
+        #0065B8 100%
+    );
+
+    --mv-bg: #f7faf8;
+    --mv-card: #ffffff;
+    --mv-text: #1d2924;
+    --mv-muted: #65716b;
+    --mv-border: rgba(0, 114, 206, 0.10);
+    --mv-shadow: 0 15px 40px rgba(0, 80, 70, 0.09);
+
+    width: 100%;
+    overflow: hidden;
+}
+
+/* =========================================================
+   CONTENEDOR GENERAL
+========================================================= */
+
+.container {
+    width: min(1200px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.mvHero {
+    position: relative;
+    min-height: 310px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background: linear-gradient(
+        115deg,
+        #0072CE 0%,
+        #00A651 52%,
+        #C7E600 100%
+    );
+}
+
+/* Círculos decorativos */
+
+.mvHero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 430px;
+    height: 430px;
+
+    border-radius: 50%;
+
+    top: -260px;
+    right: 8%;
+
+    background: rgba(255, 255, 255, 0.13);
+}
+
+.mvHero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 320px;
+    height: 320px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    bottom: -220px;
+    left: 5%;
+}
+
+/* Contenido del hero */
+
+.mvHeroContent {
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+
+    padding: 70px 20px;
+}
+
+.mvHeroContent h1 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-family: 'Caveat Brush', cursive;
+
+    font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+
+    font-weight: 400;
+
+    line-height: 1.1;
+
+    text-shadow: 0 5px 20px rgba(0, 0, 0, 0.18);
+}
+
+/* =========================================================
+   CONTENIDO PRINCIPAL
+========================================================= */
+
+.mvContentSection {
+    padding: 85px 0 95px;
+
+    background: var(--mv-bg);
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+/* =========================================================
+   MISIÓN Y VISIÓN
+========================================================= */
+
+.mvContent {
+    display: grid;
+
+    grid-template-columns:
+        minmax(300px, 0.78fr)
+        minmax(0, 1.45fr);
+
+    align-items: center;
+
+    gap: 70px;
+}
+
+/* =========================================================
+   IMAGEN
+========================================================= */
+
+.mvImageWrapper {
+    position: relative;
+
+    width: 100%;
+
+    max-width: 420px;
+
+    margin: 0 auto;
+}
+
+/* Decoración de la imagen */
+
+.mvImageDecoration {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 24px;
+
+    background: linear-gradient(
+        135deg,
+        var(--mv-lima),
+        var(--mv-verde),
+        var(--mv-azul)
+    );
+
+    transform: rotate(-4deg);
+
+    opacity: 0.25;
+}
+
+/* Imagen principal */
+
+.mvImage {
+    position: relative;
+
+    display: block;
+
+    z-index: 1;
+
+    width: 100%;
+    height: 470px;
+
+    object-fit: cover;
+
+    border-radius: 22px;
+
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.16);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.mvImage:hover {
+    transform: translateY(-7px);
+
+    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.22);
+}
+
+/* =========================================================
+   TEXTOS
+========================================================= */
+
+.mvText {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 38px;
+}
+
+/* =========================================================
+   ITEM MISIÓN / VISIÓN
+========================================================= */
+
+.mvItem {
+    position: relative;
+
+    padding-left: 25px;
+}
+
+/* Línea lateral degradada */
+
+.mvItem::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 5px;
+    bottom: 5px;
+
+    width: 4px;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        180deg,
+        var(--mv-lima),
+        var(--mv-verde),
+        var(--mv-azul)
+    );
+}
+
+/* Títulos */
+
+.mvItem h2 {
+    margin: 0 0 12px;
+
+    font-family: 'Caveat Brush', cursive;
+
+    font-size: 2.5rem;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    color: var(--mv-azul);
+
+    transition: color 0.3s ease;
+}
+
+/* Párrafos */
+
+.mvItem p {
+    margin: 0;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 1rem;
+
+    font-weight: 400;
+
+    line-height: 1.85;
+
+    text-align: justify;
+
+    color: var(--mv-text);
+
+    transition: color 0.3s ease;
+}
+
+.mvItem strong {
+    font-weight: 800;
+
+    color: var(--mv-verde);
+}
+
+/* =========================================================
+   MANUAL DE FUNCIONES
+========================================================= */
+
+.manualBox {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 24px;
+
+    margin-top: 85px;
+
+    padding: 28px 30px;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    background: linear-gradient(
+        135deg,
+        rgba(199, 230, 0, 0.08),
+        rgba(0, 166, 81, 0.07),
+        rgba(0, 114, 206, 0.08)
+    );
+
+    border: 1px solid rgba(0, 114, 206, 0.16);
+
+    box-shadow: 0 10px 35px rgba(0, 80, 70, 0.08);
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Línea superior degradada */
+
+.manualBox::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: linear-gradient(
+        90deg,
+        var(--mv-lima),
+        var(--mv-verde),
+        var(--mv-azul)
+    );
+}
+
+/* =========================================================
+   ÍCONO DEL MANUAL
+========================================================= */
+
+.manualBoxIcon {
+    flex-shrink: 0;
+
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 17px;
+
+    background: linear-gradient(
+        135deg,
+        var(--mv-lima),
+        var(--mv-verde),
+        var(--mv-azul)
+    );
+
+    color: #ffffff;
+
+    box-shadow: 0 8px 20px rgba(0, 130, 90, 0.20);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* =========================================================
+   INFORMACIÓN DEL MANUAL
+========================================================= */
+
+.manualBoxInfo {
+    flex: 1;
+}
+
+.manualBoxInfo h2 {
+    margin: 0 0 5px;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 1.35rem;
+
+    font-weight: 700;
+
+    color: var(--mv-text);
+}
+
+.manualBoxInfo p {
+    margin: 0;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 0.94rem;
+
+    line-height: 1.5;
+
+    color: var(--mv-muted);
+}
+
+/* =========================================================
+   BOTÓN DESCARGAR
+========================================================= */
+
+.manualBoxButton {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+
+    min-width: 175px;
+
+    padding: 14px 24px;
+
+    border-radius: 13px;
+
+    overflow: hidden;
+
+    background: linear-gradient(
+        135deg,
+        var(--mv-lima) 0%,
+        var(--mv-verde) 48%,
+        var(--mv-azul) 100%
+    );
+
+    color: #ffffff;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 0.92rem;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    box-shadow: 0 9px 22px rgba(0, 130, 90, 0.22);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        filter 0.3s ease;
+}
+
+/* Efecto de brillo */
+
+.manualBoxButton::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -110%;
+
+    width: 70%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.38),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+
+    transition: left 0.6s ease;
+}
+
+.manualBoxButton:hover {
+    transform: translateY(-4px);
+
+    filter: brightness(1.06);
+
+    box-shadow: 0 15px 30px rgba(0, 130, 90, 0.30);
+}
+
+.manualBoxButton:hover::before {
+    left: 145%;
+}
+
+.manualBoxButton svg {
+    transition: transform 0.3s ease;
+}
+
+.manualBoxButton:hover svg {
+    transform: translateY(3px);
+}
+
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
+:global([data-theme="dark"]) .mvPage {
+    --mv-bg: #0f172a;
+    --mv-card: #24364d;
+    --mv-text: #f8fafc;
+    --mv-muted: #94a3b8;
+    --mv-border: #3b5068;
+    --mv-shadow: 0 15px 35px rgba(0, 0, 0, 0.28);
+}
+
+/* Fondo */
+
+:global([data-theme="dark"]) .mvContentSection {
+    background: var(--mv-bg);
+}
+
+/* Títulos */
+
+:global([data-theme="dark"]) .mvItem h2 {
+    color: var(--mv-lima);
+}
+
+/* Texto */
+
+:global([data-theme="dark"]) .mvItem p {
+    color: var(--mv-text);
+}
+
+/* Decoración imagen */
+
+:global([data-theme="dark"]) .mvImageDecoration {
+    background: linear-gradient(
+        135deg,
+        var(--mv-azul),
+        var(--mv-verde),
+        var(--mv-lima)
+    );
+
+    opacity: 0.30;
+}
+
+/* Manual de funciones */
+
+:global([data-theme="dark"]) .manualBox {
+    background: linear-gradient(
+        135deg,
+        rgba(36, 54, 77, 0.98),
+        rgba(27, 52, 66, 0.98),
+        rgba(25, 57, 70, 0.98)
+    );
+
+    border-color: rgba(199, 230, 0, 0.18);
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.28);
+}
+
+/* Información */
+
+:global([data-theme="dark"]) .manualBoxInfo h2 {
+    color: #f8fafc;
+}
+
+:global([data-theme="dark"]) .manualBoxInfo p {
+    color: #cbd5e1;
+}
+
+/* Botón */
+
+:global([data-theme="dark"]) .manualBoxButton {
+    background: linear-gradient(
+        135deg,
+        #C7E600 0%,
+        #00A651 48%,
+        #0072CE 100%
+    );
+
+    color: #ffffff;
+
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.38);
+}
+
+:global([data-theme="dark"]) .manualBoxButton:hover {
+    background: linear-gradient(
+        135deg,
+        #D5F000 0%,
+        #00B85A 48%,
+        #0085E8 100%
+    );
+
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.48);
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+    .mvContent {
+        grid-template-columns: 1fr;
+        gap: 55px;
+    }
+
+    .mvImageWrapper {
+        max-width: 500px;
+    }
+
+    .mvImage {
+        height: 430px;
+    }
+
+    .manualBox {
+        flex-wrap: wrap;
+    }
+
+    .manualBoxInfo {
+        min-width: 200px;
+    }
+
+    .manualBoxButton {
+        margin-left: 89px;
+    }
+}
+
+/* =========================================================
+   MÓVIL
+========================================================= */
+
+@media (max-width: 600px) {
+    .mvHero {
+        min-height: 240px;
+    }
+
+    .mvHeroContent {
+        padding: 55px 18px;
+    }
+
+    .mvHeroContent h1 {
+        font-size: 2.7rem;
+    }
+
+    .mvContentSection {
+        padding: 50px 0 60px;
+    }
+
+    .mvContent {
+        gap: 45px;
+    }
+
+    .mvImageWrapper {
+        max-width: calc(100% - 20px);
+    }
+
+    .mvImage {
+        height: 350px;
+    }
+
+    .mvText {
+        gap: 30px;
+    }
+
+    .mvItem {
+        padding-left: 19px;
+    }
+
+    .mvItem h2 {
+        font-size: 2.2rem;
+    }
+
+    .mvItem p {
+        font-size: 0.94rem;
+        line-height: 1.75;
+    }
+
+    .manualBox {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        margin-top: 55px;
+        padding: 28px 20px;
+    }
+
+    .manualBoxIcon {
+        margin: 0 auto;
+    }
+
+    .manualBoxInfo {
+        width: 100%;
+    }
+
+    .manualBoxButton {
+        width: 100%;
+        margin-left: 0;
+    }
+}

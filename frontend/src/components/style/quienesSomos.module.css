@@ -1,0 +1,961 @@
+
+.aboutPage {
+  --about-blue: #0b3f5a;
+  --about-blue-light: #125f91;
+  --about-green: #4caf50;
+  --about-lime: #90cb1b;
+
+  --about-gradient: linear-gradient(
+    135deg,
+    #90cb1b 0%,
+    #4caf50 48%,
+    #125f91 100%
+  );
+
+  --about-text-light: #ffffff;
+
+  --about-soft: linear-gradient(
+    135deg,
+    rgba(144, 203, 27, 0.08),
+    rgba(76, 175, 80, 0.06),
+    rgba(18, 95, 145, 0.08)
+  );
+
+  --about-border: rgba(18, 95, 145, 0.15);
+  --about-shadow: 0 15px 40px rgba(11, 63, 90, 0.10);
+  --about-shadow-hover: 0 22px 50px rgba(11, 63, 90, 0.16);
+
+  --team-wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0,0 H100 V72 C90,72 90,82 80,82 C70,82 70,65 60,65 C50,65 50,88 40,88 C30,88 30,68 20,68 C10,68 10,82 0,82 Z'/%3E%3C/svg%3E");
+}
+
+/* MODO OSCURO */
+:global([data-theme="dark"]) .aboutPage {
+  --about-soft: linear-gradient(
+    135deg,
+    rgba(187, 187, 187, 0.09),
+    rgba(85, 85, 85, 0.07),
+    rgba(64, 64, 64, 0.12)
+  );
+
+  --about-border: rgba(255, 255, 255, 0.10);
+  --about-shadow: 0 15px 40px rgba(0, 0, 0, 0.22);
+  --about-shadow-hover: 0 22px 50px rgba(0, 0, 0, 0.32);
+}
+
+/* HERO */
+.aboutHero {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: var(--about-text-light);
+  isolation: isolate;
+}
+
+.aboutHeroImage {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://activa.com.co/wp-content/uploads/2025/08/25935254-9add-4145-95f6-e3cb788ed112.jpg");
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.05);
+  animation: aboutHeroZoom 10s ease-out forwards;
+  z-index: -3;
+}
+
+@keyframes aboutHeroZoom {
+  from { transform: scale(1.08); }
+  to { transform: scale(1); }
+}
+
+.aboutHeroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(11, 63, 90, 0.96) 0%,
+    rgba(11, 63, 90, 0.82) 30%,
+    rgba(18, 95, 145, 0.48) 62%,
+    rgba(18, 95, 145, 0.10) 100%
+  );
+  z-index: -2;
+}
+
+.aboutHeroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  padding-top: 80px;
+  padding-bottom: 100px;
+  animation: aboutHeroContent 1s ease-out forwards;
+}
+
+@keyframes aboutHeroContent {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.aboutHeroContent h1 {
+  margin: 0;
+  font-family: var(--font-main), 'Poppins', sans-serif;
+  font-size: clamp(3.5rem, 6vw, 6.5rem);
+  line-height: 0.96;
+  font-weight: 800;
+  letter-spacing: -3px;
+}
+
+.aboutScript {
+  display: block;
+  margin-top: 8px;
+  color: var(--about-lime);
+  font-family: 'Caveat Brush', cursive;
+  font-size: clamp(4.5rem, 8vw, 8rem);
+  font-weight: 400;
+  line-height: 0.85;
+  letter-spacing: 0;
+  transform: rotate(-3deg);
+  transform-origin: left center;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.aboutHeroContent p {
+  max-width: 620px;
+  margin-top: 34px;
+  margin-bottom: 30px;
+  font-family: var(--font-main), 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.aboutHeroActions {
+  display: flex;
+  align-items: center;
+}
+
+.aboutHeroBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 23px;
+  border-radius: 999px;
+  background: var(--about-gradient);
+  color: #ffffff;
+  font-family: var(--font-main), 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  box-shadow: 0 8px 22px rgba(11, 63, 90, 0.22);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.aboutHeroBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(11, 63, 90, 0.30);
+  filter: brightness(1.05);
+}
+
+.aboutHeroBtn svg {
+  transition: transform 0.3s ease;
+}
+
+.aboutHeroBtn:hover svg {
+  transform: translateY(3px);
+}
+
+.aboutScrollIndicator {
+  position: absolute;
+  right: 45px;
+  bottom: 35px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-main), 'Poppins', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+.aboutScrollIndicator svg {
+  animation: scrollArrow 1.5s ease-in-out infinite;
+}
+
+@keyframes scrollArrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(7px); }
+}
+
+.aboutHeroLine {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 42%;
+  height: 5px;
+  background: var(--about-gradient);
+  z-index: 4;
+}
+
+/* NUESTRO EQUIPO */
+.teamEditorial {
+  padding: 110px 20px;
+  background: var(--bg-surface);
+  color: var(--text-main);
+  position: relative;
+  overflow: hidden;
+}
+
+.teamEditorial::before,
+.teamEditorial::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.teamEditorial::before {
+  width: 280px;
+  height: 280px;
+  top: -120px;
+  right: -100px;
+  background: radial-gradient(
+    circle,
+    rgba(144, 203, 27, 0.12),
+    transparent 70%
+  );
+}
+
+.teamEditorial::after {
+  width: 250px;
+  height: 250px;
+  bottom: -120px;
+  left: -100px;
+  background: radial-gradient(
+    circle,
+    rgba(18, 95, 145, 0.10),
+    transparent 70%
+  );
+}
+
+.teamHeaderCenter {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.teamHeaderCenter h2 {
+  font-family: 'Caveat Brush', cursive;
+  font-size: clamp(3rem, 5vw, 4.8rem);
+  font-weight: 400;
+  line-height: 1;
+  margin: 0 0 20px;
+  color: var(--brand-blue);
+}
+
+.highlight {
+  color: var(--brand-green);
+  position: relative;
+}
+
+.highlight::after {
+  content: "";
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: -6px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--about-gradient);
+}
+
+.teamHeaderDescription {
+  max-width: 760px;
+  margin: 0 auto;
+  font-family: var(--font-main), 'Poppins', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.teamList {
+  display: flex;
+  flex-direction: column;
+  gap: 58px;
+  max-width: 1080px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  counter-reset: team;
+}
+
+.teamRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 42px;
+  position: relative;
+  counter-increment: team;
+}
+
+.teamRow:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.teamRow::before {
+  content: "0" counter(team);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: clamp(5rem, 9vw, 8rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -5px;
+  color: rgba(18, 95, 145, 0.055);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.teamRow:nth-child(odd)::before {
+  left: -25px;
+}
+
+.teamRow:nth-child(even)::before {
+  right: -25px;
+}
+
+/* FOTOGRAFÍAS */
+.teamImageCol {
+  flex: 0 0 285px;
+  width: 285px;
+  height: 430px;
+  position: relative;
+  flex-shrink: 0;
+  animation: floatingImage 4s ease-in-out infinite;
+}
+
+.teamImageCol::after {
+  content: "";
+  position: absolute;
+  inset: -18px;
+  border-radius: 32px;
+  background: var(--about-gradient);
+  filter: blur(24px);
+  opacity: 0.30;
+  z-index: -2;
+  pointer-events: none;
+}
+
+@keyframes floatingImage {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.teamImageCol::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  background: var(--about-gradient);
+  -webkit-mask-image: var(--team-wave);
+  mask-image: var(--team-wave);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.imageWrapper {
+  position: absolute;
+  inset: 7px;
+  overflow: hidden;
+  border-radius: 18px;
+  z-index: 2;
+  box-sizing: border-box;
+  background: transparent;
+  -webkit-mask-image: var(--team-wave);
+  mask-image: var(--team-wave);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  transition: transform 0.4s ease;
+}
+
+.imageWrapper img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 15px;
+  transition: transform 0.5s ease;
+}
+
+.imageWrapper::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  pointer-events: none;
+  z-index: 4;
+  box-sizing: border-box;
+}
+
+.teamRow:hover .imageWrapper {
+  transform: translateY(-4px);
+}
+
+.teamRow:hover .imageWrapper img {
+  transform: scale(1.035);
+}
+
+/* TARJETA DE TEXTO */
+.teamTextCol {
+  flex: 1;
+  min-width: 0;
+  background: var(--about-soft);
+  padding: 32px 36px;
+  border-radius: 20px;
+  border: 1px solid var(--about-border);
+  box-shadow: var(--about-shadow);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.teamTextCol::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--about-gradient);
+}
+
+.teamTextCol::after {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  right: -70px;
+  bottom: -75px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(144, 203, 27, 0.12),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.teamTextCol:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--about-shadow-hover);
+}
+
+:global([data-theme="dark"]) .teamTextCol {
+  background: var(--about-soft);
+  border-color: rgba(255, 255, 255, 0.10);
+  box-shadow: var(--about-shadow);
+}
+
+.teamTopLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.teamRole {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-main), 'Poppins', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--brand-green);
+  margin-bottom: 8px;
+}
+
+.teamRole::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: var(--about-lime);
+  box-shadow: 0 0 0 4px rgba(144, 203, 27, 0.13);
+}
+
+.teamArrow {
+  color: var(--brand-green);
+  flex-shrink: 0;
+}
+
+.teamTextCol h3 {
+  font-family: var(--font-main), 'Poppins', sans-serif;
+  font-size: clamp(1.65rem, 2.5vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 16px;
+  color: var(--brand-blue);
+  letter-spacing: -0.5px;
+  position: relative;
+  z-index: 2;
+}
+
+:global([data-theme="dark"]) .teamTextCol h3 {
+  color: #ffffff;
+}
+
+.teamDesc p {
+  font-family: var(--font-main), 'Poppins', sans-serif;
+  font-size: 0.93rem;
+  line-height: 1.72;
+  color: var(--text-main);
+  opacity: 0.95;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.teamDesc p + p {
+  margin-top: 18px;
+}
+
+.teamDesc p::after {
+  content: "";
+  display: block;
+  width: 42px;
+  height: 3px;
+  margin-top: 18px;
+  border-radius: 999px;
+  background: var(--about-gradient);
+}
+
+/* LAPTOPS */
+@media (max-width: 1200px) {
+  .aboutHero { min-height: 82vh; }
+
+  .aboutHeroContent {
+    max-width: 700px;
+    padding-top: 70px;
+    padding-bottom: 90px;
+  }
+
+  .aboutHeroContent h1 {
+    font-size: clamp(3.2rem, 6vw, 5.8rem);
+  }
+
+  .aboutScript {
+    font-size: clamp(4.2rem, 7vw, 7rem);
+  }
+
+  .teamEditorial { padding: 90px 20px; }
+  .teamHeaderCenter { margin-bottom: 65px; }
+
+  .teamList {
+    max-width: 980px;
+    gap: 50px;
+  }
+
+  .teamRow { gap: 32px; }
+
+  .teamImageCol {
+    flex: 0 0 265px;
+    width: 265px;
+    height: 405px;
+  }
+
+  .teamTextCol { padding: 30px 32px; }
+
+  .teamTextCol h3 {
+    font-size: clamp(1.6rem, 2.7vw, 2.15rem);
+  }
+}
+
+/* TABLETS GRANDES */
+@media (max-width: 1024px) {
+  .aboutHero { min-height: 76vh; }
+
+  .aboutHeroContent {
+    max-width: 650px;
+    padding-top: 60px;
+    padding-bottom: 80px;
+  }
+
+  .aboutHeroContent h1 {
+    font-size: clamp(3rem, 7vw, 5rem);
+    letter-spacing: -2px;
+  }
+
+  .aboutScript {
+    font-size: clamp(4rem, 8vw, 6.8rem);
+  }
+
+  .aboutHeroContent p {
+    max-width: 560px;
+    font-size: 1rem;
+  }
+
+  .teamEditorial { padding: 80px 20px; }
+
+  .teamHeaderCenter {
+    max-width: 720px;
+    margin-bottom: 55px;
+  }
+
+  .teamList {
+    max-width: 850px;
+    gap: 45px;
+  }
+
+  .teamRow,
+  .teamRow:nth-child(even) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    text-align: center;
+  }
+
+  .teamImageCol {
+    width: min(72%, 360px);
+    max-width: 360px;
+    min-width: 0;
+    height: 450px;
+    flex: 0 0 auto;
+    margin: 0 auto;
+    z-index: 2;
+  }
+
+  .teamTextCol {
+    width: min(90%, 760px);
+    max-width: 760px;
+    flex: 0 0 auto;
+    margin: -32px auto 0;
+    padding: 32px 30px;
+    position: relative;
+    z-index: 3;
+  }
+
+  .teamTopLine { justify-content: center; }
+  .teamRole { font-size: 0.82rem; }
+
+  .teamTextCol h3 {
+    font-size: clamp(1.75rem, 4vw, 2.3rem);
+  }
+
+  .teamDesc p { font-size: 0.94rem; }
+}
+
+/* TABLETS PEQUEÑAS */
+@media (max-width: 768px) {
+  .aboutHero {
+    min-height: 72vh;
+    align-items: center;
+  }
+
+  .aboutHeroContent {
+    padding: 50px 20px 80px;
+    max-width: 600px;
+  }
+
+  .aboutHeroContent h1 {
+    font-size: clamp(2.7rem, 9vw, 4.4rem);
+    line-height: 0.98;
+    letter-spacing: -1.5px;
+  }
+
+  .aboutScript {
+    font-size: clamp(3.8rem, 13vw, 6rem);
+    margin-top: 6px;
+  }
+
+  .aboutHeroContent p {
+    margin-top: 28px;
+    margin-bottom: 25px;
+    font-size: 0.96rem;
+    line-height: 1.7;
+  }
+
+  .aboutHeroBtn {
+    padding: 12px 20px;
+    font-size: 0.88rem;
+  }
+
+  .aboutScrollIndicator {
+    right: 20px;
+    bottom: 22px;
+  }
+
+  .teamEditorial { padding: 70px 16px; }
+  .teamHeaderCenter { margin-bottom: 45px; }
+
+  .teamHeaderCenter h2 {
+    font-size: clamp(2.8rem, 8vw, 3.8rem);
+  }
+
+  .teamHeaderDescription {
+    max-width: 620px;
+    font-size: 0.94rem;
+    line-height: 1.65;
+  }
+
+  .teamList { gap: 40px; }
+
+  .teamImageCol {
+    width: min(78%, 330px);
+    max-width: 330px;
+    height: 420px;
+  }
+
+  .teamTextCol {
+    width: 94%;
+    margin-top: -30px;
+    padding: 30px 24px;
+  }
+
+  .teamRole {
+    font-size: 0.8rem;
+    letter-spacing: 0.8px;
+  }
+
+  .teamTextCol h3 {
+    font-size: clamp(1.7rem, 6vw, 2.2rem);
+    line-height: 1.1;
+    margin-bottom: 17px;
+  }
+
+  .teamDesc p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    text-align: left;
+  }
+}
+
+/* CELULARES */
+@media (max-width: 600px) {
+  .aboutHero {
+    min-height: 76vh;
+    align-items: flex-end;
+  }
+
+  .aboutHeroImage { background-position: 60% center; }
+
+  .aboutHeroOverlay {
+    background: linear-gradient(
+      180deg,
+      rgba(11, 63, 90, 0.15) 0%,
+      rgba(18, 95, 145, 0.55) 42%,
+      rgba(11, 63, 90, 0.97) 100%
+    );
+  }
+
+  .aboutHeroContent {
+    width: 100%;
+    padding: 100px 16px 82px;
+  }
+
+  .aboutHeroContent h1 {
+    font-size: clamp(2.5rem, 11vw, 3.8rem);
+    line-height: 0.98;
+    letter-spacing: -1px;
+  }
+
+  .aboutScript {
+    font-size: clamp(3.8rem, 18vw, 5.8rem);
+    line-height: 0.85;
+  }
+
+  .aboutHeroContent p {
+    max-width: 100%;
+    margin-top: 25px;
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .aboutHeroActions { width: 100%; }
+
+  .aboutHeroBtn {
+    padding: 11px 18px;
+    font-size: 0.84rem;
+  }
+
+  .aboutScrollIndicator {
+    right: 15px;
+    bottom: 18px;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+  }
+
+  .aboutScrollIndicator svg { width: 18px; }
+
+  .aboutHeroLine {
+    width: 68%;
+    height: 4px;
+  }
+
+  .teamEditorial { padding: 60px 12px; }
+  .teamHeaderCenter { margin-bottom: 38px; }
+
+  .teamHeaderCenter h2 {
+    font-size: clamp(2.5rem, 10vw, 3.3rem);
+    margin-bottom: 16px;
+  }
+
+  .teamHeaderDescription {
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  .teamList { gap: 34px; }
+
+  .teamImageCol {
+    width: 88%;
+    max-width: 310px;
+    height: 385px;
+    padding: 0;
+  }
+
+  .teamImageCol::after {
+    inset: -14px;
+    filter: blur(19px);
+    opacity: 0.28;
+  }
+
+  .imageWrapper {
+    inset: 5px;
+    border-radius: 15px;
+  }
+
+  .imageWrapper::after {
+    inset: 3px;
+    border-width: 1px;
+  }
+
+  .teamTextCol {
+    width: 94%;
+    margin-top: -28px;
+    padding: 25px 18px;
+    border-radius: 14px;
+  }
+
+  .teamRole {
+    font-size: 0.76rem;
+    letter-spacing: 0.7px;
+    line-height: 1.4;
+  }
+
+  .teamTextCol h3 {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+    margin-bottom: 16px;
+  }
+
+  .teamDesc p {
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+}
+
+/* CELULARES PEQUEÑOS */
+@media (max-width: 400px) {
+  .aboutHero { min-height: 78vh; }
+
+  .aboutHeroContent { padding: 95px 14px 78px; }
+
+  .aboutHeroContent h1 { font-size: 2.35rem; }
+  .aboutScript { font-size: 4rem; }
+  .aboutHeroContent p { font-size: 0.84rem; }
+
+  .aboutHeroBtn {
+    padding: 10px 16px;
+    font-size: 0.8rem;
+  }
+
+  .aboutScrollIndicator { display: none; }
+
+  .teamEditorial { padding: 50px 10px; }
+
+  .teamHeaderCenter h2 { font-size: 2.35rem; }
+  .teamHeaderDescription { font-size: 0.83rem; }
+  .teamList { gap: 30px; }
+
+  .teamImageCol {
+    width: 92%;
+    max-width: 290px;
+    height: 360px;
+  }
+
+  .teamImageCol::after {
+    inset: -12px;
+    filter: blur(17px);
+    opacity: 0.25;
+  }
+
+  .imageWrapper {
+    inset: 5px;
+    border-radius: 14px;
+  }
+
+  .imageWrapper::after {
+    inset: 3px;
+    border-width: 1px;
+  }
+
+  .teamTextCol {
+    width: 96%;
+    margin-top: -25px;
+    padding: 22px 15px;
+  }
+
+  .teamRole { font-size: 0.72rem; }
+  .teamTextCol h3 { font-size: 1.42rem; }
+
+  .teamDesc p {
+    font-size: 0.81rem;
+    line-height: 1.6;
+  }
+}
+
+/* REDUCCIÓN DE MOVIMIENTO */
+@media (prefers-reduced-motion: reduce) {
+  .aboutHeroImage,
+  .aboutHeroContent,
+  .aboutScrollIndicator svg,
+  .teamImageCol {
+    animation: none;
+  }
+
+  .aboutHeroBtn,
+  .teamTextCol,
+  .imageWrapper,
+  .imageWrapper img {
+    transition: none;
+  }
+}

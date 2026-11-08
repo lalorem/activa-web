@@ -1,0 +1,481 @@
+
+/* =========================================================
+   LÍNEAS DE ACCIÓN - ACTIVA
+   Paleta oficial: Lima + Verde + Azul
+========================================================= */
+
+/* =========================================================
+   VARIABLES GENERALES
+========================================================= */
+
+.lineasAccionPage {
+    --lineas-lima: #C7E600;
+    --lineas-verde: #00A651;
+    --lineas-azul: #0072CE;
+
+    --lineas-gradient: linear-gradient(
+        120deg,
+        var(--lineas-azul),
+        var(--lineas-verde),
+        var(--lineas-lima)
+    );
+
+    --lineas-gradient-hover: linear-gradient(
+        120deg,
+        var(--lineas-verde),
+        var(--lineas-azul)
+    );
+
+    --lineas-bg: #f7faf8;
+    --lineas-card: #ffffff;
+    --lineas-text: #1d2924;
+    --lineas-muted: #65716b;
+    --lineas-border: rgba(0, 114, 206, 0.10);
+    --lineas-shadow: 0 15px 40px rgba(0, 80, 70, 0.09);
+
+    width: 100%;
+    overflow: hidden;
+    background: var(--lineas-bg);
+    color: var(--lineas-text);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.lineasHero {
+    position: relative;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--lineas-gradient);
+}
+
+.lineasHero::before,
+.lineasHero::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.lineasHero::before {
+    width: 380px;
+    height: 380px;
+    top: -180px;
+    left: -80px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.lineasHero::after {
+    width: 480px;
+    height: 480px;
+    right: -180px;
+    bottom: -300px;
+    background: rgba(255, 255, 255, 0.10);
+}
+
+.lineasHeroOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 70, 110, 0.15),
+        transparent,
+        rgba(0, 80, 40, 0.12)
+    );
+}
+
+.lineasHeroContent {
+    position: relative;
+    z-index: 1;
+    width: min(1200px, calc(100% - 40px));
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.lineasHeroContent h1 {
+    margin: 0;
+    color: #ffffff;
+    font-family: "Caveat Brush", cursive;
+    font-size: clamp(3rem, 6vw, 4.75rem);
+    font-weight: 400;
+    line-height: 1.1;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================================================
+   CONTENEDOR GENERAL
+========================================================= */
+
+.container {
+    width: min(1200px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+/* =========================================================
+   PROPUESTA DE VALOR
+========================================================= */
+
+.propuestaSection {
+    padding: 90px 0 75px;
+    background: var(--lineas-bg);
+}
+
+.sectionHeading {
+    position: relative;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.sectionHeading h2 {
+    margin: 0;
+    color: var(--lineas-text);
+    font-family: "Caveat Brush", cursive;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.sectionHeading::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 5px;
+    margin: 18px auto 0;
+    border-radius: 10px;
+    background: var(--lineas-gradient);
+}
+
+.propuestaText {
+    max-width: 1100px;
+    margin: 0 auto;
+    color: var(--lineas-muted);
+    font-family: "Inter", sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    text-align: justify;
+}
+
+/* =========================================================
+   TARJETAS DE LÍNEAS DE ACCIÓN
+========================================================= */
+
+.lineasCardsSection {
+    position: relative;
+    padding: 90px 0;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(199, 230, 0, 0.09),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(0, 114, 206, 0.08),
+            transparent 25%
+        ),
+        var(--lineas-bg);
+}
+
+.lineasCardsGrid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+}
+
+.lineasCardsGrid::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    top: -60px;
+    right: -50px;
+    border: 25px solid rgba(0, 166, 81, 0.05);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.lineaCard {
+    --linea-color: var(--lineas-azul);
+
+    position: relative;
+    z-index: 1;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--lineas-border);
+    border-radius: 24px;
+    background: var(--lineas-card);
+    box-shadow: var(--lineas-shadow);
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.lineaCard::before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 7px;
+    background: var(--linea-color);
+}
+
+.lineaCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 22px 45px rgba(0, 80, 70, 0.15);
+}
+
+.lineaCardLima {
+    --linea-color: #C7E600;
+}
+
+.lineaCardVerde {
+    --linea-color: #00A651;
+}
+
+.lineaCardAzul {
+    --linea-color: #0072CE;
+}
+
+/* Imagen de cada tarjeta */
+
+.lineaCardImage {
+    width: 100%;
+    height: 270px;
+    overflow: hidden;
+    background: #e9efeb;
+}
+
+.lineaCardImage img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center 35%;
+    transition: transform 0.5s ease;
+}
+
+.lineaCard:hover .lineaCardImage img {
+    transform: scale(1.06);
+}
+
+/* Contenido */
+
+.lineaCardContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 30px 32px;
+}
+
+.lineaCardContent h3 {
+    margin: 0 0 14px;
+    color: var(--lineas-text);
+    font-family: "Inter", sans-serif;
+    font-size: 1.45rem;
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.lineaCardContent p {
+    margin: 0 0 25px;
+    color: var(--lineas-muted);
+    font-family: "Inter", sans-serif;
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+
+/* Botón */
+
+.lineaCardButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: auto;
+    padding: 13px 22px;
+    border: 2px solid var(--linea-color);
+    border-radius: 30px;
+    color: var(--linea-color);
+    background: transparent;
+    font-family: "Inter", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    text-decoration: none;
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.lineaCardButton:hover {
+    color: #ffffff;
+    background: var(--linea-color);
+    transform: translateY(-3px);
+}
+
+.lineaCardButton svg {
+    transition: transform 0.3s ease;
+}
+
+.lineaCardButton:hover svg {
+    transform: translateX(4px);
+}
+
+/* =========================================================
+   IMAGEN FINAL
+========================================================= */
+
+.lineasImageSection {
+    position: relative;
+    padding: 80px 0;
+    background: var(--lineas-bg);
+}
+
+.lineasImageWrapper {
+    position: relative;
+    width: min(1200px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 8px;
+    overflow: hidden;
+    border-radius: 28px;
+    background: var(--lineas-gradient);
+    box-shadow: var(--lineas-shadow);
+}
+
+.lineasFinalImage {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
+:global([data-theme="dark"]) .lineasAccionPage {
+    --lineas-bg: #101a24;
+    --lineas-card: #192735;
+    --lineas-text: #f1f5f9;
+    --lineas-muted: #b3c0cc;
+    --lineas-border: rgba(255, 255, 255, 0.08);
+    --lineas-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+:global([data-theme="dark"]) .lineasCardsSection {
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(199, 230, 0, 0.06),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(0, 114, 206, 0.10),
+            transparent 25%
+        ),
+        var(--lineas-bg);
+}
+
+:global([data-theme="dark"]) .lineaCardImage {
+    background: #243443;
+}
+
+:global([data-theme="dark"]) .lineasImageWrapper {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+    .lineasCardsGrid {
+        grid-template-columns: 1fr;
+        max-width: 650px;
+        margin: 0 auto;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE - MÓVIL
+========================================================= */
+
+@media (max-width: 768px) {
+    .lineasHero {
+        min-height: 400px;
+    }
+
+    .propuestaSection {
+        padding: 70px 0 60px;
+    }
+
+    .propuestaText {
+        text-align: left;
+    }
+
+    .lineasCardsSection {
+        padding: 65px 0;
+    }
+
+    .lineaCard {
+        min-height: 480px;
+    }
+
+    .lineaCardImage {
+        height: 250px;
+    }
+
+    .lineasImageSection {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .lineasHero {
+        min-height: 350px;
+    }
+
+    .lineasHeroContent h1 {
+        font-size: 2.8rem;
+    }
+
+    .sectionHeading h2 {
+        font-size: 3rem;
+    }
+
+    .lineaCardImage {
+        height: 230px;
+    }
+
+    .lineaCardContent {
+        padding: 25px 22px;
+    }
+
+    .lineaCardButton {
+        width: 100%;
+    }
+
+    .lineasImageWrapper {
+        width: calc(100% - 30px);
+        padding: 5px;
+        border-radius: 20px;
+    }
+
+    .lineasFinalImage {
+        border-radius: 15px;
+    }
+}

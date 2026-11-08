@@ -1,0 +1,250 @@
+
+/* =========================================================
+   ESTADÍSTICAS — ACTIVA
+   ========================================================= */
+
+.statsSection {
+  position: relative;
+  overflow: hidden;
+  padding: 45px 0 120px;
+  color: var(--text-stats);
+  background: linear-gradient(
+    90deg,
+    #0072CE 0%,
+    #0088A0 48%,
+    #00A651 100%
+  );
+  isolation: isolate;
+}
+
+/* DECORACIONES */
+
+.statsDecoration {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.statsDecorationOne {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: -300px;
+  left: -180px;
+  border-radius: 50%;
+  background: rgba(199, 230, 0, 0.12);
+  filter: blur(10px);
+}
+
+.statsDecorationTwo {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  right: -180px;
+  bottom: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* INTRODUCCIÓN */
+
+.statsIntro {
+  position: relative;
+  z-index: 1;
+  max-width: 620px;
+  margin: 0 auto 45px;
+  text-align: center;
+}
+
+.statsMiniTitle {
+  display: inline-block;
+  color: #C7E600;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.statsIntro p {
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+/* GRID */
+
+.statsGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* TARJETAS */
+
+.statItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: 150px;
+  padding: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease,
+              background 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.statItem:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.14);
+}
+
+/* ICONOS */
+
+.statIconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 58px;
+  height: 58px;
+  border: 1px solid rgba(199, 230, 0, 0.25);
+  border-radius: 18px;
+  background: rgba(199, 230, 0, 0.15);
+}
+
+.statIcon {
+  color: #C7E600;
+  font-size: 29px;
+}
+
+/* CONTENIDO */
+
+.statContent {
+  min-width: 0;
+}
+
+.statNumber {
+  color: #fff;
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.counter {
+  color: #C7E600;
+}
+
+.statTitle {
+  margin-top: 8px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.statDesc {
+  margin-top: 5px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.84rem;
+}
+
+/* ONDA INFERIOR */
+
+.statsWave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.statsWave svg {
+  display: block;
+  width: 100%;
+  height: 120px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1024px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .statItem {
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .statsSection {
+    padding: 35px 0 105px;
+  }
+
+  .statsIntro {
+    margin-bottom: 30px;
+  }
+
+  .statsGrid {
+    gap: 15px;
+  }
+
+  .statItem {
+    min-height: 125px;
+    padding: 20px;
+    gap: 16px;
+    border-radius: 18px;
+  }
+
+  .statIconContainer {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+  }
+
+  .statIcon {
+    font-size: 25px;
+  }
+
+  .statNumber {
+    font-size: 2.6rem;
+  }
+
+  .statsWave {
+    height: 72px;
+  }
+
+  .statsWave svg {
+    height: 72px;
+  }
+}
+
+@media (max-width: 480px) {
+  .statsWave {
+    height: 58px;
+  }
+
+  .statsWave svg {
+    height: 58px;
+  }
+
+  .statItem {
+    padding: 18px;
+  }
+}

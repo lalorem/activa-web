@@ -17,59 +17,61 @@ import styles from './style/navbar.module.css';
 import gov from '../assets/logo_gov.webp';
 import activa from '../assets/logo_activa.webp';
 
+import { Link } from 'react-router-dom';
+
 const menus = [
   {
     nombre: 'Quiénes Somos',
-    ruta: '/quienes-somos.html',
+    ruta: '/quienes-somos',
     opciones: [
-      ['Quiénes Somos', '/quienes-somos.html'],
-      ['Calendario de Actividades y Eventos', '/calendario.html'],
-      ['Directorio Institucional', '/directorio-institucional.html'],
-      ['Noticias ACTIVA', '/NoticiasGeneral.html'],
-      ['Líneas de Acción', '/lineas-accion.html'],
-      ['Estructura Orgánica', '/Estructura-Organica.html'],
-      ['Misión, Visión, Deberes y Políticas', '/mision-vision.html'],
-      ['Publicación de Hojas de Vida', '/vista-hojasdevida.html'],
+      ['Quiénes Somos', '/quienes-somos'],
+      ['Calendario de Actividades y Eventos', '/calendario'],
+      ['Directorio Institucional', '/directorio-institucional'],
+      ['Noticias ACTIVA', '/noticias-general'],
+      ['Líneas de Acción', '/lineas-accion'],
+      ['Organigrama', '/organigrama'],
+      ['Misión, Visión, Deberes y Políticas', '/mision-vision'],
+      ['Publicación de Hojas de Vida', '/publicacion-hojas-vida'],
     ],
   },
   {
     nombre: 'Transparencia',
-    ruta: '/transparencia.html',
+    ruta: '/transparencia',
     opciones: [
-      ['Transparencia', '/transparencia.html'],
-      ['Oficina de Control Interno', '/controlinterno.html'],
-      ['Caracterizaciones', '/caracterizaciones.html'],
-      ['Certificados de Accesibilidad', '/Accesibilidad.html'],
+      ['Transparencia', '/transparencia'],
+      ['Oficina de Control Interno', '/controlinterno'],
+      ['Caracterizaciones', '/caracterizaciones'],
+      ['Certificados de Accesibilidad', '/Accesibilidad'],
       {
         nombre: 'Planeación, Presupuestos e Informes',
-        ruta: '/planeacion-presupuestos-informes.html',
+        ruta: '/planeacion-presupuestos-informes',
         opciones: [
-          ['Información para Mujeres', '/informacion-mujeres.html'],
-          ['Información para Niños, Niñas y Adolescentes (NNA)', '/informacion-niños-adolescentes.html'],
-          ['Otros Grupos de Interés', '/grupos-interes.html'],
-          ['Planeación', '/planeacion.html'],
-          ['Sistema de Gestión de Calidad', '/sistema-gestion-calidad.html'],
+          ['Información para Mujeres', '/informacion-mujeres'],
+          ['Información para Niños, Niñas y Adolescentes (NNA)', '/informacion-niños-adolescentes'],
+          ['Otros Grupos de Interés', '/grupos-interes'],
+          ['Planeación', '/planeacion'],
+          ['Sistema de Gestión de Calidad', '/sistema-gestion-calidad'],
         ],
       },
       {
         nombre: 'Normativa',
-        ruta: '/normativa-entidad.html',
+        ruta: '/normativa-entidad',
         opciones: [
-          ['Normativa de la Entidad', '/normativa-entidad.html'],
-          ['Resoluciones', '/resoluciones.html'],
-          ['Acuerdos', '/acuerdos.html'],
-          ['Políticas, Lineamientos y Manuales', '/politicas-lineamientos-manuales.html'],
+          ['Normativa de la Entidad', '/normativa-entidad'],
+          ['Resoluciones', '/resoluciones'],
+          ['Acuerdos', '/acuerdos'],
+          ['Políticas, Lineamientos y Manuales', '/politicas-lineamientos-manuales'],
           ['SUIN', 'https://www.suin-juriscol.gov.co/'],
-          ['Estados Financieros', '/estados-financieros.html'],
+          ['Estados Financieros', '/estados-financieros'],
         ],
       },
     ],
   },
   {
     nombre: 'Participa',
-    ruta: '/participa.html',
+    ruta: '/participa',
     opciones: [
-      ['Descripción General', '/participa.html'],
+      ['Descripción General', '/participa'],
       ['Menú Participa', 'https://activa.com.co/menu-participa/'],
       ['Rendición de Cuentas', 'https://activa.com.co/rendicion-de-cuentas/'],
       ['Formulario de Contacto', 'https://activa.com.co/pqrs/'],
@@ -82,26 +84,26 @@ const menus = [
   },
   {
     nombre: 'Contratación',
-    ruta: '/contratacion.html',
+    ruta: '/contratacion',
     opciones: [
-      ['Contratación', '/contratacion.html'],
-      ['Manifestaciones de Interés', '/manifestaciones-interes.html'],
-      ['Proveedores', '/proveedores.html'],
-      ['Tutoriales y Accesos', '/tutoriales-accesos.html'],
+      ['Contratación', '/contratacion'],
+      ['Manifestaciones de Interés', '/manifestaciones-interes'],
+      ['Proveedores', '/proveedores'],
+      ['Tutoriales y Accesos', '/tutoriales-accesos'],
     ],
   },
   {
     nombre: 'Unidades de Negocio',
-    ruta: '/unidades-negocio.html',
+    ruta: '/unidades-negocio',
     opciones: [
-      ['Unidades de Negocio', '/unidades-negocio.html'],
-      ['Operación Logística Integral', '/operacion-logistica.html'],
-      ['Eventos Propios', '/eventos-propios.html'],
-      ['Administración de Parques', '/administracion-parques.html'],
-      ['Parques ACTIVA', '/parques-activa.html'],
-      ['Caféstival', '/cafestival.html'],
-      ['Galería de Eventos', '/galeria-eventos.html'],
-      ['Portafolio', '/portafolio.html'],
+      ['Unidades de Negocio', '/unidades-negocio'],
+      ['Operación Logística Integral', '/operacion-logistica'],
+      ['Eventos Propios', '/eventos-propios'],
+      ['Administración de Parques', '/administracion-parques'],
+      ['Parques ACTIVA', '/parques-activa'],
+      ['Caféstival', '/cafestival'],
+      ['Galería de Eventos', '/galeria-eventos'],
+      ['Portafolio', '/portafolio'],
     ],
   },
 ];
@@ -167,7 +169,21 @@ function Navbar() {
 
   const esEnlaceExterno = (ruta) => ruta.startsWith('https://');
 
-  const renderEnlace = (nombre, ruta, cerrar = false) => (
+  
+const renderEnlace = (nombre, ruta, cerrar = false) => {
+  if (ruta === '/quienes-somos') {
+    return (
+      <Link
+        to={ruta}
+        key={`${nombre}-${ruta}`}
+        onClick={cerrar ? cerrarMenu : undefined}
+      >
+        {nombre}
+      </Link>
+    );
+  }
+
+  return (
     <a
       href={ruta}
       key={`${nombre}-${ruta}`}
@@ -178,6 +194,8 @@ function Navbar() {
       {nombre}
     </a>
   );
+};
+
 
   const renderOpciones = (opciones, menuPadre) =>
     opciones.map((opcion) => {
@@ -322,7 +340,7 @@ function Navbar() {
             <li className={styles['menu-item-simple']}>
               {renderEnlace(
                 'Atención y Servicio a la Ciudadanía',
-                '/atencion-servicio-ciudadania.html',
+                '/atencion-servicio-ciudadania',
                 true
               )}
             </li>

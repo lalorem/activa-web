@@ -1,0 +1,313 @@
+
+/* =========================================================
+   PÁGINA 404 - ACTIVA
+   Paleta institucional: Lima + Verde + Azul
+========================================================= */
+
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+========================================================= */
+
+.errorPage {
+    position: relative;
+    min-height: 75vh;
+    padding: 90px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    isolation: isolate;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(199, 230, 0, 0.13), transparent 28%),
+        radial-gradient(circle at 85% 75%, rgba(0, 114, 206, 0.10), transparent 30%),
+        #ffffff;
+}
+
+
+/* =========================================================
+   DECORACIONES DE FONDO
+========================================================= */
+
+.errorDecorationOne,
+.errorDecorationTwo,
+.errorDecorationThree {
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.errorDecorationOne {
+    width: 260px;
+    height: 260px;
+    top: -100px;
+    left: -80px;
+    background: rgba(199, 230, 0, 0.15);
+    filter: blur(2px);
+}
+
+.errorDecorationTwo {
+    width: 340px;
+    height: 340px;
+    right: -150px;
+    bottom: -150px;
+    background: rgba(0, 166, 81, 0.10);
+}
+
+.errorDecorationThree {
+    width: 130px;
+    height: 130px;
+    top: 15%;
+    right: 16%;
+    border: 25px solid rgba(0, 114, 206, 0.08);
+}
+
+
+/* =========================================================
+   CONTENIDO
+========================================================= */
+
+.errorContent {
+    width: 100%;
+    max-width: 760px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* =========================================================
+   ICONO
+========================================================= */
+
+.errorIcon {
+    width: 76px;
+    height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0072CE;
+    background: rgba(0, 114, 206, 0.09);
+    border: 1px solid rgba(0, 114, 206, 0.15);
+    border-radius: 24px;
+    margin-bottom: 15px;
+    transform: rotate(-8deg);
+}
+
+
+/* =========================================================
+   NÚMERO 404
+========================================================= */
+
+.errorNumber {
+    font-size: clamp(130px, 23vw, 230px);
+    line-height: 0.95;
+    font-weight: 900;
+    letter-spacing: -12px;
+    background: linear-gradient(
+        115deg,
+        #C7E600 5%,
+        #00A651 48%,
+        #0072CE 95%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 12px 15px rgba(0, 114, 206, 0.10));
+}
+
+
+/* =========================================================
+   ETIQUETA
+========================================================= */
+
+.errorLabel {
+    margin-top: 22px;
+    padding: 9px 18px;
+    border-radius: 30px;
+    color: #008c4a;
+    background: rgba(199, 230, 0, 0.17);
+    border: 1px solid rgba(0, 166, 81, 0.20);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   TEXTOS
+========================================================= */
+
+.errorContent h1 {
+    margin: 22px 0 12px;
+    color: #24364d;
+    font-size: clamp(27px, 4vw, 38px);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.errorContent p {
+    max-width: 590px;
+    margin: 0;
+    color: #64748b;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.errorButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.errorHomeButton,
+.errorBackButton {
+    min-height: 50px;
+    padding: 0 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.errorHomeButton {
+    color: #ffffff;
+    background: linear-gradient(110deg, #00A651, #0072CE);
+    border: none;
+    box-shadow: 0 7px 18px rgba(0, 114, 206, 0.20);
+}
+
+.errorHomeButton:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 11px 23px rgba(0, 114, 206, 0.28);
+}
+
+.errorBackButton {
+    color: #24364d;
+    background: #ffffff;
+    border: 1px solid #dce4eb;
+}
+
+.errorBackButton:hover {
+    color: #0072CE;
+    border-color: #0072CE;
+    transform: translateY(-4px);
+}
+
+
+/* =========================================================
+   MENSAJE INFERIOR
+========================================================= */
+
+.errorFooter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 42px;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
+:global([data-theme="dark"]) .errorPage {
+    background:
+        radial-gradient(circle at 15% 20%, rgba(199, 230, 0, 0.08), transparent 28%),
+        radial-gradient(circle at 85% 75%, rgba(0, 114, 206, 0.12), transparent 30%),
+        #0f172a;
+}
+
+:global([data-theme="dark"]) .errorContent h1 {
+    color: #f1f5f9;
+}
+
+:global([data-theme="dark"]) .errorContent p {
+    color: #a8b5c7;
+}
+
+:global([data-theme="dark"]) .errorBackButton {
+    color: #e2e8f0;
+    background: #1e293b;
+    border-color: #334155;
+}
+
+:global([data-theme="dark"]) .errorBackButton:hover {
+    color: #C7E600;
+    border-color: #C7E600;
+}
+
+:global([data-theme="dark"]) .errorFooter {
+    color: #8493a8;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .errorPage {
+        min-height: 70vh;
+        padding: 65px 20px;
+    }
+
+    .errorNumber {
+        letter-spacing: -7px;
+    }
+
+    .errorIcon {
+        width: 65px;
+        height: 65px;
+        border-radius: 20px;
+    }
+
+    .errorContent h1 {
+        font-size: 27px;
+    }
+
+    .errorContent p {
+        font-size: 14px;
+    }
+
+    .errorButtons {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .errorHomeButton,
+    .errorBackButton {
+        width: 100%;
+        max-width: 290px;
+    }
+
+    .errorFooter {
+        font-size: 11px;
+        text-align: center;
+    }
+
+    .errorDecorationThree {
+        right: -45px;
+    }
+}

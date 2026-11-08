@@ -145,6 +145,7 @@ function Home() {
         </div>
       </header>
     </main>
+    
   );
 }
 

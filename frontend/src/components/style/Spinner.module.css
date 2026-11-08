@@ -1,0 +1,131 @@
+
+/* =========================================================
+   SPINNER - ACTIVA
+   Paleta institucional: Lima + Verde + Azul
+========================================================= */
+
+
+/* =========================================================
+   CONTENEDOR
+========================================================= */
+
+.spinnerContainer {
+    width: 100%;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 30px 20px;
+}
+
+
+/* =========================================================
+   ANIMACIÓN PRINCIPAL
+========================================================= */
+
+.spinner {
+    position: relative;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: 5px solid rgba(0, 114, 206, 0.12);
+    border-top-color: #C7E600;
+    border-right-color: #00A651;
+    border-bottom-color: #0072CE;
+    animation: spinnerRotate 1s linear infinite;
+}
+
+
+/* =========================================================
+   CENTRO DEL SPINNER
+========================================================= */
+
+.spinnerCenter {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    background: #00A651;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 12px rgba(0, 166, 81, 0.35);
+}
+
+
+/* =========================================================
+   TEXTO DE CARGA
+========================================================= */
+
+.spinnerText {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    animation: spinnerPulse 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   PANTALLA COMPLETA
+========================================================= */
+
+.fullScreen {
+    min-height: 65vh;
+}
+
+
+/* =========================================================
+   ANIMACIONES
+========================================================= */
+
+@keyframes spinnerRotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinnerPulse {
+    0%, 100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
+:global([data-theme="dark"]) .spinner {
+    border-color: rgba(255, 255, 255, 0.10);
+    border-top-color: #C7E600;
+    border-right-color: #00A651;
+    border-bottom-color: #0072CE;
+}
+
+:global([data-theme="dark"]) .spinnerText {
+    color: #a8b5c7;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 600px) {
+    .spinner {
+        width: 55px;
+        height: 55px;
+    }
+
+    .spinnerText {
+        font-size: 13px;
+    }
+}
