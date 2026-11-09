@@ -17,6 +17,11 @@ import LineasAccion from "./pages/LineasAccion";
 import MisionVision from "./pages/MisionVision";
 import PublicacionHojasVida from "./pages/PublicacionHojasVida";
 import Organigrama from "./pages/Organigrama";
+import Transparencia from "./pages/Transparencia";
+import OficinaControlInterno from "./pages/OficinaControlInterno";
+import CertificadosAccesibilidad from "./pages/CertificadosAccesibilidad";
+import InformacionMujeres from "./pages/InformacionMujeres";
+import InformacionNNA from "./pages/InformacionNNA";
 
 import Footer from "./components/Footer";
 
@@ -58,6 +63,16 @@ function App() {
         <Route path="/publicacion-hojas-vida" element={<PublicacionHojasVida />} />
 
         <Route path="/organigrama" element={<Organigrama />} />
+
+        <Route path="/transparencia" element={<Transparencia />} />
+
+        <Route path="/oficina-control-interno" element={<OficinaControlInterno />} />
+
+        <Route path="/certificados-accesibilidad" element={<CertificadosAccesibilidad />} />
+
+        <Route path="/informacion-mujeres" element={<InformacionMujeres />} />
+
+        <Route path="/informacion-nna" element={<InformacionNNA />} />
 
       </Routes>
 

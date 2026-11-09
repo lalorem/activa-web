@@ -39,15 +39,15 @@ const menus = [
     ruta: '/transparencia',
     opciones: [
       ['Transparencia', '/transparencia'],
-      ['Oficina de Control Interno', '/controlinterno'],
+      ['Oficina de Control Interno', '/oficina-control-interno'],
       ['Caracterizaciones', '/caracterizaciones'],
-      ['Certificados de Accesibilidad', '/Accesibilidad'],
+      ['Certificados de Accesibilidad', '/certificados-accesibilidad'],
       {
         nombre: 'Planeación, Presupuestos e Informes',
         ruta: '/planeacion-presupuestos-informes',
         opciones: [
           ['Información para Mujeres', '/informacion-mujeres'],
-          ['Información para Niños, Niñas y Adolescentes (NNA)', '/informacion-niños-adolescentes'],
+          ['Información para Niños, Niñas y Adolescentes (NNA)', '/informacion-nna'],
           ['Otros Grupos de Interés', '/grupos-interes'],
           ['Planeación', '/planeacion'],
           ['Sistema de Gestión de Calidad', '/sistema-gestion-calidad'],

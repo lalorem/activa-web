@@ -1,0 +1,821 @@
+
+/* =========================================================
+   TRANSPARENCIA - ACTIVA
+   Paleta institucional: Lima + Verde + Azul
+========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+.transparenciaPage {
+    --trans-lima: #C7E600;
+    --trans-verde: #00A651;
+    --trans-azul: #0072CE;
+
+    --trans-gradient: linear-gradient(
+        135deg,
+        #C7E600 0%,
+        #00A651 48%,
+        #0072CE 100%
+    );
+
+    --trans-bg: #f7faf8;
+    --trans-card: #ffffff;
+    --trans-text: #1d2924;
+    --trans-muted: #65716b;
+    --trans-border: rgba(0, 114, 206, 0.12);
+    --trans-shadow: 0 15px 40px rgba(0, 80, 70, 0.08);
+
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background: var(--trans-bg);
+    color: var(--trans-text);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
+:global([data-theme="dark"]) .transparenciaPage {
+    --trans-bg: #0f172a;
+    --trans-card: #24364d;
+    --trans-text: #f8fafc;
+    --trans-muted: #b0bdca;
+    --trans-border: #3b5068;
+    --trans-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    position: relative;
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 25px;
+    isolation: isolate;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 47, 91, 0.78) 0%,
+            rgba(0, 85, 120, 0.72) 45%,
+            rgba(0, 114, 206, 0.45) 75%,
+            rgba(0, 166, 81, 0.30) 100%
+        ),
+        url("../../assets/header1.jpeg") center / cover no-repeat;
+}
+
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: transFloat 8s ease-in-out infinite;
+}
+
+.hero::before {
+    width: 360px;
+    height: 360px;
+    top: -150px;
+    right: -100px;
+    background: radial-gradient(
+        circle,
+        rgba(199, 230, 0, 0.28),
+        rgba(199, 230, 0, 0.03) 70%,
+        transparent 75%
+    );
+}
+
+.hero::after {
+    width: 280px;
+    height: 280px;
+    bottom: -100px;
+    left: 8%;
+    background: radial-gradient(
+        circle,
+        rgba(0, 166, 81, 0.25),
+        transparent 75%
+    );
+    animation-delay: -3s;
+}
+
+
+/* =========================================================
+   CONTENIDO DEL HERO
+========================================================= */
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    width: min(900px, 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+}
+
+.heroLabel {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    margin-bottom: 28px;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.heroContent h1 {
+    margin: 0 0 22px;
+    color: #ffffff;
+    font-size: clamp(3.2rem, 7vw, 6.3rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -2.5px;
+}
+
+.heroContent p {
+    max-width: 700px;
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.93);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   ANIMACIÓN HERO
+========================================================= */
+
+@keyframes transFloat {
+    0%,
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+
+    50% {
+        transform: translateY(-18px) translateX(-10px);
+    }
+}
+
+
+/* =========================================================
+   INTRODUCCIÓN
+========================================================= */
+
+.intro {
+    position: relative;
+    z-index: 2;
+    width: min(950px, calc(100% - 40px));
+    margin: -45px auto 0;
+    padding: 35px 40px;
+
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    background: var(--trans-card);
+    border: 1px solid var(--trans-border);
+    border-radius: 22px;
+    box-shadow: var(--trans-shadow);
+
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.introIcon {
+    flex-shrink: 0;
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+    background: var(--trans-gradient);
+    border-radius: 19px;
+    box-shadow: 0 8px 20px rgba(0, 130, 90, 0.16);
+}
+
+.intro p {
+    margin: 0;
+    color: var(--trans-muted);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   SECCIÓN DE MÓDULOS
+========================================================= */
+
+.modulesSection {
+    padding: 90px 20px 110px;
+    background: var(--trans-bg);
+}
+
+.sectionHeading {
+    max-width: 750px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.sectionHeading > span {
+    display: inline-block;
+    margin-bottom: 13px;
+
+    color: var(--trans-verde);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.sectionHeading h2 {
+    margin: 0 0 15px;
+    color: var(--trans-text);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.8px;
+}
+
+.sectionHeading p {
+    margin: 0;
+    color: var(--trans-muted);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   LISTA DE MÓDULOS
+========================================================= */
+
+.modulesList {
+    width: min(1120px, 100%);
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+
+/* =========================================================
+   TARJETA PRINCIPAL
+========================================================= */
+
+.module {
+    width: 100%;
+    background: var(--trans-card);
+    border: 1px solid var(--trans-border);
+    border-radius: 22px;
+    box-shadow: var(--trans-shadow);
+    overflow: hidden;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+.module:hover {
+    border-color: rgba(0, 114, 206, 0.28);
+}
+
+
+/* =========================================================
+   ENCABEZADO DESPLEGABLE
+========================================================= */
+
+.moduleSummary {
+    width: 100%;
+    min-height: 105px;
+    padding: 24px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+
+    cursor: pointer;
+    list-style: none;
+    color: var(--trans-text);
+
+    transition: background 0.3s ease;
+}
+
+.moduleSummary::-webkit-details-marker {
+    display: none;
+}
+
+.moduleSummary::marker {
+    display: none;
+}
+
+.moduleSummary:hover {
+    background: rgba(0, 114, 206, 0.035);
+}
+
+
+/* =========================================================
+   INFORMACIÓN DEL MÓDULO
+========================================================= */
+
+.moduleInfo {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    min-width: 0;
+}
+
+
+/* =========================================================
+   NÚMERO
+========================================================= */
+
+.moduleNumber {
+    flex-shrink: 0;
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+    background: var(--trans-gradient);
+    border-radius: 17px;
+
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+
+    box-shadow: 0 8px 20px rgba(0, 130, 90, 0.16);
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.moduleTitle {
+    color: var(--trans-text);
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.5;
+    text-align: left;
+}
+
+
+/* =========================================================
+   BOTÓN DESPLEGABLE
+========================================================= */
+
+.moduleToggle {
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--trans-azul);
+    background: var(--trans-card);
+    border: 1px solid var(--trans-border);
+    border-radius: 50%;
+
+    transition:
+        transform 0.35s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.module[open] .moduleToggle {
+    color: #ffffff;
+    background: var(--trans-gradient);
+    border-color: transparent;
+}
+
+
+/* =========================================================
+   CONTENIDO DESPLEGABLE
+========================================================= */
+
+.moduleContent {
+    padding: 0 30px 30px;
+    border-top: 1px solid var(--trans-border);
+    color: var(--trans-text);
+
+    animation: transAppear 0.35s ease;
+}
+
+@keyframes transAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   SUBSECCIONES
+========================================================= */
+
+.moduleSubsection {
+    margin-top: 28px;
+}
+
+.moduleSubsection h4,
+.textSection h4 {
+    margin: 0 0 15px;
+    color: var(--trans-azul);
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   GRID DE DOCUMENTOS
+========================================================= */
+
+.moduleLinksGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    padding-top: 25px;
+}
+
+.moduleSubsection .moduleLinksGrid {
+    padding-top: 5px;
+}
+
+
+/* =========================================================
+   TARJETAS DE DOCUMENTOS
+========================================================= */
+
+.moduleLink {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 17px;
+
+    width: 100%;
+    min-height: 100px;
+    padding: 20px;
+
+    box-sizing: border-box;
+    overflow: hidden;
+
+    color: var(--trans-text);
+    background: var(--trans-card);
+    border: 1px solid var(--trans-border);
+    border-radius: 18px;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.moduleLink::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 5px;
+    background: var(--trans-gradient);
+
+    transition: width 0.3s ease;
+}
+
+.moduleLink:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 114, 206, 0.3);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.09);
+}
+
+.moduleLink:hover::before {
+    width: 8px;
+}
+
+
+/* =========================================================
+   ICONO DEL DOCUMENTO
+========================================================= */
+
+.linkIcon {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+    background: var(--trans-gradient);
+    border-radius: 15px;
+
+    box-shadow: 0 8px 18px rgba(0, 130, 90, 0.15);
+}
+
+
+/* =========================================================
+   TEXTO DEL DOCUMENTO
+========================================================= */
+
+.linkText {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    min-width: 0;
+}
+
+.linkText strong {
+    display: block;
+    margin-bottom: 5px;
+
+    color: var(--trans-text);
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.45;
+}
+
+.linkText small {
+    display: block;
+    color: var(--trans-muted);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   FLECHA DE ENLACES EXTERNOS
+========================================================= */
+
+.linkArrow {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+    color: var(--trans-azul);
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+.moduleLink:hover .linkArrow {
+    transform: translate(3px, -3px);
+    color: var(--trans-verde);
+}
+
+
+/* =========================================================
+   BLOQUES DE TEXTO
+========================================================= */
+
+.textSection {
+    margin-top: 25px;
+    margin-bottom: 28px;
+    padding: 22px;
+
+    background: rgba(0, 114, 206, 0.035);
+    border: 1px solid var(--trans-border);
+    border-radius: 16px;
+}
+
+.textSection h4 {
+    margin-bottom: 10px;
+}
+
+.textSection p {
+    margin: 0;
+    color: var(--trans-muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   MODO OSCURO - ELEMENTOS
+========================================================= */
+
+:global([data-theme="dark"]) .moduleSummary:hover {
+    background: rgba(255, 255, 255, 0.035);
+}
+
+:global([data-theme="dark"]) .textSection {
+    background: rgba(255, 255, 255, 0.035);
+}
+
+:global([data-theme="dark"]) .moduleLink:hover {
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.22);
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .hero {
+        min-height: 60vh;
+    }
+
+    .intro {
+        padding: 30px;
+    }
+
+    .modulesSection {
+        padding: 75px 20px 85px;
+    }
+
+    .moduleLinksGrid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - MÓVIL
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .hero {
+        min-height: 55vh;
+        padding: 80px 20px;
+    }
+
+    .heroLabel {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    .heroContent h1 {
+        font-size: clamp(2.8rem, 12vw, 4rem);
+        letter-spacing: -1.5px;
+    }
+
+    .heroContent p {
+        font-size: 0.95rem;
+    }
+
+    .intro {
+        width: calc(100% - 30px);
+        margin-top: -30px;
+        padding: 25px 20px;
+
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .introIcon {
+        width: 55px;
+        height: 55px;
+    }
+
+    .intro p {
+        font-size: 13px;
+        text-align: left;
+    }
+
+    .modulesSection {
+        padding: 65px 15px 75px;
+    }
+
+    .sectionHeading {
+        margin-bottom: 30px;
+    }
+
+    .sectionHeading h2 {
+        font-size: 1.8rem;
+    }
+
+    .sectionHeading p {
+        font-size: 13px;
+    }
+
+    .modulesList {
+        gap: 13px;
+    }
+
+    .module {
+        border-radius: 17px;
+    }
+
+    .moduleSummary {
+        min-height: 85px;
+        padding: 17px 15px;
+        gap: 12px;
+    }
+
+    .moduleInfo {
+        gap: 13px;
+    }
+
+    .moduleNumber {
+        width: 43px;
+        height: 43px;
+        min-width: 43px;
+        border-radius: 13px;
+        font-size: 13px;
+    }
+
+    .moduleTitle {
+        font-size: 12px;
+    }
+
+    .moduleToggle {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+    }
+
+    .moduleContent {
+        padding: 0 15px 20px;
+    }
+
+    .moduleLinksGrid {
+        gap: 12px;
+        padding-top: 18px;
+    }
+
+    .moduleLink {
+        min-height: 85px;
+        padding: 15px;
+        gap: 12px;
+        border-radius: 15px;
+    }
+
+    .linkIcon {
+        width: 43px;
+        height: 43px;
+        border-radius: 12px;
+    }
+
+    .linkText strong {
+        font-size: 12px;
+    }
+
+    .linkText small {
+        font-size: 11px;
+    }
+
+    .moduleSubsection h4,
+    .textSection h4 {
+        font-size: 14px;
+    }
+
+    .textSection {
+        padding: 17px;
+    }
+
+    .textSection p {
+        font-size: 13px;
+    }
+
+}

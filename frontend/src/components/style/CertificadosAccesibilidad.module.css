@@ -1,0 +1,1039 @@
+
+/* =========================================================
+   VARIABLES Y ESTILOS GENERALES
+========================================================= */
+
+.accessibilityPage {
+  --hv-lima: #C7E600;
+  --hv-verde: #00A651;
+  --hv-azul: #0072CE;
+
+  --hv-gradient: linear-gradient(
+    135deg,
+    #C7E600 0%,
+    #00A651 48%,
+    #0072CE 100%
+  );
+
+  --hv-gradient-hover: linear-gradient(
+    135deg,
+    #B7D400 0%,
+    #009447 48%,
+    #0065B8 100%
+  );
+
+  --hv-bg: #f7faf8;
+  --hv-card: #ffffff;
+  --hv-text: #1d2924;
+  --hv-muted: #65716b;
+  --hv-border: rgba(0, 114, 206, 0.10);
+  --hv-shadow: 0 15px 40px rgba(0, 80, 70, 0.09);
+
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--hv-bg);
+  color: var(--hv-text);
+  font-family: 'Inter', sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.accessibilityPage *,
+.accessibilityPage *::before,
+.accessibilityPage *::after {
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
+:global([data-theme="dark"]) .accessibilityPage {
+  --hv-bg: #0f172a;
+  --hv-card: #24364d;
+  --hv-text: #f8fafc;
+  --hv-muted: #cbd5e1;
+  --hv-border: #3b5068;
+  --hv-shadow: 0 15px 35px rgba(0, 0, 0, 0.28);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  position: relative;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(
+    115deg,
+    #0072CE 0%,
+    #00A651 52%,
+    #C7E600 100%
+  );
+}
+
+/* =========================================================
+   DECORACIONES DEL HERO
+========================================================= */
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 470px;
+  height: 470px;
+  top: -290px;
+  right: -80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  bottom: -245px;
+  left: -90px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.10);
+}
+
+/* =========================================================
+   OVERLAY DEL HERO
+========================================================= */
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 60, 110, 0.22),
+    rgba(0, 166, 81, 0.04)
+  );
+  pointer-events: none;
+}
+
+/* =========================================================
+   CONTENIDO DEL HERO
+========================================================= */
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  width: min(1100px, 90%);
+  padding: 70px 0;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* =========================================================
+   ETIQUETA SUPERIOR
+========================================================= */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 32px;
+  height: 3px;
+  border-radius: 20px;
+  background: var(--hv-lima);
+}
+
+/* =========================================================
+   TÍTULO HERO
+========================================================= */
+
+.heroContent h1 {
+  margin: 0;
+  font-family: 'Caveat Brush', cursive;
+  font-size: clamp(48px, 6vw, 76px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.2px;
+  color: #ffffff;
+  text-shadow: 0 5px 18px rgba(0, 114, 206, 0.18);
+}
+
+.heroContent h1 span {
+  color: var(--hv-lima);
+}
+
+/* =========================================================
+   TEXTO DEL HERO
+========================================================= */
+
+.heroContent p {
+  max-width: 600px;
+  margin: 22px auto 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* =========================================================
+   FIGURAS DECORATIVAS
+========================================================= */
+
+.heroShape {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.shapeOne {
+  width: 390px;
+  height: 390px;
+  right: -100px;
+  top: -170px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow:
+    0 0 0 35px rgba(255, 255, 255, 0.04),
+    0 0 0 70px rgba(255, 255, 255, 0.025);
+}
+
+.shapeTwo {
+  width: 170px;
+  height: 170px;
+  right: 190px;
+  bottom: -95px;
+  border: 35px solid rgba(199, 230, 0, 0.18);
+}
+
+/* =========================================================
+   SECCIONES PRINCIPALES
+========================================================= */
+
+.intro,
+.certificates,
+.bottom {
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   INTRODUCCIÓN
+========================================================= */
+
+.intro {
+  width: min(1080px, 88%);
+  margin: 0 auto;
+  padding: 65px 0 35px;
+  display: grid;
+  grid-template-columns: 6px 1fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+/* =========================================================
+   LÍNEA DECORATIVA
+========================================================= */
+
+.introLine {
+  width: 6px;
+  border-radius: 20px;
+  background: linear-gradient(
+    180deg,
+    var(--hv-lima),
+    var(--hv-verde),
+    var(--hv-azul)
+  );
+}
+
+/* =========================================================
+   CONTENIDO INTRO
+========================================================= */
+
+.introContent {
+  max-width: 920px;
+}
+
+/* =========================================================
+   ETIQUETAS DE SECCIÓN
+========================================================= */
+
+.sectionLabel {
+  display: block;
+  margin-bottom: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  color: var(--hv-verde);
+}
+
+/* =========================================================
+   TEXTO INTRODUCTORIO
+========================================================= */
+
+.introContent p {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--hv-text);
+  text-align: justify;
+}
+
+/* =========================================================
+   SECCIÓN CERTIFICADOS
+========================================================= */
+
+.certificates {
+  width: min(1120px, 90%);
+  margin: 0 auto;
+  padding: 45px 0 90px;
+}
+
+/* =========================================================
+   CABECERA DE CERTIFICADOS
+========================================================= */
+
+.sectionHeading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 50px;
+  margin-bottom: 42px;
+}
+
+/* =========================================================
+   TÍTULO DE SECCIÓN
+========================================================= */
+
+.sectionHeading h2 {
+  margin: 0;
+  font-family: 'Caveat Brush', cursive;
+  font-size: clamp(38px, 4vw, 52px);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--hv-text);
+}
+
+.sectionHeading h2 span {
+  color: var(--hv-verde);
+}
+
+/* =========================================================
+   TEXTO LATERAL
+========================================================= */
+
+.sectionHeading > p {
+  max-width: 390px;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--hv-muted);
+}
+
+/* =========================================================
+   GRID DE CERTIFICADOS
+========================================================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+/* =========================================================
+   TARJETAS
+========================================================= */
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 345px;
+  padding: 30px;
+  overflow: hidden;
+  text-decoration: none;
+  background: var(--hv-card);
+  border: 1px solid var(--hv-border);
+  border-radius: 24px;
+  box-shadow: var(--hv-shadow);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    background 0.3s ease;
+}
+
+/* =========================================================
+   LÍNEA SUPERIOR
+========================================================= */
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(
+    90deg,
+    var(--hv-lima),
+    var(--hv-verde),
+    var(--hv-azul)
+  );
+  transform: scaleX(0.18);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+/* =========================================================
+   BRILLO LATERAL
+========================================================= */
+
+.card::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  right: -105px;
+  bottom: -105px;
+  border-radius: 50%;
+  background: rgba(0, 166, 81, 0.045);
+  transition: transform 0.4s ease;
+}
+
+/* =========================================================
+   EFECTOS HOVER
+========================================================= */
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 48px rgba(0, 114, 206, 0.14);
+  border-color: rgba(0, 114, 206, 0.20);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card:hover::after {
+  transform: scale(1.45);
+}
+
+/* =========================================================
+   PARTE SUPERIOR DE LA TARJETA
+========================================================= */
+
+.cardTop {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 27px;
+}
+
+/* =========================================================
+   NÚMERO
+========================================================= */
+
+.number {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--hv-azul);
+}
+
+/* =========================================================
+   ICONO
+========================================================= */
+
+.cardIcon {
+  width: 66px;
+  height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  color: #ffffff;
+  font-size: 29px;
+  background: linear-gradient(
+    135deg,
+    var(--hv-lima) 0%,
+    var(--hv-verde) 48%,
+    var(--hv-azul) 100%
+  );
+  box-shadow: 0 10px 24px rgba(0, 130, 90, 0.20);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+.cardIcon svg {
+  width: 29px;
+  height: 29px;
+}
+
+.card:hover .cardIcon {
+  transform: translateY(-3px) rotate(-4deg) scale(1.06);
+  background: var(--hv-gradient-hover);
+  box-shadow: 0 14px 28px rgba(0, 130, 90, 0.26);
+}
+
+/* =========================================================
+   CONTENIDO DE LA TARJETA
+========================================================= */
+
+.cardBody {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  min-width: 0;
+}
+
+/* =========================================================
+   CATEGORÍA
+========================================================= */
+
+.cardCategory {
+  display: block;
+  margin-bottom: 9px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--hv-verde);
+}
+
+/* =========================================================
+   TÍTULO DE LA TARJETA
+========================================================= */
+
+.cardBody h3 {
+  margin: 0 0 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--hv-text);
+  transition: color 0.3s ease;
+}
+
+.card:hover .cardBody h3 {
+  color: var(--hv-azul);
+}
+
+/* =========================================================
+   DESCRIPCIÓN
+========================================================= */
+
+.cardBody p {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--hv-muted);
+}
+
+/* =========================================================
+   ACCIÓN
+========================================================= */
+
+.cardAction {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 25px;
+  padding-top: 17px;
+  border-top: 1px solid rgba(0, 114, 206, 0.08);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--hv-text);
+}
+
+/* =========================================================
+   FLECHA
+========================================================= */
+
+.arrow {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(0, 114, 206, 0.07);
+  color: var(--hv-azul);
+  font-size: 17px;
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    color 0.35s ease;
+}
+
+.arrow svg {
+  width: 17px;
+  height: 17px;
+}
+
+.card:hover .arrow {
+  transform: translate(3px, -3px);
+  background: var(--hv-gradient);
+  color: #ffffff;
+}
+
+/* =========================================================
+   BLOQUE FINAL
+========================================================= */
+
+.bottom {
+  position: relative;
+  width: min(1120px, 90%);
+  margin: 0 auto 90px;
+  padding: 34px 40px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--hv-gradient);
+  color: #ffffff;
+  box-shadow: 0 18px 40px rgba(0, 114, 206, 0.14);
+}
+
+/* =========================================================
+   DECORACIÓN DEL BLOQUE FINAL
+========================================================= */
+
+.bottom::after {
+  content: "";
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  right: -90px;
+  top: -100px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow:
+    0 0 0 25px rgba(255, 255, 255, 0.04),
+    0 0 0 50px rgba(255, 255, 255, 0.025);
+}
+
+/* =========================================================
+   ICONO DEL BLOQUE FINAL
+========================================================= */
+
+.bottomIcon {
+  position: relative;
+  z-index: 2;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(8px);
+  font-size: 28px;
+}
+
+.bottomIcon svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* =========================================================
+   TEXTO DEL BLOQUE FINAL
+========================================================= */
+
+.bottom > div:last-child {
+  position: relative;
+  z-index: 2;
+}
+
+.bottom span {
+  display: block;
+  margin-bottom: 5px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.bottom h2 {
+  margin: 0;
+  font-family: 'Caveat Brush', cursive;
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+/* =========================================================
+   MODO OSCURO - HERO
+========================================================= */
+
+:global([data-theme="dark"]) .hero {
+  background: linear-gradient(
+    115deg,
+    #00579c 0%,
+    #007d3f 52%,
+    #91a900 100%
+  );
+}
+
+:global([data-theme="dark"]) .heroBg {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 60, 110, 0.35),
+    rgba(0, 166, 81, 0.10)
+  );
+}
+
+/* =========================================================
+   MODO OSCURO - INTRODUCCIÓN
+========================================================= */
+
+:global([data-theme="dark"]) .introContent p {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"]) .sectionLabel,
+:global([data-theme="dark"]) .cardCategory {
+  color: var(--hv-lima);
+}
+
+/* =========================================================
+   MODO OSCURO - TÍTULOS
+========================================================= */
+
+:global([data-theme="dark"]) .sectionHeading h2 {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"]) .sectionHeading h2 span {
+  color: var(--hv-lima);
+}
+
+:global([data-theme="dark"]) .sectionHeading > p {
+  color: #cbd5e1;
+}
+
+/* =========================================================
+   MODO OSCURO - TARJETAS
+========================================================= */
+
+:global([data-theme="dark"]) .card {
+  background: #24364d;
+  border-color: #3b5068;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+}
+
+:global([data-theme="dark"]) .card:hover {
+  box-shadow: 0 24px 52px rgba(0, 0, 0, 0.38);
+  border-color: rgba(199, 230, 0, 0.22);
+}
+
+:global([data-theme="dark"]) .card::after {
+  background: rgba(0, 0, 0, 0.035);
+}
+
+:global([data-theme="dark"]) .number {
+  color: #5eb4ff;
+}
+
+:global([data-theme="dark"]) .cardBody h3 {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"]) .card:hover .cardBody h3 {
+  color: #5eb4ff;
+}
+
+:global([data-theme="dark"]) .cardBody p {
+  color: #cbd5e1;
+}
+
+:global([data-theme="dark"]) .cardAction {
+  color: #f8fafc;
+  border-top-color: rgba(148, 163, 184, 0.18);
+}
+
+:global([data-theme="dark"]) .arrow {
+  background: rgba(94, 180, 255, 0.10);
+  color: #5eb4ff;
+}
+
+:global([data-theme="dark"]) .card:hover .arrow {
+  background: linear-gradient(
+    135deg,
+    #C7E600 0%,
+    #00A651 48%,
+    #0072CE 100%
+  );
+  color: #ffffff;
+}
+
+:global([data-theme="dark"]) .cardIcon {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.30);
+}
+
+:global([data-theme="dark"]) .card:hover .cardIcon {
+  box-shadow: 0 15px 32px rgba(0, 0, 0, 0.40);
+}
+
+/* =========================================================
+   MODO OSCURO - BLOQUE FINAL
+========================================================= */
+
+:global([data-theme="dark"]) .bottom {
+  background: linear-gradient(
+    135deg,
+    #C7E600 0%,
+    #00A651 48%,
+    #0072CE 100%
+  );
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.32);
+}
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .sectionHeading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .sectionHeading > p {
+    max-width: 600px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE - CELULAR
+========================================================= */
+
+@media (max-width: 600px) {
+
+  /* HERO */
+
+  .hero {
+    min-height: 270px;
+  }
+
+  .heroContent {
+    width: 88%;
+    padding: 55px 0;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .heroContent h1 {
+    font-size: 47px;
+    line-height: 1.05;
+  }
+
+  .heroContent p {
+    margin-top: 17px;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  /* DECORACIONES */
+
+  .shapeOne {
+    width: 280px;
+    height: 280px;
+    right: -150px;
+    top: -100px;
+  }
+
+  .shapeTwo {
+    width: 120px;
+    height: 120px;
+    right: 40px;
+    bottom: -80px;
+    border-width: 25px;
+  }
+
+  /* INTRODUCCIÓN */
+
+  .intro {
+    width: 86%;
+    padding: 48px 0 25px;
+    grid-template-columns: 5px 1fr;
+    gap: 18px;
+  }
+
+  .introLine {
+    width: 5px;
+  }
+
+  .sectionLabel {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .introContent p {
+    font-size: 14px;
+    line-height: 1.75;
+    text-align: left;
+  }
+
+  /* CERTIFICADOS */
+
+  .certificates {
+    width: 88%;
+    padding: 35px 0 65px;
+  }
+
+  .sectionHeading {
+    margin-bottom: 30px;
+    gap: 14px;
+  }
+
+  .sectionHeading h2 {
+    font-size: 40px;
+    line-height: 1.05;
+  }
+
+  .sectionHeading > p {
+    font-size: 12px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* TARJETAS */
+
+  .card {
+    min-height: 310px;
+    padding: 25px;
+    border-radius: 21px;
+  }
+
+  .cardTop {
+    margin-bottom: 22px;
+  }
+
+  .cardIcon {
+    width: 58px;
+    height: 58px;
+    border-radius: 17px;
+    font-size: 25px;
+  }
+
+  .cardIcon svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .cardBody h3 {
+    font-size: 18px;
+  }
+
+  .cardBody p {
+    font-size: 12px;
+  }
+
+  /* BLOQUE FINAL */
+
+  .bottom {
+    width: 88%;
+    margin-bottom: 60px;
+    padding: 27px 23px;
+    gap: 17px;
+    border-radius: 20px;
+  }
+
+  .bottomIcon {
+    width: 48px;
+    height: 48px;
+    border-radius: 15px;
+    font-size: 23px;
+  }
+
+  .bottomIcon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .bottom span {
+    font-size: 9px;
+    letter-spacing: 1.3px;
+  }
+
+  .bottom h2 {
+    font-size: 25px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE - CELULARES PEQUEÑOS
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .heroContent h1 {
+    font-size: 41px;
+  }
+
+  .heroContent p {
+    font-size: 12px;
+  }
+
+  .sectionHeading h2 {
+    font-size: 36px;
+  }
+
+  .card {
+    min-height: 300px;
+    padding: 22px;
+  }
+
+  .bottom {
+    padding: 23px 18px;
+    gap: 13px;
+  }
+
+  .bottom h2 {
+    font-size: 22px;
+  }
+}

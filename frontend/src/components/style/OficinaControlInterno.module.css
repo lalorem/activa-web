@@ -1,0 +1,660 @@
+
+/* =========================================================
+   VARIABLES DE LA VISTA - OFICINA DE CONTROL INTERNO
+========================================================= */
+
+.controlInternoPage {
+  --control-lima: #C7E600;
+  --control-verde: #00A651;
+  --control-azul: #0072CE;
+
+  --control-gradient: linear-gradient(
+    135deg,
+    #C7E600 0%,
+    #00A651 48%,
+    #0072CE 100%
+  );
+
+  --control-gradient-hover: linear-gradient(
+    135deg,
+    #B7D400 0%,
+    #009447 48%,
+    #0065B8 100%
+  );
+
+  --control-bg: #f7faf8;
+  --control-card: #ffffff;
+  --control-text: #1d2924;
+  --control-muted: #65716b;
+  --control-border: rgba(0, 114, 206, 0.10);
+  --control-shadow: 0 15px 40px rgba(0, 80, 70, 0.09);
+
+  width: 100%;
+  min-height: 100vh;
+  background: var(--control-bg);
+  color: var(--control-text);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
+:global([data-theme="dark"]) .controlInternoPage {
+  --control-bg: #0f172a;
+  --control-card: #24364d;
+  --control-text: #f8fafc;
+  --control-muted: #94a3b8;
+  --control-border: #3b5068;
+  --control-shadow: 0 15px 35px rgba(0, 0, 0, 0.28);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  position: relative;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(
+    115deg,
+    #0072CE 0%,
+    #00A651 52%,
+    #C7E600 100%
+  );
+}
+
+/* =========================================================
+   DECORACIONES DEL HERO
+========================================================= */
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 470px;
+  height: 470px;
+  top: -290px;
+  right: -80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  bottom: -245px;
+  left: -90px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.10);
+}
+
+/* =========================================================
+   CONTENIDO DEL HERO
+========================================================= */
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  width: min(1100px, 90%);
+  text-align: center;
+  color: #ffffff;
+}
+
+.heroContent h1 {
+  margin: 0;
+  color: #ffffff;
+  font-family: "Caveat Brush", cursive;
+  font-size: clamp(48px, 6vw, 76px);
+  font-weight: 400;
+  line-height: 1.05;
+  text-shadow: 0 5px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* =========================================================
+   SECCIÓN DE MÓDULOS
+========================================================= */
+
+.modules {
+  padding: 75px 20px 100px;
+  background: var(--control-bg);
+  transition: background 0.3s ease;
+}
+
+.modulesContainer {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+/* =========================================================
+   MÓDULO PRINCIPAL
+========================================================= */
+
+.module {
+  position: relative;
+  margin-bottom: 18px;
+  background: var(--control-card);
+  border: 1px solid var(--control-border);
+  border-radius: 22px;
+  box-shadow: var(--control-shadow);
+  overflow: hidden;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.module summary {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  width: 100%;
+  padding: 26px 30px;
+  box-sizing: border-box;
+  cursor: pointer;
+  list-style: none;
+  transition: background 0.3s ease;
+}
+
+/* Quitar flecha predeterminada */
+
+.module summary::-webkit-details-marker {
+  display: none;
+}
+
+.module summary::marker {
+  content: "";
+}
+
+/* =========================================================
+   HOVER DEL MÓDULO
+========================================================= */
+
+.module summary:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.06),
+    rgba(0, 0, 0, 0.03),
+    rgba(0, 0, 0, 0.03)
+  );
+}
+
+/* =========================================================
+   INFORMACIÓN DEL MÓDULO
+========================================================= */
+
+.moduleInfo {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  min-width: 0;
+}
+
+/* =========================================================
+   NÚMERO DEL MÓDULO
+========================================================= */
+
+.moduleNumber {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 17px;
+  color: #ffffff;
+  background: var(--control-gradient);
+  font-size: 16px;
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(0, 130, 90, 0.16);
+}
+
+/* =========================================================
+   TÍTULO DEL MÓDULO
+========================================================= */
+
+.moduleTitle {
+  color: var(--control-text);
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+/* =========================================================
+   BOTÓN +
+========================================================= */
+
+.moduleToggle {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--control-border);
+  border-radius: 50%;
+  color: var(--control-azul);
+  background: var(--control-card);
+  font-size: 21px;
+  transition:
+    transform 0.35s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.moduleToggle svg {
+  width: 21px;
+  height: 21px;
+}
+
+/* Cuando el módulo está abierto */
+
+.module[open] .moduleToggle {
+  transform: rotate(45deg);
+  color: #ffffff;
+  background: var(--control-gradient);
+}
+
+/* =========================================================
+   CONTENIDO DESPLEGABLE
+========================================================= */
+
+.moduleContent {
+  padding: 0 30px 30px;
+  border-top: 1px solid var(--control-border);
+}
+
+/* =========================================================
+   GRID DE DOCUMENTOS
+========================================================= */
+
+.linksGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  padding-top: 25px;
+}
+
+/* =========================================================
+   TARJETA DE DOCUMENTO
+========================================================= */
+
+.moduleLink {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  min-height: 100px;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 1px solid var(--control-border);
+  border-radius: 18px;
+  background: var(--control-card);
+  color: var(--control-text);
+  text-decoration: none;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+/* Línea lateral decorativa */
+
+.moduleLink::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 5px;
+  background: var(--control-gradient);
+  transition: width 0.3s ease;
+}
+
+/* =========================================================
+   HOVER TARJETA
+========================================================= */
+
+.moduleLink:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 0, 0, 0.28);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.1);
+}
+
+.moduleLink:hover::before {
+  width: 8px;
+}
+
+/* =========================================================
+   ICONO DEL DOCUMENTO
+========================================================= */
+
+.linkIcon {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 15px;
+  color: #ffffff;
+  background: var(--control-gradient);
+  font-size: 23px;
+  box-shadow: 0 8px 18px rgba(0, 130, 90, 0.15);
+}
+
+.linkIcon svg {
+  width: 23px;
+  height: 23px;
+}
+
+/* =========================================================
+   TEXTO DEL DOCUMENTO
+========================================================= */
+
+.linkText {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  min-width: 0;
+}
+
+.linkText strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--control-text);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.45;
+  transition: color 0.3s ease;
+}
+
+.linkText span {
+  display: block;
+  color: var(--control-muted);
+  font-size: 12px;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+/* =========================================================
+   FLECHA DEL DOCUMENTO
+========================================================= */
+
+.linkArrow {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  color: var(--control-azul);
+  font-size: 19px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.moduleLink:hover .linkArrow {
+  transform: translate(3px, -3px);
+  color: var(--control-verde);
+}
+
+/* =========================================================
+   BOTÓN PQRSDF
+========================================================= */
+
+.pqrs {
+  display: flex;
+  justify-content: center;
+  margin-top: 65px;
+}
+
+.pqrsButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 220px;
+  padding: 15px 28px;
+  border-radius: 50px;
+  color: #ffffff;
+  background: var(--control-gradient);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 800;
+  box-shadow: 0 10px 25px rgba(0, 130, 90, 0.20);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.pqrsButton svg {
+  width: 20px;
+  height: 20px;
+}
+
+.pqrsButton:hover {
+  transform: translateY(-4px);
+  background: var(--control-gradient-hover);
+  box-shadow: 0 16px 32px rgba(0, 130, 90, 0.28);
+}
+
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
+:global([data-theme="dark"]) .hero {
+  background: linear-gradient(
+    115deg,
+    #00579c 0%,
+    #007d3f 52%,
+    #91a900 100%
+  );
+}
+
+:global([data-theme="dark"]) .module {
+  background: var(--control-card);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+}
+
+:global([data-theme="dark"]) .module summary:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.05),
+    rgba(0, 0, 0, 0.04),
+    rgba(0, 0, 0, 0.05)
+  );
+}
+
+:global([data-theme="dark"]) .moduleToggle {
+  background: #1c2c40;
+  color: #5eb4ff;
+  border-color: var(--control-border);
+}
+
+:global([data-theme="dark"]) .moduleLink {
+  background: #1d2d42;
+  border-color: var(--control-border);
+}
+
+:global([data-theme="dark"]) .moduleLink:hover {
+  border-color: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
+}
+
+:global([data-theme="dark"]) .linkText strong {
+  color: var(--control-text);
+}
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .linksGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE - CELULAR
+========================================================= */
+
+@media (max-width: 600px) {
+
+  /* HERO */
+
+  .hero {
+    min-height: 270px;
+  }
+
+  .heroContent h1 {
+    font-size: 47px;
+  }
+
+  /* MÓDULOS */
+
+  .modules {
+    padding: 55px 16px 75px;
+  }
+
+  .module {
+    margin-bottom: 15px;
+    border-radius: 18px;
+  }
+
+  .module summary {
+    gap: 15px;
+    padding: 20px 17px;
+  }
+
+  .moduleInfo {
+    gap: 14px;
+  }
+
+  .moduleNumber {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    font-size: 14px;
+  }
+
+  .moduleTitle {
+    font-size: 14px;
+    line-height: 1.35;
+  }
+
+  .moduleToggle {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  /* CONTENIDO */
+
+  .moduleContent {
+    padding: 0 17px 20px;
+  }
+
+  .linksGrid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding-top: 18px;
+  }
+
+  /* TARJETAS */
+
+  .moduleLink {
+    gap: 13px;
+    min-height: auto;
+    padding: 17px;
+    border-radius: 15px;
+  }
+
+  .linkIcon {
+    width: 45px;
+    height: 45px;
+    border-radius: 13px;
+    font-size: 20px;
+  }
+
+  .linkText strong {
+    font-size: 13px;
+  }
+
+  .linkText span {
+    font-size: 11px;
+  }
+
+  .linkArrow {
+    font-size: 17px;
+  }
+
+  /* BOTÓN PQRSDF */
+
+  .pqrs {
+    margin-top: 50px;
+  }
+
+  .pqrsButton {
+    width: 100%;
+    min-height: 52px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE - CELULARES PEQUEÑOS
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .heroContent h1 {
+    font-size: 41px;
+  }
+
+  .module summary {
+    padding: 18px 14px;
+  }
+
+  .moduleInfo {
+    gap: 10px;
+  }
+
+  .moduleNumber {
+    width: 42px;
+    height: 42px;
+    font-size: 13px;
+  }
+
+  .moduleTitle {
+    font-size: 12.5px;
+  }
+
+  .moduleToggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .moduleLink {
+    padding: 15px;
+  }
+
+  .linkIcon {
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+  }
+}
