@@ -22,6 +22,8 @@ import OficinaControlInterno from "./pages/OficinaControlInterno";
 import CertificadosAccesibilidad from "./pages/CertificadosAccesibilidad";
 import InformacionMujeres from "./pages/InformacionMujeres";
 import InformacionNNA from "./pages/InformacionNNA";
+import Planeacion from "./pages/Planeacion";
+import SistemaGestionCalidad from "./pages/SistemaGestionCalidad";
 
 import Footer from "./components/Footer";
 
@@ -73,6 +75,11 @@ function App() {
         <Route path="/informacion-mujeres" element={<InformacionMujeres />} />
 
         <Route path="/informacion-nna" element={<InformacionNNA />} />
+
+        <Route path="/planeacion" element={<Planeacion />} />
+
+        <Route path="/sistema-gestion-calidad" element={<SistemaGestionCalidad />} />
+
 
       </Routes>
 
