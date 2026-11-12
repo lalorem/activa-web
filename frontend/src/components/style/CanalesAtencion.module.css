@@ -1,0 +1,403 @@
+
+/* =========================================
+   CANALES DE ATENCIÓN
+========================================= */
+
+.canalesPage {
+  --azul: #0072CE;
+  --verde: #00A651;
+  --lima: #C7E600;
+  --fondo: #f7faf8;
+  --tarjeta: #ffffff;
+  --texto: #1d2924;
+  --muted: #65716b;
+  --borde: rgba(0, 114, 206, 0.10);
+  --sombra: 0 15px 40px rgba(0, 80, 70, 0.09);
+
+  min-height: 100vh;
+  padding-bottom: 90px;
+  background: var(--fondo);
+  color: var(--texto);
+}
+
+/* =========================================
+   ENCABEZADO
+========================================= */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 55px 20px;
+  background: linear-gradient(
+    120deg,
+    #0072CE,
+    #00A651,
+    #C7E600
+  );
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.13);
+  filter: blur(2px);
+}
+
+.hero::before {
+  width: 300px;
+  height: 300px;
+  top: -170px;
+  left: 8%;
+}
+
+.hero::after {
+  width: 380px;
+  height: 380px;
+  bottom: -250px;
+  right: 5%;
+}
+
+.heroDecoracion {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.10);
+  top: 20px;
+  right: 22%;
+}
+
+.heroContenido {
+  position: relative;
+  z-index: 1;
+}
+
+.heroEtiqueta {
+  display: inline-block;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+}
+
+.heroContenido h1 {
+  max-width: 850px;
+  margin: 0 auto;
+  color: white;
+  font-family: "Caveat Brush", cursive;
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================================
+   CONTENEDOR GENERAL
+========================================= */
+
+.container {
+  width: min(1100px, 90%);
+  margin: 0 auto;
+}
+
+/* =========================================
+   CANALES PRESENCIAL Y TELEFÓNICO
+========================================= */
+
+.canalesSection {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 110px;
+  align-items: start;
+  padding: 90px 30px 75px;
+}
+
+.canalItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 390px;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+.canalItem:hover {
+  transform: translateY(-6px);
+}
+
+/* ICONOS */
+
+.iconoCanal {
+  width: 105px;
+  height: 105px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 32px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 114, 206, 0.10),
+    rgba(0, 166, 81, 0.13)
+  );
+  color: var(--azul);
+  margin-bottom: 25px;
+  transition: all 0.3s ease;
+}
+
+.canalItem:nth-child(2) .iconoCanal {
+  color: var(--verde);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 166, 81, 0.12),
+    rgba(199, 230, 0, 0.18)
+  );
+}
+
+.canalItem:hover .iconoCanal {
+  transform: scale(1.08) rotate(-4deg);
+  border-radius: 50%;
+}
+
+/* TEXTOS */
+
+.canalItem h2 {
+  margin: 0 0 16px;
+  color: var(--texto);
+  font-family: "Caveat Brush", cursive;
+  font-size: 2.4rem;
+  font-weight: 400;
+}
+
+.canalItem p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.telefonoLink {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--azul);
+  font-size: 1.35rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.telefonoLink:hover {
+  color: var(--verde);
+}
+
+/* =========================================
+   AGENDAR UNA CITA
+========================================= */
+
+.citasSection {
+  max-width: 850px;
+  margin: 15px auto 0;
+  padding: 45px 55px;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: 28px;
+  box-shadow: var(--sombra);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.iconoCita {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 22px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 114, 206, 0.10),
+    rgba(199, 230, 0, 0.20)
+  );
+  color: var(--verde);
+  margin-bottom: 18px;
+}
+
+.citasSection h2 {
+  margin: 0 0 12px;
+  color: var(--texto);
+  font-family: "Caveat Brush", cursive;
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+
+.citasSection > p {
+  max-width: 600px;
+  margin: 0 0 23px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* BOTÓN DE CITA */
+
+.botonCita {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 30px;
+  border-radius: 50px;
+  background: linear-gradient(120deg, #0072CE, #00A651);
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 750;
+  text-decoration: none;
+  box-shadow: 0 8px 22px rgba(0, 114, 206, 0.20);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.botonCita:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 13px 28px rgba(0, 114, 206, 0.28);
+}
+
+/* =========================================
+   HORARIOS
+========================================= */
+
+.horario {
+  width: 100%;
+  margin-top: 35px;
+  padding-top: 27px;
+  border-top: 1px solid var(--borde);
+}
+
+.horarioTitulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--verde);
+}
+
+.horarioTitulo h3 {
+  margin: 0;
+  color: var(--texto);
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.horario p {
+  margin: 9px 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.horario strong {
+  color: var(--texto);
+}
+
+/* =========================================
+   MODO OSCURO
+========================================= */
+
+:global([data-theme="dark"]) .canalesPage {
+  --fondo: #101a24;
+  --tarjeta: #192735;
+  --texto: #f1f5f9;
+  --muted: #b3c0cc;
+  --borde: rgba(255, 255, 255, 0.08);
+  --sombra: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+:global([data-theme="dark"]) .iconoCanal {
+  background: rgba(0, 114, 206, 0.18);
+}
+
+:global([data-theme="dark"]) .canalItem:nth-child(2) .iconoCanal {
+  background: rgba(0, 166, 81, 0.18);
+}
+
+:global([data-theme="dark"]) .iconoCita {
+  background: rgba(0, 166, 81, 0.15);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 220px;
+  }
+
+  .canalesSection {
+    gap: 55px;
+    padding: 70px 10px 60px;
+  }
+
+  .canalItem h2 {
+    font-size: 2.1rem;
+  }
+
+  .iconoCanal {
+    width: 90px;
+    height: 90px;
+  }
+
+  .citasSection {
+    padding: 38px 30px;
+  }
+}
+
+@media (max-width: 550px) {
+  .hero {
+    min-height: 200px;
+  }
+
+  .heroContenido h1 {
+    font-size: 2.8rem;
+  }
+
+  .canalesSection {
+    grid-template-columns: 1fr;
+    gap: 65px;
+    padding: 60px 5px;
+  }
+
+  .canalItem {
+    max-width: 350px;
+  }
+
+  .canalItem h2 {
+    font-size: 2.2rem;
+  }
+
+  .citasSection {
+    padding: 35px 20px;
+    border-radius: 22px;
+  }
+
+  .citasSection h2 {
+    font-size: 2.1rem;
+  }
+
+  .horario p {
+    font-size: 0.9rem;
+  }
+
+  .horarioTitulo h3 {
+    font-size: 1.05rem;
+  }
+}

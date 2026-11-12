@@ -24,6 +24,16 @@ import InformacionMujeres from "./pages/InformacionMujeres";
 import InformacionNNA from "./pages/InformacionNNA";
 import Planeacion from "./pages/Planeacion";
 import SistemaGestionCalidad from "./pages/SistemaGestionCalidad";
+import NormativaEntidad from "./pages/NormativaEntidad";
+import Resoluciones from './pages/Resoluciones';
+import PoliticasLineamientosManuales from "./pages/PoliticasLineamientosManuales";
+import EstadosFinancieros from "./pages/EstadosFinancieros";
+import DescripcionGeneral from "./pages/DescripcionGeneral";
+import RendicionCuentas from './pages/RendicionCuentas';
+import CanalesAtencion from './pages/CanalesAtencion';
+import EntesVigilancia from './pages/EntesVigilancia';
+import Contratacion from './pages/Contratacion';
+import Proveedores from './pages/Proveedores';
 
 import Footer from "./components/Footer";
 
@@ -80,6 +90,25 @@ function App() {
 
         <Route path="/sistema-gestion-calidad" element={<SistemaGestionCalidad />} />
 
+        <Route path="/normativa-entidad" element={<NormativaEntidad />} />
+
+        <Route path="/resoluciones" element={<Resoluciones />} />
+
+        <Route path="/politicas-lineamientos-manuales" element={<PoliticasLineamientosManuales />} />
+
+        <Route path="/estados-financieros" element={<EstadosFinancieros />} />   
+
+        <Route path="/descripcion-general" element={<DescripcionGeneral />} /> 
+
+        <Route path="/rendicion-de-cuentas" element={<RendicionCuentas />} />
+
+        <Route path="/canales-de-atencion-presencial-y-telefonica" element={<CanalesAtencion />} />
+
+        <Route path="/entes-y-autoridades-que-nos-vigilan" element={<EntesVigilancia />} />
+
+        <Route path="/contratacion" element={<Contratacion />} />
+
+        <Route path="/proveedores" element={<Proveedores />} />
 
       </Routes>
 

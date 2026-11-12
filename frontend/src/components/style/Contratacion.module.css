@@ -1,0 +1,500 @@
+
+/* =========================================================
+   CUADROS DE CONTRATACIÓN
+   Mismos estilos de los módulos de Transparencia
+========================================================= */
+
+
+/* =========================================================
+   VARIABLES DE LOS CUADROS
+========================================================= */
+
+.contratacionPage {
+    --cont-lima: #C7E600;
+    --cont-verde: #00A651;
+    --cont-azul: #0072CE;
+
+    --cont-gradient: linear-gradient(
+        135deg,
+        #C7E600 0%,
+        #00A651 48%,
+        #0072CE 100%
+    );
+
+    --cont-card: #ffffff;
+    --cont-text: #1d2924;
+    --cont-muted: #65716b;
+    --cont-border: rgba(0, 114, 206, 0.12);
+    --cont-shadow: 0 15px 40px rgba(0, 80, 70, 0.08);
+}
+
+:global([data-theme="dark"]) .contratacionPage {
+    --cont-card: #24364d;
+    --cont-text: #f8fafc;
+    --cont-muted: #b0bdca;
+    --cont-border: #3b5068;
+    --cont-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   LISTA DE VIGENCIAS
+========================================================= */
+
+.modulesList {
+    width: min(1120px, 100%);
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+
+/* =========================================================
+   TARJETA PRINCIPAL
+========================================================= */
+
+.module {
+    width: 100%;
+    background: var(--cont-card);
+    border: 1px solid var(--cont-border);
+    border-radius: 22px;
+    box-shadow: var(--cont-shadow);
+    overflow: hidden;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+.module:hover {
+    border-color: rgba(0, 114, 206, 0.28);
+}
+
+
+/* =========================================================
+   ENCABEZADO DESPLEGABLE
+========================================================= */
+
+.moduleSummary {
+    width: 100%;
+    min-height: 105px;
+    padding: 24px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+
+    cursor: pointer;
+    list-style: none;
+    color: var(--cont-text);
+
+    background: transparent;
+    border: none;
+    font-family: inherit;
+    text-align: left;
+
+    transition: background 0.3s ease;
+}
+
+.moduleSummary:hover {
+    background: rgba(0, 114, 206, 0.035);
+}
+
+
+/* =========================================================
+   INFORMACIÓN DEL MÓDULO
+========================================================= */
+
+.moduleInfo {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    min-width: 0;
+}
+
+
+/* =========================================================
+   NÚMERO
+========================================================= */
+
+.moduleNumber {
+    flex-shrink: 0;
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+    background: var(--cont-gradient);
+    border-radius: 17px;
+
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+
+    box-shadow: 0 8px 20px rgba(0, 130, 90, 0.16);
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.moduleTitle {
+    color: var(--cont-text);
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.5;
+    text-align: left;
+}
+
+
+/* =========================================================
+   BOTÓN DESPLEGABLE
+========================================================= */
+
+.moduleToggle {
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--cont-azul);
+    background: var(--cont-card);
+    border: 1px solid var(--cont-border);
+    border-radius: 50%;
+
+    transition:
+        transform 0.35s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.moduleSummary:hover .moduleToggle {
+    background: rgba(0, 114, 206, 0.06);
+}
+
+
+/* =========================================================
+   CONTENIDO DESPLEGABLE
+========================================================= */
+
+.moduleContent {
+    padding: 0 30px 30px;
+    border-top: 1px solid var(--cont-border);
+    color: var(--cont-text);
+
+    animation: contAppear 0.35s ease;
+}
+
+@keyframes contAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   SUBSECCIONES / PROCESOS
+========================================================= */
+
+.moduleSubsection {
+    margin-top: 28px;
+    overflow: hidden;
+    background: transparent;
+}
+
+.processSummary {
+    width: 100%;
+    min-height: 60px;
+    padding: 17px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    color: var(--cont-text);
+    background: rgba(0, 114, 206, 0.035);
+    border: 1px solid var(--cont-border);
+    border-radius: 15px;
+
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.5;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.processSummary:hover {
+    background: rgba(0, 166, 81, 0.07);
+    border-color: rgba(0, 114, 206, 0.28);
+}
+
+.processSummary svg {
+    flex-shrink: 0;
+    color: var(--cont-azul);
+    transition: transform 0.35s ease;
+}
+
+.rotated {
+    transform: rotate(180deg);
+}
+
+
+/* =========================================================
+   GRID DE DOCUMENTOS
+========================================================= */
+
+.moduleLinksGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    padding-top: 25px;
+}
+
+
+/* =========================================================
+   TARJETAS DE DOCUMENTOS
+========================================================= */
+
+.moduleLink {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 17px;
+
+    width: 100%;
+    min-height: 100px;
+    padding: 20px;
+
+    box-sizing: border-box;
+    overflow: hidden;
+
+    color: var(--cont-text);
+    background: var(--cont-card);
+    border: 1px solid var(--cont-border);
+    border-radius: 18px;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.moduleLink::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 5px;
+    background: var(--cont-gradient);
+
+    transition: width 0.3s ease;
+}
+
+.moduleLink:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 114, 206, 0.3);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.09);
+}
+
+.moduleLink:hover::before {
+    width: 8px;
+}
+
+
+/* =========================================================
+   ICONO DEL DOCUMENTO
+========================================================= */
+
+.linkIcon {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+    background: var(--cont-gradient);
+    border-radius: 15px;
+
+    box-shadow: 0 8px 18px rgba(0, 130, 90, 0.15);
+}
+
+
+/* =========================================================
+   TEXTO DEL DOCUMENTO
+========================================================= */
+
+.linkText {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    min-width: 0;
+
+    color: var(--cont-text);
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.45;
+}
+
+
+/* =========================================================
+   FLECHA
+========================================================= */
+
+.linkArrow {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+
+    color: var(--cont-azul);
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+.moduleLink:hover .linkArrow {
+    transform: translate(3px, -3px);
+    color: var(--cont-verde);
+}
+
+
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
+:global([data-theme="dark"]) .moduleSummary:hover {
+    background: rgba(255, 255, 255, 0.035);
+}
+
+:global([data-theme="dark"]) .processSummary {
+    background: rgba(255, 255, 255, 0.035);
+}
+
+:global([data-theme="dark"]) .moduleLink:hover {
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.22);
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+    .moduleLinksGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - MÓVIL
+========================================================= */
+
+@media (max-width: 600px) {
+    .modulesList {
+        gap: 13px;
+    }
+
+    .module {
+        border-radius: 17px;
+    }
+
+    .moduleSummary {
+        min-height: 85px;
+        padding: 17px 15px;
+        gap: 12px;
+    }
+
+    .moduleInfo {
+        gap: 13px;
+    }
+
+    .moduleNumber {
+        width: 43px;
+        height: 43px;
+        min-width: 43px;
+        border-radius: 13px;
+        font-size: 13px;
+    }
+
+    .moduleTitle {
+        font-size: 12px;
+    }
+
+    .moduleToggle {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+    }
+
+    .moduleContent {
+        padding: 0 15px 20px;
+    }
+
+    .moduleSubsection {
+        margin-top: 20px;
+    }
+
+    .processSummary {
+        min-height: 55px;
+        padding: 13px;
+        font-size: 12px;
+    }
+
+    .moduleLinksGrid {
+        gap: 12px;
+        padding-top: 18px;
+    }
+
+    .moduleLink {
+        min-height: 85px;
+        padding: 15px;
+        gap: 12px;
+        border-radius: 15px;
+    }
+
+    .linkIcon {
+        width: 43px;
+        height: 43px;
+        border-radius: 12px;
+    }
+
+    .linkText {
+        font-size: 12px;
+    }
+}

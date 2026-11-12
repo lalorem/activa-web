@@ -1,0 +1,609 @@
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+.financierosPage {
+    --hv-lima: #C7E600;
+    --hv-verde: #00A651;
+    --hv-azul: #0072CE;
+
+    --hv-gradient: linear-gradient(
+        135deg,
+        #C7E600 0%,
+        #00A651 48%,
+        #0072CE 100%
+    );
+
+    --hv-bg: #f7faf8;
+    --hv-card: #ffffff;
+    --hv-text: #1d2924;
+    --hv-muted: #65716b;
+    --hv-border: rgba(0, 114, 206, 0.10);
+    --hv-shadow: 0 15px 40px rgba(0, 80, 70, 0.09);
+
+    width: 100%;
+    min-height: 100vh;
+    background: var(--hv-bg);
+    color: var(--hv-text);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
+:global([data-theme="dark"]) .financierosPage {
+    --hv-bg: #0f172a;
+    --hv-card: #24364d;
+    --hv-text: #f8fafc;
+    --hv-muted: #94a3b8;
+    --hv-border: #3b5068;
+    --hv-shadow: 0 15px 35px rgba(0, 0, 0, 0.28);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.financierosHero {
+    position: relative;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(
+        115deg,
+        #0072CE 0%,
+        #00A651 52%,
+        #C7E600 100%
+    );
+}
+
+:global([data-theme="dark"]) .financierosHero {
+    background: linear-gradient(
+        115deg,
+        #00579c 0%,
+        #007d3f 52%,
+        #91a900 100%
+    );
+}
+
+/* =========================================================
+   DECORACIONES DEL HERO
+========================================================= */
+
+.financierosHeroDecoration {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.financierosDecorationOne {
+    width: 470px;
+    height: 470px;
+    top: -290px;
+    right: -80px;
+    background: rgba(255, 255, 255, 0.13);
+}
+
+.financierosDecorationTwo {
+    width: 350px;
+    height: 350px;
+    bottom: -245px;
+    left: -90px;
+    background: rgba(255, 255, 255, 0.10);
+}
+
+/* =========================================================
+   CONTENIDO HERO
+========================================================= */
+
+.financierosHeroContent {
+    position: relative;
+    z-index: 2;
+    width: min(1100px, 90%);
+    text-align: center;
+    color: #ffffff;
+}
+
+.financierosLabel {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    opacity: 0.92;
+}
+
+.financierosHeroContent h1 {
+    margin: 0;
+    color: #ffffff;
+    font-family: "Caveat Brush", cursive;
+    font-size: clamp(48px, 6vw, 76px);
+    font-weight: 400;
+    line-height: 1.05;
+    text-shadow: 0 5px 18px rgba(0, 0, 0, 0.18);
+}
+
+.financierosHeroContent p {
+    max-width: 720px;
+    margin: 18px auto 0;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   SECCIÓN DE MÓDULOS
+========================================================= */
+
+.financierosModules {
+    padding: 75px 20px 100px;
+    background: var(--hv-bg);
+    transition: background 0.3s ease;
+}
+
+.financierosContainer {
+    width: min(1120px, 100%);
+    margin: 0 auto;
+}
+
+/* =========================================================
+   MÓDULO
+========================================================= */
+
+.financierosModule {
+    position: relative;
+    margin-bottom: 18px;
+    background: var(--hv-card);
+    border: 1px solid var(--hv-border);
+    border-radius: 22px;
+    box-shadow: var(--hv-shadow);
+    overflow: hidden;
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* =========================================================
+   ENCABEZADO DESPLEGABLE
+========================================================= */
+
+.financierosModule summary {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    width: 100%;
+    padding: 26px 30px;
+    box-sizing: border-box;
+    cursor: pointer;
+    list-style: none;
+    transition: background 0.3s ease;
+}
+
+.financierosModule summary::-webkit-details-marker {
+    display: none;
+}
+
+.financierosModule summary:hover {
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.06),
+        rgba(0, 0, 0, 0.03),
+        rgba(0, 0, 0, 0.03)
+    );
+}
+
+:global([data-theme="dark"]) .financierosModule summary:hover {
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.05),
+        rgba(0, 0, 0, 0.04),
+        rgba(0, 0, 0, 0.05)
+    );
+}
+
+/* =========================================================
+   INFORMACIÓN DEL MÓDULO
+========================================================= */
+
+.financierosModuleInfo {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    min-width: 0;
+}
+
+/* =========================================================
+   NÚMERO
+========================================================= */
+
+.financierosModuleNumber {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    border-radius: 17px;
+    color: #ffffff;
+    background: var(--hv-gradient);
+    font-size: 16px;
+    font-weight: 800;
+    box-shadow: 0 8px 20px rgba(0, 130, 90, 0.16);
+}
+
+/* =========================================================
+   TÍTULO DEL MÓDULO
+========================================================= */
+
+.financierosModuleTitle {
+    color: var(--hv-text);
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+/* =========================================================
+   BOTÓN DESPLEGABLE
+========================================================= */
+
+.financierosModuleToggle {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border: 1px solid var(--hv-border);
+    border-radius: 50%;
+    color: var(--hv-azul);
+    background: var(--hv-card);
+    font-size: 21px;
+    line-height: 1;
+    transition:
+        transform 0.35s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+:global([data-theme="dark"]) .financierosModuleToggle {
+    background: #1c2c40;
+    color: #5eb4ff;
+    border-color: var(--hv-border);
+}
+
+/* MÓDULO ABIERTO */
+
+.financierosModule[open] .financierosModuleToggle {
+    transform: rotate(45deg);
+    color: #ffffff;
+    background: var(--hv-gradient);
+}
+
+/* =========================================================
+   CONTENIDO DESPLEGABLE
+========================================================= */
+
+.financierosModuleContent {
+    padding: 0 30px 30px;
+    border-top: 1px solid var(--hv-border);
+}
+
+/* =========================================================
+   GRID DE DOCUMENTOS
+========================================================= */
+
+.financierosLinksGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    padding-top: 25px;
+}
+
+/* =========================================================
+   TARJETA DOCUMENTO
+========================================================= */
+
+.financierosDocument {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    min-height: 100px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid var(--hv-border);
+    border-radius: 18px;
+    background: var(--hv-card);
+    color: var(--hv-text);
+    text-decoration: none;
+    overflow: hidden;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+/* =========================================================
+   LÍNEA LATERAL
+========================================================= */
+
+.financierosDocument::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 5px;
+    background: var(--hv-gradient);
+    transition: width 0.3s ease;
+}
+
+/* =========================================================
+   EFECTO HOVER DOCUMENTO
+========================================================= */
+
+.financierosDocument:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 0, 0, 0.28);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.10);
+}
+
+.financierosDocument:hover::before {
+    width: 8px;
+}
+
+:global([data-theme="dark"]) .financierosDocument:hover {
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
+}
+
+/* =========================================================
+   ICONO PDF
+========================================================= */
+
+.financierosDocumentIcon {
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 15px;
+    color: #ffffff;
+    background: var(--hv-gradient);
+    font-size: 23px;
+    box-shadow: 0 8px 18px rgba(0, 130, 90, 0.15);
+}
+
+/* =========================================================
+   TEXTO DEL DOCUMENTO
+========================================================= */
+
+.financierosDocumentText {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    min-width: 0;
+}
+
+.financierosDocumentText strong {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--hv-text);
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.45;
+    transition: color 0.3s ease;
+}
+
+.financierosDocumentText span {
+    display: block;
+    color: var(--hv-muted);
+    font-size: 12px;
+    line-height: 1.5;
+    transition: color 0.3s ease;
+}
+
+/* =========================================================
+   FLECHA
+========================================================= */
+
+.financierosDocumentArrow {
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--hv-azul);
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+.financierosDocument:hover .financierosDocumentArrow {
+    transform: translate(3px, -3px);
+    color: var(--hv-verde);
+}
+
+/* =========================================================
+   MODO OSCURO — TARJETAS
+========================================================= */
+
+:global([data-theme="dark"]) .financierosDocument {
+    background: #1d2d42;
+    border-color: var(--hv-border);
+}
+
+:global([data-theme="dark"]) .financierosDocumentText strong {
+    color: var(--hv-text);
+}
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+    .financierosLinksGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE — CELULAR
+========================================================= */
+
+@media (max-width: 600px) {
+
+    /* HERO */
+
+    .financierosHero {
+        min-height: 270px;
+    }
+
+    .financierosLabel {
+        font-size: 11px;
+        letter-spacing: 2.5px;
+    }
+
+    .financierosHeroContent h1 {
+        font-size: 47px;
+    }
+
+    .financierosHeroContent p {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+
+    /* MÓDULOS */
+
+    .financierosModules {
+        padding: 55px 16px 75px;
+    }
+
+    .financierosModule {
+        margin-bottom: 15px;
+        border-radius: 18px;
+    }
+
+    .financierosModule summary {
+        gap: 15px;
+        padding: 20px 17px;
+    }
+
+    .financierosModuleInfo {
+        gap: 14px;
+    }
+
+    .financierosModuleNumber {
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        font-size: 14px;
+    }
+
+    .financierosModuleTitle {
+        font-size: 14px;
+        line-height: 1.35;
+    }
+
+    .financierosModuleToggle {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    /* CONTENIDO */
+
+    .financierosModuleContent {
+        padding: 0 17px 20px;
+    }
+
+    .financierosLinksGrid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding-top: 18px;
+    }
+
+    /* DOCUMENTOS */
+
+    .financierosDocument {
+        gap: 13px;
+        min-height: auto;
+        padding: 17px;
+        border-radius: 15px;
+    }
+
+    .financierosDocumentIcon {
+        width: 45px;
+        height: 45px;
+        border-radius: 13px;
+    }
+
+    .financierosDocumentText strong {
+        font-size: 13px;
+    }
+
+    .financierosDocumentText span {
+        font-size: 11px;
+    }
+
+    .financierosDocumentArrow {
+        font-size: 17px;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE — CELULARES PEQUEÑOS
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .financierosHeroContent h1 {
+        font-size: 41px;
+    }
+
+    .financierosModule summary {
+        padding: 18px 14px;
+    }
+
+    .financierosModuleInfo {
+        gap: 10px;
+    }
+
+    .financierosModuleNumber {
+        width: 42px;
+        height: 42px;
+        font-size: 13px;
+    }
+
+    .financierosModuleTitle {
+        font-size: 12.5px;
+    }
+
+    .financierosModuleToggle {
+        width: 36px;
+        height: 36px;
+    }
+
+    .financierosDocument {
+        padding: 15px;
+    }
+
+    .financierosDocumentIcon {
+        width: 42px;
+        height: 42px;
+    }
+}

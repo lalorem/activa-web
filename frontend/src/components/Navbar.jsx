@@ -71,15 +71,12 @@ const menus = [
     nombre: 'Participa',
     ruta: '/participa',
     opciones: [
-      ['Descripción General', '/participa'],
-      ['Menú Participa', 'https://activa.com.co/menu-participa/'],
-      ['Rendición de Cuentas', 'https://activa.com.co/rendicion-de-cuentas/'],
-      ['Formulario de Contacto', 'https://activa.com.co/pqrs/'],
-      ['Canales de Atención Presencial y Telefónica', 'https://activa.com.co/canales-de-atencion-presencial-y-telefonica/'],
-      ['Consulta Ciudadana', 'https://activa.com.co/consulta-ciudadana/'],
-      ['Invitaciones Públicas', 'https://activa.com.co/contratacion/'],
+      ['Descripción General', '/descripcion-general'],
+      ['Rendición de Cuentas', '/rendicion-de-cuentas'],
+      ['Canales de Atencion', '/canales-de-atencion-presencial-y-telefonica'],
       ['Servicio al Público, Normas, Formularios y Protocolos de Atención', 'https://activa.com.co/documentos/'],
       ['Procedimientos para la Toma de Decisiones', 'https://activa.com.co/en-construccion/'],
+      ['Entes y Autoridades que nos Vigilan', '/entes-y-autoridades-que-nos-vigilan'],
     ],
   },
   {
@@ -87,7 +84,6 @@ const menus = [
     ruta: '/contratacion',
     opciones: [
       ['Contratación', '/contratacion'],
-      ['Manifestaciones de Interés', '/manifestaciones-interes'],
       ['Proveedores', '/proveedores'],
       ['Tutoriales y Accesos', '/tutoriales-accesos'],
     ],
@@ -337,13 +333,7 @@ const renderEnlace = (nombre, ruta, cerrar = false) => {
               );
             })}
 
-            <li className={styles['menu-item-simple']}>
-              {renderEnlace(
-                'Atención y Servicio a la Ciudadanía',
-                '/atencion-servicio-ciudadania',
-                true
-              )}
-            </li>
+          
 
             {menus.slice(3).map((menu) => {
               const abierto = menusAbiertos.includes(menu.nombre);

@@ -1,0 +1,517 @@
+
+/* =========================================================
+   DESCRIPCIÓN GENERAL - ACTIVA
+   Paleta oficial: Lima + Verde + Azul
+========================================================= */
+
+/* =========================================================
+   VARIABLES GENERALES
+========================================================= */
+
+.descripcionGeneralPage {
+    --descripcion-lima: #C7E600;
+    --descripcion-verde: #00A651;
+    --descripcion-azul: #0072CE;
+
+    --descripcion-gradient: linear-gradient(
+        120deg,
+        var(--descripcion-azul),
+        var(--descripcion-verde),
+        var(--descripcion-lima)
+    );
+
+    --descripcion-gradient-hover: linear-gradient(
+        120deg,
+        var(--descripcion-verde),
+        var(--descripcion-azul)
+    );
+
+    --descripcion-bg: #f7faf8;
+    --descripcion-card: #ffffff;
+    --descripcion-text: #1d2924;
+    --descripcion-muted: #65716b;
+    --descripcion-border: rgba(0, 114, 206, 0.10);
+    --descripcion-shadow: 0 15px 40px rgba(0, 80, 70, 0.09);
+
+    width: 100%;
+    overflow: hidden;
+    background: var(--descripcion-bg);
+    color: var(--descripcion-text);
+    font-family: "Inter", sans-serif;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    position: relative;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--descripcion-gradient);
+}
+
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero::before {
+    width: 380px;
+    height: 380px;
+    top: -180px;
+    left: -80px;
+    background: rgba(255, 255, 255, 0.12);
+    filter: blur(2px);
+}
+
+.hero::after {
+    width: 480px;
+    height: 480px;
+    right: -180px;
+    bottom: -300px;
+    background: rgba(255, 255, 255, 0.10);
+    filter: blur(3px);
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 70, 110, 0.15),
+        transparent,
+        rgba(0, 80, 40, 0.12)
+    );
+}
+
+.heroContenido {
+    position: relative;
+    z-index: 1;
+    width: min(1200px, calc(100% - 40px));
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.heroContenido h1 {
+    margin: 0;
+    color: #ffffff;
+    font-family: "Caveat Brush", cursive;
+    font-size: clamp(3rem, 6vw, 4.75rem);
+    font-weight: 400;
+    line-height: 1.1;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================================
+   CONTENEDOR GENERAL
+========================================================= */
+
+.container {
+    width: min(1200px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN
+========================================================= */
+
+.descripcion {
+    padding: 85px 0 75px;
+    background: var(--descripcion-bg);
+}
+
+.sectionHeading {
+    position: relative;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.sectionHeading h2 {
+    margin: 0;
+    color: var(--descripcion-text);
+    font-family: "Caveat Brush", cursive;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.sectionHeading::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 5px;
+    margin: 18px auto 0;
+    border-radius: 10px;
+    background: var(--descripcion-gradient);
+}
+
+.textos {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.textos p {
+    margin: 0 0 22px;
+    color: var(--descripcion-muted);
+    font-family: "Inter", sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    text-align: justify;
+}
+
+.textos p:last-child {
+    margin-bottom: 0;
+}
+
+.textos strong {
+    color: var(--descripcion-verde);
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   CANALES DE PARTICIPACIÓN
+========================================================= */
+
+.canalesSection {
+    position: relative;
+    padding: 85px 0 95px;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(199, 230, 0, 0.09),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(0, 114, 206, 0.08),
+            transparent 25%
+        ),
+        var(--descripcion-bg);
+}
+
+.canalesSection .sectionHeading {
+    margin-bottom: 50px;
+}
+
+.canalesGrid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.canalesGrid::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    top: -55px;
+    right: -45px;
+    border: 25px solid rgba(0, 166, 81, 0.05);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   TARJETAS DE CONTACTO
+========================================================= */
+
+.canalCard {
+    --canal-color: var(--descripcion-azul);
+
+    position: relative;
+    z-index: 1;
+    min-height: 245px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 35px 25px;
+    overflow: hidden;
+
+    border: 1px solid var(--descripcion-border);
+    border-radius: 24px;
+    background: var(--descripcion-card);
+    box-shadow: var(--descripcion-shadow);
+
+    color: var(--descripcion-text);
+    text-align: center;
+    text-decoration: none;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.canalCard::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 7px;
+    background: var(--canal-color);
+}
+
+.canalCard:hover {
+    transform: translateY(-9px);
+    border-color: var(--canal-color);
+    box-shadow: 0 22px 45px rgba(0, 80, 70, 0.15);
+}
+
+.canalAzul {
+    --canal-color: #0072CE;
+}
+
+.canalVerde {
+    --canal-color: #00A651;
+}
+
+.canalLima {
+    --canal-color: #A5BE00;
+}
+
+
+/* Iconos */
+
+.canalIcono {
+    width: 76px;
+    height: 76px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 22px;
+    background: color-mix(in srgb, var(--canal-color) 12%, transparent);
+    color: var(--canal-color);
+
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease;
+}
+
+.canalCard:hover .canalIcono {
+    transform: scale(1.1) rotate(-5deg);
+    background: color-mix(in srgb, var(--canal-color) 20%, transparent);
+}
+
+
+/* Información */
+
+.canalContenido {
+    width: 100%;
+}
+
+.canalContenido h3 {
+    margin: 0 0 12px;
+    color: var(--descripcion-text);
+    font-family: "Inter", sans-serif;
+    font-size: 1.12rem;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.canalContenido p {
+    margin: 0;
+    color: var(--descripcion-muted);
+    font-family: "Inter", sans-serif;
+    font-size: 0.96rem;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.canalCard[href]:hover .canalContenido p {
+    color: var(--canal-color);
+}
+
+
+/* Próximamente */
+
+.canalProximamente {
+    cursor: default;
+}
+
+.canalProximamente:hover {
+    transform: translateY(-5px);
+}
+
+
+/* =========================================================
+   IMAGEN FINAL - GRUPOS DE VALOR
+========================================================= */
+
+.gruposSection {
+    padding: 80px 0;
+    background: var(--descripcion-bg);
+}
+
+.gruposWrapper {
+    position: relative;
+    width: min(1200px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 8px;
+    overflow: hidden;
+    border-radius: 28px;
+    background: var(--descripcion-gradient);
+    box-shadow: var(--descripcion-shadow);
+}
+
+.gruposImagen {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
+:global([data-theme="dark"]) .descripcionGeneralPage {
+    --descripcion-bg: #101a24;
+    --descripcion-card: #192735;
+    --descripcion-text: #f1f5f9;
+    --descripcion-muted: #b3c0cc;
+    --descripcion-border: rgba(255, 255, 255, 0.08);
+    --descripcion-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+:global([data-theme="dark"]) .canalesSection {
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(199, 230, 0, 0.06),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(0, 114, 206, 0.10),
+            transparent 25%
+        ),
+        var(--descripcion-bg);
+}
+
+:global([data-theme="dark"]) .canalCard {
+    border-color: var(--descripcion-border);
+}
+
+:global([data-theme="dark"]) .canalCard:hover {
+    border-color: var(--canal-color);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+:global([data-theme="dark"]) .canalContenido h3 {
+    color: #f1f5f9;
+}
+
+:global([data-theme="dark"]) .canalContenido p {
+    color: #b3c0cc;
+}
+
+:global([data-theme="dark"]) .gruposWrapper {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+    .canalesGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - MÓVIL
+========================================================= */
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 280px;
+    }
+
+    .descripcion {
+        padding: 65px 0 60px;
+    }
+
+    .textos {
+        text-align: left;
+    }
+
+    .textos p {
+        text-align: left;
+    }
+
+    .canalesSection {
+        padding: 65px 0 75px;
+    }
+
+    .canalesGrid {
+        gap: 20px;
+    }
+
+    .canalCard {
+        min-height: 225px;
+        padding: 28px 20px;
+    }
+
+    .gruposSection {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 520px) {
+    .hero {
+        min-height: 250px;
+    }
+
+    .heroContenido h1 {
+        font-size: 2.8rem;
+    }
+
+    .sectionHeading h2 {
+        font-size: 2.8rem;
+    }
+
+    .canalesGrid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .canalCard {
+        min-height: 210px;
+    }
+
+    .gruposWrapper {
+        width: calc(100% - 30px);
+        padding: 5px;
+        border-radius: 20px;
+    }
+
+    .gruposImagen {
+        border-radius: 15px;
+    }
+}
