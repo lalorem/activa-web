@@ -1,0 +1,839 @@
+
+/* ========================================
+   VARIABLES Y CONTENEDOR
+======================================== */
+
+.parquesPage {
+  --parques-blue: #0072CE;
+  --parques-green: #00A651;
+  --parques-lime: #C7E600;
+
+  --parques-gradient: linear-gradient(
+    135deg,
+    #C7E600 0%,
+    #00A651 48%,
+    #0072CE 100%
+  );
+
+  --parques-bg: #f7faf8;
+  --parques-card: #ffffff;
+  --parques-text: #1d2924;
+  --parques-muted: #65716b;
+  --parques-border: rgba(0, 114, 206, 0.12);
+  --parques-shadow: 0 15px 40px rgba(0, 80, 70, 0.08);
+
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: 80px;
+  overflow: hidden;
+  background: var(--parques-bg);
+  color: var(--parques-text);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+:global([data-theme="dark"]) .parquesPage {
+  --parques-bg: #0f172a;
+  --parques-card: #24364d;
+  --parques-text: #f8fafc;
+  --parques-muted: #b0bdca;
+  --parques-border: #3b5068;
+  --parques-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ========================================
+   HEADER DIFUMINADO
+======================================== */
+
+.hero {
+  position: relative;
+  min-height: 330px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 75px 25px;
+  overflow: hidden;
+  isolation: isolate;
+  text-align: center;
+
+  background: linear-gradient(
+    135deg,
+    rgba(199, 230, 0, 0.92),
+    rgba(0, 166, 81, 0.92),
+    rgba(0, 114, 206, 0.94)
+  );
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  z-index: -1;
+
+  background:
+    radial-gradient(
+      circle at 15% 30%,
+      rgba(255, 255, 255, 0.25),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 70%,
+      rgba(255, 255, 255, 0.18),
+      transparent 28%
+    );
+
+  filter: blur(18px);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  right: -120px;
+  bottom: -230px;
+
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 35px rgba(255, 255, 255, 0.04),
+    0 0 0 75px rgba(255, 255, 255, 0.03);
+
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 850px;
+  animation: parquesAppear 0.8s ease both;
+}
+
+.heroLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 18px;
+  margin-bottom: 22px;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.16);
+
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+
+  backdrop-filter: blur(10px);
+}
+
+.hero h1 {
+  margin: 0 0 18px;
+  color: #ffffff;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 900;
+  letter-spacing: -1.5px;
+}
+
+.hero p {
+  max-width: 730px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+
+/* ========================================
+   PRESENTACIÓN GENERAL
+======================================== */
+
+.introSection {
+  padding: 75px 25px 35px;
+}
+
+.introContent {
+  max-width: 950px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sectionEyebrow {
+  display: inline-block;
+  margin-bottom: 13px;
+  color: var(--parques-green);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.introContent h2,
+.parkHeading h2,
+.newsHeading h2 {
+  margin: 0 0 17px;
+  color: var(--parques-text);
+  font-size: clamp(25px, 3.5vw, 34px);
+  font-weight: 900;
+  letter-spacing: -0.7px;
+}
+
+.introContent p {
+  max-width: 850px;
+  margin: 0 auto;
+  color: var(--parques-muted);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+
+/* ========================================
+   BLOQUES DE PARQUES
+======================================== */
+
+.parkSection {
+  width: min(100% - 50px, 1150px);
+  margin: 45px auto 0;
+}
+
+.parkHeading {
+  max-width: 950px;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+.parkHeading p {
+  max-width: 850px;
+  margin: 0 auto;
+  color: var(--parques-muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+
+/* ========================================
+   DATOS DE CERRO TUSA
+======================================== */
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.infoItem {
+  min-height: 155px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8px;
+  padding: 22px;
+
+  border: 1px solid var(--parques-border);
+  border-radius: 19px;
+  background: var(--parques-card);
+  box-shadow: var(--parques-shadow);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.infoItem:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 166, 81, 0.4);
+  box-shadow: 0 18px 35px rgba(0, 80, 70, 0.12);
+}
+
+.infoItem > svg {
+  color: var(--parques-green);
+  font-size: 23px;
+}
+
+.infoItem > span:not(.infoNumber) {
+  color: var(--parques-muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.infoItem strong {
+  color: var(--parques-text);
+  font-size: 14px;
+  font-weight: 850;
+  line-height: 1.5;
+}
+
+.infoItem small {
+  color: var(--parques-muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.infoNumber {
+  color: var(--parques-green);
+  font-size: 25px;
+  font-weight: 950;
+  letter-spacing: -0.7px;
+}
+
+
+/* ========================================
+   DATOS DEL VOLCÁN DE LODO
+======================================== */
+
+.volcanDetails {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  align-items: stretch;
+  gap: 22px;
+}
+
+.volcanData {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  padding: 30px;
+
+  border: 1px solid var(--parques-border);
+  border-radius: 21px;
+  background: var(--parques-card);
+  box-shadow: var(--parques-shadow);
+}
+
+.volcanData p {
+  margin: 0;
+  color: var(--parques-muted);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.volcanData strong {
+  color: var(--parques-text);
+  font-weight: 850;
+}
+
+.resultsBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
+
+  border-radius: 21px;
+  background: var(--parques-gradient);
+  box-shadow: var(--parques-shadow);
+}
+
+.resultsBox > span {
+  margin-bottom: 28px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+
+.resultsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.resultsGrid > div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.resultsGrid strong {
+  color: #ffffff;
+  font-size: clamp(27px, 3vw, 37px);
+  font-weight: 950;
+}
+
+.resultsGrid small {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.resultsBox > p {
+  margin: 25px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   NOTICIAS
+======================================== */
+
+.newsSection {
+  width: min(100% - 50px, 1150px);
+  margin: 95px auto 0;
+}
+
+.newsHeading {
+  max-width: 750px;
+  margin: 0 auto 45px;
+  text-align: center;
+}
+
+.newsHeading p {
+  margin: 0;
+  color: var(--parques-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.newsList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.newsRow {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  align-items: center;
+  gap: 35px;
+  min-height: 190px;
+  padding: 18px;
+
+  border: 1px solid var(--parques-border);
+  border-radius: 21px;
+  background: var(--parques-card);
+  box-shadow: var(--parques-shadow);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  animation: parquesAppear 0.7s ease both;
+}
+
+.newsRow:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0, 80, 70, 0.13);
+}
+
+/* Alternar imagen y texto */
+.newsRow:nth-child(even) {
+  grid-template-columns: 1fr 260px;
+}
+
+.newsRow:nth-child(even) .newsImage {
+  order: 2;
+}
+
+.newsRow:nth-child(even) .newsContent {
+  order: 1;
+}
+
+
+/* Imagen de noticia */
+
+.newsImage {
+  width: 100%;
+  height: 175px;
+  overflow: hidden;
+  border-radius: 15px;
+  background: var(--parques-bg);
+}
+
+.newsImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.newsRow:hover .newsImage img {
+  transform: scale(1.07);
+}
+
+
+/* Texto de noticia */
+
+.newsContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 12px;
+}
+
+.newsNumber {
+  margin-bottom: 10px;
+  color: var(--parques-green);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.7px;
+}
+
+.newsContent h3 {
+  margin: 0 0 10px;
+  color: var(--parques-text);
+  font-size: 19px;
+  font-weight: 900;
+  line-height: 1.4;
+}
+
+.newsContent p {
+  margin: 0 0 17px;
+  color: var(--parques-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.newsContent a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  color: var(--parques-green);
+  font-size: 13px;
+  font-weight: 900;
+  text-decoration: none;
+
+  transition: gap 0.3s ease, color 0.3s ease;
+}
+
+.newsContent a:hover {
+  gap: 13px;
+  color: var(--parques-blue);
+}
+
+
+/* ========================================
+   CARTEL FINAL DE CONTACTO
+======================================== */
+
+.contactSection {
+  position: relative;
+  width: min(100% - 50px, 1200px);
+  margin: 85px auto 0;
+  padding: 65px 30px;
+  overflow: hidden;
+  border-radius: 27px;
+  background: var(--parques-gradient);
+  text-align: center;
+  isolation: isolate;
+}
+
+.contactSection::before,
+.contactSection::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.contactSection::before {
+  width: 350px;
+  height: 350px;
+  top: -230px;
+  left: -90px;
+  box-shadow: 0 0 0 35px rgba(255, 255, 255, 0.05);
+}
+
+.contactSection::after {
+  width: 300px;
+  height: 300px;
+  right: -100px;
+  bottom: -220px;
+  box-shadow: 0 0 0 35px rgba(255, 255, 255, 0.05);
+}
+
+.contactContent {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.contactLabel {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.contactContent h2 {
+  margin: 0 0 15px;
+  color: #ffffff;
+  font-size: clamp(27px, 4vw, 39px);
+  font-weight: 900;
+}
+
+.contactContent p {
+  max-width: 650px;
+  margin: 0 auto 28px;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.contactButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 25px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50px;
+  background: #ffffff;
+  color: #087d4b;
+  font-size: 13px;
+  font-weight: 900;
+  text-decoration: none;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contactButton:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 13px 28px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ========================================
+   ANIMACIONES
+======================================== */
+
+@keyframes parquesAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ========================================
+   RESPONSIVE - TABLET
+======================================== */
+
+@media (max-width: 900px) {
+  .infoGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .volcanDetails {
+    grid-template-columns: 1fr;
+  }
+
+  .newsRow {
+    grid-template-columns: 220px 1fr;
+    gap: 22px;
+  }
+
+  .newsRow:nth-child(even) {
+    grid-template-columns: 1fr 220px;
+  }
+
+  .newsImage {
+    height: 165px;
+  }
+}
+
+
+/* ========================================
+   RESPONSIVE - MÓVIL
+======================================== */
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: 290px;
+    padding: 60px 22px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .introSection {
+    padding: 55px 22px 25px;
+  }
+
+  .introContent p {
+    font-size: 14px;
+  }
+
+  .parkSection {
+    width: calc(100% - 36px);
+    margin-top: 45px;
+  }
+
+  .parkHeading p {
+    font-size: 13px;
+  }
+
+  .infoGrid {
+    gap: 12px;
+  }
+
+  .infoItem {
+    min-height: 140px;
+    padding: 17px;
+  }
+
+  .infoNumber {
+    font-size: 22px;
+  }
+
+  .volcanData,
+  .resultsBox {
+    padding: 24px;
+  }
+
+  .newsSection {
+    width: calc(100% - 36px);
+    margin-top: 70px;
+  }
+
+  .newsHeading {
+    margin-bottom: 30px;
+  }
+
+  .newsRow,
+  .newsRow:nth-child(even) {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .newsRow:nth-child(even) .newsImage,
+  .newsRow:nth-child(even) .newsContent {
+    order: initial;
+  }
+
+  .newsImage {
+    height: 220px;
+  }
+
+  .newsContent {
+    padding: 5px 4px 8px;
+  }
+
+  .newsContent h3 {
+    font-size: 17px;
+  }
+
+  .contactSection {
+    width: calc(100% - 36px);
+    margin-top: 60px;
+    padding: 50px 22px;
+    border-radius: 22px;
+  }
+}
+
+
+/* ========================================
+   RESPONSIVE - MÓVIL PEQUEÑO
+======================================== */
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 270px;
+    padding: 55px 18px;
+  }
+
+  .heroLabel {
+    font-size: 10px;
+  }
+
+  .hero h1 {
+    font-size: 35px;
+  }
+
+  .introSection {
+    padding: 45px 18px 20px;
+  }
+
+  .introContent h2,
+  .parkHeading h2,
+  .newsHeading h2 {
+    font-size: 25px;
+  }
+
+  .parkSection {
+    width: calc(100% - 28px);
+  }
+
+  .infoGrid {
+    gap: 9px;
+  }
+
+  .infoItem {
+    min-height: 135px;
+    padding: 14px;
+  }
+
+  .infoItem strong {
+    font-size: 12px;
+  }
+
+  .infoItem small {
+    font-size: 10px;
+  }
+
+  .infoNumber {
+    font-size: 20px;
+  }
+
+  .volcanData,
+  .resultsBox {
+    padding: 20px;
+    border-radius: 17px;
+  }
+
+  .volcanData p {
+    font-size: 13px;
+  }
+
+  .resultsGrid {
+    gap: 12px;
+  }
+
+  .resultsGrid strong {
+    font-size: 27px;
+  }
+
+  .newsSection {
+    width: calc(100% - 28px);
+  }
+
+  .newsImage {
+    height: 190px;
+  }
+
+  .newsContent h3 {
+    font-size: 16px;
+  }
+
+  .contactSection {
+    width: calc(100% - 28px);
+    padding: 45px 18px;
+  }
+
+  .contactContent h2 {
+    font-size: 27px;
+  }
+
+  .contactContent p {
+    font-size: 13px;
+  }
+}

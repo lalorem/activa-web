@@ -90,9 +90,9 @@ const menus = [
   },
   {
     nombre: 'Unidades de Negocio',
-    ruta: '/unidades-negocio',
+    ruta: '/unidades-de-negocio',
     opciones: [
-      ['Unidades de Negocio', '/unidades-negocio'],
+      ['Unidades de Negocio', '/unidades-de-negocio'],
       ['Operación Logística Integral', '/operacion-logistica'],
       ['Eventos Propios', '/eventos-propios'],
       ['Administración de Parques', '/administracion-parques'],
@@ -374,7 +374,7 @@ const renderEnlace = (nombre, ruta, cerrar = false) => {
             })}
 
             <li className={styles['menu-item-simple']}>
-              {renderEnlace('PQRSDF', '/pqrs/', true)}
+              {renderEnlace('PQRSDF', '/pqrsdf', true)}
             </li>
           </ul>
 

@@ -1,0 +1,737 @@
+
+/* =========================================================
+   PQRSDF - ACTIVA
+========================================================= */
+
+.pqrsPage {
+  --pqrsLima: #c7e600;
+  --pqrsGreen: #00a651;
+  --pqrsBlue: #0072ce;
+  --pqrsGradient: linear-gradient(
+    135deg,
+    #c7e600 0%,
+    #00a651 48%,
+    #0072ce 100%
+  );
+
+  --pqrsBg: #f7faf8;
+  --pqrsCard: #ffffff;
+  --pqrsText: #1d2924;
+  --pqrsMuted: #65716b;
+  --pqrsBorder: rgba(0, 114, 206, 0.12);
+  --pqrsShadow: 0 15px 40px rgba(0, 80, 70, 0.08);
+
+  min-height: 100vh;
+  padding-bottom: 70px;
+  overflow: hidden;
+  background: var(--pqrsBg);
+  color: var(--pqrsText);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+:global([data-theme="dark"]) .pqrsPage {
+  --pqrsBg: #0f172a;
+  --pqrsCard: #24364d;
+  --pqrsText: #f8fafc;
+  --pqrsMuted: #b0bdca;
+  --pqrsBorder: #3b5068;
+  --pqrsShadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   HEADER DIFUMINADO
+========================================================= */
+
+.hero {
+  position: relative;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 75px 25px;
+  text-align: center;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(199, 230, 0, 0.35),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 85% 75%,
+      rgba(0, 114, 206, 0.35),
+      transparent 38%
+    ),
+    linear-gradient(
+      120deg,
+      #073d2b,
+      #006b49 50%,
+      #07518a
+    );
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(65px);
+  pointer-events: none;
+}
+
+.hero::before {
+  width: 260px;
+  height: 260px;
+  top: -100px;
+  left: -50px;
+  background: rgba(199, 230, 0, 0.2);
+}
+
+.hero::after {
+  width: 300px;
+  height: 300px;
+  bottom: -150px;
+  right: -50px;
+  background: rgba(0, 114, 206, 0.25);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+  animation: pqrsAppear 0.8s ease both;
+}
+
+.heroEyebrow {
+  display: inline-block;
+  margin-bottom: 15px;
+  color: var(--pqrsLima);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.heroContent h1 {
+  margin: 0 0 15px;
+  color: #ffffff;
+  font-size: clamp(42px, 6vw, 68px);
+  font-weight: 850;
+  letter-spacing: -2px;
+}
+
+.heroContent p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   ENCABEZADOS DE SECCIÓN
+========================================================= */
+
+.sectionHeading {
+  max-width: 750px;
+  margin: 0 auto 55px;
+  text-align: center;
+}
+
+.sectionEyebrow {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--pqrsGreen);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+}
+
+.sectionHeading h2,
+.policyHeading h2,
+.formHeading h2 {
+  margin: 0;
+  color: var(--pqrsText);
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 800;
+  letter-spacing: -0.8px;
+}
+
+.sectionHeading p {
+  margin: 15px 0 0;
+  color: var(--pqrsMuted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   SEIS TIPOS DE PQRSDF - NUBES
+========================================================= */
+
+.typesSection {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 80px 35px 70px;
+}
+
+.cloudGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 35px 25px;
+}
+
+.cloudCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 285px;
+  padding: 32px 30px;
+  background: var(--pqrsCard);
+  border: 1px solid var(--pqrsBorder);
+  border-radius: 30px 30px 30px 10px;
+  box-shadow: var(--pqrsShadow);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+  animation: pqrsAppear 0.7s ease both;
+}
+
+/* Detalle decorativo de nube */
+
+.cloudCard::before {
+  content: "";
+  position: absolute;
+  top: -13px;
+  right: 32px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--pqrsCard);
+  border-top: 1px solid var(--pqrsBorder);
+  border-left: 1px solid var(--pqrsBorder);
+}
+
+.cloudCard::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 43px;
+  width: 45px;
+  height: 5px;
+  border-radius: 10px;
+  background: var(--pqrsGradient);
+}
+
+.cloudCard:hover {
+  transform: translateY(-9px);
+  border-color: rgba(0, 166, 81, 0.35);
+  box-shadow: 0 22px 45px rgba(0, 80, 70, 0.13);
+}
+
+.cloudIcon {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  margin-bottom: 22px;
+  color: var(--pqrsGreen);
+  background: rgba(0, 166, 81, 0.09);
+  border: 1px solid rgba(0, 166, 81, 0.12);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.cloudCard:hover .cloudIcon {
+  color: #ffffff;
+  background: var(--pqrsGradient);
+  transform: rotate(-5deg) scale(1.05);
+}
+
+.cloudNumber {
+  position: absolute;
+  top: 27px;
+  right: 30px;
+  color: var(--pqrsMuted);
+  font-size: 12px;
+  font-weight: 800;
+  opacity: 0.5;
+}
+
+.cloudCard h3 {
+  margin: 0 0 13px;
+  color: var(--pqrsText);
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.cloudCard p {
+  margin: 0;
+  color: var(--pqrsMuted);
+  font-size: 13px;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+
+/* =========================================================
+   POLÍTICAS Y FORMULARIO
+========================================================= */
+
+.policySection {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(350px, 0.9fr);
+  align-items: start;
+  gap: 35px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 35px 80px;
+}
+
+/* Políticas */
+
+.policyContent {
+  min-width: 0;
+  padding: 38px;
+  background: var(--pqrsCard);
+  border: 1px solid var(--pqrsBorder);
+  border-radius: 24px;
+  box-shadow: var(--pqrsShadow);
+}
+
+.policyHeading {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  margin-bottom: 30px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid var(--pqrsBorder);
+}
+
+.policyIcon,
+.formIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 58px;
+  height: 58px;
+  color: #ffffff;
+  background: var(--pqrsGradient);
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0, 166, 81, 0.16);
+}
+
+.policyHeading .sectionEyebrow {
+  margin-bottom: 5px;
+}
+
+.policyHeading h2 {
+  font-size: 30px;
+}
+
+.policyText p {
+  margin: 0 0 20px;
+  color: var(--pqrsMuted);
+  font-size: 13px;
+  line-height: 1.9;
+  text-align: justify;
+}
+
+.lawQuote {
+  margin: 25px 0;
+  padding: 25px 25px 10px;
+  background: rgba(0, 166, 81, 0.045);
+  border-left: 4px solid var(--pqrsGreen);
+  border-radius: 0 15px 15px 0;
+}
+
+.lawQuote strong {
+  color: var(--pqrsText);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.lawQuote p {
+  margin-top: 14px;
+}
+
+.lawQuote ol {
+  padding-left: 22px;
+  margin: 15px 0 22px;
+}
+
+.lawQuote li {
+  padding-left: 7px;
+  margin-bottom: 18px;
+  color: var(--pqrsMuted);
+  font-size: 13px;
+  line-height: 1.9;
+  text-align: justify;
+}
+
+.lawQuote li::marker {
+  color: var(--pqrsGreen);
+  font-weight: 800;
+}
+
+.lawQuote p:last-child {
+  margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   FORMULARIO
+========================================================= */
+
+.formCard {
+  position: sticky;
+  top: 110px;
+  min-width: 0;
+  padding: 32px 25px;
+  background: var(--pqrsCard);
+  border: 1px solid var(--pqrsBorder);
+  border-radius: 24px;
+  box-shadow: var(--pqrsShadow);
+}
+
+.formHeading {
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+.formIcon {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 20px;
+}
+
+.formHeading .sectionEyebrow {
+  margin-bottom: 10px;
+}
+
+.formHeading h2 {
+  font-size: 27px;
+}
+
+.formHeading p {
+  max-width: 420px;
+  margin: 12px auto 0;
+  color: var(--pqrsMuted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.formEmbed {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--pqrsBorder);
+  border-radius: 15px;
+  background: #ffffff;
+}
+
+.formEmbed iframe {
+  display: block;
+  width: 100%;
+  min-height: 1050px;
+}
+
+.formNote {
+  margin: 18px 0 0;
+  color: var(--pqrsMuted);
+  font-size: 11px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+
+/* =========================================================
+   CONTACTO ADMINISTRATIVO
+========================================================= */
+
+.contactSection {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 38px 45px;
+  overflow: hidden;
+  color: #ffffff;
+  background: var(--pqrsGradient);
+  border-radius: 25px;
+  box-shadow: 0 18px 40px rgba(0, 130, 90, 0.2);
+}
+
+.contactSection::after {
+  content: "";
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  top: -140px;
+  right: -35px;
+  border: 35px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.contactIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 68px;
+  height: 68px;
+  color: var(--pqrsGreen);
+  background: #ffffff;
+  border-radius: 20px;
+}
+
+.contactText {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+.contactText span {
+  display: block;
+  margin-bottom: 7px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.contactText h2 {
+  margin: 0 0 10px;
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.contactText p {
+  max-width: 680px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.93);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.contactButton {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-shrink: 0;
+  padding: 15px 23px;
+  color: var(--pqrsGreen);
+  background: #ffffff;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contactButton:hover {
+  color: #ffffff;
+  background: #073d2b;
+  transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   ANIMACIONES
+========================================================= */
+
+@keyframes pqrsAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+  .cloudGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .policySection {
+    grid-template-columns: 1fr;
+    max-width: 850px;
+  }
+
+  .formCard {
+    position: relative;
+    top: auto;
+  }
+
+  .contactSection {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE - MÓVIL
+========================================================= */
+
+@media (max-width: 650px) {
+  .hero {
+    min-height: 280px;
+    padding: 60px 20px;
+  }
+
+  .heroContent h1 {
+    letter-spacing: -1px;
+  }
+
+  .heroContent p {
+    font-size: 14px;
+  }
+
+  .typesSection {
+    padding: 60px 20px 40px;
+  }
+
+  .sectionHeading {
+    margin-bottom: 40px;
+  }
+
+  .sectionHeading h2 {
+    font-size: 26px;
+  }
+
+  .cloudGrid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .cloudCard {
+    min-height: auto;
+    padding: 27px 25px;
+  }
+
+  .cloudCard p {
+    font-size: 13px;
+  }
+
+  .policySection {
+    padding: 30px 17px 55px;
+    gap: 25px;
+  }
+
+  .policyContent {
+    padding: 25px 20px;
+  }
+
+  .policyHeading {
+    gap: 12px;
+  }
+
+  .policyHeading h2 {
+    font-size: 25px;
+  }
+
+  .policyIcon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .policyText p,
+  .lawQuote li {
+    font-size: 12px;
+  }
+
+  .lawQuote {
+    padding: 20px 17px 5px;
+  }
+
+  .formCard {
+    padding: 27px 17px;
+  }
+
+  .formHeading h2 {
+    font-size: 24px;
+  }
+
+  .formEmbed iframe {
+    min-height: 1050px;
+  }
+
+  .contactSection {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin: 0 17px;
+    padding: 30px 25px;
+    border-radius: 20px;
+  }
+
+  .contactText h2 {
+    font-size: 23px;
+  }
+
+  .contactButton {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   MÓVILES PEQUEÑOS
+========================================================= */
+
+@media (max-width: 380px) {
+  .heroEyebrow {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .cloudCard h3 {
+    font-size: 17px;
+  }
+
+  .policyContent {
+    padding: 22px 16px;
+  }
+
+  .lawQuote {
+    padding: 17px 13px 5px;
+  }
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .pqrsPage *,
+  .pqrsPage *::before,
+  .pqrsPage *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

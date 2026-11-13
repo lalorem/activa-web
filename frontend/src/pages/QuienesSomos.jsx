@@ -11,7 +11,7 @@ import driana from '../assets/Driana-Durango.webp';
 import cristian from '../assets/Cristian Buriticá.webp';
 import fernando from '../assets/Fernando de Jesús Cardona.webp';
 import jhonatan from '../assets/Jhonatan Valencia.webp';
-import william from '../assets/william.jpg';
+import william from '../assets/william.jpeg';
 
 const equipo = [
   {
@@ -61,11 +61,11 @@ const equipo = [
   },
   {
     imagen: william,
-    nombre: 'William',
-    cargo: 'Gerente General',
+    nombre: 'William Ocampo Restrepo',
+    cargo: 'Director Jurídico',
     descripcion: [
-      'Administrador de Empresas y Profesional en Comercio Exterior de la Universidad Católica de Oriente, con especialización en Gestión Pública de la ESAP. Cuenta con más de 20 años de experiencia en los sectores público y privado, destacándose por su visión estratégica, liderazgo y compromiso con el desarrollo territorial.',
-      'Ha ocupado cargos como Gerente de RENTAN, Subgerente del IDEA, Director Parque Juan Pablo ll, Administrador General del Centro Comercial Terminal del Norte, y Asesor del Área Metropolitana del Valle de Aburrá, entre otros. También ha ejercido funciones en Metrosparques, la Superintendencia de Servicios Públicos y como concejal y Alcalde encargado de El Retiro. Su trayectoria combina conocimientos técnicos, sensibilidad social y una visión integral del desarrollo, lo que ha marcado su gestión con eficiencia, legalidad y vocación de servicio.',
+      'Abogado especialista en Derecho Administrativo, con más de 20 años de experiencia en el sector público de Antioquia. Como Director Jurídico de ACTIVA EICE, lidera la estrategia legal de la entidad: asesora a la alta dirección y vela por que la gestión contractual y administrativa cumpla el marco normativo vigente.',
+      'Ha trabajado en entidades como la Gobernación de Antioquia, el Municipio de Medellín, el Área Metropolitana del Valle de Aburrá, Terminales de Transporte de Medellín, Corantioquia, Sistema de Bibliotecas Públicas de Medellín, el Municipio de Guarne y el Hospital Santa María, entre otras. Durante esa trayectoria coordinó equipos de profesionales y asesoró a los despachos de las secretarías de Hacienda, Planeación, Educación, Inclusión Social, Cultura y Participación Ciudadana, lo que le permitió consolidar un conocimiento integral en contratación estatal y en sectores clave de la gestión pública como gestión cultural, infraestructura, medio ambiente y salud. Combina un sólido dominio de la administración pública con amplia experiencia en la conducción de procesos contractuales complejos, orientada a brindar seguridad jurídica a la gestión institucional.',
     ],
   },
 ];
