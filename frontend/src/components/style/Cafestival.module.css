@@ -47,34 +47,16 @@
 
 .hero {
   position: relative;
-  min-height: 440px;
+  min-height: 590px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   isolation: isolate;
   text-align: center;
-
-  background-image: url('/cafestival/header-cafestival.jpg');
   background-size: cover;
   background-position: center 50%;
   background-repeat: no-repeat;
-}
-
-.heroOverlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 70px 25px;
-
-  background: linear-gradient(
-    135deg,
-    rgba(9, 35, 24, 0.72),
-    rgba(0, 100, 65, 0.56),
-    rgba(5, 30, 55, 0.72)
-  );
 }
 
 .heroContent {

@@ -2,6 +2,7 @@
 import { ArrowUpRight, Lightbulb, Gear, ShieldCheck } from '@phosphor-icons/react';
 
 import styles from '../components/style/UnidadesNegocio.module.css';
+import TrabajaConNosotros from '../components/TrabajaConNosotros';
 
 const capacidades = [
   {
@@ -214,24 +215,7 @@ function UnidadesNegocio() {
         </div>
       </section>
 
-      {/* CONTACTO */}
-      <section className={styles.contactSection}>
-        <div className={styles.contactContent}>
-          <span className={styles.contactLabel}>HAGAMOS EQUIPO</span>
-
-          <h2>Empecemos a trabajar juntos</h2>
-
-          <p>
-            Diseñemos juntos experiencias sostenibles que impulsen
-            comunidades, emprendedores y resultados reales.
-          </p>
-
-          <a href="mailto:info@activa.com.co" className={styles.contactButton}>
-            Haz clic aquí
-            <ArrowUpRight size={19} weight="bold" />
-          </a>
-        </div>
-      </section>
+      <TrabajaConNosotros />
 
     </main>
   );

@@ -2,6 +2,7 @@
 import { Tree, MapPin, ArrowUpRight } from '@phosphor-icons/react';
 
 import styles from '../components/style/ParquesActiva.module.css';
+import TrabajaConNosotros from '../components/TrabajaConNosotros';
 
 const noticias = [
   {
@@ -230,29 +231,7 @@ function ParquesActiva() {
         </div>
       </section>
 
-      {/* CARTEL FINAL DE CONTACTO */}
-      <section className={styles.contactSection}>
-        <div className={styles.contactContent}>
-          <span className={styles.contactLabel}>
-            HAGAMOS EQUIPO
-          </span>
-
-          <h2>Empecemos a trabajar juntos</h2>
-
-          <p>
-            Diseñemos juntos experiencias sostenibles que impulsen
-            comunidades, emprendedores y resultados reales.
-          </p>
-
-          <a
-            href="mailto:info@activa.com.co"
-            className={styles.contactButton}
-          >
-            Haz clic aquí
-            <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </section>
+      <TrabajaConNosotros />
 
     </main>
   );

@@ -11,6 +11,9 @@ import styles from '../components/style/InformacionNNA.module.css';
 
 import ninos from '../assets/niños.png';
 import ninos2 from '../assets/niños2.png';
+import vistaNNA from '../assets/vistaNNA.jpg';
+
+import FraseFinal from '../components/FraseFinal';
 
 function InformacionNNA() {
   return (
@@ -20,7 +23,20 @@ function InformacionNNA() {
           HERO
       ===================================================== */}
 
-      <section className={styles.hero}>
+      <section
+  className={styles.hero}
+  style={{
+    backgroundImage: `
+      linear-gradient(
+        90deg,
+        rgba(5, 29, 42, 0.78) 0%,
+        rgba(5, 29, 42, 0.48) 55%,
+        rgba(5, 29, 42, 0.22) 100%
+      ),
+      url("${vistaNNA}")
+    `,
+  }}
+>
 
         <div className={styles.heroBg}></div>
 
@@ -340,30 +356,14 @@ function InformacionNNA() {
           CIERRE
       ===================================================== */}
 
-      <section className={styles.closing}>
-
-        <div className={styles.closingGlow}></div>
-
-        <div className={styles.closingContent}>
-
-          <span className={styles.closingIcon}>
-            ✦
-          </span>
-
-          <h2>
-            Aprender también
-            es una <span>aventura</span>
-          </h2>
-
-          <p>
-            En ACTIVA seguimos creando espacios donde cada niño,
-            niña y adolescente pueda jugar, descubrir y disfrutar
-            de experiencias que aporten a su bienestar.
-          </p>
-
-        </div>
-
-      </section>
+      <FraseFinal
+  frase={
+    <>
+      Cada niño y niña merece <span>crecer, soñar y descubrir</span> todo su potencial.
+    </>
+  }
+  descripcion="En ACTIVA promovemos espacios de participación, aprendizaje y bienestar para que las niñas, niños y adolescentes construyan un mejor futuro."
+/>
 
     </main>
   );

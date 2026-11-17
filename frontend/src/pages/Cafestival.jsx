@@ -10,6 +10,12 @@ import {
 } from '@phosphor-icons/react';
 
 import styles from '../components/style/Cafestival.module.css';
+import TrabajaConNosotros from '../components/TrabajaConNosotros';
+import cafe2 from '../assets/cafestival2.jpeg';
+import cafe3 from '../assets/cafestival3.jpeg';
+import cafe4 from '../assets/cafestival4.jpeg';
+import cafe5 from '../assets/cafestival5.jpeg';
+import cafeHeader from '../assets/cafestival.jpeg';
 
 const resultados = [
   {
@@ -55,12 +61,10 @@ const resultados = [
 ];
 
 const fotografias = [
-  '/cafestival/cafestival-1.jpg',
-  '/cafestival/cafestival-2.jpg',
-  '/cafestival/cafestival-3.jpg',
-  '/cafestival/cafestival-4.jpg',
-  '/cafestival/cafestival-5.jpg',
-  '/cafestival/cafestival-6.jpg',
+  cafe2,
+  cafe3,
+  cafe4,
+  cafe5,
 ];
 
 function Cafestival() {
@@ -70,22 +74,35 @@ function Cafestival() {
     <main className={styles.cafestivalPage}>
 
       {/* HEADER FOTOGRÁFICO */}
-      <section className={styles.hero}>
-        <div className={styles.heroOverlay}>
-          <div className={styles.heroContent}>
-            <span className={styles.heroLabel}>
-              <Coffee size={18} />
-              EVENTOS QUE TRANSFORMAN TERRITORIOS
-            </span>
+<section
+  className={styles.hero}
+  style={{
+    backgroundImage: `
+      linear-gradient(
+        90deg,
+        rgba(5, 29, 42, 0.75) 0%,
+        rgba(5, 29, 42, 0.40) 55%,
+        rgba(5, 29, 42, 0.15) 100%
+      ),
+      url("${cafeHeader}")
+    `,
+  }}
+>
+  <div className={styles.heroOverlay}>
+    <div className={styles.heroContent}>
+      <span className={styles.heroLabel}>
+        <Coffee size={18} />
+        EVENTOS QUE TRANSFORMAN TERRITORIOS
+      </span>
 
-            <h1>Caféstival</h1>
+      <h1>Caféstival</h1>
 
-            <p>
-              Café, cultura y desarrollo que conectan a Antioquia.
-            </p>
-          </div>
-        </div>
-      </section>
+      <p>
+        Café, cultura y desarrollo que conectan a Antioquia.
+      </p>
+    </div>
+  </div>
+</section>
 
       {/* PRESENTACIÓN */}
       <section className={styles.introSection}>
@@ -324,29 +341,7 @@ function Cafestival() {
 
       </section>
 
-      {/* CARTEL FINAL DE CONTACTO */}
-      <section className={styles.contactSection}>
-        <div className={styles.contactContent}>
-          <span className={styles.contactLabel}>
-            HAGAMOS EQUIPO
-          </span>
-
-          <h2>Empecemos a trabajar juntos</h2>
-
-          <p>
-            Diseñemos juntos experiencias que impulsen comunidades,
-            emprendimientos y resultados reales.
-          </p>
-
-          <a
-            href="mailto:info@activa.com.co"
-            className={styles.contactButton}
-          >
-            Haz clic aquí
-            <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </section>
+      <TrabajaConNosotros />
 
     </main>
   );

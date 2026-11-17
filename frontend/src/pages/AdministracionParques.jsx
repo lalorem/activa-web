@@ -2,6 +2,7 @@ import { Leaf } from "@phosphor-icons/react";
 
 import styles from "../components/style/AdministracionParques.module.css";
 import sharedStyles from "../components/style/UnidadesNegocio.module.css";
+import TrabajaConNosotros from '../components/TrabajaConNosotros';
 
 const imagenesParques = [
   {
@@ -97,24 +98,8 @@ function AdministracionParques() {
         </div>
       </section>
 
-      {/* CARTEL FINAL DE CONTACTO */}
-      <section className={styles.contactSection}>
-        <div className={styles.contactContent}>
-          <span className={styles.contactLabel}>HAGAMOS EQUIPO</span>
+      <TrabajaConNosotros />
 
-          <h2>Empecemos a trabajar juntos</h2>
-
-          <p>
-            Diseñemos juntos experiencias sostenibles que impulsen comunidades,
-            emprendedores y resultados reales.
-          </p>
-
-          <a href="mailto:info@activa.com.co" className={styles.contactButton}>
-            Haz clic aquí
-            <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </section>
     </main>
   );
 }
