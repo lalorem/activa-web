@@ -125,7 +125,21 @@
 
   will-change: transform;
 
-  transition: transform 0.65s cubic-bezier(0.22, 0.61, 0.36, 1);
+  animation: clientesInfinito 35s linear infinite;
+}
+
+.clientsTrack.paused {
+  animation-play-state: paused;
+}
+
+@keyframes clientesInfinito {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* =========================================================

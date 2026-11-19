@@ -32,85 +32,11 @@ const clientes = [
   { id: 12, imagen: sabaneta, nombre: 'Alcaldía de Sabaneta' },
 ];
 
-function Clientes() {
-  const viewportRef = useRef(null);
-  const trackRef = useRef(null);
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+function Clientes() {
   const [isPaused, setIsPaused] = useState(false);
 
-  const [layout, setLayout] = useState({
-    step: 208,
-    visibleCount: 5,
-  });
-
-  // Calcular cuántos logos caben según el tamaño de pantalla
-  useEffect(() => {
-    const calculateLayout = () => {
-      const viewport = viewportRef.current;
-      const track = trackRef.current;
-
-      if (!viewport || !track || !track.children.length) return;
-
-      const card = track.children[0];
-      const cardWidth = card.getBoundingClientRect().width;
-
-      const trackStyles = window.getComputedStyle(track);
-      const gap = parseFloat(trackStyles.columnGap) || 28;
-
-      const step = cardWidth + gap;
-
-      const visibleCount = Math.max(
-        1,
-        Math.floor((viewport.clientWidth + gap) / step)
-      );
-
-      setLayout({ step, visibleCount });
-    };
-
-    calculateLayout();
-
-    window.addEventListener('resize', calculateLayout);
-
-    return () => {
-      window.removeEventListener('resize', calculateLayout);
-    };
-  }, []);
-
-  const maxIndex = Math.max(
-    0,
-    clientes.length - layout.visibleCount
-  );
-
-  // Ajustar posición si cambia el tamaño de pantalla
-  useEffect(() => {
-    setCurrentIndex((current) => Math.min(current, maxIndex));
-  }, [maxIndex]);
-
-  // Avanzar automáticamente cada 4 segundos
-  useEffect(() => {
-    if (isPaused || maxIndex === 0) return;
-
-    const interval = setInterval(() => {
-      setCurrentIndex((current) =>
-        current >= maxIndex ? 0 : current + 1
-      );
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [isPaused, maxIndex]);
-
-  const siguiente = () => {
-    setCurrentIndex((current) =>
-      current >= maxIndex ? 0 : current + 1
-    );
-  };
-
-  const anterior = () => {
-    setCurrentIndex((current) =>
-      current <= 0 ? maxIndex : current - 1
-    );
-  };
+  const clientesDuplicados = [...clientes, ...clientes];
 
   return (
     <section className={styles.clientsSection}>
@@ -132,40 +58,23 @@ function Clientes() {
           </p>
         </div>
 
-        {/* Carrusel */}
+        {/* Carrusel infinito */}
         <div
           className={styles.clientsCarousel}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
-          onFocus={() => setIsPaused(true)}
-          onBlur={(event) => {
-            if (!event.currentTarget.contains(event.relatedTarget)) {
-              setIsPaused(false);
-            }
-          }}
         >
-          <button
-            type="button"
-            className={styles.clientsPrev}
-            onClick={anterior}
-            aria-label="Clientes anteriores"
-          >
-            <CaretLeft size={23} weight="bold" />
-          </button>
-
-          <div
-            className={styles.clientsViewport}
-            ref={viewportRef}
-          >
+          <div className={styles.clientsViewport}>
             <div
-              className={styles.clientsTrack}
-              ref={trackRef}
-              style={{
-                transform: `translateX(-${currentIndex * layout.step}px)`,
-              }}
+              className={`${styles.clientsTrack} ${
+                isPaused ? styles.paused : ''
+              }`}
             >
-              {clientes.map((cliente) => (
-                <div className={styles.clientLogo} key={cliente.id}>
+              {clientesDuplicados.map((cliente, index) => (
+                <div
+                  className={styles.clientLogo}
+                  key={`${cliente.id}-${index}`}
+                >
                   <img
                     src={cliente.imagen}
                     alt={cliente.nombre}
@@ -174,31 +83,6 @@ function Clientes() {
               ))}
             </div>
           </div>
-
-          <button
-            type="button"
-            className={styles.clientsNext}
-            onClick={siguiente}
-            aria-label="Siguientes clientes"
-          >
-            <CaretRight size={23} weight="bold" />
-          </button>
-        </div>
-
-        {/* Indicadores */}
-        <div className={styles.clientsDots}>
-          {Array.from({ length: maxIndex + 1 }).map((_, index) => (
-            <button
-              key={index}
-              type="button"
-              className={`${styles.clientsDot} ${
-                currentIndex === index ? styles.active : ''
-              }`}
-              onClick={() => setCurrentIndex(index)}
-              aria-label={`Mostrar posición ${index + 1}`}
-              aria-current={currentIndex === index ? 'true' : undefined}
-            />
-          ))}
         </div>
 
       </div>

@@ -1,162 +1,318 @@
 
 /* =========================================================
-   UBICACIÓN
+   UBICACIÓN ACTIVA
 ========================================================= */
 
 .locationSection {
-    padding: 100px 0;
-    background-color: var(--bg-surface);
+    position: relative;
+    padding: 100px 0 110px;
+    background: var(--bg-surface);
 }
 
-/* ---------- ENCABEZADO ---------- */
+/* =========================================================
+   ENCABEZADO
+========================================================= */
 
 .sectionHeader {
     text-align: center;
-    margin-bottom: 55px;
+    margin-bottom: 48px;
 }
 
 .badgeTitle {
     display: inline-block;
-    color: var(--brand-green);
+    color: #008f4c;
     font-size: 0.85rem;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 12px;
 }
 
 .sectionHeader h2 {
-    color: var(--text-main);
-    font-size: clamp(2rem, 4vw, 2.7rem);
+    color: #173b35;
+    font-size: clamp(2rem, 4vw, 2.8rem);
     font-weight: 800;
+    line-height: 1.2;
 }
 
 .sectionHeader h2 span {
-    color: var(--brand-green);
+    color: #00a651;
 }
 
 .sectionHeader p {
     max-width: 750px;
     margin: 15px auto 0;
-    color: var(--text-muted);
+    color: #405b65;
     font-size: 1rem;
     line-height: 1.7;
 }
 
-/* ---------- DISTRIBUCIÓN ---------- */
+/* =========================================================
+   DISTRIBUCIÓN HORIZONTAL
+========================================================= */
 
 .locationGrid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 30px;
+    align-items: stretch;
+    gap: 28px;
+
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
 }
 
-/* ---------- TARJETAS ---------- */
+/* =========================================================
+   TARJETAS
+========================================================= */
 
 .locationCard {
-    background-color: var(--card-bg);
-    border: 1px solid var(--card-border);
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+
+    background: linear-gradient(
+        145deg,
+        #eaffbd 0%,
+        #d9f5df 48%,
+        #dceeff 100%
+    );
+
+    border: 1px solid rgba(0, 166, 81, 0.22);
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: var(--card-shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    box-shadow:
+        0 8px 25px rgba(0, 90, 65, 0.09),
+        0 2px 8px rgba(0, 0, 0, 0.03);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
 }
 
 .locationCard:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
+
+    border-color: #00a651;
+
+    box-shadow:
+        0 18px 35px rgba(0, 114, 206, 0.13),
+        0 8px 20px rgba(0, 166, 81, 0.10);
 }
 
-/* ---------- ENCABEZADO DE TARJETA ---------- */
+/* =========================================================
+   ENCABEZADO DE CADA TARJETA
+========================================================= */
 
 .locationTitle {
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 24px 25px;
+
+    min-height: 100px;
+    padding: 22px 25px;
 }
 
 .titleIcon {
-    width: 48px;
-    height: 48px;
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    background-color: var(--brand-lime);
-    color: #1d2924;
-    flex-shrink: 0;
+
+    border-radius: 15px;
+
+    background: linear-gradient(
+        135deg,
+        #c7e600,
+        #00a651
+    );
+
+    color: #173128;
+
+    box-shadow: 0 5px 14px rgba(0, 166, 81, 0.16);
 }
 
 .locationTitle h3 {
-    margin: 0 0 4px;
-    font-size: 1.2rem;
-    color: var(--text-main);
+    margin: 0 0 5px;
+
+    font-size: 1.18rem;
+    font-weight: 800;
+
+    color: #24364d;
 }
 
 .locationTitle p {
     margin: 0;
-    color: var(--text-muted);
+
+    color: #526b80;
     font-size: 0.9rem;
 }
 
-/* ---------- MAPA ---------- */
+/* =========================================================
+   MAPA
+========================================================= */
 
 .mapContainer {
     width: 100%;
     height: 380px;
+    overflow: hidden;
+
+    background: #dceee3;
 }
 
 .mapContainer iframe {
+    display: block;
+
     width: 100%;
     height: 100%;
+
     border: 0;
-    display: block;
 }
 
-/* ---------- VIDEO ---------- */
+/* =========================================================
+   VIDEO
+========================================================= */
 
 .videoContainer {
-    width: 100%;
-    height: 380px;
-    background-color: #111;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    width: 100%;
+    height: 380px;
+
     overflow: hidden;
+    background: #10251f;
 }
 
 .videoContainer video {
+    display: block;
+
     width: 100%;
     height: 100%;
+
     object-fit: contain;
-    display: block;
 }
 
-/* ---------- RESPONSIVE ---------- */
+/* =========================================================
+   MODO OSCURO
+========================================================= */
 
-@media (max-width: 850px) {
+:global([data-theme="dark"]) .locationSection {
+    background: var(--bg-surface);
+}
+
+:global([data-theme="dark"]) .locationCard {
+    background: linear-gradient(
+        145deg,
+        #294b3a 0%,
+        #23483f 48%,
+        #233d57 100%
+    );
+
+    border-color: rgba(199, 230, 0, 0.2);
+}
+
+:global([data-theme="dark"]) .sectionHeader h2 {
+    color: #f1f8ed;
+}
+
+:global([data-theme="dark"]) .sectionHeader p {
+    color: #c0d4d5;
+}
+
+:global([data-theme="dark"]) .badgeTitle {
+    color: #c7e600;
+}
+
+:global([data-theme="dark"]) .locationTitle h3 {
+    color: #f1f5f9;
+}
+
+:global([data-theme="dark"]) .locationTitle p {
+    color: #c5d5df;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
     .locationGrid {
-        grid-template-columns: 1fr;
-        max-width: 650px;
-        margin: 0 auto;
-    }
-}
-
-@media (max-width: 600px) {
-    .locationSection {
-        padding: 70px 0;
+        gap: 20px;
     }
 
-    .sectionHeader {
-        margin-bottom: 35px;
+    .mapContainer,
+    .videoContainer {
+        height: 320px;
     }
 
     .locationTitle {
         padding: 20px;
     }
 
+    .locationTitle h3 {
+        font-size: 1.05rem;
+    }
+}
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 700px) {
+    .locationSection {
+        padding: 75px 0 85px;
+    }
+
+    .sectionHeader {
+        margin-bottom: 35px;
+    }
+
+    .locationGrid {
+        grid-template-columns: 1fr;
+        max-width: 550px;
+        gap: 24px;
+    }
+
     .mapContainer,
     .videoContainer {
-        height: 280px;
+        height: 300px;
+    }
+
+    .locationTitle {
+        min-height: auto;
+        padding: 20px;
+    }
+}
+
+/* =========================================================
+   PANTALLAS PEQUEÑAS
+========================================================= */
+
+@media (max-width: 400px) {
+    .mapContainer,
+    .videoContainer {
+        height: 250px;
+    }
+
+    .titleIcon {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+/* =========================================================
+   ACCESIBILIDAD
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .locationCard {
+        transition: none;
     }
 }

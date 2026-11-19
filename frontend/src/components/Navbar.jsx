@@ -1,4 +1,7 @@
+
 import { useEffect, useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+
 import {
   List,
   X,
@@ -16,8 +19,6 @@ import {
 import styles from './style/navbar.module.css';
 import gov from '../assets/logo_gov.webp';
 import activa from '../assets/logo_activa.webp';
-
-import { Link } from 'react-router-dom';
 
 const menus = [
   {
@@ -40,31 +41,7 @@ const menus = [
     opciones: [
       ['Transparencia', '/transparencia'],
       ['Oficina de Control Interno', '/oficina-control-interno'],
-      ['Caracterizaciones', '/caracterizaciones'],
       ['Certificados de Accesibilidad', '/certificados-accesibilidad'],
-      {
-        nombre: 'Planeación, Presupuestos e Informes',
-        ruta: '/planeacion-presupuestos-informes',
-        opciones: [
-          ['Información para Mujeres', '/informacion-mujeres'],
-          ['Información para Niños, Niñas y Adolescentes (NNA)', '/informacion-nna'],
-          ['Otros Grupos de Interés', '/grupos-interes'],
-          ['Planeación', '/planeacion'],
-          ['Sistema de Gestión de Calidad', '/sistema-gestion-calidad'],
-        ],
-      },
-      {
-        nombre: 'Normativa',
-        ruta: '/normativa-entidad',
-        opciones: [
-          ['Normativa de la Entidad', '/normativa-entidad'],
-          ['Resoluciones', '/resoluciones'],
-          ['Acuerdos', '/acuerdos'],
-          ['Políticas, Lineamientos y Manuales', '/politicas-lineamientos-manuales'],
-          ['SUIN', 'https://www.suin-juriscol.gov.co/'],
-          ['Estados Financieros', '/estados-financieros'],
-        ],
-      },
     ],
   },
   {
@@ -74,9 +51,18 @@ const menus = [
       ['Descripción General', '/descripcion-general'],
       ['Rendición de Cuentas', '/rendicion-de-cuentas'],
       ['Canales de Atencion', '/canales-de-atencion-presencial-y-telefonica'],
-      ['Servicio al Público, Normas, Formularios y Protocolos de Atención', 'https://activa.com.co/documentos/'],
-      ['Procedimientos para la Toma de Decisiones', 'https://activa.com.co/en-construccion/'],
-      ['Entes y Autoridades que nos Vigilan', '/entes-y-autoridades-que-nos-vigilan'],
+      [
+        'Servicio al Público, Normas, Formularios y Protocolos de Atención',
+        'https://activa.com.co/documentos/',
+      ],
+      [
+        'Procedimientos para la Toma de Decisiones',
+        'https://activa.com.co/en-construccion/',
+      ],
+      [
+        'Entes y Autoridades que nos Vigilan',
+        '/entes-y-autoridades-que-nos-vigilan',
+      ],
     ],
   },
   {
@@ -105,9 +91,42 @@ const menus = [
 ];
 
 function Navbar() {
+  const location = useLocation();
+
   const [menuAbierto, setMenuAbierto] = useState(false);
   const [busquedaAbierta, setBusquedaAbierta] = useState(false);
-    useEffect(() => {
+
+  const [temaOscuro, setTemaOscuro] = useState(
+    document.documentElement.dataset.theme === 'dark'
+  );
+
+  const [menusAbiertos, setMenusAbiertos] = useState([]);
+  const [submenusAbiertos, setSubmenusAbiertos] = useState([]);
+
+  // Bloquea la reapertura mientras el mouse siga encima
+  const [menuCerradoPorClick, setMenuCerradoPorClick] = useState(false);
+
+  // =========================================================
+  // IDENTIFICAR LA RUTA ACTUAL
+  // =========================================================
+
+  const normalizarRuta = (ruta) =>
+    ruta.replace(/\/+$/, '') || '/';
+
+  const esRutaActiva = (ruta) => {
+    if (ruta.startsWith('https://')) return false;
+
+    return (
+      normalizarRuta(location.pathname) ===
+      normalizarRuta(ruta)
+    );
+  };
+
+  // =========================================================
+  // BUSCADOR
+  // =========================================================
+
+  useEffect(() => {
     if (!busquedaAbierta) return;
 
     const cerrarConEscape = (event) => {
@@ -125,13 +144,13 @@ function Navbar() {
     };
   }, [busquedaAbierta]);
 
-  const [temaOscuro, setTemaOscuro] = useState(
-  document.documentElement.dataset.theme === 'dark'
-);
-  const [menusAbiertos, setMenusAbiertos] = useState([]);
-  const [submenusAbiertos, setSubmenusAbiertos] = useState([]);
+  // =========================================================
+  // MENÚ MÓVIL
+  // =========================================================
 
   const alternarMenu = (nombre) => {
+    if (!menuAbierto) return;
+
     setMenusAbiertos((actuales) =>
       actuales.includes(nombre)
         ? actuales.filter((item) => item !== nombre)
@@ -140,6 +159,8 @@ function Navbar() {
   };
 
   const alternarSubmenu = (nombre) => {
+    if (!menuAbierto) return;
+
     setSubmenusAbiertos((actuales) =>
       actuales.includes(nombre)
         ? actuales.filter((item) => item !== nombre)
@@ -153,45 +174,95 @@ function Navbar() {
     setSubmenusAbiertos([]);
   };
 
+  // Cerrar los menús al cambiar de página
+  useEffect(() => {
+    cerrarMenu();
+    setBusquedaAbierta(false);
+  }, [location.pathname]);
+
+  // =========================================================
+  // CAMBIO DE TEMA
+  // =========================================================
+
   const cambiarTema = () => {
-  const nuevoTema = !temaOscuro;
+    const nuevoTema = !temaOscuro;
 
-  document.documentElement.dataset.theme = nuevoTema
-    ? 'dark'
-    : 'light';
+    document.documentElement.dataset.theme = nuevoTema
+      ? 'dark'
+      : 'light';
 
-  setTemaOscuro(nuevoTema);
-};
+    setTemaOscuro(nuevoTema);
+  };
 
-  const esEnlaceExterno = (ruta) => ruta.startsWith('https://');
+  // =========================================================
+  // CERRAR DESPLEGABLE DESPUÉS DE SELECCIONAR
+  // =========================================================
 
-  
-const renderEnlace = (nombre, ruta, cerrar = false) => {
-  if (ruta === '/quienes-somos') {
+  const seleccionarOpcion = () => {
+    cerrarMenu();
+    setMenuCerradoPorClick(true);
+  };
+
+  const salirDelDesplegable = (nombre) => {
+    setMenuCerradoPorClick(false);
+
+    setMenusAbiertos((actuales) =>
+      actuales.filter((item) => item !== nombre)
+    );
+
+    setSubmenusAbiertos([]);
+  };
+
+  // =========================================================
+  // RENDERIZAR ENLACES
+  // =========================================================
+
+  const esEnlaceExterno = (ruta) =>
+    ruta.startsWith('https://');
+
+  const renderEnlace = (
+    nombre,
+    ruta,
+    cerrar = false,
+    marcarActivo = true
+  ) => {
+    if (esEnlaceExterno(ruta)) {
+      return (
+        <a
+          href={ruta}
+          key={`${nombre}-${ruta}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={cerrar ? seleccionarOpcion : undefined}
+        >
+          {nombre}
+        </a>
+      );
+    }
+
     return (
-      <Link
+      <NavLink
         to={ruta}
+        end
         key={`${nombre}-${ruta}`}
-        onClick={cerrar ? cerrarMenu : undefined}
+        className={
+          marcarActivo && esRutaActiva(ruta)
+            ? styles['enlace-activo']
+            : undefined
+        }
+        aria-current={
+          esRutaActiva(ruta) ? 'page' : undefined
+        }
+        onClick={cerrar ? seleccionarOpcion : undefined}
       >
         {nombre}
-      </Link>
+      </NavLink>
     );
-  }
+  };
 
-  return (
-    <a
-      href={ruta}
-      key={`${nombre}-${ruta}`}
-      target={esEnlaceExterno(ruta) ? '_blank' : undefined}
-      rel={esEnlaceExterno(ruta) ? 'noopener noreferrer' : undefined}
-      onClick={cerrar ? cerrarMenu : undefined}
-    >
-      {nombre}
-    </a>
-  );
-};
-
+  // =========================================================
+  // RENDERIZAR OPCIONES Y SUBMENÚS
+  // =========================================================
 
   const renderOpciones = (opciones, menuPadre) =>
     opciones.map((opcion) => {
@@ -199,34 +270,40 @@ const renderEnlace = (nombre, ruta, cerrar = false) => {
         const [nombre, ruta] = opcion;
 
         return (
-          <div className={styles['transparency-item']} key={`${nombre}-${ruta}`}>
-            {renderEnlace(nombre, ruta, true)}
+          <div
+            className={styles['transparency-item']}
+            key={`${nombre}-${ruta}`}
+          >
+            {renderEnlace(nombre, ruta, true, true)}
           </div>
         );
       }
 
       const clave = `${menuPadre}-${opcion.nombre}`;
       const abierto = submenusAbiertos.includes(clave);
+      const esActivo = esRutaActiva(opcion.ruta);
 
       return (
         <div
-          className={`${styles['transparency-item']} ${styles['has-submenu']} ${
-            abierto ? styles.abierto : ''
-          }`}
+          className={`${styles['transparency-item']} ${
+            styles['has-submenu']
+          } ${abierto ? styles.abierto : ''}`}
           key={clave}
         >
           <div className={styles['submenu-parent']}>
-            <a
-              href={opcion.ruta}
-              onClick={(event) => {
-                if (menuAbierto) {
-                  event.preventDefault();
-                  alternarSubmenu(clave);
-                }
-              }}
+            <NavLink
+              to={opcion.ruta}
+              end
+              className={
+                esActivo
+                  ? styles['enlace-activo']
+                  : undefined
+              }
+              aria-current={esActivo ? 'page' : undefined}
+              onClick={seleccionarOpcion}
             >
               {opcion.nombre}
-            </a>
+            </NavLink>
 
             <button
               type="button"
@@ -250,8 +327,13 @@ const renderEnlace = (nombre, ruta, cerrar = false) => {
       );
     });
 
+  // =========================================================
+  // ESTRUCTURA DEL NAVBAR
+  // =========================================================
+
   return (
     <>
+      {/* BARRA GOV.CO */}
       <div className={styles['gov-bar']}>
         <div className={styles['navbar-container']}>
           <a
@@ -265,88 +347,76 @@ const renderEnlace = (nombre, ruta, cerrar = false) => {
         </div>
       </div>
 
-      <nav className={styles.navbar} aria-label="Navegación principal">
+      {/* NAVBAR PRINCIPAL */}
+      <nav
+        className={styles.navbar}
+        aria-label="Navegación principal"
+      >
         <div className={styles['navbar-container']}>
-          <a
-            href="/"
+
+          {/* LOGO ACTIVA */}
+          <NavLink
+            to="/"
             className={styles['navbar-logo']}
             onClick={cerrarMenu}
             aria-label="Inicio de ACTIVA"
           >
             <img src={activa} alt="Logo ACTIVA" />
-          </a>
+          </NavLink>
 
+          {/* BOTÓN MENÚ MÓVIL */}
           <button
             type="button"
             className={styles['navbar-toggle']}
-            onClick={() => setMenuAbierto((abierto) => !abierto)}
-            aria-label={menuAbierto ? 'Cerrar menú' : 'Abrir menú'}
+            onClick={() => {
+              setMenuAbierto((abierto) => !abierto);
+              setMenusAbiertos([]);
+              setSubmenusAbiertos([]);
+            }}
+            aria-label={
+              menuAbierto ? 'Cerrar menú' : 'Abrir menú'
+            }
             aria-expanded={menuAbierto}
           >
-            {menuAbierto ? <X size={26} /> : <List size={26} />}
+            {menuAbierto ? (
+              <X size={26} />
+            ) : (
+              <List size={26} />
+            )}
           </button>
 
+          {/* OPCIONES PRINCIPALES */}
           <ul
             className={`${styles['navbar-menu']} ${
               menuAbierto ? styles.activo : ''
             }`}
           >
             <li className={styles['menu-item-simple']}>
-              {renderEnlace('Inicio', '/', true)}
+              {renderEnlace('Inicio', '/', true, false)}
             </li>
 
-            {menus.slice(0, 3).map((menu) => {
-              const abierto = menusAbiertos.includes(menu.nombre);
-
-              return (
-                <li
-                  className={`${styles['navbar-dropdown']} ${
-                    abierto ? styles.abierto : ''
-                  }`}
-                  key={menu.nombre}
-                >
-                  <div className={styles['navbar-parent']}>
-                    {renderEnlace(menu.nombre, menu.ruta)}
-
-                    <button
-                      type="button"
-                      className={styles['main-toggle']}
-                      aria-label={`Mostrar opciones de ${menu.nombre}`}
-                      aria-expanded={abierto}
-                      onClick={() => alternarMenu(menu.nombre)}
-                    >
-                      <CaretDown size={13} />
-                    </button>
-                  </div>
-
-                  <div
-                    className={`${styles['transparency-menu']} ${
-                      abierto ? styles.activo : ''
-                    }`}
-                  >
-                    <div className={styles['transparency-title']}>
-                      {menu.nombre}
-                    </div>
-                    {renderOpciones(menu.opciones, menu.nombre)}
-                  </div>
-                </li>
+            {menus.map((menu) => {
+              const abierto = menusAbiertos.includes(
+                menu.nombre
               );
-            })}
-
-          
-
-            {menus.slice(3).map((menu) => {
-              const abierto = menusAbiertos.includes(menu.nombre);
 
               return (
                 <li
                   className={`${styles['navbar-dropdown']} ${
                     abierto ? styles.abierto : ''
-                  }`}
+                  } ${menuCerradoPorClick ? styles.cerrado : ''}`}
                   key={menu.nombre}
+                  onMouseLeave={() =>
+                    salirDelDesplegable(menu.nombre)
+                  }
                 >
                   <div className={styles['navbar-parent']}>
-                    {renderEnlace(menu.nombre, menu.ruta)}
+                    {renderEnlace(
+                      menu.nombre,
+                      menu.ruta,
+                      true,
+                      false
+                    )}
 
                     <button
                       type="button"
@@ -364,20 +434,27 @@ const renderEnlace = (nombre, ruta, cerrar = false) => {
                       abierto ? styles.activo : ''
                     }`}
                   >
-                    <div className={styles['transparency-title']}>
+                    <div
+                      className={styles['transparency-title']}
+                    >
                       {menu.nombre}
                     </div>
-                    {renderOpciones(menu.opciones, menu.nombre)}
+
+                    {renderOpciones(
+                      menu.opciones,
+                      menu.nombre
+                    )}
                   </div>
                 </li>
               );
             })}
 
             <li className={styles['menu-item-simple']}>
-              {renderEnlace('PQRSDF', '/pqrsdf', true)}
+              {renderEnlace('PQRSDF', '/pqrsdf', true, false)}
             </li>
           </ul>
 
+          {/* REDES SOCIALES, TEMA Y BÚSQUEDA */}
           <div className={styles['navbar-actions']}>
             <div className={styles['navbar-socials']}>
               <a
@@ -388,6 +465,7 @@ const renderEnlace = (nombre, ruta, cerrar = false) => {
               >
                 <FacebookLogo size={20} />
               </a>
+
               <a
                 href="https://x.com/ActivaCo"
                 target="_blank"
@@ -396,6 +474,7 @@ const renderEnlace = (nombre, ruta, cerrar = false) => {
               >
                 <XLogo size={20} />
               </a>
+
               <a
                 href="https://www.instagram.com/activa.antioquia/"
                 target="_blank"
@@ -404,6 +483,7 @@ const renderEnlace = (nombre, ruta, cerrar = false) => {
               >
                 <InstagramLogo size={20} />
               </a>
+
               <a
                 href="https://www.youtube.com/@ActivaAntioquia"
                 target="_blank"
@@ -420,12 +500,18 @@ const renderEnlace = (nombre, ruta, cerrar = false) => {
               aria-label="Cambiar tema"
               title="Cambiar tema"
             >
-              {temaOscuro ? <Sun size={21} /> : <Moon size={21} />}
+              {temaOscuro ? (
+                <Sun size={21} />
+              ) : (
+                <Moon size={21} />
+              )}
             </button>
 
             <button
               type="button"
-              onClick={() => setBusquedaAbierta((abierta) => !abierta)}
+              onClick={() =>
+                setBusquedaAbierta((abierta) => !abierta)
+              }
               aria-label="Abrir búsqueda"
               title="Buscar"
               aria-expanded={busquedaAbierta}
@@ -436,7 +522,7 @@ const renderEnlace = (nombre, ruta, cerrar = false) => {
         </div>
       </nav>
 
-      
+      {/* BUSCADOR ANIMADO */}
       <div
         className={`${styles['search-overlay']} ${
           busquedaAbierta ? styles.activo : ''
@@ -459,7 +545,10 @@ const renderEnlace = (nombre, ruta, cerrar = false) => {
             <X size={22} />
           </button>
 
-          <label htmlFor="searchInput" className={styles['search-label']}>
+          <label
+            htmlFor="searchInput"
+            className={styles['search-label']}
+          >
             ¿Qué estás buscando?
           </label>
 
@@ -473,7 +562,8 @@ const renderEnlace = (nombre, ruta, cerrar = false) => {
                 ?.value.trim();
 
               if (consulta) {
-                window.location.href = `/buscar/?q=${encodeURIComponent(consulta)}`;
+                window.location.href =
+                  `/buscar/?q=${encodeURIComponent(consulta)}`;
               }
             }}
           >
@@ -498,7 +588,6 @@ const renderEnlace = (nombre, ruta, cerrar = false) => {
           </form>
         </div>
       </div>
-
     </>
   );
 }

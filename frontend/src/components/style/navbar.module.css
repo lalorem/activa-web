@@ -1,7 +1,7 @@
 
 /* =========================================================
    ACTIVA — BARRA GOV.CO
-   ========================================================= */
+========================================================= */
 
 .gov-bar {
   width: 100%;
@@ -11,9 +11,10 @@
 }
 
 .gov-bar a {
+  display: block;
+  width: 100%;
   text-align: center;
   text-decoration: none;
-  width: 100%;
 }
 
 .gov-bar img {
@@ -25,7 +26,7 @@
 
 /* =========================================================
    CONTENEDOR GENERAL
-   ========================================================= */
+========================================================= */
 
 .navbar-container {
   width: 100%;
@@ -42,37 +43,82 @@
 
 /* =========================================================
    BARRA DE NAVEGACIÓN
-   ========================================================= */
+========================================================= */
 
 .navbar {
   position: sticky;
   top: 0;
   z-index: 900;
   width: 100%;
+
   background: var(--nav-bg, #ffffff);
   border-bottom: 1px solid var(--border-color, #e5e7eb);
   box-shadow: 0 3px 12px #00000012;
+
   transition: background-color 0.25s ease;
 }
+
+/* =========================================================
+   LOGO ACTIVA
+========================================================= */
 
 .navbar-logo {
   display: flex;
   align-items: center;
+  justify-content: center;
+
   flex-shrink: 0;
+  width: 125px;
+  height: 65px;
+  margin-right: 22px;
+
   text-decoration: none;
 }
 
 .navbar-logo img {
   display: block;
-  width: 145px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 125px;
+  max-height: 58px;
   height: auto;
   object-fit: contain;
+
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover img {
+  transform: scale(1.04);
+}
+
+@media (max-width: 1100px) {
+  .navbar-logo {
+    width: 110px;
+    height: 60px;
+    margin-right: 12px;
+  }
+
+  .navbar-logo img {
+    max-width: 110px;
+    max-height: 52px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-logo {
+    width: 105px;
+    height: 55px;
+    margin-right: 0;
+  }
+
+  .navbar-logo img {
+    max-width: 105px;
+    max-height: 50px;
+  }
 }
 
 /* =========================================================
    MENÚ PRINCIPAL
-   ========================================================= */
+========================================================= */
 
 .navbar-menu {
   display: flex;
@@ -105,6 +151,7 @@
   font-weight: 700;
   line-height: 1.4;
   letter-spacing: -0.2px;
+
   transition: color 0.2s ease;
 }
 
@@ -116,16 +163,13 @@
 
 .menu-item-simple {
   flex-shrink: 0;
-  
 }
 
 .navbar-parent > a,
-.navbar-dropdown > a, 
+.navbar-dropdown > a,
 .menu-item-simple * {
   font-size: 0.9rem;
 }
-
-/* Elementos con flecha */
 
 .navbar-parent {
   display: flex;
@@ -137,6 +181,8 @@
   white-space: nowrap;
 }
 
+/* Flechas principales */
+
 .main-toggle {
   display: inline-flex;
   align-items: center;
@@ -147,6 +193,7 @@
   border: 0;
   background: transparent;
   color: var(--text-main, #24364d);
+
   cursor: pointer;
   transition: color 0.2s ease, transform 0.25s ease;
 }
@@ -156,14 +203,13 @@
 }
 
 .navbar-dropdown:hover > .navbar-parent .main-toggle,
-.navbar-dropdown:focus-within > .navbar-parent .main-toggle,
-.navbar-dropdown.abierto > .navbar-parent .main-toggle {
+.navbar-dropdown:focus-within > .navbar-parent .main-toggle {
   transform: rotate(180deg);
 }
 
 /* =========================================================
    MENÚS DESPLEGABLES PRINCIPALES
-   ========================================================= */
+========================================================= */
 
 .transparency-menu {
   position: absolute;
@@ -195,6 +241,18 @@
     visibility 0.25s ease;
 }
 
+/* Pequeño puente invisible para evitar que se cierre
+   al mover el mouse desde el título al desplegable */
+
+.transparency-menu::after {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
+}
+
 .transparency-menu::before {
   content: "";
   position: absolute;
@@ -206,19 +264,23 @@
   background: var(--menu-bg, #ffffff);
   border-left: 1px solid var(--menu-border, #e5e7eb);
   border-top: 1px solid var(--menu-border, #e5e7eb);
+
   transform: translateX(-50%) rotate(45deg);
 }
 
-.navbar-dropdown:hover > .transparency-menu,
-.navbar-dropdown:focus-within > .transparency-menu,
-.navbar-dropdown.abierto > .transparency-menu {
+/* Abrir únicamente al pasar el mouse o navegar con teclado */
+
+.navbar-dropdown:not(.cerrado):hover > .transparency-menu,
+.navbar-dropdown:not(.cerrado):focus-within > .transparency-menu {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
   transform: translate(-50%, 0);
 }
 
-/* Título del desplegable */
+/* =========================================================
+   TÍTULO DEL DESPLEGABLE
+========================================================= */
 
 .transparency-title {
   display: flex;
@@ -246,13 +308,14 @@
   height: 8px;
   flex-shrink: 0;
   border-radius: 50%;
+
   background: var(--brand-lime, #c7e600);
   box-shadow: 0 0 0 5px rgba(199, 230, 0, 0.2);
 }
 
 /* =========================================================
    OPCIONES DE LOS DESPLEGABLES
-   ========================================================= */
+========================================================= */
 
 .transparency-item {
   position: relative;
@@ -280,6 +343,7 @@
   font-size: 12.5px;
   font-weight: 500;
   line-height: 1.45;
+
   white-space: normal;
   overflow-wrap: anywhere;
 
@@ -297,8 +361,8 @@
 }
 
 /* =========================================================
-   SUBMENÚS INTERNOS: PLANEACIÓN Y NORMATIVA
-   ========================================================= */
+   SUBMENÚS INTERNOS
+========================================================= */
 
 .has-submenu {
   position: relative;
@@ -318,6 +382,8 @@
   font-weight: 600;
 }
 
+/* Botón de submenú */
+
 .submenu-toggle {
   display: inline-flex;
   align-items: center;
@@ -327,8 +393,10 @@
   padding: 10px;
   border: 0;
   border-radius: 8px;
+
   background: transparent;
   color: var(--text-muted, #64748b);
+
   cursor: pointer;
   transition: color 0.2s ease, transform 0.25s ease;
 }
@@ -337,9 +405,18 @@
   color: var(--brand-green, #00a651);
 }
 
+/* Submenú desplegado por hover */
+
+.has-submenu:hover > .transparency-submenu,
+.has-submenu:focus-within > .transparency-submenu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
 .has-submenu:hover > .submenu-parent .submenu-toggle,
-.has-submenu:focus-within > .submenu-parent .submenu-toggle,
-.has-submenu.abierto > .submenu-parent .submenu-toggle {
+.has-submenu:focus-within > .submenu-parent .submenu-toggle {
   color: var(--brand-green, #00a651);
   transform: rotate(90deg);
 }
@@ -385,17 +462,8 @@
   background: var(--menu-bg, #ffffff);
   border-left: 1px solid var(--menu-border, #e5e7eb);
   border-bottom: 1px solid var(--menu-border, #e5e7eb);
-  transform: rotate(45deg);
-}
 
-.has-submenu:hover > .transparency-submenu,
-.has-submenu:focus-within > .transparency-submenu,
-.has-submenu.abierto > .transparency-submenu,
-.transparency-submenu.activo {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateX(0);
+  transform: rotate(45deg);
 }
 
 .transparency-submenu .transparency-item > a {
@@ -404,21 +472,60 @@
 }
 
 /* =========================================================
-   REDES SOCIALES, TEMA Y BÚSQUEDA
-   ========================================================= */
+   PÁGINA ACTIVA — SOLO OPCIONES INTERNAS
+========================================================= */
 
-.navbar-actions {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-shrink: 0;
-  gap: 8px;
+.transparency-item > a.enlace-activo,
+.submenu-parent > a.enlace-activo {
+  position: relative;
+
+  color: #00a651;
+  background: rgba(0, 166, 81, 0.12);
+  font-weight: 700;
+  border-radius: 11px;
 }
 
-.navbar-socials {
+/* Indicador lateral de página actual */
+
+.transparency-item > a.enlace-activo::before,
+.submenu-parent > a.enlace-activo::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 25%;
+
+  width: 3px;
+  height: 50%;
+
+  border-radius: 5px;
+  background: #00a651;
+}
+
+.transparency-item > a.enlace-activo:hover,
+.submenu-parent > a.enlace-activo:hover {
+  color: #008c45;
+  background: rgba(0, 166, 81, 0.17);
+}
+
+/* =========================================================
+   REDES SOCIALES, TEMA Y BÚSQUEDA
+========================================================= */
+
+.navbar-socials,
+.navbar-actions {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.navbar-socials svg,
+.navbar-actions svg {
+  width: 25px;
+  height: 25px;
 }
 
 .navbar-actions button,
@@ -429,23 +536,29 @@
   justify-content: center;
   flex-shrink: 0;
 
+  width: 38px;
+  height: 38px;
   padding: 5px;
+
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   background: transparent;
   color: var(--text-main, #24364d);
+
   cursor: pointer;
   text-decoration: none;
 
   transition:
     color 0.2s ease,
-    background-color 0.2s ease;
+    background-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .navbar-actions button:hover,
 .navbar-actions a:hover {
   color: var(--brand-green, #00a651);
   background: var(--menu-hover, #f0f9f3);
+  transform: translateY(-2px);
 }
 
 .navbar-toggle {
@@ -461,7 +574,7 @@
 
 /* =========================================================
    BUSCADOR
-   ========================================================= */
+========================================================= */
 
 .navbar-search {
   position: relative;
@@ -509,7 +622,7 @@
 
 /* =========================================================
    TABLETAS Y PANTALLAS MEDIANAS
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 1250px) {
   .navbar-container {
@@ -538,7 +651,7 @@
 
 /* =========================================================
    MENÚ MÓVIL — TABLET Y CELULAR
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 1024px) {
   .navbar {
@@ -568,6 +681,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     width: 42px;
     height: 42px;
     padding: 0;
@@ -661,11 +775,12 @@
     height: 40px;
   }
 
-  /* Desplegables dentro del menú móvil */
+  /* Desplegables principales */
 
   .transparency-menu {
     position: static;
     display: none;
+
     width: 100%;
     max-width: 100%;
     max-height: none;
@@ -685,9 +800,6 @@
 
   .navbar-dropdown:hover > .transparency-menu,
   .navbar-dropdown:focus-within > .transparency-menu {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
     transform: none;
   }
 
@@ -695,7 +807,8 @@
     display: block;
   }
 
-  .transparency-menu::before {
+  .transparency-menu::before,
+  .transparency-menu::after {
     display: none;
   }
 
@@ -725,6 +838,7 @@
   .transparency-submenu {
     position: static;
     display: none;
+
     width: 100%;
     max-width: 100%;
 
@@ -743,9 +857,6 @@
 
   .has-submenu:hover > .transparency-submenu,
   .has-submenu:focus-within > .transparency-submenu {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
     transform: none;
   }
 
@@ -767,7 +878,7 @@
 
 /* =========================================================
    CELULARES
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 768px) {
   .gov-bar {
@@ -842,7 +953,7 @@
 
 /* =========================================================
    CELULARES PEQUEÑOS
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 480px) {
   .navbar-container {
@@ -895,41 +1006,29 @@
 }
 
 /* =========================================================
-   ACCESIBILIDAD — REDUCIR MOVIMIENTO
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-  .navbar,
-  .navbar-menu *,
-  .transparency-menu,
-  .transparency-submenu,
-  .navbar-actions button,
-  .navbar-actions a,
-  .main-toggle,
-  .submenu-toggle {
-    transition: none !important;
-  }
-}
-
-
-/* =========================================================
    BUSCADOR ANIMADO ACTIVA
-   ========================================================= */
+========================================================= */
 
 .search-overlay {
   position: fixed;
   inset: 0;
   z-index: 99999;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   padding: 24px;
   box-sizing: border-box;
+
   background: rgba(15, 23, 42, 0.88);
+
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+
   clip-path: ellipse(0% 0% at 50% 100%);
+
   transition:
     clip-path 0.7s cubic-bezier(0.77, 0, 0.18, 1),
     opacity 0.3s ease,
@@ -947,9 +1046,13 @@
   position: relative;
   width: min(700px, 85%);
   text-align: center;
+
   transform: translateY(30px);
   opacity: 0;
-  transition: transform 0.5s ease 0.25s, opacity 0.5s ease 0.25s;
+
+  transition:
+    transform 0.5s ease 0.25s,
+    opacity 0.5s ease 0.25s;
 }
 
 .search-overlay.activo .search-box {
@@ -960,6 +1063,7 @@
 .search-label {
   display: block;
   margin-bottom: 20px;
+
   color: #ffffff;
   font-family: var(--font-main, 'Inter', sans-serif);
   font-size: 2rem;
@@ -971,24 +1075,30 @@
   display: flex;
   align-items: center;
   gap: 8px;
+
   width: 100%;
   padding: 8px 8px 8px 25px;
   box-sizing: border-box;
+
   background: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 50px;
+
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
 }
 
 .search-input-container input {
   flex: 1;
   min-width: 0;
+
   padding: 12px 10px;
   border: none;
   outline: none;
   border-radius: 30px;
+
   background: transparent;
   color: #1d2924;
+
   font-family: var(--font-main, 'Inter', sans-serif);
   font-size: 1.05rem;
 }
@@ -1008,15 +1118,23 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+
   width: 52px;
   height: 52px;
   padding: 0;
+
   border: none;
   border-radius: 50%;
+
   background: var(--brand-lime, #c7e600);
   color: #1d2924;
+
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .search-submit:hover {
@@ -1035,24 +1153,36 @@
   position: absolute;
   top: -70px;
   right: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 44px;
   height: 44px;
   padding: 0;
+
   border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 50%;
+
   background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
+
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .search-close:hover {
   background: rgba(255, 255, 255, 0.2);
   transform: rotate(90deg);
 }
+
+/* =========================================================
+   RESPONSIVE DEL BUSCADOR
+========================================================= */
 
 @media (max-width: 768px) {
   .search-box {
@@ -1113,11 +1243,41 @@
   }
 }
 
+/* =========================================================
+   MODO OSCURO — OPCIONES ACTIVAS
+========================================================= */
+
+[data-theme="dark"] .transparency-item > a.enlace-activo,
+[data-theme="dark"] .submenu-parent > a.enlace-activo {
+  color: #7ee5a7;
+  background: rgba(0, 166, 81, 0.20);
+}
+
+/* =========================================================
+   ACCESIBILIDAD — REDUCIR MOVIMIENTO
+========================================================= */
+
 @media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .navbar-menu *,
+  .transparency-menu,
+  .transparency-submenu,
+  .navbar-actions button,
+  .navbar-actions a,
+  .main-toggle,
+  .submenu-toggle,
   .search-overlay,
   .search-box,
   .search-submit,
   .search-close {
     transition: none !important;
   }
+}
+
+/* Evitar reapertura después de seleccionar una opción */
+.navbar-dropdown.cerrado > .transparency-menu {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translate(-50%, 10px) !important;
 }

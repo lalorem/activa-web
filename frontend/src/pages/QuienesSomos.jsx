@@ -1,9 +1,4 @@
-
-import {
-  ArrowDown,
-  ArrowUpRight,
-} from '@phosphor-icons/react';
-
+import { ArrowDown } from '@phosphor-icons/react';
 import styles from '../components/style/quienesSomos.module.css';
 
 import santiago from '../assets/Santiago-atehortua.webp';
@@ -71,8 +66,19 @@ const equipo = [
 ];
 
 function QuienesSomos() {
+  // Separa el primer nombre para aplicar el estilo bicolor de la referencia
+  const dividirNombre = (nombreCompleto) => {
+    const partes = nombreCompleto.trim().split(' ');
+    const primerNombre = partes[0];
+    const apellidos = partes.slice(1).join(' ');
+    return { primerNombre, apellidos };
+  };
+
   return (
     <main className={styles.aboutPage}>
+      {/* =================================================
+          HERO
+      ================================================= */}
       <section className={styles.aboutHero}>
         <div className={styles.aboutHeroImage}></div>
         <div className={styles.aboutHeroOverlay}></div>
@@ -111,10 +117,10 @@ function QuienesSomos() {
         <div className={styles.aboutHeroLine}></div>
       </section>
 
-      <section
-        id="quienes-somos"
-        className={styles.teamEditorial}
-      >
+      {/* =================================================
+          NUESTRO EQUIPO
+      ================================================= */}
+      <section id="quienes-somos" className={styles.teamEditorial}>
         <header className={styles.teamHeaderCenter}>
           <h2>
             Nuestro <span className={styles.highlight}>Equipo</span>
@@ -127,34 +133,136 @@ function QuienesSomos() {
         </header>
 
         <div className={styles.teamList}>
-          {equipo.map((persona, index) => (
-            <article className={styles.teamRow} key={persona.nombre + index}>
-              <div className={styles.teamImageCol}>
-                <div className={styles.imageWrapper}>
-                  <img src={persona.imagen} alt={persona.nombre} />
-                </div>
-              </div>
+          {equipo.map((persona, index) => {
+            const { primerNombre, apellidos } = dividirNombre(persona.nombre);
 
-              <div className={styles.teamTextCol}>
-                <div className={styles.teamTopLine}>
-                  <span className={styles.teamRole}>{persona.cargo}</span>
-                  <ArrowUpRight
-                    className={styles.teamArrow}
-                    size={21}
-                    weight="bold"
+            return (
+              <article
+                className={styles.teamCard}
+                key={persona.nombre + index}
+              >
+                {/* Ondas decorativas de fondo en la tarjeta */}
+                <svg
+                  className={styles.cardBgWaveTop}
+                  viewBox="0 0 400 160"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M120 0C160 80 280 110 400 70V0H120Z"
+                    fill="url(#gradWaveTop)"
+                    fillOpacity="0.14"
                   />
+                  <path
+                    d="M180 0C220 65 310 90 400 55"
+                    stroke="#90cb1b"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                  />
+                  <defs>
+                    <linearGradient id="gradWaveTop" x1="120" y1="0" x2="400" y2="120">
+                      <stop stopColor="#90cb1b" />
+                      <stop offset="1" stopColor="#125f91" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+
+                <svg
+                  className={styles.cardBgWaveBottom}
+                  viewBox="0 0 500 180"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M0 180C120 110 260 150 500 60V180H0Z"
+                    fill="url(#gradWaveBottom)"
+                    fillOpacity="0.16"
+                  />
+                  <defs>
+                    <linearGradient id="gradWaveBottom" x1="0" y1="180" x2="500" y2="60">
+                      <stop stopColor="#125f91" />
+                      <stop offset="1" stopColor="#90cb1b" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+
+                {/* COLUMNA DE FOTOGRAFÍA ORGÁNICA */}
+                <div className={styles.teamImageCol}>
+                  {/* Tres rayitas decorativas superior izquierda */}
+                  <svg
+                    className={styles.sparkLines}
+                    viewBox="0 0 54 54"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M36 8L43 22M16 20L27 30M8 38L21 41"
+                      stroke="currentColor"
+                      strokeWidth="4.5"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+
+                  {/* Manchas orgánicas detrás de la foto */}
+                  <span className={styles.blobBackBlue} aria-hidden="true"></span>
+                  <span className={styles.blobBackGreen} aria-hidden="true"></span>
+                  <span className={styles.blobBackLime} aria-hidden="true"></span>
+                  <span className={styles.dotAccent} aria-hidden="true"></span>
+
+                  {/* Contenedor con forma orgánica y borde blanco */}
+                  <div className={styles.organicPhotoFrame}>
+                    <img
+                      src={persona.imagen}
+                      alt={persona.nombre}
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
 
-                <h3>{persona.nombre}</h3>
+                {/* COLUMNA DE INFORMACIÓN */}
+                <div className={styles.teamTextCol}>
+                  <div className={styles.rolePill}>
+                    <span className={styles.roleDot}></span>
+                    <span>{persona.cargo}</span>
+                  </div>
 
-                <div className={styles.teamDesc}>
-                  {persona.descripcion.map((parrafo, i) => (
-                    <p key={i}>{parrafo}</p>
-                  ))}
+                  <div className={styles.nameWrapper}>
+                    <h3>
+                      <span className={styles.firstName}>{primerNombre}</span>{' '}
+                      <span className={styles.lastName}>{apellidos}</span>
+                    </h3>
+
+                    {/* Trazo curvo verde debajo del nombre */}
+                    <svg
+                      className={styles.nameUnderline}
+                      viewBox="0 0 260 18"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M3 13C68 3 165 3 257 12"
+                        stroke="#90cb1b"
+                        strokeWidth="4.5"
+                        strokeLinecap="round"
+                      />
+                      <path
+                        d="M95 14C145 10 195 10 235 14"
+                        stroke="#4caf50"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </div>
+
+                  <div className={styles.teamDesc}>
+                    {persona.descripcion.map((parrafo, i) => (
+                      <p key={i}>{parrafo}</p>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </section>
     </main>
