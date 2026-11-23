@@ -3,7 +3,7 @@ import styles from '../components/style/quienesSomos.module.css';
 
 import santiago from '../assets/Santiago-atehortua.webp';
 import driana from '../assets/Driana-Durango.webp';
-import cristian from '../assets/Cristian Buriticá.webp';
+import carlos from '../assets/carlos.png';
 import fernando from '../assets/Fernando de Jesús Cardona.webp';
 import jhonatan from '../assets/Jhonatan Valencia.webp';
 import william from '../assets/william.jpeg';
@@ -28,12 +28,13 @@ const equipo = [
     ],
   },
   {
-    imagen: cristian,
-    nombre: 'Cristian Buriticá',
+    imagen: carlos,
+    nombre: 'Carlos Andrés Raigoza Loaiza',
     cargo: 'Director Administrativo y Financiero',
     descripcion: [
-      'Administrador Público y aspirante a MBA, con amplia experiencia en gestión administrativa, financiera y social en el sector público, destacándose por su compromiso con el bienestar comunitario y su capacidad para convertir políticas en acciones efectivas.',
-      'Ha ocupado roles estratégicos en la Contraloría General de Medellín, la Alcaldía de Bello y la Alcaldía de San Carlos, donde fortaleció la transparencia y eficiencia de la contratación pública mediante el uso de plataformas como SECOP I y II. Reconocido por su cercanía con la ciudadanía, visión estratégica y enfoque en resultados, combina conocimiento técnico con un profundo sentido de responsabilidad social, liderando procesos con impacto real en la construcción de territorios más justos y equitativos.',
+      'Administrador de Empresas, especialista en Intervención Creativa, especialista en Analítica y Big Data, magister en Investigación de Mercados y Marketing, doctorando en Ciencias Económicas y Empresariales de la Universidad de Granada, España. Su trayectoria integra la gestión pública, la planeación estratégica, la dirección de proyectos, la innovación y el desarrollo organizacional.',
+      'Ha participado en iniciativas de transformación institucional y desarrollo territorial, articulando capacidades técnicas, administrativas y estratégicas en entidades públicas, instituciones de educación superior y organizaciones del sector privado. Su experiencia comprende la formulación, gestión y seguimiento de proyectos, el fortalecimiento organizacional y la implementación de estrategias orientadas a la eficiencia, la generación de valor y la toma de decisiones basada en información.',
+      'Combina una visión integral de la administración con el pensamiento estratégico, la analítica y la innovación. Desde la Dirección Administrativa y Financiera de ACTIVA, orienta su gestión al fortalecimiento institucional, la optimización de recursos, la transparencia y la sostenibilidad organizacional, promoviendo procesos que contribuyan al cumplimiento de los objetivos de la entidad y al desarrollo de Antioquia.'
     ],
   },
   {

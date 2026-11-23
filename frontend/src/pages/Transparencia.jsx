@@ -161,16 +161,9 @@ const modulos = [
             icono: "pdf",
           },
           {
-            titulo:
-              "Directorio de servidores públicos, empleados o contratistas",
-            descripcion: "Consultar directorio",
-            icono: "pdf",
-          },
-          {
             titulo: "Calendario de Actividades",
             descripcion: "Consultar calendario",
             icono: "link",
-            externo: "https://bit.ly/4dZ2Zmm",
           },
         ],
       },
