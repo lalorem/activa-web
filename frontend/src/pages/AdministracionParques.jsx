@@ -1,8 +1,7 @@
-import { Leaf } from "@phosphor-icons/react";
 
 import styles from "../components/style/AdministracionParques.module.css";
-import sharedStyles from "../components/style/UnidadesNegocio.module.css";
-import TrabajaConNosotros from '../components/TrabajaConNosotros';
+import TrabajaConNosotros from "../components/TrabajaConNosotros";
+import HeaderDegradado from "../components/HeaderDegradado";
 
 const imagenesParques = [
   {
@@ -22,22 +21,14 @@ const imagenesParques = [
 function AdministracionParques() {
   return (
     <main className={styles.parquesPage}>
-      {/* HEADER */}
-      <section className={styles.hero}>
-        <div className={styles.heroContent}>
-          <span className={styles.heroLabel}>
-            <Leaf size={17} weight="bold" />
-            Turismo y desarrollo territorial
-          </span>
 
-          <h1>Administración de Parques</h1>
-
-          <p>
-            Gestionamos espacios que conectan naturaleza, bienestar y desarrollo
-            para Antioquia.
-          </p>
-        </div>
-      </section>
+      {/* ENCABEZADO REUTILIZABLE */}
+      <HeaderDegradado
+        eyebrow="TURISMO Y DESARROLLO TERRITORIAL"
+        title="Administración de"
+        highlight="Parques"
+        description="Gestionamos espacios que conectan naturaleza, bienestar y desarrollo para Antioquia."
+      />
 
       {/* INFORMACIÓN */}
       <section className={styles.contentSection}>
@@ -98,6 +89,7 @@ function AdministracionParques() {
         </div>
       </section>
 
+      {/* TRABAJA CON NOSOTROS */}
       <TrabajaConNosotros />
 
     </main>

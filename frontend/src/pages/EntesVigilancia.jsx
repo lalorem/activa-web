@@ -7,6 +7,7 @@ import {
 } from '@phosphor-icons/react';
 
 import styles from '../components/style/EntesVigilancia.module.css';
+import HeaderDegradado from '../components/HeaderDegradado';
 
 const entidades = [
   {
@@ -69,15 +70,13 @@ function EntesVigilancia() {
   return (
     <main className={styles.entesPage}>
 
-      {/* ENCABEZADO */}
-      <header className={styles.hero}>
-        <div className={styles.heroDecoracion}></div>
-
-        <div className={styles.heroContenido}>
-          <span className={styles.heroEtiqueta}>ACTIVA</span>
-          <h1>Entes y Autoridades que nos Vigilan</h1>
-        </div>
-      </header>
+      {/* ENCABEZADO REUTILIZABLE */}
+      <HeaderDegradado
+        eyebrow="ACTIVA"
+        title="Entes y Autoridades"
+        highlight="que nos Vigilan"
+        description="Conoce las entidades y autoridades encargadas de ejercer vigilancia y control sobre nuestra gestión institucional."
+      />
 
       <div className={styles.container}>
 

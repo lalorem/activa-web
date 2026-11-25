@@ -12,6 +12,8 @@ import {
 } from '@phosphor-icons/react';
 
 import styles from '../components/style/Organigrama.module.css';
+import HeaderDegradado from '../components/HeaderDegradado';
+
 import organigrama from '../assets/ORGANIGRAMA.webp';
 
 function Organigrama() {
@@ -61,14 +63,12 @@ function Organigrama() {
   return (
     <main className={styles.estructuraPage}>
 
-      {/* HERO */}
-      <section className={styles.estructuraHero}>
-        <div className={styles.estructuraHeroOverlay}></div>
-
-        <div className={styles.estructuraHeroContent}>
-          <h1>ORGANIGRAMA</h1>
-        </div>
-      </section>
+      <HeaderDegradado
+        eyebrow="TRANSPARENCIA INSTITUCIONAL"
+        title="Estructura"
+        highlight="Organizacional"
+        description="Conoce cómo está organizada ACTIVA y consulta su estructura orgánica institucional."
+      />
 
       {/* ESTRUCTURA ORGANIZACIONAL */}
       <section className={styles.estructuraSection}>

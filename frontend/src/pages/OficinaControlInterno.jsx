@@ -12,6 +12,7 @@ import {
 } from '@phosphor-icons/react';
 
 import styles from '../components/style/OficinaControlInterno.module.css';
+import HeaderDegradado from '../components/HeaderDegradado';
 
 const modulos = [
   {
@@ -87,12 +88,13 @@ function OficinaControlInterno() {
   return (
     <main className={styles.controlInternoPage}>
 
-      {/* HERO */}
-      <section className={styles.hero}>
-        <div className={styles.heroContent}>
-          <h1>Oficina de Control Interno</h1>
-        </div>
-      </section>
+      {/* HEADER */}
+      <HeaderDegradado
+        eyebrow="TRANSPARENCIA Y CONTROL"
+        title="Oficina de"
+        highlight="Control Interno"
+        description="Consulta los planes, informes y documentos relacionados con el seguimiento y la evaluación de la gestión institucional de ACTIVA."
+      />
 
       {/* MÓDULOS */}
       <section className={styles.modules}>

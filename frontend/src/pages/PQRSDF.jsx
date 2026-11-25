@@ -12,6 +12,7 @@ import {
 } from '@phosphor-icons/react';
 
 import styles from '../components/style/PQRSDF.module.css';
+import HeaderDegradado from '../components/HeaderDegradado';
 
 const tiposPQRSDF = [
   {
@@ -63,20 +64,12 @@ function PQRSDF() {
     <main className={styles.pqrsPage}>
 
       {/* HEADER */}
-      <section className={styles.hero}>
-        <div className={styles.heroContent}>
-          <span className={styles.heroEyebrow}>
-            ATENCIÓN Y SERVICIO A LA CIUDADANÍA
-          </span>
-
-          <h1>PQRSDF</h1>
-
-          <p>
-            Tu voz nos ayuda a mejorar. Estamos aquí para escucharte.
-          </p>
-        </div>
-      </section>
-
+      <HeaderDegradado
+        eyebrow="ATENCIÓN Y SERVICIO A LA CIUDADANÍA"
+        title="Peticiones, Quejas,"
+        highlight="Reclamos y más"
+        description="Tu voz nos ayuda a mejorar. Estamos aquí para escucharte y atender tus solicitudes."
+      />
 
       {/* TIPOS DE SOLICITUDES */}
       <section className={styles.typesSection}>
@@ -118,7 +111,6 @@ function PQRSDF() {
           })}
         </div>
       </section>
-
 
       {/* POLÍTICAS Y FORMULARIO */}
       <section className={styles.policySection}>
@@ -221,7 +213,6 @@ function PQRSDF() {
           </div>
         </article>
 
-
         {/* FORMULARIO */}
         <aside className={styles.formCard}>
           <div className={styles.formHeading}>
@@ -263,7 +254,6 @@ function PQRSDF() {
         </aside>
 
       </section>
-
 
       {/* CONTACTO ADMINISTRATIVO */}
       <section className={styles.contactSection}>

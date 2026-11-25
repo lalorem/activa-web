@@ -8,20 +8,19 @@ import {
 } from '@phosphor-icons/react';
 
 import styles from '../components/style/CanalesAtencion.module.css';
+import HeaderDegradado from '../components/HeaderDegradado';
 
 function CanalesAtencion() {
   return (
     <main className={styles.canalesPage}>
 
-      {/* ENCABEZADO */}
-      <header className={styles.hero}>
-        <div className={styles.heroDecoracion}></div>
-
-        <div className={styles.heroContenido}>
-          <span className={styles.heroEtiqueta}>ACTIVA</span>
-          <h1>Canales de Atención Presencial y Telefónica</h1>
-        </div>
-      </header>
+      {/* ENCABEZADO REUTILIZABLE */}
+      <HeaderDegradado
+        eyebrow="ACTIVA"
+        title="Canales de Atención"
+        highlight="Presencial y Telefónica"
+        description="Conoce nuestros canales de atención y encuentra la información que necesitas para comunicarte con ACTIVA."
+      />
 
       <div className={styles.container}>
 

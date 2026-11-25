@@ -1,5 +1,9 @@
-import { ArrowDown } from '@phosphor-icons/react';
+
 import styles from '../components/style/quienesSomos.module.css';
+
+import HeaderImagenes from '../components/HeaderImagenes';
+
+import quienesSomosImg from '../assets/quienesomos.png';
 
 import santiago from '../assets/Santiago-atehortua.webp';
 import driana from '../assets/Driana-Durango.webp';
@@ -77,50 +81,28 @@ function QuienesSomos() {
 
   return (
     <main className={styles.aboutPage}>
+
       {/* =================================================
-          HERO
+          HEADER IMAGENES - UNA SOLA FOTOGRAFÍA
       ================================================= */}
-      <section className={styles.aboutHero}>
-        <div className={styles.aboutHeroImage}></div>
-        <div className={styles.aboutHeroOverlay}></div>
 
-        <div className={`container ${styles.aboutHeroContent}`}>
-          <h1>
-            Transformamos
-            <br />
-            territorios en
-            <span className={styles.aboutScript}>experiencias</span>
-          </h1>
-
-          <p>
-            Somos una empresa industrial y comercial de la Gobernación de
-            Antioquia que conecta personas, territorios y oportunidades a
-            través de experiencias que generan impacto.
-          </p>
-
-          <div className={styles.aboutHeroActions}>
-            <a href="#quienes-somos" className={styles.aboutHeroBtn}>
-              Conócenos
-              <ArrowDown size={18} weight="bold" />
-            </a>
-          </div>
-        </div>
-
-        <a
-          href="#quienes-somos"
-          className={styles.aboutScrollIndicator}
-          aria-label="Desliza para conocer nuestro equipo"
-        >
-          <span>DESLIZA</span>
-          <ArrowDown size={21} />
-        </a>
-
-        <div className={styles.aboutHeroLine}></div>
-      </section>
+      <HeaderImagenes
+        image={quienesSomosImg}
+        eyebrow="Conoce nuestra entidad"
+        title="Transformamos territorios en"
+        highlight="experiencias"
+        description="Somos una empresa industrial y comercial de la Gobernación de Antioquia que conecta personas, territorios y oportunidades a través de experiencias que generan impacto."
+        primaryButton={{
+          text: "Conócenos",
+          href: "#quienes-somos",
+        }}
+        sideInfo="ANTIOQUIA · COLOMBIA"
+      />
 
       {/* =================================================
           NUESTRO EQUIPO
       ================================================= */}
+
       <section id="quienes-somos" className={styles.teamEditorial}>
         <header className={styles.teamHeaderCenter}>
           <h2>
@@ -142,7 +124,9 @@ function QuienesSomos() {
                 className={styles.teamCard}
                 key={persona.nombre + index}
               >
-                {/* Ondas decorativas de fondo en la tarjeta */}
+
+                {/* ONDAS DECORATIVAS DE FONDO */}
+
                 <svg
                   className={styles.cardBgWaveTop}
                   viewBox="0 0 400 160"
@@ -161,7 +145,13 @@ function QuienesSomos() {
                     strokeLinecap="round"
                   />
                   <defs>
-                    <linearGradient id="gradWaveTop" x1="120" y1="0" x2="400" y2="120">
+                    <linearGradient
+                      id="gradWaveTop"
+                      x1="120"
+                      y1="0"
+                      x2="400"
+                      y2="120"
+                    >
                       <stop stopColor="#90cb1b" />
                       <stop offset="1" stopColor="#125f91" />
                     </linearGradient>
@@ -180,7 +170,13 @@ function QuienesSomos() {
                     fillOpacity="0.16"
                   />
                   <defs>
-                    <linearGradient id="gradWaveBottom" x1="0" y1="180" x2="500" y2="60">
+                    <linearGradient
+                      id="gradWaveBottom"
+                      x1="0"
+                      y1="180"
+                      x2="500"
+                      y2="60"
+                    >
                       <stop stopColor="#125f91" />
                       <stop offset="1" stopColor="#90cb1b" />
                     </linearGradient>
@@ -188,8 +184,8 @@ function QuienesSomos() {
                 </svg>
 
                 {/* COLUMNA DE FOTOGRAFÍA ORGÁNICA */}
+
                 <div className={styles.teamImageCol}>
-                  {/* Tres rayitas decorativas superior izquierda */}
                   <svg
                     className={styles.sparkLines}
                     viewBox="0 0 54 54"
@@ -204,13 +200,26 @@ function QuienesSomos() {
                     />
                   </svg>
 
-                  {/* Manchas orgánicas detrás de la foto */}
-                  <span className={styles.blobBackBlue} aria-hidden="true"></span>
-                  <span className={styles.blobBackGreen} aria-hidden="true"></span>
-                  <span className={styles.blobBackLime} aria-hidden="true"></span>
-                  <span className={styles.dotAccent} aria-hidden="true"></span>
+                  <span
+                    className={styles.blobBackBlue}
+                    aria-hidden="true"
+                  ></span>
 
-                  {/* Contenedor con forma orgánica y borde blanco */}
+                  <span
+                    className={styles.blobBackGreen}
+                    aria-hidden="true"
+                  ></span>
+
+                  <span
+                    className={styles.blobBackLime}
+                    aria-hidden="true"
+                  ></span>
+
+                  <span
+                    className={styles.dotAccent}
+                    aria-hidden="true"
+                  ></span>
+
                   <div className={styles.organicPhotoFrame}>
                     <img
                       src={persona.imagen}
@@ -221,6 +230,7 @@ function QuienesSomos() {
                 </div>
 
                 {/* COLUMNA DE INFORMACIÓN */}
+
                 <div className={styles.teamTextCol}>
                   <div className={styles.rolePill}>
                     <span className={styles.roleDot}></span>
@@ -229,11 +239,14 @@ function QuienesSomos() {
 
                   <div className={styles.nameWrapper}>
                     <h3>
-                      <span className={styles.firstName}>{primerNombre}</span>{' '}
-                      <span className={styles.lastName}>{apellidos}</span>
+                      <span className={styles.firstName}>
+                        {primerNombre}
+                      </span>{' '}
+                      <span className={styles.lastName}>
+                        {apellidos}
+                      </span>
                     </h3>
 
-                    {/* Trazo curvo verde debajo del nombre */}
                     <svg
                       className={styles.nameUnderline}
                       viewBox="0 0 260 18"
@@ -261,6 +274,7 @@ function QuienesSomos() {
                     ))}
                   </div>
                 </div>
+
               </article>
             );
           })}

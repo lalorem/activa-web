@@ -1,4 +1,6 @@
+
 import { useState } from "react";
+
 import {
   Plus,
   Minus,
@@ -6,18 +8,13 @@ import {
   LinkSimple,
   ArrowUpRight,
   Scales,
-  Buildings,
-  UsersThree,
-  Calendar,
-  ShieldCheck,
   FileText,
-  ClipboardText,
-  ChatCircleText,
-  Globe,
-  FolderOpen,
 } from "@phosphor-icons/react";
 
 import styles from "../components/style/Transparencia.module.css";
+
+import InformacionNNA from "./InformacionNNA";
+import InformacionMujeres from "./InformacionMujeres";
 
 // =========================================================
 // MÓDULOS DE TRANSPARENCIA
@@ -59,7 +56,8 @@ const modulos = [
         archivo: "/Transparencia/certificacion-ita-contenidos-decisiones.pdf",
       },
       {
-        titulo:  "Certificación ITA de formatos o modelos de contratos o pliegos tipo",
+        titulo:
+          "Certificación ITA de formatos o modelos de contratos o pliegos tipo",
         descripcion: "Documento PDF",
         icono: "pdf",
         archivo: "/Transparencia/certificacion-ita-formatos-modelos.pdf",
@@ -99,7 +97,7 @@ const modulos = [
         descripcion: "Consultar normativa",
         icono: "link",
         externo: "https://community.secop.gov.co/STS/Users/Login/Index",
-      }
+      },
     ],
   },
   {
@@ -277,7 +275,20 @@ const modulos = [
   {
     numero: "08",
     titulo: "INFORMACIÓN ESPECÍFICA PARA GRUPOS DE INTERÉS",
-    elementos: [],
+    elementos: [
+      {
+        titulo: "Información para niños, niñas y adolescentes",
+        descripcion: "Consultar información",
+        icono: "link",
+        vista: "InformacionNNA",
+      },
+      {
+        titulo: "Información para mujeres",
+        descripcion: "Consultar información",
+        icono: "link",
+        vista: "InformacionMujeres",
+      },
+    ],
   },
   {
     numero: "09",
@@ -312,7 +323,9 @@ const modulos = [
   {
     numero: "14",
     titulo: "RESOLUCIONES",
-    secciones: [{ titulo: "Resoluciones 2021 – 2025", elementos: [] }],
+    secciones: [
+      { titulo: "Resoluciones 2021 – 2025", elementos: [] },
+    ],
   },
   {
     numero: "15",
@@ -375,6 +388,7 @@ const iconos = {
 
 function Transparencia() {
   const [abiertos, setAbiertos] = useState([]);
+  const [vistaActual, setVistaActual] = useState(null);
 
   const toggleModulo = (numero) => {
     setAbiertos((actuales) =>
@@ -383,6 +397,10 @@ function Transparencia() {
         : [...actuales, numero],
     );
   };
+
+  // =======================================================
+  // RENDERIZAR ELEMENTOS
+  // =======================================================
 
   const renderElemento = (elemento, indice) => {
     if (elemento.tipo === "texto") {
@@ -413,145 +431,196 @@ function Transparencia() {
       </>
     );
 
-    return elemento.archivo ? (
-      <a
-        className={styles.moduleLink}
-        href={elemento.archivo}
-        download
-        key={indice}
-      >
-        {contenido}
-      </a>
-    ) : elemento.externo ? (
-      <a
-        className={styles.moduleLink}
-        href={elemento.externo}
-        target="_blank"
-        rel="noopener noreferrer"
-        key={indice}
-      >
-        {contenido}
-      </a>
-    ) : (
+    // VISTAS INTERNAS
+    if (elemento.vista) {
+      return (
+        <button
+          type="button"
+          className={styles.moduleLink}
+          key={indice}
+          onClick={() => setVistaActual(elemento.vista)}
+        >
+          {contenido}
+        </button>
+      );
+    }
+
+    // ARCHIVOS PDF
+    if (elemento.archivo) {
+      return (
+        <a
+          className={styles.moduleLink}
+          href={elemento.archivo}
+          download
+          key={indice}
+        >
+          {contenido}
+        </a>
+      );
+    }
+
+    // ENLACES EXTERNOS
+    if (elemento.externo) {
+      return (
+        <a
+          className={styles.moduleLink}
+          href={elemento.externo}
+          target="_blank"
+          rel="noopener noreferrer"
+          key={indice}
+        >
+          {contenido}
+        </a>
+      );
+    }
+
+    return (
       <div className={styles.moduleLink} key={indice}>
         {contenido}
       </div>
     );
-  }; // Cierre de la función renderElemento
+  };
+
+  // =======================================================
+  // CONTENIDO DE LA PÁGINA
+  // =======================================================
 
   return (
-    <main className={styles.transparenciaPage}>
-      {/* =====================================================
-          ENCABEZADO
-      ===================================================== */}
+    <div className={styles.transparenciaPage}>
+      {vistaActual === "InformacionNNA" ? (
+        <InformacionNNA />
+      ) : vistaActual === "InformacionMujeres" ? (
+        <InformacionMujeres />
+      ) : (
+        <main>
+          {/* =====================================================
+              ENCABEZADO
+          ===================================================== */}
 
-      <section className={styles.hero}>
-        <div className={styles.heroContent}>
-          <span className={styles.heroLabel}>ANTIOQUIA · COLOMBIA</span>
+          <section className={styles.hero}>
+            <div className={styles.heroContent}>
+              <span className={styles.heroLabel}>
+                ANTIOQUIA · COLOMBIA
+              </span>
 
-          <h1>Transparencia</h1>
+              <h1>Transparencia</h1>
 
-          <p>
-            Acceso a la información, participación ciudadana y rendición de
-            cuentas
-          </p>
-        </div>
-      </section>
+              <p>
+                Acceso a la información, participación ciudadana y rendición
+                de cuentas
+              </p>
+            </div>
+          </section>
 
-      {/* =====================================================
-          INTRODUCCIÓN
-      ===================================================== */}
+          {/* =====================================================
+              INTRODUCCIÓN
+          ===================================================== */}
 
-      <section className={styles.intro}>
-        <div className={styles.introIcon}>
-          <Scales size={30} weight="duotone" />
-        </div>
+          <section className={styles.intro}>
+            <div className={styles.introIcon}>
+              <Scales size={30} weight="duotone" />
+            </div>
 
-        <p>
-          En esta sección, ACTIVA pone a disposición de la ciudadanía la
-          información institucional, administrativa y de gestión, en
-          cumplimiento de los principios de transparencia, acceso a la
-          información pública y rendición de cuentas. Nuestro objetivo es
-          garantizar que cualquier persona pueda conocer cómo funciona la
-          entidad, cómo se toman las decisiones y cómo se gestionan los
-          recursos.
-        </p>
-      </section>
+            <p>
+              En esta sección, ACTIVA pone a disposición de la ciudadanía la
+              información institucional, administrativa y de gestión, en
+              cumplimiento de los principios de transparencia, acceso a la
+              información pública y rendición de cuentas. Nuestro objetivo es
+              garantizar que cualquier persona pueda conocer cómo funciona la
+              entidad, cómo se toman las decisiones y cómo se gestionan los
+              recursos.
+            </p>
+          </section>
 
-      {/* =====================================================
-          MÓDULOS
-      ===================================================== */}
+          {/* =====================================================
+              MÓDULOS
+          ===================================================== */}
 
-      <section className={styles.modulesSection}>
-        <div className={styles.sectionHeading}>
-          <span>INFORMACIÓN PÚBLICA</span>
-          <h2>Consulta nuestros documentos</h2>
-          <p>
-            Explora los módulos y encuentra la información institucional de
-            ACTIVA.
-          </p>
-        </div>
+          <section className={styles.modulesSection}>
+            <div className={styles.sectionHeading}>
+              <span>INFORMACIÓN PÚBLICA</span>
+              <h2>Consulta nuestros documentos</h2>
+              <p>
+                Explora los módulos y encuentra la información institucional
+                de ACTIVA.
+              </p>
+            </div>
 
-        <div className={styles.modulesList}>
-          {modulos.map((modulo) => {
-            const estaAbierto = abiertos.includes(modulo.numero);
+            <div className={styles.modulesList}>
+              {modulos.map((modulo) => {
+                const estaAbierto = abiertos.includes(modulo.numero);
 
-            return (
-              <details
-                className={styles.module}
-                key={modulo.numero}
-                open={estaAbierto}
-                onToggle={(e) => {
-                  const abierto = e.currentTarget.open;
+                return (
+                  <details
+                    className={styles.module}
+                    key={modulo.numero}
+                    open={estaAbierto}
+                    onToggle={(e) => {
+                      const abierto = e.currentTarget.open;
 
-                  setAbiertos((actuales) =>
-                    abierto
-                      ? [...new Set([...actuales, modulo.numero])]
-                      : actuales.filter((item) => item !== modulo.numero),
-                  );
-                }}
-              >
-                <summary
-                  className={styles.moduleSummary}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    toggleModulo(modulo.numero);
-                  }}
-                >
-                  <div className={styles.moduleInfo}>
-                    <span className={styles.moduleNumber}>{modulo.numero}</span>
+                      setAbiertos((actuales) =>
+                        abierto
+                          ? [...new Set([...actuales, modulo.numero])]
+                          : actuales.filter(
+                              (item) => item !== modulo.numero,
+                            ),
+                      );
+                    }}
+                  >
+                    <summary
+                      className={styles.moduleSummary}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        toggleModulo(modulo.numero);
+                      }}
+                    >
+                      <div className={styles.moduleInfo}>
+                        <span className={styles.moduleNumber}>
+                          {modulo.numero}
+                        </span>
 
-                    <span className={styles.moduleTitle}>{modulo.titulo}</span>
-                  </div>
-
-                  <span className={styles.moduleToggle}>
-                    {estaAbierto ? <Minus size={20} /> : <Plus size={20} />}
-                  </span>
-                </summary>
-
-                <div className={styles.moduleContent}>
-                  {modulo.elementos?.length > 0 && (
-                    <div className={styles.moduleLinksGrid}>
-                      {modulo.elementos.map(renderElemento)}
-                    </div>
-                  )}
-
-                  {modulo.secciones?.map((seccion, indice) => (
-                    <div className={styles.moduleSubsection} key={indice}>
-                      <h4>{seccion.titulo}</h4>
-
-                      <div className={styles.moduleLinksGrid}>
-                        {seccion.elementos.map(renderElemento)}
+                        <span className={styles.moduleTitle}>
+                          {modulo.titulo}
+                        </span>
                       </div>
+
+                      <span className={styles.moduleToggle}>
+                        {estaAbierto ? (
+                          <Minus size={20} />
+                        ) : (
+                          <Plus size={20} />
+                        )}
+                      </span>
+                    </summary>
+
+                    <div className={styles.moduleContent}>
+                      {modulo.elementos?.length > 0 && (
+                        <div className={styles.moduleLinksGrid}>
+                          {modulo.elementos.map(renderElemento)}
+                        </div>
+                      )}
+
+                      {modulo.secciones?.map((seccion, indice) => (
+                        <div
+                          className={styles.moduleSubsection}
+                          key={indice}
+                        >
+                          <h4>{seccion.titulo}</h4>
+
+                          <div className={styles.moduleLinksGrid}>
+                            {seccion.elementos.map(renderElemento)}
+                          </div>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </details>
-            );
-          })}
-        </div>
-      </section>
-    </main>
+                  </details>
+                );
+              })}
+            </div>
+          </section>
+        </main>
+      )}
+    </div>
   );
 }
 

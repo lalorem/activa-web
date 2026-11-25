@@ -9,6 +9,7 @@ import {
 } from '@phosphor-icons/react';
 
 import styles from '../components/style/Proveedores.module.css';
+import HeaderDegradado from '../components/HeaderDegradado';
 
 const enlacesProveedores = [
   {
@@ -45,23 +46,13 @@ function Proveedores() {
   return (
     <main className={styles.proveedoresPage}>
 
-      {/* HEADER */}
-      <section className={styles.hero}>
-        <div className={styles.heroContent}>
-          <span className={styles.heroLabel}>
-            <Handshake size={17} weight="bold" />
-            Relacionamiento empresarial
-          </span>
-
-          <h1>Proveedores</h1>
-
-          <p>
-            En ACTIVA construimos relaciones de confianza con nuestros
-            proveedores. Aquí encontrarás los accesos y herramientas
-            necesarios para realizar tus trámites y consultas.
-          </p>
-        </div>
-      </section>
+      {/* ENCABEZADO REUTILIZABLE */}
+      <HeaderDegradado
+        eyebrow="RELACIONAMIENTO EMPRESARIAL"
+        title="Portal de"
+        highlight="Proveedores"
+        description="En ACTIVA construimos relaciones de confianza con nuestros proveedores. Aquí encontrarás los accesos y herramientas necesarios para realizar tus trámites y consultas."
+      />
 
       {/* ENLACES */}
       <section className={styles.enlacesSection}>

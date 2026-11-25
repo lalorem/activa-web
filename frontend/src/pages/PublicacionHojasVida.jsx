@@ -1,3 +1,4 @@
+
 import {
   BoundingBox,
   AddressBook,
@@ -6,21 +7,17 @@ import {
 } from "@phosphor-icons/react";
 
 import styles from "../components/style/PublicacionHojasVida.module.css";
+import HeaderDegradado from "../components/HeaderDegradado";
 
 function PublicacionHojasVida() {
   return (
     <main className={styles.hvPage}>
-      {/* =====================================================
-          HERO
-      ====================================================== */}
-
-      <header className={styles.hvHero}>
-        <div className={styles.hvHeroOverlay}></div>
-
-        <div className={styles.hvHeroContent}>
-          <h1>Publicación de Hojas de Vida</h1>
-        </div>
-      </header>
+      <HeaderDegradado
+        eyebrow="TRANSPARENCIA INSTITUCIONAL"
+        title="Publicación de"
+        highlight="Hojas de Vida"
+        description="Consulta la información y los documentos relacionados con la publicación de hojas de vida de ACTIVA."
+      />
 
       {/* =====================================================
           CONTENIDO

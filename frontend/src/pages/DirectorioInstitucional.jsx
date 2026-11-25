@@ -1,18 +1,19 @@
 
 import { File, FileXls, Download } from '@phosphor-icons/react';
+
 import styles from '../components/style/directorio.module.css';
+import HeaderDegradado from '../components/HeaderDegradado';
 
 function DirectorioInstitucional() {
   return (
     <>
-      <section className={styles.directorioHero}>
-        <div className={styles.directorioOverlay}></div>
-
-        <div className={styles.directorioHeroContent}>
-          <h1>Directorio Institucional</h1>
-          <div className={styles.directorioLine}></div>
-        </div>
-      </section>
+      {/* HEADER */}
+      <HeaderDegradado
+        eyebrow="TRANSPARENCIA INSTITUCIONAL"
+        title="Directorio"
+        highlight="Institucional"
+        description="Encuentra la información de contacto de los funcionarios que hacen parte de ACTIVA."
+      />
 
       <main className={styles.directorioMain}>
         <section className={styles.directorioSection}>

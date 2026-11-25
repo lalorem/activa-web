@@ -42,6 +42,7 @@ import Galeria from './pages/Galeria';
 import PQRSDF from './pages/PQRSDF';
 
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 function Inicio() {
   return (
@@ -59,6 +60,7 @@ function Inicio() {
 function App() {
   return (
     <BrowserRouter>
+    <ScrollToTop />
       <Navbar />
 
       <Routes>

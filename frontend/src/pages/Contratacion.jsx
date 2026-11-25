@@ -1,506 +1,718 @@
+import { useState } from "react";
 
-import { useState } from 'react';
 import {
   ArrowUpRight,
-  CaretDown,
-  FileText,
+  CalendarBlank,
   FilePdf,
-} from '@phosphor-icons/react';
+  Files,
+  FolderOpen,
+  Gavel,
+  ListChecks,
+  ShieldCheck,
+} from "@phosphor-icons/react";
 
-import styles from '../components/style/Contratacion.module.css';
+import HeaderDegradado from "../components/HeaderDegradado";
+import styles from "../components/style/Contratacion.module.css";
 
-const paginaOficial = 'https://activa.com.co/contratacion/';
+/* =========================================================
+   INFORMACIÓN DE CONTRATACIÓN
+========================================================= */
 
-const vigencias = [
-  {
-    anio: '2026',
-    procesos: [
-      {
-        nombre: 'Invitación Abierta 004 - 2026',
-        documentos: [
-          {
-            nombre: 'Aviso convocatoria Invitación Abierta 004-2026',
-            url: 'https://activa.com.co/wp-content/uploads/2026/11/AVISO-CONVOCATORIA-INVITACION-ABIERTA-004-2026.pdf',
-          },
-          {
-            nombre: 'Conformación Comité Evaluador',
-            url: 'https://activa.com.co/wp-content/uploads/2026/11/CONFORMACION-COMITE-EVALUADOR-PROCESO-IA-004-2026.pdf',
-          },
-          {
-            nombre: 'Resolución de apertura Invitación Abierta 004-2026',
-            url: 'https://activa.com.co/wp-content/uploads/2026/11/RESOLUCION-APERTURA-INVITACION-ABIERTA-004-2026.pdf',
-          },
-          {
-            nombre: 'Invitación Abierta 004 de 2026',
-            url: 'https://activa.com.co/wp-content/uploads/2026/11/Invitacion-Abierta-004-de-2026-FIRMADO.pdf',
-          },
-          { nombre: 'Anexo 1. Matriz de riesgos' },
-          { nombre: 'Anexo 2. Carta de presentación de la propuesta' },
-          { nombre: 'Anexo 3. Pago seguridad social y parafiscales' },
-          { nombre: 'Anexo 4. Compromiso anticorrupción' },
-          { nombre: 'Anexo 5. Certificado de inhabilidades e incompatibilidades' },
-          { nombre: 'Anexo 6. Acuerdo de niveles de servicio ANS' },
-          { nombre: 'Anexo 7. Acuerdo de confidencialidad' },
-          { nombre: 'Anexo 8. Aceptación Gestión Comercial' },
-          { nombre: 'Anexo 9. Cumplimiento y aceptación tarifario' },
-          { nombre: 'Anexo 10. Modelo acuerdo de consorcio' },
-          { nombre: 'Anexo 11. Modelo acuerdo unión temporal' },
-          { nombre: 'Anexo 12. Capacidad financiera' },
-          { nombre: 'Anexo 13. Experiencia del proponente' },
-          { nombre: 'Anexo 14. Carta de compromiso del personal mínimo requerido' },
-          { nombre: 'Anexo 15. Tarifario operación logística integral' },
-          { nombre: 'Anexo 15.1. Tarifario alimentación' },
-          { nombre: 'Anexo 15.2. Tarifario impresos' },
-          { nombre: 'Anexo 16. Experiencia adicional del proponente' },
-          { nombre: 'Anexo 17. Carta de compromiso personal adicional' },
-          { nombre: 'Anexo 18. Certificación criterios diferenciales' },
-        ],
-      },
-      {
-        nombre: 'Lista Corta LC001 - 2026',
-        documentos: [
-          {
-            nombre: 'Aviso convocatoria LC001-2026',
-            url: 'https://activa.com.co/wp-content/uploads/2026/10/AVISO-CONVOCATORIA-LC001-2026.pdf',
-          },
-          {
-            nombre: 'Convocatoria veedurías LC001-2026',
-            url: 'https://activa.com.co/wp-content/uploads/2026/10/CONVOCATORIA-VEEDURIAS-LC001-2026.pdf',
-          },
-          {
-            nombre: 'Resolución de apertura Lista Corta LC001-2026',
-            url: 'https://activa.com.co/wp-content/uploads/2026/10/RESOLUCION-202605000101-DEL-2026-POR-MEDIO-DE-LA-CUAL-SE-ORDENA-LA-APERTURA-DEL-PROCESO-DE-CONTRATACION-BAJO-LA-MODALIDAD-DE-LISTA-CORTA-LC001-DE-2026.pdf',
-          },
-        ],
-      },
-      {
-        nombre: 'Invitación Abierta con precalificación 003 - 2026 (Tulio Ospina)',
-        documentos: [
-          { nombre: 'Aviso convocatoria Invitación Abierta 003-2026' },
-          { nombre: 'Invitación Abierta con precalificación 003-2026' },
-          { nombre: 'Cronograma actualizado IA003-2026' },
-          { nombre: 'Resolución inicio fase de precalificación 003-2026' },
-          { nombre: 'Presupuesto interventoría, componentes AIU y tabla de salarios' },
-          { nombre: 'Anexo 1. Manifestación de interés' },
-          { nombre: 'Anexo 2. Modelo de acuerdo de seriedad' },
-          { nombre: 'Anexo 3. Estructura organizacional' },
-          { nombre: 'Anexo 4. Probidad' },
-          { nombre: 'Anexo 5. Experiencia' },
-          { nombre: 'Anexo 6A. Patrimonio' },
-          { nombre: 'Anexo 6B. Patrimonio' },
-          { nombre: 'Anexo 6C. Endeudamiento' },
-          { nombre: 'Anexo 6D. Endeudamiento' },
-          { nombre: 'Anexo 7. Acuerdo de confidencialidad' },
-          { nombre: 'Anexo 8. Experiencia similares' },
-          { nombre: 'Anexo 9. Beneficiarios reales' },
-          { nombre: 'Matriz de riesgos previsibles' },
-          { nombre: 'Respuesta a observaciones' },
-          { nombre: 'Acta de cierre y recibo' },
-          { nombre: 'Informe preliminar' },
-          { nombre: 'Informe final' },
-          { nombre: 'Resolución lista de precalificados' },
-        ],
-      },
-      {
-        nombre: 'Invitación Abierta con precalificación 002 - 2026 (Tulio Ospina)',
-        documentos: [
-          { nombre: 'Resolución Invitación Abierta 002 de 2026' },
-          { nombre: 'Documento de invitación definitivo a precalificar' },
-          { nombre: 'Aviso convocatoria invitación a precalificar' },
-          { nombre: 'Anexo 1. Manifestación de interés' },
-          { nombre: 'Anexo 2. Modelo de acuerdo de seriedad' },
-          { nombre: 'Anexo 3. Estructura organizacional' },
-          { nombre: 'Anexo 4. Probidad' },
-          { nombre: 'Anexo 5. Experiencia' },
-          { nombre: 'Anexo 6A. Patrimonio' },
-          { nombre: 'Anexo 6B. Patrimonio' },
-          { nombre: 'Anexo 6C. Endeudamiento' },
-          { nombre: 'Anexo 6D. Endeudamiento' },
-          { nombre: 'Anexo 7. Acuerdo de confidencialidad' },
-          { nombre: 'Anexo 8. Experiencia similares' },
-          { nombre: 'Anexo 9. Beneficiarios reales' },
-          { nombre: 'Matriz de riesgos previsibles' },
-          { nombre: 'Cronograma de invitación abierta' },
-          { nombre: 'Acta preliminar de estimación y asignación de riesgos' },
-          { nombre: 'Adenda N.º 1' },
-          { nombre: 'Adenda N.º 2' },
-          { nombre: 'Observaciones recibidas' },
-          { nombre: 'Respuesta a observaciones' },
-          { nombre: 'Presupuesto, interventoría, componentes AIU y tabla de salarios' },
-          { nombre: 'Acta de cierre y recibo' },
-          { nombre: 'Informe preliminar de requisitos habilitantes' },
-          { nombre: 'Informe de subsanación' },
-          { nombre: 'Informe final' },
-          { nombre: 'Resolución declara desierto el proceso' },
-        ],
-      },
-      {
-        nombre: 'Invitación Abierta 001 - 2026',
-        documentos: [
-          { nombre: 'Invitación Abierta 001 de 2026' },
-          { nombre: 'Resolución 202605000016 de 2026' },
-          { nombre: 'Aviso convocatoria Invitación Abierta 001-2026' },
-          { nombre: 'Cronograma del proceso 2026' },
-          { nombre: 'Estudio previo Invitación Abierta 2026' },
-          { nombre: 'Anexo 1. Matriz de riesgos' },
-          { nombre: 'Anexo 2. Carta de presentación de la propuesta' },
-          { nombre: 'Anexo 3. Pago seguridad social y parafiscales' },
-          { nombre: 'Anexo 4. Compromiso anticorrupción' },
-          { nombre: 'Anexo 5. Certificado de inhabilidades e incompatibilidades' },
-          { nombre: 'Anexo 6. Acuerdo de niveles de servicio ANS' },
-          { nombre: 'Anexo 7. Acuerdo de confidencialidad' },
-          { nombre: 'Anexo 8. Aceptación Gestión Comercial' },
-          { nombre: 'Anexo 9. Cumplimiento y aceptación tarifario' },
-          { nombre: 'Anexo 10. Modelo acuerdo de consorcio' },
-          { nombre: 'Anexo 11. Modelo acuerdo unión temporal' },
-          { nombre: 'Anexo 12. Capacidad financiera' },
-          { nombre: 'Anexo 13. Experiencia del proponente' },
-          { nombre: 'Anexo 14. Carta de compromiso del personal mínimo requerido' },
-          { nombre: 'Anexo 15. Tarifario de referencia' },
-          { nombre: 'Anexo 16. Experiencia adicional del proponente' },
-          { nombre: 'Anexo 17. Carta de compromiso personal adicional' },
-          { nombre: 'Anexo 18. Certificaciones' },
-          { nombre: 'SBS-F06. Minuta del contrato' },
-          { nombre: 'Tarifario consolidado' },
-          { nombre: 'Adenda 01' },
-          { nombre: 'Adenda 02' },
-          { nombre: 'Acta de cierre y recibo de ofertas' },
-          { nombre: 'Informe preliminar Invitación 001-2026' },
-          { nombre: 'Adenda 03' },
-          { nombre: 'Informe final Invitación Abierta' },
-          { nombre: 'Resolución de adjudicación Invitación Abierta 001-2026' },
-        ],
-      },
-      {
-        nombre: 'Planes de Adquisiciones',
-        documentos: [
-          { nombre: 'Adquisiciones PAA Acta 46' },
-          { nombre: 'Adquisiciones PAA Preacta 47 y 48' },
-          { nombre: 'Plan Anual de Adquisiciones PAA Octubre 05' },
-        ],
-      },
-      {
-        nombre: 'Formatos o Modelos de Contrato',
-        documentos: [
-          { nombre: 'SBS-F02. Orden de compra de bienes y servicios' },
-          { nombre: 'SBS-F06. Minuta del contrato' },
-          { nombre: 'SBS-F31. Lista de chequeo lista corta' },
-        ],
-      },
-    ],
-  },
-  {
-    anio: '2025',
-    procesos: [
-      {
-        nombre: 'Lista Corta LC004 - 2025',
-        documentos: [
-          { nombre: 'Aviso convocatoria LC004-2025' },
-          { nombre: 'Convocatoria veedurías LC004-2025' },
-          { nombre: 'Resolución de apertura Lista Corta LC004-2025' },
-          { nombre: 'Acta de cierre y recibo de ofertas LC004-2025' },
-          { nombre: 'Resolución de adjudicación LC004-2025' },
-        ],
-      },
-      {
-        nombre: 'Lista Corta LC003 - 2025',
-        documentos: [
-          { nombre: 'Resolución de apertura Lista Corta LC003-2025' },
-          { nombre: 'Aviso convocatoria LC003-2025' },
-          { nombre: 'Convocatoria veedurías LC003-2025' },
-          { nombre: 'Acta de recibo LC003' },
-          { nombre: 'Resolución declara desierto el proceso LC003-2025' },
-        ],
-      },
-      {
-        nombre: 'Lista Corta LC002 - 2025',
-        documentos: [
-          { nombre: 'Aviso convocatoria LC002-2025' },
-          { nombre: 'Convocatoria veedurías LC002-2025' },
-          { nombre: 'Resolución Lista Corta 002 de 2025' },
-        ],
-      },
-      {
-        nombre: 'Invitación Abierta 001 - 2025',
-        documentos: [
-          { nombre: 'Aviso convocatoria Invitación Abierta 001-2025' },
-          { nombre: 'Invitación Abierta 001 de 2025' },
-          { nombre: 'Conformación Comité Evaluador' },
-          { nombre: 'Estudio previo' },
-          { nombre: 'Resolución de apertura' },
-          ...Array.from({ length: 18 }, (_, i) => ({
-            nombre: `Anexo ${i + 1} - Documentación del proceso`,
-          })),
-          { nombre: 'Adenda 1' },
-          { nombre: 'Formato tarifario categoría A' },
-          { nombre: 'Formato tarifario categoría B' },
-          { nombre: 'Respuesta a observaciones' },
-          { nombre: 'Adenda 2' },
-          { nombre: 'Adenda 3' },
-          { nombre: 'Informe preliminar' },
-          { nombre: 'Adenda 4' },
-          { nombre: 'Adenda 5' },
-          { nombre: 'Informe final de evaluación' },
-          { nombre: 'Resolución de adjudicación' },
-        ],
-      },
-      {
-        nombre: 'Convocatoria Veedurías Ciudadanas LC001-2025',
-        documentos: [
-          { nombre: 'Convocatoria veedurías ciudadanas LC001-2025' },
-          { nombre: 'Resolución 202505000093' },
-        ],
-      },
-    ],
-  },
-  {
-    anio: '2024',
-    procesos: [
-      {
-        nombre: 'Invitación Abierta 001 - 2024',
-        documentos: [
-          { nombre: 'Respuesta observaciones borrador' },
-          { nombre: 'Cronograma definitivo' },
-          { nombre: 'Borrador estudio previo' },
-          ...Array.from({ length: 26 }, (_, i) => ({
-            nombre: `Anexo ${i + 1} - Documentación de la invitación`,
-          })),
-          { nombre: 'Estudios previos definitivos' },
-          { nombre: 'Condiciones invitación abierta definitiva' },
-          ...Array.from({ length: 9 }, (_, i) => ({
-            nombre: `Tarifario definitivo - Subregión ${i + 1}`,
-          })),
-          { nombre: 'Adenda N.º 01' },
-          { nombre: 'Respuesta a observaciones' },
-          { nombre: 'Adenda N.º 02' },
-          { nombre: 'Adenda N.º 03' },
-          { nombre: 'Acta apertura de sobres' },
-          { nombre: 'Adenda N.º 04' },
-          { nombre: 'Aclaración Adenda N.º 04' },
-          { nombre: 'Verificación de requisitos habilitantes y subsanaciones' },
-          { nombre: 'Adenda N.º 05' },
-          { nombre: 'Informe preliminar de evaluación' },
-          { nombre: 'Anexos de factores de evaluación y tarifarios' },
-          { nombre: 'Respuesta a observaciones del informe preliminar' },
-          { nombre: 'Informe definitivo de evaluación' },
-          { nombre: 'Anexos de evaluación definitivos' },
-        ],
-      },
-      {
-        nombre: 'Sondeo de mercado 001 de 2024',
-        documentos: [
-          { nombre: 'Anexo cuadro de auto clasificación' },
-          { nombre: 'Anexo listado bienes y servicios' },
-          { nombre: 'Anexo listado subregiones' },
-          { nombre: 'Sondeo condiciones de oferta' },
-        ],
-      },
-    ],
-  },
-  {
-    anio: '2022',
-    procesos: [
-      {
-        nombre: 'Invitación Abierta 001 - 2022',
-        documentos: [
-          { nombre: 'Invitación Abierta Operadores Logísticos' },
-          { nombre: 'Matriz de riesgos' },
-          { nombre: 'Estudio previo invitación abierta' },
-          ...Array.from({ length: 10 }, (_, i) => ({
-            nombre: `Anexo ${i + 1} - Documentación del proceso`,
-          })),
-          { nombre: 'Adenda IA 001 de 2022' },
-          { nombre: 'Respuesta a observaciones 4E S' },
-          { nombre: 'Respuesta a observaciones AM Laboratorio' },
-          { nombre: 'Respuesta a observaciones Enlace Estratégico' },
-          { nombre: 'Respuesta a observaciones Estrella' },
-          { nombre: 'Respuesta a observaciones HQ Solutions' },
-          { nombre: 'Respuesta a observaciones Los Mercantes' },
-          { nombre: 'Respuesta a observaciones Montar Eventos' },
-          { nombre: 'Respuesta a observaciones Videobase' },
-          { nombre: 'Adenda IA 002 de 2022' },
-          { nombre: 'Acta recepción ofertas IA 001 de 2022' },
-          { nombre: 'Informe evaluación IA 001 de 2022' },
-          { nombre: 'Informe evaluación final IA 001 de 2022' },
-        ],
-      },
-    ],
-  },
-];
+const contratacion = {
+  2026: [
+    {
+      id: "ia-004-2026",
+      tipo: "Invitación abierta",
+      titulo: "Invitación Abierta 004-2026",
+      descripcion: "Proceso de invitación abierta 004 de 2026.",
+      documentos: [
+        "ADENDA 01. Invitación abierta 004 de 2026",
+        "ADENDA 02. Invitación abierta 004 de 2026",
+        "ADENDA 03. Invitación abierta 004 de 2026",
+        "ADENDA 04. Invitación abierta 004 de 2026",
+        "ADENDA 05. Invitación abierta 004 de 2026",
+        "ADENDA 06. Invitación abierta 004 de 2026 VF",
+        "Respuestas observaciones consolidadas - IA004-2026",
+        "Aviso convocatoria Invitación Abierta 004-2026",
+        "Conformación Comité Evaluador Proceso IA 004-2026",
+        "Resolución apertura Invitación Abierta 004-2026",
+        "Invitación Abierta 004 de 2026",
+        "Anexo 1. Matriz de riesgos",
+        "Anexo 2. Carta de presentación de la propuesta",
+        "Anexo 3. Pago seguridad social y parafiscales",
+        "Anexo 4. Compromiso anticorrupción",
+        "Anexo 5. Certificado de inhabilidades e incompatibilidades",
+        "Anexo 6. Acuerdo de niveles de servicio ANS",
+        "Anexo 7. Acuerdo de confidencialidad",
+        "Anexo 8. Aceptación Gestión Comercial",
+        "Anexo 9. Cumplimiento y aceptación tarifario",
+        "Anexo 10. Modelo acuerdo de consorcio",
+        "Anexo 11. Modelo acuerdo unión temporal",
+        "Anexo 12. Capacidad financiera",
+        "Anexo 13. Experiencia del proponente",
+        "Anexo 14. Carta de compromiso del personal mínimo requerido",
+        "Anexo 15. Tarifarios del proceso",
+        "Anexo 16. Experiencia adicional del proponente",
+        "Anexo 17. Carta de compromiso personal adicional",
+        "Anexo 18. Certificación criterios diferenciales",
+      ],
+    },
+    {
+      id: "lc-001-2026",
+      tipo: "Lista corta",
+      titulo: "Lista Corta LC001-2026",
+      descripcion:
+        "Documentación del proceso de selección mediante lista corta.",
+      documentos: [
+        "Aviso convocatoria LC001-2026",
+        "Convocatoria Veedurías LC001-2026",
+        "Resolución 202605000101 de 2026 - Apertura del proceso de contratación",
+      ],
+    },
+    {
+      id: "ia-003-2026",
+      tipo: "Invitación con precalificación",
+      titulo: "Invitación Abierta con Precalificación 003-2026",
+      descripcion:
+        "Proceso relacionado con el Complejo Deportivo Tulio Ospina.",
+      documentos: [
+        "Aviso convocatoria Invitación Abierta 003-2026 Precalificación",
+        "Invitación Abierta con Precalificación 003-2026",
+        "Cronograma actualizado IA003-2026",
+        "Resolución 202605000055 de 2026 - Inicio de la fase de precalificación",
+        "Presupuesto, interventoría, componentes AIU y tabla de salarios",
+        "Anexo 1. Manifestación de interés",
+        "Anexo 2. Modelo de acuerdo de seriedad",
+        "Anexo 3. Estructura organizacional",
+        "Anexo 4. Probidad",
+        "Anexo 5. Experiencia",
+        "Anexo 6A. Patrimonio",
+        "Anexo 6B. Patrimonio",
+        "Anexo 6C. Endeudamiento",
+        "Anexo 6D. Endeudamiento",
+        "Anexo 7. Acuerdo de confidencialidad",
+        "Anexo 8. Experiencia similares",
+        "Anexo 9. Beneficiarios reales",
+        "Matriz de riesgos previsibles IA 003-2026",
+        "Respuesta observaciones IA003-2026 Precalificación",
+        "Acta de cierre y recibo de invitación",
+        "Informe preliminar Invitación 003-2026",
+        "Informe final Invitación 003-2026",
+        "Resolución lista de precalificados No. 003 de 2026",
+      ],
+    },
+    {
+      id: "ia-002-2026",
+      tipo: "Invitación con precalificación",
+      titulo: "Invitación Abierta con Precalificación 002-2026",
+      descripcion:
+        "Proceso relacionado con el Complejo Deportivo Tulio Ospina.",
+      documentos: [
+        "Resolución Invitación Abierta 002 de 2026 Precalificación",
+        "Documento de invitación definitivo a precalificar",
+        "Aviso convocatoria invitación a precalificar",
+        "Anexo 1. Manifestación de interés",
+        "Anexo 2. Modelo de acuerdo de seriedad",
+        "Anexo 3. Estructura organizacional",
+        "Anexo 4. Probidad",
+        "Anexo 5. Experiencia",
+        "Anexo 6A. Patrimonio",
+        "Anexo 6B. Patrimonio",
+        "Anexo 6C. Endeudamiento",
+        "Anexo 6D. Endeudamiento",
+        "Anexo 7. Acuerdo de confidencialidad",
+        "Anexo 8. Experiencia similares",
+        "Anexo 9. Beneficiarios reales",
+        "Matriz de riesgos previsibles",
+        "Cronograma Invitación Abierta con Precalificación 002-2026",
+        "Acta preliminar de estimación y asignación de riesgos",
+        "Adenda No. 1 Invitación Abierta 002-2026",
+        "Adenda No. 2",
+        "Observaciones recibidas",
+        "Respuesta observaciones",
+        "Presupuesto, interventoría, componentes AIU y tabla de salarios",
+        "Acta de cierre y recibo de invitación",
+        "Informe preliminar requisitos habilitantes",
+        "Informe de subsanación",
+        "Informe final Invitación 002-2026",
+        "Resolución declara desierto proceso 002-2026",
+      ],
+    },
+    {
+      id: "ia-001-2026",
+      tipo: "Invitación abierta",
+      titulo: "Invitación Abierta 001-2026",
+      descripcion:
+        "Documentos y actuaciones del proceso de invitación abierta.",
+      documentos: [
+        "Invitación Abierta 001 de 2026",
+        "Resolución 202605000016 de 2026",
+        "Aviso convocatoria Invitación Abierta 001-2026",
+        "Cronograma del proceso 2026",
+        "Estudio previo Invitación Abierta 2026",
+        "Anexo 1. Matriz de riesgos",
+        "Anexo 2. Carta de presentación de la propuesta",
+        "Anexo 3. Pago seguridad social y parafiscales",
+        "Anexo 4. Compromiso anticorrupción",
+        "Anexo 5. Certificado de inhabilidades e incompatibilidades",
+        "Anexo 6. Acuerdo de niveles de servicio ANS",
+        "Anexo 7. Acuerdo de confidencialidad",
+        "Anexo 8. Aceptación Gestión Comercial",
+        "Anexo 9. Cumplimiento y aceptación tarifario",
+        "Anexo 10. Modelo acuerdo de consorcio",
+        "Anexo 11. Modelo acuerdo unión temporal",
+        "Anexo 12. Capacidad financiera",
+        "Anexo 13. Experiencia del proponente",
+        "Anexo 14. Carta de compromiso del personal mínimo requerido",
+        "Anexo 15. Tarifario de referencia",
+        "Anexo 16. Experiencia adicional del proponente",
+        "Anexo 17. Carta de compromiso personal adicional",
+        "Anexo 18. Certificaciones",
+        "SBS-F06. Minuta del contrato",
+        "Tarifario consolidado",
+        "Adenda 01",
+        "Adenda 02",
+        "Acta de cierre y recibo de ofertas",
+        "Informe preliminar Invitación 001-2026",
+        "Adenda 03",
+        "Informe final de evaluación",
+        "Resolución de adjudicación Invitación Abierta 001-2026",
+      ],
+    },
+    {
+      id: "paa-2026",
+      tipo: "Planes y adquisiciones",
+      titulo: "Planes de Adquisiciones",
+      descripcion:
+        "Documentos relacionados con el Plan Anual de Adquisiciones.",
+      documentos: [
+        "Adquisiciones PAA - Acta 46",
+        "Adquisiciones PAA - Preacta 47 y 48",
+        "Plan Anual de Adquisiciones PAA - Octubre 05",
+      ],
+    },
+    {
+      id: "formatos-2026",
+      tipo: "Formatos institucionales",
+      titulo: "Formatos o Modelos de Contrato",
+      descripcion: "Formatos de apoyo para los procesos contractuales.",
+      documentos: [
+        "SBS-F02. Orden de compra de bienes y servicios",
+        "SBS-F06. Minuta del contrato",
+        "SBS-F31. Lista de chequeo lista corta",
+      ],
+    },
+  ],
 
-function Contratacion() {
-  const [vigenciasAbiertas, setVigenciasAbiertas] = useState(['2026']);
-  const [procesosAbiertos, setProcesosAbiertos] = useState([]);
+  2025: [
+    {
+      id: "lc-004-2025",
+      tipo: "Lista corta",
+      titulo: "Lista Corta LC004-2025",
+      descripcion: "Proceso de selección mediante lista corta.",
+      documentos: [
+        "Aviso convocatoria LC004-2025",
+        "Convocatoria Veedurías LC004-2025",
+        "Resolución 202505000143 de 2025 - Apertura del proceso",
+        "Acta de cierre y recibo de ofertas LC004-2025",
+        "Resolución 202505000147 de 2025 - Adjudicación del proceso",
+      ],
+    },
+    {
+      id: "lc-003-2025",
+      tipo: "Lista corta",
+      titulo: "Lista Corta LC003-2025",
+      descripcion: "Proceso de selección mediante lista corta.",
+      documentos: [
+        "Resolución 202505000139 de 2025 - Apertura del proceso",
+        "Aviso convocatoria LC003-2025",
+        "Convocatoria Veedurías LC003-2025",
+        "Acta de recibo LC003",
+        "Resolución 202505000141 de 2025 - Declaración desierta",
+      ],
+    },
+    {
+      id: "lc-002-2025",
+      tipo: "Lista corta",
+      titulo: "Lista Corta LC002-2025",
+      descripcion: "Proceso de selección mediante lista corta.",
+      documentos: [
+        "Aviso convocatoria LC002-2025",
+        "Convocatoria Veedurías LC002-2025",
+        "Resolución 202505000122 de 2025 - Lista Corta 002",
+      ],
+    },
+    {
+      id: "ia-001-2025",
+      tipo: "Invitación abierta",
+      titulo: "Invitación Abierta 001-2025",
+      descripcion:
+        "Documentos y actuaciones del proceso de invitación abierta.",
+      documentos: [
+        "Aviso convocatoria Invitación Abierta 001-2025",
+        "Invitación Abierta 001 de 2025",
+        "Conformación Comité Evaluador Proceso Invitación 001-2025",
+        "Estudio previo Invitación Abierta 001-2025",
+        "Resolución de apertura del proceso",
+        "Anexo 1. Matriz de riesgos",
+        "Anexo 2. Carta de presentación de la propuesta",
+        "Anexo 3. Pago seguridad social y parafiscales",
+        "Anexo 4. Compromiso anticorrupción",
+        "Anexo 5. Certificado de inhabilidades e incompatibilidades",
+        "Anexo 6. Acuerdo de niveles de servicio ANS",
+        "Anexo 7. Acuerdo de confidencialidad",
+        "Anexo 8. Aceptación Gestión Comercial",
+        "Anexo 9. Cumplimiento y aceptación tarifario",
+        "Anexo 10. Modelo acuerdo de consorcio",
+        "Anexo 11. Modelo acuerdo unión temporal",
+        "Anexo 12. Capacidad financiera",
+        "Anexo 13. Experiencia del proponente",
+        "Anexo 14. Carta de compromiso del personal mínimo requerido",
+        "Anexo 15. Tarifario para invitación",
+        "Anexo 16. Experiencia adicional del proponente",
+        "Anexo 17. Carta de compromiso personal adicional",
+        "Anexo 18. Certificaciones",
+        "Adenda 1 Invitación Abierta 001 de 2025",
+        "Formato tarifario categoría A",
+        "Formato tarifario categoría B",
+        "Respuesta observaciones Invitación Abierta 001-2025",
+        "Adenda 2 Invitación Abierta 001 de 2025",
+        "Adenda 3 Invitación Abierta 001 de 2025",
+        "Informe preliminar Invitación 001-2025",
+        "Adenda 4 Invitación Abierta 001 de 2025",
+        "Adenda 5 Invitación Abierta 001 de 2025",
+        "Informe final de evaluación",
+        "Resolución 202505000127 de 2025 - Adjudicación",
+      ],
+    },
+    {
+      id: "veedurias-2025",
+      tipo: "Participación ciudadana",
+      titulo: "Convocatoria Veedurías Ciudadanas LC001-2025",
+      descripcion: "Información de la convocatoria de veedurías ciudadanas.",
+      documentos: [
+        "Convocatoria Veedurías Ciudadanas LC001-2025",
+        "Resolución 202505000093",
+      ],
+    },
+  ],
 
-  const toggleVigencia = (anio) => {
-    setVigenciasAbiertas((actuales) =>
-      actuales.includes(anio)
-        ? actuales.filter((item) => item !== anio)
-        : [...actuales, anio]
-    );
+  2024: [
+    {
+      id: "ia-001-2024",
+      tipo: "Invitación abierta",
+      titulo: "Invitación Abierta 001-2024",
+      descripcion:
+        "Documentación del proceso de invitación abierta 001 de 2024.",
+      documentos: [
+        "Respuesta observaciones borrador membrete",
+        "Cronograma definitivo Invitación Abierta 001 de 2024",
+        "Borrador estudio previo Invitación Abierta",
+        "Anexo 1. Matriz de riesgos",
+        "Anexo 2. Carta de presentación de la propuesta",
+        "Anexo 3. Pago seguridad social y parafiscales",
+        "Anexo 4. Compromiso anticorrupción",
+        "Anexo 5. Certificado de inhabilidades e incompatibilidades",
+        "Anexo 6. Acuerdo de niveles de servicio ANS",
+        "Anexo 7. Acuerdo de confidencialidad",
+        "Anexo 8. Aceptación Gestión Comercial",
+        "Anexo 9. Cumplimiento y aceptación tarifario",
+        "Anexo 10. Modelo acuerdo de consorcio",
+        "Anexo 11. Modelo acuerdo unión temporal",
+        "Anexo 12. Capacidad financiera",
+        "Anexo 13. Experiencia del proponente",
+        "Anexo 14. Carta de compromiso del personal mínimo requerido",
+        "Anexo 15. Tarifario Valle de Aburrá",
+        "Anexo 16. Tarifario Subregión Bajo Cauca",
+        "Anexo 17. Tarifario Subregión Magdalena Medio",
+        "Anexo 18. Tarifario Subregión Nordeste",
+        "Anexo 19. Tarifario Subregión Norte",
+        "Anexo 20. Tarifario Subregión Occidente",
+        "Anexo 21. Tarifario Subregión Oriente",
+        "Anexo 22. Tarifario Subregión Suroeste",
+        "Anexo 23. Tarifario Subregión Urabá",
+        "Anexo 24. Oferta de porcentaje por pago a terceros",
+        "Anexo 25. Experiencia adicional del proponente",
+        "Anexo 26. Carta de compromiso personal adicional",
+        "Estudios previos Invitación Abierta Definitiva 001 de 2024",
+        "Condiciones Invitación Abierta 001 de 2024",
+        "Tarifarios definitivos por subregión",
+        "Adenda 01 Invitación Abierta 001 de 2024",
+        "Respuesta a observaciones condiciones Invitación Abierta",
+        "Adenda 02 Invitación Abierta 001 de 2024",
+        "Adenda 03 Condiciones Invitación Abierta",
+        "Acta apertura de sobres",
+        "Adenda 04 Condiciones Invitación Abierta",
+        "Aclaración Adenda 04",
+        "Verificación de requisitos habilitantes y solicitud de subsanaciones",
+        "Adenda 05 Condiciones Invitación Abierta",
+        "Informe preliminar de evaluación",
+        "Anexo 01. Factores de evaluación",
+        "Tarifarios de evaluación por subregión",
+        "Respuesta a observaciones informe preliminar",
+        "Informe definitivo de evaluación",
+      ],
+    },
+    {
+      id: "sondeo-2024",
+      tipo: "Sondeo de mercado",
+      titulo: "Sondeo de Mercado 001-2024",
+      descripcion: "Documentos del sondeo de mercado.",
+      documentos: [
+        "Anexo cuadro de auto clasificación",
+        "Anexo listado bienes y servicios",
+        "Anexo listado subregiones",
+        "Sondeo condiciones de oferta",
+      ],
+    },
+  ],
+
+  2022: [
+    {
+      id: "ia-001-2022",
+      tipo: "Invitación abierta",
+      titulo: "Invitación Abierta 001-2022",
+      descripcion: "Proceso de invitación abierta para operadores logísticos.",
+      documentos: [
+        "Invitación Abierta Operadores Logísticos",
+        "Matriz de riesgos",
+        "Estudio previo Invitación Abierta",
+        "Anexo 1. Carta de presentación de la oferta",
+        "Anexo 2. Cumplimiento y aceptación tarifario",
+        "Anexo 3. Experiencia del proponente",
+        "Anexo 4. Pago de aportes y parafiscales",
+        "Anexo 5. SBS-F10 Certificado de inhabilidades e incompatibilidades",
+        "Anexo 6. Acuerdo de consorcio",
+        "Anexo 7. Acuerdo de unión temporal",
+        "Anexo 8. Compromiso anticorrupción",
+        "Anexo 9. Tarifario de referencia",
+        "Anexo 10. Limitación MIPYME",
+        "Adenda IA 001 de 2022",
+        "SBS-F14 Respuesta a observaciones 4E S",
+        "SBS-F14 Respuesta a observaciones AM Laboratorio",
+        "SBS-F14 Respuesta a observaciones Enlace Estratégico",
+        "SBS-F14 Respuesta a observaciones Estrella",
+        "SBS-F14 Respuesta a observaciones HQ Solutions",
+        "SBS-F14 Respuesta a observaciones Los Mercantes S",
+        "SBS-F14 Respuesta a observaciones Montar Eventos",
+        "SBS-F14 Respuesta a observaciones Videobase",
+        "Adenda IA 002 de 2022",
+        "Acta recepción ofertas IA 001 de 2022",
+        "Informe evaluación IA 001 de 2022",
+        "Informe evaluación final IA 001 de 2022",
+      ],
+    },
+  ],
+};
+
+/* =========================================================
+   FUNCIONES AUXILIARES
+========================================================= */
+
+const obtenerTotalDocumentos = (procesos) =>
+  procesos.reduce((total, proceso) => total + proceso.documentos.length, 0);
+
+/* =========================================================
+   COMPONENTE PRINCIPAL
+========================================================= */
+
+
+export default function Contratacion() {
+  const vigencias = Object.keys(contratacion).sort(
+    (a, b) => Number(b) - Number(a),
+  );
+
+  const [anioSeleccionado, setAnioSeleccionado] = useState("2026");
+  const [procesoAbierto, setProcesoAbierto] = useState(null);
+
+  const procesosActuales = contratacion[anioSeleccionado] || [];
+
+  const totalProcesos = Object.values(contratacion).reduce(
+    (total, procesos) => total + procesos.length,
+    0,
+  );
+
+  const totalDocumentos = Object.values(contratacion).reduce(
+    (total, procesos) => total + obtenerTotalDocumentos(procesos),
+    0,
+  );
+
+  const cambiarAnio = (anio) => {
+    setAnioSeleccionado(String(anio));
+    setProcesoAbierto(null);
   };
 
-  const toggleProceso = (nombre) => {
-    setProcesosAbiertos((actuales) =>
-      actuales.includes(nombre)
-        ? actuales.filter((item) => item !== nombre)
-        : [...actuales, nombre]
-    );
-  };
-
-  const obtenerIcono = (nombre) => {
-    const extension = nombre.toLowerCase();
-
-    if (extension.includes('pdf') || extension.includes('informe')) {
-      return <FilePdf size={21} weight="duotone" />;
-    }
-
-    return <FileText size={21} weight="duotone" />;
+  const alternarProceso = (id) => {
+    setProcesoAbierto((actual) => (actual === id ? null : id));
   };
 
   return (
     <main className={styles.contratacionPage}>
-      {/* ENCABEZADO */}
-      <section className={styles.hero}>
-        <div className={styles.heroContent}>
-          <span className={styles.heroLabel}>ACTIVA · TRANSPARENCIA</span>
-          <h1>Contratación ACTIVA</h1>
-          <p>
-            Consulta los procesos contractuales, convocatorias y documentos
-            publicados por la Empresa de Parques y Eventos de Antioquia.
-          </p>
-        </div>
-      </section>
+      <HeaderDegradado
+        eyebrow="Transparencia y acceso a la información"
+        title="Contratación"
+        highlight="ACTIVA"
+        description="Consulta los procesos contractuales, convocatorias y documentos publicados por nuestra entidad."
+      />
 
-      {/* INTRODUCCIÓN */}
-      <section className={styles.intro}>
-        <div className={styles.introIcon}>
-          <FileText size={34} weight="duotone" />
-        </div>
+      <div className={styles.contenido}>
+        <section className={styles.presentacion}>
+          <div className={styles.presentacionTexto}>
+            <span className={styles.etiqueta}>
+              <span className={styles.etiquetaPunto}></span>
+              GESTIÓN TRANSPARENTE
+            </span>
 
-        <p>
-          En este espacio encontrarás la información relacionada con los
-          procesos de contratación de ACTIVA, incluyendo invitaciones,
-          convocatorias, estudios previos, anexos, adendas, informes y demás
-          documentos correspondientes a cada vigencia.
-        </p>
-      </section>
+            <h2>
+              Información clara,
+              <span> procesos transparentes.</span>
+            </h2>
 
-      {/* PROCESOS CONTRACTUALES */}
-      <section className={styles.modulesSection}>
-        <div className={styles.sectionHeading}>
-          <span>INFORMACIÓN CONTRACTUAL</span>
-          <h2>Procesos de contratación</h2>
-          <p>
-            Selecciona una vigencia para consultar sus procesos y documentos.
-          </p>
-        </div>
+            <p>
+              En este espacio encontrarás la información de los procesos
+              contractuales de ACTIVA, organizada por vigencia para facilitar su
+              consulta y seguimiento.
+            </p>
 
-        <div className={styles.modulesList}>
-          {vigencias.map((vigencia, index) => {
-            const abierta = vigenciasAbiertas.includes(vigencia.anio);
+            <div className={styles.presentacionNota}>
+              <ShieldCheck size={21} weight="duotone" />
+              <span>
+                Acceso a la información contractual de manera organizada y
+                pública.
+              </span>
+            </div>
+          </div>
 
-            return (
-              <article className={styles.module} key={vigencia.anio}>
+          <div className={styles.presentacionVisual}>
+            <div className={styles.visualCirculo}></div>
+            <div className={styles.visualCirculoSecundario}></div>
+
+            <div className={styles.visualTarjeta}>
+              <div className={styles.visualTarjetaIcono}>
+                <Gavel size={31} weight="duotone" />
+              </div>
+
+              <span className={styles.visualTarjetaEtiqueta}>
+                ACTIVA · CONTRATACIÓN
+              </span>
+
+              <strong>Transparencia en cada proceso</strong>
+
+              <div className={styles.visualLinea}>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <div className={styles.visualTarjetaPie}>
+                <ShieldCheck size={17} weight="fill" />
+                <span>Información pública</span>
+              </div>
+            </div>
+
+            <div className={styles.visualDecoracion}>
+              <Files size={25} weight="duotone" />
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.indicadores}>
+          <article className={styles.indicador}>
+            <div className={`${styles.indicadorIcono} ${styles.verde}`}>
+              <FolderOpen size={23} weight="duotone" />
+            </div>
+            <div>
+              <strong>{totalProcesos}</strong>
+              <span>Procesos y categorías</span>
+            </div>
+          </article>
+
+          <article className={styles.indicador}>
+            <div className={`${styles.indicadorIcono} ${styles.azul}`}>
+              <Files size={23} weight="duotone" />
+            </div>
+            <div>
+              <strong>{totalDocumentos}</strong>
+              <span>Documentos registrados</span>
+            </div>
+          </article>
+
+          <article className={styles.indicador}>
+            <div className={`${styles.indicadorIcono} ${styles.lima}`}>
+              <CalendarBlank size={23} weight="duotone" />
+            </div>
+            <div>
+              <strong>{vigencias.length}</strong>
+              <span>Vigencias disponibles</span>
+            </div>
+          </article>
+        </section>
+
+        <section className={styles.explorador}>
+          <div className={styles.exploradorEncabezado}>
+            <div>
+              <span className={styles.etiqueta}>CONSULTA DOCUMENTAL</span>
+              <h2>Explora la contratación</h2>
+              <p>
+                Selecciona una vigencia para consultar sus procesos y
+                documentos.
+              </p>
+            </div>
+
+            <div className={styles.exploradorIcono}>
+              <ListChecks size={27} weight="duotone" />
+            </div>
+          </div>
+
+          <div className={styles.vigencias}>
+            <div className={styles.vigenciasTitulo}>
+              <CalendarBlank size={18} weight="duotone" />
+              <span>Vigencia</span>
+            </div>
+
+            <div className={styles.vigenciasLista}>
+              {vigencias.map((anio) => (
                 <button
+                  key={anio}
                   type="button"
-                  className={styles.moduleSummary}
-                  onClick={() => toggleVigencia(vigencia.anio)}
-                  aria-expanded={abierta}
+                  className={`${styles.vigenciaBoton} ${
+                    anioSeleccionado === anio ? styles.vigenciaActiva : ""
+                  }`}
+                  onClick={() => cambiarAnio(anio)}
+                  aria-pressed={anioSeleccionado === anio}
                 >
-                  <span className={styles.moduleNumber}>
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-
-                  <span className={styles.moduleTitle}>
-                    Contratación {vigencia.anio}
-                  </span>
-
-                  <span className={styles.moduleToggle}>
-                    <CaretDown
-                      size={22}
-                      weight="bold"
-                      className={abierta ? styles.rotated : ''}
-                    />
-                  </span>
+                  {anio}
+                  {anioSeleccionado === anio && (
+                    <span className={styles.vigenciaPunto}></span>
+                  )}
                 </button>
+              ))}
+            </div>
+          </div>
 
-                {abierta && (
-                  <div className={styles.moduleContent}>
-                    {vigencia.procesos.map((proceso) => {
-                      const procesoAbierto = procesosAbiertos.includes(
-                        `${vigencia.anio}-${proceso.nombre}`
-                      );
+          <div className={styles.listadoEncabezado}>
+            <div>
+              <span className={styles.listadoPunto}></span>
+              <h3>Procesos de contratación {anioSeleccionado}</h3>
+            </div>
 
-                      return (
-                        <section
-                          className={styles.moduleSubsection}
-                          key={proceso.nombre}
-                        >
-                          <button
-                            type="button"
-                            className={styles.processSummary}
-                            onClick={() =>
-                              toggleProceso(
-                                `${vigencia.anio}-${proceso.nombre}`
-                              )
-                            }
-                            aria-expanded={procesoAbierto}
+            <span className={styles.listadoCantidad}>
+              {procesosActuales.length}{" "}
+              {procesosActuales.length === 1 ? "proceso" : "procesos"}
+            </span>
+          </div>
+
+          <div className={styles.procesosLista}>
+            {procesosActuales.map((proceso, index) => {
+              const abierto = procesoAbierto === proceso.id;
+
+              return (
+                <article
+                  key={proceso.id}
+                  className={`${styles.procesoModulo} ${
+                    abierto ? styles.procesoModuloAbierto : ""
+                  }`}
+                >
+                  <button
+                    type="button"
+                    className={styles.procesoModuloCabecera}
+                    onClick={() => alternarProceso(proceso.id)}
+                    aria-expanded={abierto}
+                    aria-controls={`documentos-${proceso.id}`}
+                  >
+                    <span className={styles.procesoModuloInformacion}>
+                      <span className={styles.procesoModuloNumero}>
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+
+                      <span className={styles.procesoModuloTexto}>
+                        <strong>{proceso.titulo}</strong>
+                        <small>{proceso.tipo}</small>
+                      </span>
+                    </span>
+
+                    <span className={styles.procesoModuloToggle}>+</span>
+                  </button>
+
+                  {abierto && (
+                    <div
+                      className={styles.procesoModuloContenido}
+                      id={`documentos-${proceso.id}`}
+                    >
+                      <div className={styles.procesoModuloDescripcion}>
+                        {proceso.descripcion}
+                      </div>
+
+                      <div className={styles.procesoDocumentosEncabezado}>
+                        <h4>Documentación del proceso</h4>
+                        <span>
+                          {proceso.documentos.length}{" "}
+                          {proceso.documentos.length === 1
+                            ? "documento"
+                            : "documentos"}
+                        </span>
+                      </div>
+
+                      <div className={styles.procesoDocumentosGrid}>
+                        {proceso.documentos.map((documento, docIndex) => (
+                          <article
+                            className={styles.procesoDocumento}
+                            key={`${proceso.id}-${docIndex}`}
                           >
-                            <span>{proceso.nombre}</span>
-                            <CaretDown
-                              size={19}
-                              weight="bold"
-                              className={
-                                procesoAbierto ? styles.rotated : ''
-                              }
-                            />
-                          </button>
+                            <span className={styles.procesoDocumentoIcono}>
+                              <FilePdf size={24} weight="duotone" />
+                            </span>
 
-                          {procesoAbierto && (
-                            <div className={styles.moduleLinksGrid}>
-                              {proceso.documentos.map((documento, i) => (
-                                <a
-                                  key={`${documento.nombre}-${i}`}
-                                  href={documento.url || paginaOficial}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className={styles.moduleLink}
-                                  title={
-                                    documento.url
-                                      ? 'Abrir documento'
-                                      : 'Consultar documento en la página oficial'
-                                  }
-                                >
-                                  <span className={styles.linkIcon}>
-                                    {obtenerIcono(documento.nombre)}
-                                  </span>
+                            <span className={styles.procesoDocumentoTexto}>
+                              <strong>{documento}</strong>
+                              <small>
+                                Documento del proceso · Vigencia{" "}
+                                {anioSeleccionado}
+                              </small>
+                            </span>
 
-                                  <span className={styles.linkText}>
-                                    {documento.nombre}
-                                  </span>
+                            <span
+                              className={styles.procesoDocumentoFlecha}
+                              title="Enlace pendiente de configurar"
+                            >
+                              <ArrowUpRight size={20} weight="bold" />
+                            </span>
+                          </article>
+                        ))}
+                      </div>
 
-                                  <ArrowUpRight
-                                    size={18}
-                                    weight="bold"
-                                    className={styles.linkArrow}
-                                  />
-                                </a>
-                              ))}
-                            </div>
-                          )}
-                        </section>
-                      );
-                    })}
-                  </div>
-                )}
-              </article>
-            );
-          })}
-        </div>
-      </section>
+                      <div className={styles.procesoDocumentosAviso}>
+                        <ShieldCheck size={19} weight="duotone" />
+                        <span>
+                          Los enlaces de consulta se habilitarán al configurar
+                          las rutas de los documentos.
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                </article>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className={styles.notaFinal}>
+          <div className={styles.notaFinalIcono}>
+            <ShieldCheck size={25} weight="duotone" />
+          </div>
+
+          <div>
+            <strong>Comprometidos con la transparencia</strong>
+            <p>
+              ACTIVA promueve el acceso a la información y la consulta de sus
+              procesos contractuales como parte de su compromiso con la
+              transparencia institucional.
+            </p>
+          </div>
+
+          <span className={styles.notaFinalDecoracion}></span>
+        </section>
+      </div>
     </main>
   );
 }
-
-export default Contratacion;

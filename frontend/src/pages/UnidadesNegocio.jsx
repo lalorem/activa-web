@@ -1,7 +1,13 @@
 
-import { ArrowUpRight, Lightbulb, Gear, ShieldCheck } from '@phosphor-icons/react';
+import {
+  ArrowUpRight,
+  Lightbulb,
+  Gear,
+  ShieldCheck
+} from '@phosphor-icons/react';
 
 import styles from '../components/style/UnidadesNegocio.module.css';
+import HeaderDegradado from '../components/HeaderDegradado';
 import TrabajaConNosotros from '../components/TrabajaConNosotros';
 
 const capacidades = [
@@ -59,22 +65,13 @@ function UnidadesNegocio() {
   return (
     <main className={styles.unidadesPage}>
 
-      {/* HEADER */}
-      <section className={styles.hero}>
-        <div className={styles.heroContent}>
-          <span className={styles.heroLabel}>
-            <Gear size={17} weight="bold" />
-            Nuestras capacidades
-          </span>
-
-          <h1>Unidades de negocio</h1>
-
-          <p>
-            Soluciones integrales para transformar ideas en experiencias,
-            proyectos y resultados que generan valor para el territorio.
-          </p>
-        </div>
-      </section>
+      {/* ENCABEZADO REUTILIZABLE */}
+      <HeaderDegradado
+        eyebrow="NUESTRAS CAPACIDADES"
+        title="Unidades de"
+        highlight="Negocio"
+        description="Soluciones integrales para transformar ideas en experiencias, proyectos y resultados que generan valor para el territorio."
+      />
 
       {/* INTRODUCCIÓN */}
       <section className={styles.introSection}>
@@ -215,6 +212,7 @@ function UnidadesNegocio() {
         </div>
       </section>
 
+      {/* TRABAJA CON NOSOTROS */}
       <TrabajaConNosotros />
 
     </main>

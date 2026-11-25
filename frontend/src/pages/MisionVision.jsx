@@ -1,19 +1,20 @@
+
 import { FilePdf, DownloadSimple } from "@phosphor-icons/react";
 import styles from "../components/style/MisionVision.module.css";
+
+import HeaderDegradado from "../components/HeaderDegradado";
 
 import imagenMisionVision from "../assets/mision-vision.webp";
 
 function MisionVision() {
   return (
     <main className={styles.mvPage}>
-      {/* HERO */}
-      <header className={styles.mvHero}>
-        <div className={styles.container}>
-          <div className={styles.mvHeroContent}>
-            <h1>Misión, Visión, Deberes y Políticas</h1>
-          </div>
-        </div>
-      </header>
+      <HeaderDegradado
+        eyebrow="CONÓCENOS"
+        title="Misión, Visión,"
+        highlight="Deberes y Políticas"
+        description="Conoce los principios, objetivos y lineamientos que orientan la gestión institucional de ACTIVA."
+      />
 
       {/* CONTENIDO */}
       <section className={styles.mvContentSection}>

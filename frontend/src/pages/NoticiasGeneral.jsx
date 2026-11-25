@@ -1,10 +1,7 @@
 
-import {
-  CalendarBlank,
-  ArrowRight,
-} from '@phosphor-icons/react';
-
 import styles from '../components/style/NoticiasGeneral.module.css';
+
+import HeaderDegradado from '../components/HeaderDegradado';
 
 import volcan1 from '../assets/volcan1.webp';
 import noticia2 from '../assets/noticia2.webp';
@@ -59,16 +56,12 @@ const noticias = [
 function NoticiasGeneral() {
   return (
     <>
-      {/* HERO */}
-      <section className={styles.generalNewsHero}>
-        <div className={styles.generalNewsOverlay}></div>
-
-        <div className={styles.generalNewsHeroContent}>
-          <h1>Noticias ACTIVA</h1>
-          <div className={styles.generalNewsLine}></div>
-        </div>
-        
-      </section>
+      <HeaderDegradado
+        eyebrow="ACTUALIDAD ACTIVA"
+        title="Noticias"
+        highlight="ACTIVA"
+        description="Conoce las últimas noticias, proyectos y acontecimientos de ACTIVA."
+      />
 
       {/* INTRODUCCIÓN */}
       <section className={styles.generalNewsIntro}>
@@ -143,8 +136,7 @@ function NoticiasGeneral() {
             ))}
           </div> */}
 
-       <Noticias />
-
+          <Noticias />
         </div>
       </section>
     </>

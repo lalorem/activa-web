@@ -7,6 +7,7 @@ import {
 
 import styles from '../components/style/RendicionCuentas.module.css';
 import imagenInforme from '../assets/informe.jpg';
+import HeaderDegradado from '../components/HeaderDegradado';
 
 // INFORMES DE GESTIÓN
 const informesGestion = [
@@ -52,15 +53,13 @@ function RendicionCuentas() {
   return (
     <main className={styles.rendicionPage}>
 
-      {/* ENCABEZADO */}
-      <header className={styles.hero}>
-        <div className={styles.heroDecoracion}></div>
-
-        <div className={styles.heroContenido}>
-          <span className={styles.heroEtiqueta}>ACTIVA</span>
-          <h1>Rendición de Cuentas</h1>
-        </div>
-      </header>
+      {/* ENCABEZADO REUTILIZABLE */}
+      <HeaderDegradado
+        eyebrow="ACTIVA"
+        title="Rendición de"
+        highlight="Cuentas"
+        description="Consulta los informes de gestión y los procesos de rendición de cuentas de ACTIVA y la Gobernación de Antioquia."
+      />
 
       <div className={styles.container}>
 

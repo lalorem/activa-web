@@ -9,6 +9,7 @@ import {
 } from '@phosphor-icons/react';
 
 import styles from '../components/style/DescripcionGeneral.module.css';
+import HeaderDegradado from '../components/HeaderDegradado';
 
 const canalesContacto = [
   {
@@ -58,16 +59,21 @@ function DescripcionGeneral() {
   return (
     <main className={styles.descripcionGeneralPage}>
 
-      {/* ENCABEZADO */}
-      <section className={styles.hero}>
-        <div className={styles.heroOverlay}></div>
+      {/* =====================================================
+          HEADER DEGRADADO
+      ====================================================== */}
 
-        <div className={styles.heroContenido}>
-          <h1>Descripción General</h1>
-        </div>
-      </section>
+      <HeaderDegradado
+        eyebrow="PARTICIPACIÓN CIUDADANA"
+        title="Descripción"
+        highlight="General"
+        description="Conoce los espacios y mecanismos de participación ciudadana de ACTIVA."
+      />
 
-      {/* DESCRIPCIÓN */}
+      {/* =====================================================
+          DESCRIPCIÓN
+      ====================================================== */}
+
       <section className={styles.descripcion}>
         <div className={styles.container}>
 
@@ -103,7 +109,10 @@ function DescripcionGeneral() {
         </div>
       </section>
 
-      {/* CANALES DE PARTICIPACIÓN */}
+      {/* =====================================================
+          CANALES DE PARTICIPACIÓN
+      ====================================================== */}
+
       <section className={styles.canalesSection}>
         <div className={styles.container}>
 
@@ -150,14 +159,19 @@ function DescripcionGeneral() {
         </div>
       </section>
 
-      {/* GRUPOS DE VALOR */}
+      {/* =====================================================
+          GRUPOS DE VALOR
+      ====================================================== */}
+
       <section className={styles.gruposSection}>
         <div className={styles.gruposWrapper}>
+
           <img
             src="https://activa.com.co/wp-content/uploads/2026/03/grupos-de-valor-1024x819.jpeg"
             alt="Grupos de valor de ACTIVA"
             className={styles.gruposImagen}
           />
+
         </div>
       </section>
 

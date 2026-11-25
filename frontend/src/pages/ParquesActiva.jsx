@@ -2,6 +2,7 @@
 import { Tree, MapPin, ArrowUpRight } from '@phosphor-icons/react';
 
 import styles from '../components/style/ParquesActiva.module.css';
+import HeaderDegradado from '../components/HeaderDegradado';
 import TrabajaConNosotros from '../components/TrabajaConNosotros';
 
 const noticias = [
@@ -42,22 +43,13 @@ function ParquesActiva() {
   return (
     <main className={styles.parquesPage}>
 
-      {/* HEADER DIFUMINADO */}
-      <section className={styles.hero}>
-        <div className={styles.heroContent}>
-          <span className={styles.heroLabel}>
-            <Tree size={17} weight="bold" />
-            TURISMO Y DESARROLLO TERRITORIAL
-          </span>
-
-          <h1>Parques ACTIVA</h1>
-
-          <p>
-            Espacios que conectan naturaleza, turismo y desarrollo
-            para transformar los territorios de Antioquia.
-          </p>
-        </div>
-      </section>
+      {/* ENCABEZADO REUTILIZABLE */}
+      <HeaderDegradado
+        eyebrow="TURISMO Y DESARROLLO TERRITORIAL"
+        title="Parques"
+        highlight="ACTIVA"
+        description="Espacios que conectan naturaleza, turismo y desarrollo para transformar los territorios de Antioquia."
+      />
 
       {/* PRESENTACIÓN GENERAL */}
       <section className={styles.introSection}>
@@ -231,6 +223,7 @@ function ParquesActiva() {
         </div>
       </section>
 
+      {/* TRABAJA CON NOSOTROS */}
       <TrabajaConNosotros />
 
     </main>

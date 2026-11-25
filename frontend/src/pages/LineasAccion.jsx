@@ -5,6 +5,8 @@ import {
 
 import styles from '../components/style/LineasAccion.module.css';
 
+import HeaderDegradado from '../components/HeaderDegradado';
+
 import noticia34 from '../assets/noticia3.4.webp';
 import img1 from '../assets/img1.webp';
 import img2 from '../assets/img2.webp';
@@ -35,14 +37,12 @@ function LineasAccion() {
   return (
     <main className={styles.lineasAccionPage}>
 
-      {/* HERO */}
-      <section className={styles.lineasHero}>
-        <div className={styles.lineasHeroOverlay}></div>
-
-        <div className={styles.lineasHeroContent}>
-          <h1>Líneas de Acción</h1>
-        </div>
-      </section>
+      <HeaderDegradado
+        eyebrow="NUESTRAS CAPACIDADES"
+        title="Líneas de"
+        highlight="Acción"
+        description="Conoce las líneas estratégicas de ACTIVA y las soluciones que ofrecemos para transformar experiencias y territorios."
+      />
 
       {/* PROPUESTA DE VALOR */}
       <section className={styles.propuestaSection}>

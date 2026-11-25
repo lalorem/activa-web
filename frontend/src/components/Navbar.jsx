@@ -52,12 +52,10 @@ const menus = [
       ['Rendición de Cuentas', '/rendicion-de-cuentas'],
       ['Canales de Atencion', '/canales-de-atencion-presencial-y-telefonica'],
       [
-        'Servicio al Público, Normas, Formularios y Protocolos de Atención',
-        'https://activa.com.co/documentos/',
+        'Servicio al Público, Normas, Formularios y Protocolos de Atención', '/servicio-al-publico-normas-formularios-y-protocolos-de-atencion'
       ],
       [
-        'Procedimientos para la Toma de Decisiones',
-        'https://activa.com.co/en-construccion/',
+        'Procedimientos para la Toma de Decisiones', '/procedimientos-para-la-toma-de-decisiones'
       ],
       [
         'Entes y Autoridades que nos Vigilan',

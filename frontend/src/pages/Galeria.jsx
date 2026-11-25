@@ -10,6 +10,7 @@ import {
 } from '@phosphor-icons/react';
 
 import styles from '../components/style/Galeria.module.css';
+import HeaderDegradado from '../components/HeaderDegradado';
 
 const fotografias = [
   {
@@ -127,20 +128,12 @@ function Galeria() {
     <main className={styles.galeriaPage}>
 
       {/* HEADER */}
-      <section className={styles.hero}>
-        <div className={styles.heroContent}>
-          <span className={styles.heroEyebrow}>
-            ACTIVA EN IMÁGENES
-          </span>
-
-          <h1>Galería</h1>
-
-          <p>
-            Momentos, experiencias y proyectos que conectan
-            territorios y personas.
-          </p>
-        </div>
-      </section>
+      <HeaderDegradado
+        eyebrow="ACTIVA EN IMÁGENES"
+        title="Galería de"
+        highlight="Experiencias"
+        description="Momentos, experiencias y proyectos que conectan territorios y personas."
+      />
 
       {/* INTRODUCCIÓN */}
       <section className={styles.introSection}>

@@ -9,6 +9,7 @@ import {
 } from "@phosphor-icons/react";
 
 import styles from "../components/style/calendario.module.css";
+import HeaderDegradado from "../components/HeaderDegradado";
 
 // Fecha en formato local: YYYY-MM-DD
 const obtenerClaveFecha = (fecha) => {
@@ -102,8 +103,10 @@ function Calendario() {
     setFechaSeleccionada(fecha);
 
     // Si se selecciona un día de otro mes, cambiar la vista
-    if (fecha.getMonth() !== mesActual.getMonth() ||
-        fecha.getFullYear() !== mesActual.getFullYear()) {
+    if (
+      fecha.getMonth() !== mesActual.getMonth() ||
+      fecha.getFullYear() !== mesActual.getFullYear()
+    ) {
       setMesActual(
         new Date(fecha.getFullYear(), fecha.getMonth(), 1)
       );
@@ -123,15 +126,13 @@ function Calendario() {
 
   return (
     <>
-      {/* HERO */}
-      <section className={styles.calendarHero}>
-        <div className={styles.calendarHeroOverlay}></div>
-
-        <div className={styles.calendarHeroContent}>
-          <h1>Calendario de Actividades y Eventos</h1>
-          <div className={styles.calendarHeroLine}></div>
-        </div>
-      </section>
+      {/* HEADER */}
+      <HeaderDegradado
+        eyebrow="AGENDA ACTIVA"
+        title="Calendario de"
+        highlight="Actividades y Eventos"
+        description="Consulta nuestra agenda y mantente al tanto de las actividades y experiencias de ACTIVA."
+      />
 
       {/* CALENDARIO */}
       <main className={styles.calendarSection}>
