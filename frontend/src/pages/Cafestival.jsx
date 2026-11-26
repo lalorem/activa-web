@@ -16,6 +16,18 @@ import cafe3 from '../assets/cafestival3.jpeg';
 import cafe4 from '../assets/cafestival4.jpeg';
 import cafe5 from '../assets/cafestival5.jpeg';
 import cafeHeader from '../assets/cafestival.jpeg';
+import cafe6 from '../assets/cafestival6.jpg';
+import cafe7 from '../assets/cafestival7.jpg';
+import cafe8 from '../assets/cafestival8.jpg';
+import cafe9 from '../assets/cafestival9.jpeg';
+import cafe10 from '../assets/cafestival10.jpg';
+import cafe11 from '../assets/cafestival11.jpeg';
+import cafe12 from '../assets/cafestival12.jpeg';
+import cafe13 from '../assets/cafestival13.jpeg';
+import cafe14 from '../assets/cafestival14.jpeg';
+import cafe15 from '../assets/cafestival15.jpg';
+import cafe16 from '../assets/cafestival16.jpeg';
+import cafe17 from '../assets/cafestival17.jpeg';
 
 const resultados = [
   {
@@ -65,6 +77,18 @@ const fotografias = [
   cafe3,
   cafe4,
   cafe5,
+  cafe6,
+  cafe7,
+  cafe8,
+  cafe9,
+  cafe10,
+  cafe11,
+  cafe12,
+  cafe13,
+  cafe14,
+  cafe15,
+  cafe16,
+  cafe17,
 ];
 
 function Cafestival() {

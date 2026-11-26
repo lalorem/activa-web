@@ -1,70 +1,70 @@
-
 import {
   ArrowUpRight,
   Lightbulb,
   Gear,
-  ShieldCheck
-} from '@phosphor-icons/react';
+  ShieldCheck,
+} from "@phosphor-icons/react";
 
-import styles from '../components/style/UnidadesNegocio.module.css';
-import HeaderDegradado from '../components/HeaderDegradado';
-import TrabajaConNosotros from '../components/TrabajaConNosotros';
+import styles from "../components/style/UnidadesNegocio.module.css";
+import HeaderDegradado from "../components/HeaderDegradado";
+import TrabajaConNosotros from "../components/TrabajaConNosotros";
+import logistica from "../assets/logistica4.jpeg";
+import suministro from "../assets/tarjeta3.webp";
+import proyectosEspeciales from "../assets/volcan4.webp";
+import logisticaa from "../assets/logistica.jpeg";
+import logisticaaa from "../assets/volcan6.png";
+import logisticaaaa from "../assets/noticia3.1.webp";
+import milagros from "../assets/mesamilagro.jpeg";
 
 const capacidades = [
   {
-    imagen: '/unidades-negocio/eventos-logistica.jpg',
-    titulo: 'Eventos y logística',
+    imagen: logistica,
+    titulo: "Eventos y logística",
     items: [
-      'Producción técnica',
-      'Montajes',
-      'Personal operativo',
-      'Coordinación en sitio'
-    ]
+      "Producción técnica",
+      "Montajes",
+      "Personal operativo",
+      "Coordinación en sitio",
+    ],
   },
   {
-    imagen: '/unidades-negocio/suministro-operacion.jpg',
-    titulo: 'Suministro y operación',
-    items: [
-      'Dotación',
-      'Catering',
-      'Equipos',
-      'Mobiliario'
-    ]
+    imagen: suministro,
+    titulo: "Suministro y operación",
+    items: ["Dotación", "Catering", "Equipos", "Mobiliario"],
   },
   {
-    imagen: '/unidades-negocio/proyectos-especiales.jpg',
-    titulo: 'Proyectos especiales',
+    imagen: proyectosEspeciales,
+    titulo: "Proyectos especiales",
     items: [
-      'Intervenciones territoriales',
-      'Estrategias institucionales',
-      'Activaciones turísticas'
-    ]
-  }
+      "Intervenciones territoriales",
+      "Estrategias institucionales",
+      "Activaciones turísticas",
+    ],
+  },
 ];
 
 const experiencias = [
   {
-    imagen: '/unidades-negocio/experiencia-1.jpg',
-    titulo: 'Eventos de alto impacto'
+    imagen: milagros,
+    titulo: "Eventos de alto impacto",
   },
   {
-    imagen: '/unidades-negocio/experiencia-2.jpg',
-    titulo: 'Producción y montajes'
+    imagen: logisticaaaa,
+    titulo: "Producción y montajes",
   },
   {
-    imagen: '/unidades-negocio/experiencia-3.jpg',
-    titulo: 'Operación logística'
+    imagen: logisticaa,
+    titulo: "Operación logística",
   },
   {
-    imagen: '/unidades-negocio/experiencia-4.jpg',
-    titulo: 'Experiencias territoriales'
-  }
+    imagen: logisticaaa,
+    titulo: "Experiencias territoriales",
+  },
 ];
 
 function UnidadesNegocio() {
   return (
     <main className={styles.unidadesPage}>
-
       {/* ENCABEZADO REUTILIZABLE */}
       <HeaderDegradado
         eyebrow="NUESTRAS CAPACIDADES"
@@ -77,17 +77,17 @@ function UnidadesNegocio() {
       <section className={styles.introSection}>
         <div className={styles.introContent}>
           <p>
-            En ACTIVA entendemos la operación logística como un proceso
-            integral que va más allá de ejecutar un evento: es la capacidad
-            de estructurar, coordinar y materializar cada proyecto desde su
+            En ACTIVA entendemos la operación logística como un proceso integral
+            que va más allá de ejecutar un evento: es la capacidad de
+            estructurar, coordinar y materializar cada proyecto desde su
             planeación hasta su puesta en marcha.
           </p>
 
           <p>
             Nuestro conocimiento del cliente y del territorio nos permite
             diseñar soluciones logísticas a la medida, articulando proveedores,
-            recursos y equipos para garantizar eficiencia, control y calidad
-            en cada etapa.
+            recursos y equipos para garantizar eficiencia, control y calidad en
+            cada etapa.
           </p>
 
           <p>
@@ -97,9 +97,9 @@ function UnidadesNegocio() {
           </p>
 
           <p>
-            Así, cada proyecto no solo se ejecuta correctamente, sino que
-            genera valor compartido: es viable, responsable con el medio
-            ambiente y relevante para el territorio.
+            Así, cada proyecto no solo se ejecuta correctamente, sino que genera
+            valor compartido: es viable, responsable con el medio ambiente y
+            relevante para el territorio.
           </p>
 
           <div className={styles.approachGrid}>
@@ -110,8 +110,8 @@ function UnidadesNegocio() {
               <div>
                 <h3>Qué hacemos</h3>
                 <p>
-                  Diseñamos, operamos y ejecutamos eventos y proyectos desde
-                  la idea hasta el último detalle en campo.
+                  Diseñamos, operamos y ejecutamos eventos y proyectos desde la
+                  idea hasta el último detalle en campo.
                 </p>
               </div>
             </article>
@@ -123,11 +123,13 @@ function UnidadesNegocio() {
               <div>
                 <h3>Cómo lo hacemos</h3>
                 <p>
-                  <strong>Pensamos</strong> → estructuración técnica y presupuestal
+                  <strong>Pensamos</strong> → estructuración técnica y
+                  presupuestal
                   <br />
                   <strong>Activamos</strong> → montaje, logística y operación
                   <br />
-                  <strong>Garantizamos</strong> → control, calidad y experiencia final
+                  <strong>Garantizamos</strong> → control, calidad y experiencia
+                  final
                 </p>
               </div>
             </article>
@@ -214,7 +216,6 @@ function UnidadesNegocio() {
 
       {/* TRABAJA CON NOSOTROS */}
       <TrabajaConNosotros />
-
     </main>
   );
 }

@@ -2,18 +2,21 @@
 import styles from "../components/style/AdministracionParques.module.css";
 import TrabajaConNosotros from "../components/TrabajaConNosotros";
 import HeaderDegradado from "../components/HeaderDegradado";
+import logistica from "../assets/logistica8.jpeg";
+import cerrotusa from "../assets/cerrotusa.png";
+import logisticaa from "../assets/noticia2.8.png";
 
 const imagenesParques = [
   {
-    imagen: "/administracion-parques/parque-1.jpg",
+    imagen: logistica,
     descripcion: "Espacios naturales y recreativos",
   },
   {
-    imagen: "/administracion-parques/parque-2.jpg",
+    imagen: cerrotusa,
     descripcion: "Turismo y experiencias",
   },
   {
-    imagen: "/administracion-parques/parque-3.jpg",
+    imagen: logisticaa,
     descripcion: "Desarrollo territorial",
   },
 ];

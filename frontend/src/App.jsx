@@ -43,6 +43,7 @@ import PQRSDF from './pages/PQRSDF';
 
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import BotonSubir from "./components/BotonSubir";
 
 function Inicio() {
   return (
@@ -131,6 +132,8 @@ function App() {
         <Route path="/pqrsdf" element={<PQRSDF />} />
 
       </Routes>
+
+      <BotonSubir />
 
       <Footer />
     </BrowserRouter>

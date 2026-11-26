@@ -1,0 +1,89 @@
+
+/* =========================================================
+   BOTÓN SUBIR - ACTIVA
+========================================================= */
+
+.botonSubir {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    z-index: 999;
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 16px;
+
+    background: linear-gradient(
+        135deg,
+        #00A651,
+        #0072CE
+    );
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(15px);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* =========================================================
+   BOTÓN VISIBLE
+========================================================= */
+
+.botonSubir.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateY(0);
+}
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.botonSubir:hover {
+    background: linear-gradient(
+        135deg,
+        #C7E600,
+        #00A651
+    );
+
+    color: #0f172a;
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 8px 22px rgba(0, 114, 206, 0.25);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+    .botonSubir {
+        width: 46px;
+        height: 46px;
+
+        right: 18px;
+        bottom: 20px;
+
+        border-radius: 14px;
+    }
+}
