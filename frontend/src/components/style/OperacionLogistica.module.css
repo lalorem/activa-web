@@ -3,7 +3,7 @@
    VARIABLES Y CONTENEDOR
 ======================================== */
 
-.unidadesPage {
+.operacionPage {
   --uni-blue: #0072CE;
   --uni-green: #00A651;
   --uni-lime: #C7E600;
@@ -30,7 +30,7 @@
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-:global([data-theme="dark"]) .unidadesPage {
+:global([data-theme="dark"]) .operacionPage {
   --uni-bg: #0f172a;
   --uni-card: #24364d;
   --uni-text: #f8fafc;

@@ -593,7 +593,7 @@ export default function Contratacion() {
           <div className={styles.listadoEncabezado}>
             <div>
               <span className={styles.listadoPunto}></span>
-              <h3>Procesos de contratación {anioSeleccionado}</h3>
+              <h3>Procesos de contratación </h3>
             </div>
 
             <span className={styles.listadoCantidad}>
@@ -696,22 +696,6 @@ export default function Contratacion() {
           </div>
         </section>
 
-        <section className={styles.notaFinal}>
-          <div className={styles.notaFinalIcono}>
-            <ShieldCheck size={25} weight="duotone" />
-          </div>
-
-          <div>
-            <strong>Comprometidos con la transparencia</strong>
-            <p>
-              ACTIVA promueve el acceso a la información y la consulta de sus
-              procesos contractuales como parte de su compromiso con la
-              transparencia institucional.
-            </p>
-          </div>
-
-          <span className={styles.notaFinalDecoracion}></span>
-        </section>
       </div>
     </main>
   );

@@ -1,15 +1,21 @@
 
+import { useState } from 'react';
+
 import {
   EnvelopeSimple,
   Phone,
   Globe,
   MapPin,
   FileText,
-  WhatsappLogo
+  WhatsappLogo,
+  MagnifyingGlass,
+  X
 } from '@phosphor-icons/react';
 
 import styles from '../components/style/DescripcionGeneral.module.css';
 import HeaderDegradado from '../components/HeaderDegradado';
+
+import gruposValor from '../assets/grupos-valor.jpg';
 
 const canalesContacto = [
   {
@@ -56,6 +62,8 @@ const canalesContacto = [
 ];
 
 function DescripcionGeneral() {
+  const [imagenAmpliada, setImagenAmpliada] = useState(false);
+
   return (
     <main className={styles.descripcionGeneralPage}>
 
@@ -166,14 +174,54 @@ function DescripcionGeneral() {
       <section className={styles.gruposSection}>
         <div className={styles.gruposWrapper}>
 
-          <img
-            src="https://activa.com.co/wp-content/uploads/2026/03/grupos-de-valor-1024x819.jpeg"
-            alt="Grupos de valor de ACTIVA"
-            className={styles.gruposImagen}
-          />
+          <button
+            type="button"
+            className={styles.gruposImagenButton}
+            onClick={() => setImagenAmpliada(true)}
+            aria-label="Ampliar imagen de grupos de valor"
+          >
+            <img
+              src={gruposValor}
+              alt="Grupos de valor de ACTIVA"
+              className={styles.gruposImagen}
+            />
+
+            <span className={styles.gruposImageHint}>
+              <MagnifyingGlass size={19} weight="bold" />
+              Ampliar imagen
+            </span>
+          </button>
 
         </div>
       </section>
+
+      {/* =====================================================
+          VISOR DE IMAGEN AMPLIADA
+      ====================================================== */}
+
+      {imagenAmpliada && (
+        <div
+          className={styles.gruposLightbox}
+          onClick={() => setImagenAmpliada(false)}
+          role="presentation"
+        >
+          <button
+            type="button"
+            className={styles.gruposLightboxClose}
+            onClick={() => setImagenAmpliada(false)}
+            aria-label="Cerrar imagen"
+          >
+            <X size={25} weight="bold" />
+          </button>
+
+          <img
+            src={gruposValor}
+            alt="Grupos de valor de ACTIVA ampliada"
+            className={styles.gruposLightboxImage}
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
 
     </main>
   );

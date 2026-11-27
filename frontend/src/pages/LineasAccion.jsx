@@ -1,42 +1,47 @@
+import { useState } from "react";
 
-import {
-  ArrowRight,
-} from '@phosphor-icons/react';
+import { ArrowRight, X, MagnifyingGlass } from "@phosphor-icons/react";
 
-import styles from '../components/style/LineasAccion.module.css';
+import styles from "../components/style/LineasAccion.module.css";
 
-import HeaderDegradado from '../components/HeaderDegradado';
+import HeaderDegradado from "../components/HeaderDegradado";
 
-import noticia34 from '../assets/noticia3.4.webp';
-import img1 from '../assets/img1.webp';
-import img2 from '../assets/img2.webp';
-import lineasAccion from '../assets/lineas-accion.webp';
+import noticia34 from "../assets/noticia3.4.webp";
+import img1 from "../assets/img1.webp";
+import img2 from "../assets/img2.webp";
+import lineasAccion from "../assets/lineas-accion.webp";
+import { Link } from "react-router-dom";
 
 const lineas = [
   {
-    nombre: 'Operación Logística',
+    nombre: "Operación Logística",
     imagen: noticia34,
-    color: 'lima',
-    descripcion: 'Conoce más sobre esta línea',
+    color: "lima",
+    descripcion: "Conoce más sobre esta línea",
+    url: "/operacion-logistica",
   },
   {
-    nombre: 'Eventos Propios',
+    nombre: "Eventos Propios",
     imagen: img1,
-    color: 'verde',
-    descripcion: 'Conoce más sobre esta línea',
+    color: "verde",
+    descripcion: "Conoce más sobre esta línea",
+    url: "/cafestival",
   },
   {
-    nombre: 'Parques',
+    nombre: "Parques",
     imagen: img2,
-    color: 'azul',
-    descripcion: 'Conoce más sobre esta línea',
+    color: "azul",
+    descripcion: "Conoce más sobre esta línea",
+    url: "/administracion-parques",
   },
 ];
 
 function LineasAccion() {
+  const [imagenAmpliada, setImagenAmpliada] = useState(false);
+
   return (
     <main className={styles.lineasAccionPage}>
-
+      {/* HEADER */}
       <HeaderDegradado
         eyebrow="NUESTRAS CAPACIDADES"
         title="Líneas de"
@@ -47,7 +52,6 @@ function LineasAccion() {
       {/* PROPUESTA DE VALOR */}
       <section className={styles.propuestaSection}>
         <div className={styles.container}>
-
           <div className={styles.sectionHeading}>
             <h2>Propuesta de Valor</h2>
           </div>
@@ -69,27 +73,20 @@ function LineasAccion() {
             proveedores, consolidándose como aliado clave para la Gobernación,
             el sector público y privado.
           </p>
-
         </div>
       </section>
 
       {/* LÍNEAS DE ACCIÓN */}
       <section className={styles.lineasCardsSection}>
         <div className={styles.container}>
-
           <div className={styles.lineasCardsGrid}>
-
             {lineas.map((linea) => (
               <article
                 className={`${styles.lineaCard} ${styles[`lineaCard${linea.color.charAt(0).toUpperCase()}${linea.color.slice(1)}`]}`}
                 key={linea.nombre}
               >
-
                 <div className={styles.lineaCardImage}>
-                  <img
-                    src={linea.imagen}
-                    alt={linea.nombre}
-                  />
+                  <img src={linea.imagen} alt={linea.nombre} />
                 </div>
 
                 <div className={styles.lineaCardContent}>
@@ -97,18 +94,13 @@ function LineasAccion() {
 
                   <p>{linea.descripcion}</p>
 
-                  <a
-                    href="#"
-                    className={styles.lineaCardButton}
-                  >
+                  <Link to={linea.url} className={styles.lineaCardButton}>
                     INGRESE AQUÍ
                     <ArrowRight size={18} weight="bold" />
-                  </a>
+                  </Link>
                 </div>
-
               </article>
             ))}
-
           </div>
         </div>
       </section>
@@ -116,18 +108,52 @@ function LineasAccion() {
       {/* IMAGEN FINAL */}
       <section className={styles.lineasImageSection}>
         <div className={styles.container}>
-
           <div className={styles.lineasImageWrapper}>
-            <img
-              src={lineasAccion}
-              alt="ACTIVA - Líneas de Acción"
-              className={styles.lineasFinalImage}
-            />
-          </div>
+            <button
+              type="button"
+              className={styles.lineasImageButton}
+              onClick={() => setImagenAmpliada(true)}
+              aria-label="Ampliar imagen de líneas de acción"
+            >
+              <img
+                src={lineasAccion}
+                alt="ACTIVA - Líneas de Acción"
+                className={styles.lineasFinalImage}
+              />
 
+              <span className={styles.lineasImageHint}>
+                <MagnifyingGlass size={19} weight="bold" />
+                Ampliar imagen
+              </span>
+            </button>
+          </div>
         </div>
       </section>
 
+      {/* VISOR DE IMAGEN AMPLIADA */}
+      {imagenAmpliada && (
+        <div
+          className={styles.lineasLightbox}
+          onClick={() => setImagenAmpliada(false)}
+          role="presentation"
+        >
+          <button
+            type="button"
+            className={styles.lineasLightboxClose}
+            onClick={() => setImagenAmpliada(false)}
+            aria-label="Cerrar imagen"
+          >
+            <X size={25} weight="bold" />
+          </button>
+
+          <img
+            src={lineasAccion}
+            alt="ACTIVA - Líneas de Acción ampliada"
+            className={styles.lineasLightboxImage}
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </main>
   );
 }

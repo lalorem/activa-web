@@ -34,7 +34,7 @@ import CanalesAtencion from './pages/CanalesAtencion';
 import EntesVigilancia from './pages/EntesVigilancia';
 import Contratacion from './pages/Contratacion';
 import Proveedores from './pages/Proveedores';
-import UnidadesNegocio from './pages/UnidadesNegocio';
+import OperacionLogistica from './pages/OperacionLogistica';
 import AdministracionParques from './pages/AdministracionParques';
 import ParquesActiva from './pages/ParquesActiva';
 import Cafestival from './pages/Cafestival';
@@ -44,6 +44,7 @@ import PQRSDF from './pages/PQRSDF';
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import BotonSubir from "./components/BotonSubir";
+
 
 function Inicio() {
   return (
@@ -119,7 +120,7 @@ function App() {
 
         <Route path="/proveedores" element={<Proveedores />} />
 
-        <Route path="/unidades-de-negocio" element={<UnidadesNegocio />} />
+        <Route path="/operacion-logistica" element={<OperacionLogistica />} />
 
         <Route path="/administracion-parques" element={<AdministracionParques />} />
 

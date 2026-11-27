@@ -358,27 +358,176 @@
 ========================================================= */
 
 .gruposSection {
-    padding: 80px 0;
+    position: relative;
+    padding: 65px 20px;
     background: var(--descripcion-bg);
 }
 
 .gruposWrapper {
     position: relative;
-    width: min(1200px, calc(100% - 40px));
+
+    /* CAMBIA 850px PARA AJUSTAR EL TAMAÑO */
+    width: min(850px, 100%);
+
     margin: 0 auto;
-    padding: 8px;
+    padding: 5px;
     overflow: hidden;
-    border-radius: 28px;
+    border-radius: 24px;
     background: var(--descripcion-gradient);
     box-shadow: var(--descripcion-shadow);
 }
 
+/* Botón de imagen */
+
+.gruposImagenButton {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    border-radius: 19px;
+    overflow: hidden;
+    background: transparent;
+    cursor: zoom-in;
+}
+
+/* Imagen */
+
 .gruposImagen {
+    display: block;
     width: 100%;
     height: auto;
+    border-radius: 19px;
+    object-fit: contain;
+    transition: transform 0.35s ease;
+}
+
+.gruposImagenButton:hover .gruposImagen {
+    transform: scale(1.035);
+}
+
+/* Indicador de ampliación */
+
+.gruposImageHint {
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 11px 16px;
+    border-radius: 30px;
+
+    background: rgba(15, 23, 42, 0.85);
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    opacity: 0;
+    transform: translateY(8px);
+
+    transition: all 0.3s ease;
+}
+
+.gruposImagenButton:hover .gruposImageHint,
+.gruposImagenButton:focus-visible .gruposImageHint {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   VISOR DE IMAGEN AMPLIADA
+========================================================= */
+
+.gruposLightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    background: rgba(8, 15, 30, 0.92);
+    backdrop-filter: blur(8px);
+
+    animation: gruposFadeIn 0.25s ease;
+}
+
+.gruposLightboxImage {
     display: block;
-    border-radius: 20px;
-    object-fit: cover;
+
+    max-width: 92vw;
+    max-height: 88vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+    border-radius: 12px;
+
+    animation: gruposZoomIn 0.3s ease;
+}
+
+/* Botón cerrar */
+
+.gruposLightboxClose {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #ffffff;
+    color: #0f172a;
+
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.gruposLightboxClose:hover {
+    transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   ANIMACIONES
+========================================================= */
+
+@keyframes gruposFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes gruposZoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 
@@ -478,9 +627,34 @@
     }
 
     .gruposSection {
-        padding: 60px 0;
+        padding: 45px 16px;
+    }
+
+    .gruposImageHint {
+        opacity: 1;
+        transform: translateY(0);
+
+        right: 12px;
+        bottom: 12px;
+
+        padding: 9px 13px;
+        font-size: 12px;
+    }
+
+    .gruposLightbox {
+        padding: 20px;
+    }
+
+    .gruposLightboxClose {
+        top: 15px;
+        right: 15px;
     }
 }
+
+
+/* =========================================================
+   RESPONSIVE - MÓVIL PEQUEÑO
+========================================================= */
 
 @media (max-width: 520px) {
     .hero {
@@ -506,12 +680,16 @@
     }
 
     .gruposWrapper {
-        width: calc(100% - 30px);
-        padding: 5px;
+        width: 100%;
+        padding: 4px;
         border-radius: 20px;
     }
 
+    .gruposImagenButton {
+        border-radius: 16px;
+    }
+
     .gruposImagen {
-        border-radius: 15px;
+        border-radius: 16px;
     }
 }

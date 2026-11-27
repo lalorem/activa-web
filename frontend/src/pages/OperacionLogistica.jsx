@@ -5,7 +5,7 @@ import {
   ShieldCheck,
 } from "@phosphor-icons/react";
 
-import styles from "../components/style/UnidadesNegocio.module.css";
+import styles from "../components/style/OperacionLogistica.module.css";
 import HeaderDegradado from "../components/HeaderDegradado";
 import TrabajaConNosotros from "../components/TrabajaConNosotros";
 import logistica from "../assets/logistica4.jpeg";
@@ -62,14 +62,14 @@ const experiencias = [
   },
 ];
 
-function UnidadesNegocio() {
+function OperacionLogistica() {
   return (
-    <main className={styles.unidadesPage}>
+    <main className={styles.operacionPage}>
       {/* ENCABEZADO REUTILIZABLE */}
       <HeaderDegradado
         eyebrow="NUESTRAS CAPACIDADES"
-        title="Unidades de"
-        highlight="Negocio"
+        title="Operacion logística"
+        highlight="integral"
         description="Soluciones integrales para transformar ideas en experiencias, proyectos y resultados que generan valor para el territorio."
       />
 
@@ -220,4 +220,4 @@ function UnidadesNegocio() {
   );
 }
 
-export default UnidadesNegocio;
+export default OperacionLogistica;

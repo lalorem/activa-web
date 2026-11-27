@@ -11,77 +11,89 @@ import {
 
 import styles from '../components/style/Galeria.module.css';
 import HeaderDegradado from '../components/HeaderDegradado';
+import galeria1 from '../assets/mesamilagro.jpeg';
+import galeria2 from '../assets/logistica5.jpeg';
+import galeria3 from '../assets/cafestival21.jpeg';
+import galeria4 from '../assets/cerrotusa2.png';
+import galeria5 from '../assets/cafestival13.jpeg';
+import galeria6 from '../assets/volcan2.webp';
+import galeria7 from '../assets/cafestival18.jpeg';
+import galeria8 from '../assets/noticia3.4.webp';
+import galeria9 from '../assets/logistica9.jpeg';
+import galeria10 from '../assets/cafestival19.jpeg';
+import galeria11 from '../assets/cerrotusa1.jpeg';
+import galeria12 from '../assets/cafestival14.jpeg';
 
 const fotografias = [
   {
     id: 1,
-    imagen: '/galeria/galeria-1.jpg',
+    imagen: galeria1,
     titulo: 'Experiencias que conectan',
     categoria: 'general',
   },
   {
     id: 2,
-    imagen: '/galeria/galeria-2.jpg',
+    imagen: galeria2,
     titulo: 'Encuentros empresariales',
     categoria: 'general',
   },
   {
     id: 3,
-    imagen: '/galeria/galeria-3.jpg',
+    imagen: galeria3,
     titulo: 'Caféstival',
     categoria: 'propios',
   },
   {
     id: 4,
-    imagen: '/galeria/galeria-4.jpg',
+    imagen: galeria4,
     titulo: 'Eventos y experiencias',
     categoria: 'general',
   },
   {
     id: 5,
-    imagen: '/galeria/galeria-5.jpg',
+    imagen: galeria5,
     titulo: 'Caféstival',
     categoria: 'propios',
   },
   {
     id: 6,
-    imagen: '/galeria/galeria-6.jpg',
+    imagen: galeria6,
     titulo: 'Conexión con el territorio',
     categoria: 'general',
   },
   {
     id: 7,
-    imagen: '/galeria/galeria-7.jpg',
+    imagen: galeria7,
     titulo: 'Caféstival',
     categoria: 'propios',
   },
   {
     id: 8,
-    imagen: '/galeria/galeria-8.jpg',
+    imagen: galeria8,
     titulo: 'Experiencias ACTIVA',
     categoria: 'general',
   },
   {
     id: 9,
-    imagen: '/galeria/galeria-9.jpg',
+    imagen: galeria9,
     titulo: 'Eventos que transforman',
     categoria: 'general',
   },
   {
     id: 10,
-    imagen: '/galeria/galeria-10.jpg',
+    imagen: galeria10,
     titulo: 'Caféstival',
     categoria: 'propios',
   },
   {
     id: 11,
-    imagen: '/galeria/galeria-11.jpg',
+    imagen: galeria11,
     titulo: 'Encuentros y cultura',
     categoria: 'general',
   },
   {
     id: 12,
-    imagen: '/galeria/galeria-12.jpg',
+    imagen: galeria12,
     titulo: 'Experiencias propias',
     categoria: 'propios',
   },

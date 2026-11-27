@@ -12,7 +12,7 @@
   --contratacion-gradient: linear-gradient(
     135deg,
     #c7e600 0%,
-    #00a651 48%,
+    #00a651 48%, 
     #0072ce 100%
   );
 
@@ -875,71 +875,6 @@
 .procesoDocumentosAviso svg {
   flex-shrink: 0;
   color: var(--contratacion-verde);
-}
-
-/* =========================================================
-   NOTA FINAL
-========================================================= */
-
-.notaFinal {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 19px;
-  margin-top: 30px;
-  padding: 25px 30px;
-  background: linear-gradient(
-    110deg,
-    #eaf8ee 0%,
-    #f0f8f5 55%,
-    #edf6fb 100%
-  );
-  border: 1px solid #dcefe2;
-  border-radius: 17px;
-  overflow: hidden;
-}
-
-.notaFinalIcono {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 49px;
-  height: 49px;
-  color: #ffffff;
-  background: var(--contratacion-gradient);
-  border-radius: 15px;
-}
-
-.notaFinal > div:nth-child(2) {
-  position: relative;
-  z-index: 1;
-}
-
-.notaFinal strong {
-  display: block;
-  margin-bottom: 5px;
-  color: #1d2924;
-  font-size: 0.88rem;
-  font-weight: 800;
-}
-
-.notaFinal p {
-  max-width: 800px;
-  margin: 0;
-  color: #6f838c;
-  font-size: 0.76rem;
-  line-height: 1.7;
-}
-
-.notaFinalDecoracion {
-  position: absolute;
-  right: -35px;
-  bottom: -90px;
-  width: 190px;
-  height: 190px;
-  border: 25px solid rgba(199, 230, 0, 0.15);
-  border-radius: 50%;
 }
 
 /* =========================================================

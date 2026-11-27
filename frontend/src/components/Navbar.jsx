@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
@@ -74,9 +73,8 @@ const menus = [
   },
   {
     nombre: 'Unidades de Negocio',
-    ruta: '/unidades-de-negocio',
+    ruta: '/operacion-logistica',
     opciones: [
-      ['Unidades de Negocio', '/unidades-de-negocio'],
       ['Operación Logística Integral', '/operacion-logistica'],
       ['Eventos Propios', '/eventos-propios'],
       ['Administración de Parques', '/administracion-parques'],
